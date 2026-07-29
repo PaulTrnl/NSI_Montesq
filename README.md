@@ -31,32 +31,34 @@ Le site est accessible sur `http://localhost:4000`.
 
 ## 3. Ajouter une nouvelle ressource
 
-Crée un fichier `.md` dans `_ressources/`, par exemple `_ressources/maths-geometrie.md` :
+Crée un fichier `.md` dans `_ressources/`, par exemple `_ressources/premiere-nsi-boucles.md` :
 
 ```yaml
 ---
 layout: default
-title: "La géométrie"
-matiere: maths
-chapitre: "Chapitre 4"
-ordre: 4
+title: "Les boucles en Python"
+niveau: premiere-nsi
+chapitre: "Chapitre 3"
+ordre: 3
 ---
 
 Contenu de ton cours ici en Markdown...
 ```
 
-Il apparaîtra automatiquement dans la page de la matière correspondante.
+Le champ `niveau` doit correspondre exactement à un des `slug` définis dans `_config.yml` (`snt`, `premiere-nsi` ou `terminale-nsi`). La ressource apparaîtra automatiquement dans la page du niveau correspondant, triée par `ordre`.
 
-## 4. Ajouter une nouvelle matière
+## 4. Ajouter un nouveau niveau
 
-Dans `_config.yml`, ajoute dans la liste `matieres:` :
+Dans `_config.yml`, ajoute dans la liste `niveaux:` :
 
 ```yaml
-  - nom: "Histoire"
-    slug: "histoire"
+  - nom: "Seconde"
+    slug: "seconde"
 ```
 
-Puis crée `ressources/histoire.md` en copiant `ressources/maths.md` et en remplaçant `"maths"` par `"histoire"`.
+⚠️ Le `slug` ne doit **jamais** contenir d'espace ni d'accent (il sert dans l'URL du site) — utilise des tirets à la place, ex : `premiere-nsi`.
+
+Puis crée `ressources/seconde.md` en copiant `ressources/snt.md` et en remplaçant `"snt"` par `"seconde"` (dans le `permalink` et dans le filtre `where`).
 
 ## 5. Ajouter des fichiers PDF téléchargeables
 

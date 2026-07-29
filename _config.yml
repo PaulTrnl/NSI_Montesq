@@ -7,20 +7,21 @@ author: "Votre Nom"
 baseurl: ""
 url: "https://tonpseudo.github.io"
 
-# Collections = façon d'organiser tes ressources par matière
+# Collections = façon d'organiser tes ressources par niveau
 collections:
   ressources:
     output: true
     permalink: /:collection/:path/
 
-# Matières affichées dans le menu (modifie selon tes besoins)
+# Niveaux affichés dans le menu
+# IMPORTANT : le "slug" ne doit contenir ni espace ni accent (utilisé dans l'URL)
 niveaux:
   - nom: "SNT"
-    slug: "SNT"
+    slug: "snt"
   - nom: "Première NSI"
-    slug: "Première NSI"
+    slug: "premiere-nsi"
   - nom: "Terminale NSI"
-    slug: "Terminale NSI"
+    slug: "terminale-nsi"
 
 markdown: kramdown
 plugins:

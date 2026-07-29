@@ -7,10 +7,10 @@ title: Accueil
 
 Ce site regroupe les ressources de cours, exercices et liens utiles pour mes élèves.
 
-## Matières
+## Niveaux
 
-{% for matiere in site.matieres %}
-- [{{ matiere.nom }}](/ressources/{{ matiere.slug }}/)
+{% for niveau in site.niveaux %}
+- [{{ niveau.nom }}](/ressources/{{ niveau.slug }}/)
 {% endfor %}
 
-Utilise le menu en haut pour naviguer par matière.
+Utilise le menu en haut pour naviguer par niveau.
