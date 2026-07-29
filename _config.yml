@@ -14,11 +14,13 @@ collections:
     permalink: /:collection/:path/
 
 # Matières affichées dans le menu (modifie selon tes besoins)
-matieres:
-  - nom: "Maths"
-    slug: "maths"
-  - nom: "Français"
-    slug: "francais"
+niveaux:
+  - nom: "SNT"
+    slug: "SNT"
+  - nom: "Première NSI"
+    slug: "Première NSI"
+  - nom: "Terminale NSI"
+    slug: "Terminale NSI"
 
 markdown: kramdown
 plugins:
