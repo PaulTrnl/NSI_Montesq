@@ -1,0 +1,28 @@
+title: "Ressources pour mes élèves"
+description: "Cours, exercices et liens utiles"
+author: "Votre Nom"
+
+# Si tu déploies sur https://TONPSEUDO.github.io/monsite/
+# mets baseurl: "/monsite" (sinon laisse vide pour un site racine)
+baseurl: ""
+url: "https://tonpseudo.github.io"
+
+# Collections = façon d'organiser tes ressources par niveau
+collections:
+  ressources:
+    output: true
+    permalink: /:collection/:path/
+
+# Niveaux affichés dans le menu
+# IMPORTANT : le "slug" ne doit contenir ni espace ni accent (utilisé dans l'URL)
+niveaux:
+  - nom: "SNT"
+    slug: "snt"
+  - nom: "Première NSI"
+    slug: "premiere-nsi"
+  - nom: "Terminale NSI"
+    slug: "terminale-nsi"
+
+markdown: kramdown
+plugins:
+  - jekyll-feed
