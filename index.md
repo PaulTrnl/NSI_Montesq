@@ -10,7 +10,7 @@ Ce site regroupe les ressources de cours, exercices et liens utiles pour mes él
 ## Niveaux
 
 {% for niveau in site.niveaux %}
-- [{{ niveau.nom }}](/ressources/{{ niveau.slug }}/)
+- [{{ niveau.nom }}](/NSI_Montesq/ressources/{{ niveau.slug }}/)
 {% endfor %}
 
 Utilise le menu en haut pour naviguer par niveau.
