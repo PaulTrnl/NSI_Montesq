@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Première NSI
-permalink: /ressources/premiere-nsi/
+permalink: ressources/premiere-nsi/
 ---
 
 # Première NSI
