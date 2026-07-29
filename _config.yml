@@ -1,0 +1,25 @@
+title: "Ressources pour mes élèves"
+description: "Cours, exercices et liens utiles"
+author: "Votre Nom"
+
+# Si tu déploies sur https://TONPSEUDO.github.io/monsite/
+# mets baseurl: "/monsite" (sinon laisse vide pour un site racine)
+baseurl: ""
+url: "https://tonpseudo.github.io"
+
+# Collections = façon d'organiser tes ressources par matière
+collections:
+  ressources:
+    output: true
+    permalink: /:collection/:path/
+
+# Matières affichées dans le menu (modifie selon tes besoins)
+matieres:
+  - nom: "Maths"
+    slug: "maths"
+  - nom: "Français"
+    slug: "francais"
+
+markdown: kramdown
+plugins:
+  - jekyll-feed
