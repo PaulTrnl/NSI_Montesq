@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Terminale NSI
-permalink: /ressources/terminale-nsi/
+permalink: ressources/terminale-nsi/
 ---
 
 # Terminale NSI
