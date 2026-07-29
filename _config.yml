@@ -4,7 +4,7 @@ author: "Votre Nom"
 
 # Si tu déploies sur https://TONPSEUDO.github.io/monsite/
 # mets baseurl: "/monsite" (sinon laisse vide pour un site racine)
-baseurl: ""
+baseurl: "/NSI_Montesq/"
 url: "https://paultrnl.github.io/NSI_Montesq/"  
 
 # Collections = façon d'organiser tes ressources par niveau
