@@ -1,7 +1,7 @@
 ---
 layout: default
 title: SNT
-permalink: /ressources/snt/
+permalink: /NSI_Montesq/ressources/snt/
 ---
 
 # SNT
