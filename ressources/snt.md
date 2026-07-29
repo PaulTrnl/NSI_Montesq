@@ -1,7 +1,7 @@
 ---
 layout: default
 title: SNT
-permalink: /ressources/snt/
+permalink: ressources/snt/
 ---
 
 # SNT
