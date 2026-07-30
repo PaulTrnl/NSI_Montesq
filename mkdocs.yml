@@ -63,7 +63,7 @@ extra_css:
 
 nav:
 
-  - Accueil: index.md
+  - 🏠 Accueil : index.md
 
   - NSI:
 
@@ -76,12 +76,40 @@ nav:
 
       - Terminale:
           - Présentation: nsi/terminale/index.md
-          - Arbres: nsi/terminale/arbres.md
-          - Graphes: nsi/terminale/graphes.md
-          - POO: nsi/terminale/poo.md
-          - Programmation: nsi/terminale/programmation.md
-          - Bases de données: nsi/terminale/bdd.md
-          - Algorithmique: nsi/terminale/algo.md
+          - BAC : nsi/terminale/BAC/index.md
+          - Projets : nsi/terminale/Projets/index.md
+          - Ressources : 
+            - Révisions : nsi/terminale/ressources/revisions.md
+            - Histoire de l'informatique : nsi/terminale/histoire.md
+            - Structure de données : 
+              - POO: nsi/terminale/ressources/poo.md
+              - Structures linéaires : nsi/terminale/lineaire.md
+              - Arbres : nsi/terminale/arbres.md
+              - Graphes: nsi/terminale/graphes.md
+            - Bases de données : 
+              - BDD relationnelle : nsi/terminale/bdd.md
+              - Langage SQL : nsi/terminale/sql.md
+            - Architectures matérielles, OS et réseaux :
+              - Système sur puce : nsi/terminale/embarque.md
+              - Processus : nsi/terminale/processus.md
+              - Routage : nsi/terminale/routage.md
+              - Sécurisation des communications : nsi/terminale/secu.md
+            - Langages et programmation :
+              - Calculabilité, décidabilité : nsi/terminale/calculabilite.md
+              - Récursivité : nsi/terminale/recursivite.md
+              - Modularité : nsi/terminale/modularite.md
+              - Paradigmes de programmation : nsi/terminale/paradigmes.md
+              - Gestion des bugs : nsi/terminale/bugs.md
+            - Algorithmique :
+              - Arbres binaires et ABR : nsi/terminale/abr.md
+              - Graphes : nsi/terminale/algo_graphes.md
+              - Diviser pour régner : nsi/terminale/diviser.md
+              - Programmation dynamique : nsi/terminale/prog_dyn.md
+              - Recherche textuelle : nsi/terminale/recherche_txt.md
+
+
+
+
 
   - SNT:
       - Présentation: snt/index.md

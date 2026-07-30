@@ -2,7 +2,7 @@
 
 Bienvenue dans le programme de Terminale.
 
-# Thématiques de l'année de Terminale
+## Chapitres
 
 Une liste des principales notions abordées cette année :
 
