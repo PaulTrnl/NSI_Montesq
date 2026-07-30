@@ -1,0 +1,95 @@
+site_name: "Ressources SNT / NSI Montesquieu"
+site_description: "Cours et ressources"
+
+theme:
+  name: material
+  language: fr
+
+  palette:
+
+    - scheme: default
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Mode sombre
+
+    - scheme: slate
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Mode clair
+
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - search.highlight
+    - search.share
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+
+plugins:
+  - search
+
+markdown_extensions:
+
+  - admonition
+
+  - pymdownx.details
+
+  - pymdownx.superfences
+
+  - pymdownx.highlight:
+      anchor_linenums: true
+
+  - pymdownx.inlinehilite
+
+  - pymdownx.snippets
+
+  - pymdownx.tabbed:
+      alternate_style: true
+
+  - attr_list
+
+  - md_in_html
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+
+  - Accueil: index.md
+
+  - NSI:
+
+      - Première:
+          - Présentation: nsi/premiere/index.md
+          - Python: nsi/premiere/python.md
+          - Types construits: nsi/premiere/types_construits.md
+          - Web: nsi/premiere/web.md
+          - Algorithmique: nsi/premiere/algo.md
+
+      - Terminale:
+          - Présentation: nsi/terminale/index.md
+          - Arbres: nsi/terminale/arbres.md
+          - Graphes: nsi/terminale/graphes.md
+          - POO: nsi/terminale/poo.md
+          - Programmation: nsi/terminale/programmation.md
+          - Bases de données: nsi/terminale/bdd.md
+          - Algorithmique: nsi/terminale/algo.md
+
+  - SNT:
+      - Présentation: snt/index.md
+      - Internet: snt/internet.md
+      - Web: snt/web.md
+      - Réseaux sociaux: snt/reseaux_sociaux.md
+      - Données structurées: snt/donnees.md
+      - Localisation, cartographie et mobilité : snt/localisation.md
+      - Informatique embarquée et objets connectés : snt/embarque.md
+      - Photographie numérique : snt/photo.md
+      

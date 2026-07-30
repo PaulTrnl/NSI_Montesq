@@ -1,0 +1,27 @@
+.md-header {
+    background: #1e3a8a;
+}
+
+.md-typeset h1 {
+    color: #1e3a8a;
+}
+
+.md-typeset h2 {
+    color: #2563eb;
+}
+
+.md-button {
+    border-radius: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+    gap: 1rem;
+}
+
+.card {
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+}
