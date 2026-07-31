@@ -1,19 +1,21 @@
-# Terminale NSI
+# Projets Terminale NSI
 
-Bienvenue dans le programme de Terminale.
+Les projets occupent une place importante en NSI, environ 1/4 du temps en théorie...
 
-## Chapitres
+Tout comme en 1ère NSI, vous réaliserez cette année divers projets par groupe de 2 à 4 élèves. Ceci permettra de mobiliser vos compétences en programmation, essentiellement la Programmation Orientée Objet qui sera un point majeur cette année.
 
-Une liste des principales notions abordées cette année :
+## Organisation d'un projet
 
-- [POO (Programmation orientée objet)](poo.md)
-- [Structures de données (linéaires, hiérarchiques et relationnelles)](structure.md)
-- [Bases de données](bdd.md)
-- [Architectures matérielles, OS et réseaux](archi.md)
-- [Langages et programmation](prog.md)
-- [Algorithmique](algo.md)
+Les différentes étapes d'un projet :
+
+- Choix du sujet et définition du cahier des charges ;
+- Répartition des tâches au sein du groupe ;
+- to be continued 
 
 
+
+
+## Grille d'évaluation 
 
 <iframe 
     src="programme_terminale_nsi.pdf"
@@ -23,5 +25,5 @@ Une liste des principales notions abordées cette année :
 
 <br>
 
-📥 [Télécharger le programme de Terminale](programme_terminale_nsi.pdf)
+📥 [Télécharger la grille d'évaluation](programme_terminale_nsi.pdf)
 

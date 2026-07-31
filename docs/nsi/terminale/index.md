@@ -4,7 +4,7 @@ Bienvenue dans le programme de Terminale.
 
 # Thématiques de l'année de Terminale
 
-Une liste des principales notions abordées cette année :
+Une liste des principales thématiques abordées cette année :
 
 - [POO (Programmation orientée objet)](poo.md)
 - [Structures de données (linéaires, hiérarchiques et relationnelles)](structure.md)

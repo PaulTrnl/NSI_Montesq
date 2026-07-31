@@ -1,27 +1,86 @@
-.md-header {
-    background: #1e3a8a;
+/* =========================
+   Palette SNT / NSI
+   ========================= */
+
+/* Cartes de l'accueil */
+.md-typeset .grid.cards > ul > li {
+    border-radius: 13px;
+    border: 1px solid #dbe4f0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.md-typeset .grid.cards > ul > li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(15, 42, 77, 0.12);
+}
+
+
+/* Barre supérieure */
+.md-header {
+    background: #0f2a4d;
+}
+
+
+/* Titres */
 .md-typeset h1 {
-    color: #1e3a8a;
+    color: #4f78ad;
+    font-size: 2.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
 }
 
 .md-typeset h2 {
-    color: #2563eb;
+    color: #1e7fcf;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
+
+/* Boutons */
 .md-button {
     border-radius: 10px;
+    background-color: #1769aa;
 }
 
+.md-button:hover {
+    background-color: #0f2a4d;
+}
+
+
+/* Grille personnalisée */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
     gap: 1rem;
 }
 
+
+/* Anciennes cartes HTML */
 .card {
     padding: 1rem;
     border-radius: 12px;
-    border: 1px solid #ddd;
+    border: 1px solid #dbe4f0;
+    background: #f8fafc;
+}
+
+
+/* Couleur de la barre latérale */
+.md-sidebar {
+    background-color: #f8fafc;
+}
+
+/* Texte des éléments du menu */
+.md-nav__link {
+    color: #334155;
+}
+
+/* Élément actif */
+.md-nav__link--active {
+    color: #0f2a4d;
+    font-weight: 600;
+}
+
+/* Survol */
+.md-nav__link:hover {
+    color: #1769aa;
 }

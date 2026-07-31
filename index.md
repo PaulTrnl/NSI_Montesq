@@ -4,9 +4,9 @@ Bienvenue !
 
 ## NSI
 
-- [Première](nsi/premiere.md)
-- [Terminale](nsi/terminale.md)
+- [Première](docs/nsi/premiere/index.md)
+- [Terminale](docs/nsi/terminale/index.md)
 
 ## SNT
 
-- [Cours](snt/index.md)
+- [Cours](docs/snt/index.md)

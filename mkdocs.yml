@@ -1,22 +1,25 @@
-site_name: "Ressources SNT / NSI Montesquieu"
+site_name: "Ressources SNT / NSI --- TOURNAILLE"
 site_description: "Cours et ressources"
 
 theme:
   name: material
   language: fr
 
+  icon:
+    logo: material/home
+
   palette:
 
     - scheme: default
       primary: blue
-      accent: indigo
+      accent: light blue
       toggle:
         icon: material/weather-night
         name: Mode sombre
 
     - scheme: slate
       primary: blue
-      accent: indigo
+      accent: light blue
       toggle:
         icon: material/weather-sunny
         name: Mode clair
@@ -24,7 +27,7 @@ theme:
   features:
     - navigation.tabs
     - navigation.sections
-    - navigation.expand
+    # - navigation.expand
     - navigation.top
     - navigation.footer
     - search.highlight
@@ -63,18 +66,28 @@ extra_css:
 
 nav:
 
-  - 🏠 Accueil : index.md
+  - Accueil : index.md
 
-  - NSI:
+  - SNT 🥉:
+      - Présentation: snt/index.md
+      - Internet: snt/internet.md
+      - Web: snt/web.md
+      - Réseaux sociaux: snt/reseaux_sociaux.md
+      - Données structurées: snt/donnees.md
+      - Localisation, cartographie et mobilité : snt/localisation.md
+      - Informatique embarquée et objets connectés : snt/embarque.md
+      - Photographie numérique : snt/photo.md
 
-      - Première:
+  
+
+  - Première NSI 🥈 :
           - Présentation: nsi/premiere/index.md
           - Python: nsi/premiere/python.md
           - Types construits: nsi/premiere/types_construits.md
           - Web: nsi/premiere/web.md
           - Algorithmique: nsi/premiere/algo.md
 
-      - Terminale:
+  - Terminale NSI 🥇 :
           - Présentation: nsi/terminale/index.md
           - BAC : nsi/terminale/BAC/index.md
           - Projets : nsi/terminale/Projets/index.md
@@ -107,17 +120,9 @@ nav:
               - Programmation dynamique : nsi/terminale/prog_dyn.md
               - Recherche textuelle : nsi/terminale/recherche_txt.md
 
+  - Outils pratiques 🔧 : outils/index.md
 
 
 
-
-  - SNT:
-      - Présentation: snt/index.md
-      - Internet: snt/internet.md
-      - Web: snt/web.md
-      - Réseaux sociaux: snt/reseaux_sociaux.md
-      - Données structurées: snt/donnees.md
-      - Localisation, cartographie et mobilité : snt/localisation.md
-      - Informatique embarquée et objets connectés : snt/embarque.md
-      - Photographie numérique : snt/photo.md
+  
       

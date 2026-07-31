@@ -7,36 +7,35 @@ Bienvenue sur le site de ressources pour la SNT et la NSI de Monsieur Tournaille
 
 <div class="card">
 
-## 🌍 SNT
+<a href="snt/">SNT 🥉</a>
 
 </div>
 
 <div class="card">
 
-## 🐍 Première NSI
-
+<a href="nsi/premiere/">Première NSI 🥈</a>
 
 </div>
-
 
 <div class="card">
 
-## 💻 Terminale NSI
+<a href="nsi/terminale/">Terminale NSI 🥇</a>
 
 </div>
 
-
-
 </div>
----
 
-!!! tip "Bienvenue"
+Vous trouverez ici :
 
-    Choisissez une rubrique dans le menu de gauche.
+- les cours ;
+- les activités et travaux pratiques ;
+- les exercices ;
+- les fichiers nécessaires aux séances ;
+- des ressources pour préparer les évaluations.
 
-## Exemple Python
 
-```python
-for i in range(5):
-    print(i)
-```
+
+
+
+
+
