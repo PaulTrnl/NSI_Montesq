@@ -1,1 +1,1 @@
-![Mon super GIF animé](img/computer-reaction.gif){ width="350" }
+![Mon super GIF animé](img/social.gif){ width="350" }

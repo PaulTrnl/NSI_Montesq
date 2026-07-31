@@ -8,6 +8,10 @@ L'objectif est de comprendre comment fonctionnent les technologies que nous util
 
 ---
 
+📥 [Télécharger le programme de SNT](programme_snt.pdf)
+
+---
+
 ## Objectifs de l'année
 
 Au cours de l'année, nous allons apprendre à :
@@ -25,40 +29,46 @@ Au cours de l'année, nous allons apprendre à :
 
 <div class="grid cards" markdown>
 
-- **Le Web**
 
-    - fonctionnement d'un site web ;
-    - HTML et CSS ;
-    - moteurs de recherche ;
-    - protection des données.
-
-- **Internet**
+- [**Internet**](ressources/internet/internet.md)
 
     - réseaux ;
     - protocoles ;
     - adressage IP ;
     - échanges de données.
 
-- **Les données**
+- [**Le Web**](ressources/web/web.md)
+
+    - fonctionnement d'un site web ;
+    - HTML et CSS ;
+    - moteurs de recherche ;
+    - protection des données.
+
+   
+- [**Les données**](ressources/data/data.md)
 
     - données structurées ;
     - fichiers CSV ;
     - bases de données ;
     - visualisation.
 
-- **Localisation et cartographie**
+- [**Les réseaux sociaux**](ressources/reseaux_soc/reseaux_soc.md)
+
+    - To do
+
+- [**Localisation et cartographie**](ressources/localisation/localisation.md)
 
     - GPS ;
     - coordonnées géographiques ;
     - cartographie numérique.
 
-- **Objets connectés**
+- [**Objets connectés**](ressources/embarque/embarque.md)
 
     - capteurs ;
     - systèmes embarqués ;
     - communication.
 
-- **Photographie numérique**
+- [**Photographie numérique**](ressources/photo/photo.md)
 
     - images numériques ;
     - pixels ;
