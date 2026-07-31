@@ -7,19 +7,19 @@ Bienvenue sur le site de ressources pour la SNT et la NSI de Monsieur Tournaille
 
 <div class="card">
 
-<a href="snt/">SNT 🥉</a>
+<a href="snt/">SNT</a>
 
 </div>
 
 <div class="card">
 
-<a href="nsi/premiere/">Première NSI 🥈</a>
+<a href="nsi/premiere/">Première NSI</a>
 
 </div>
 
 <div class="card">
 
-<a href="nsi/terminale/">Terminale NSI 🥇</a>
+<a href="nsi/terminale/">Terminale NSI</a>
 
 </div>
 

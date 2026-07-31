@@ -1,0 +1,1 @@
+![Mon super GIF animé](img/computer-reaction.gif){ width="350" }

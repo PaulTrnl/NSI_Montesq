@@ -1,5 +1,8 @@
-site_name: "Ressources SNT / NSI --- TOURNAILLE"
+site_name: "Ressources SNT / NSI Montesquieu"
 site_description: "Cours et ressources"
+
+copyright: |
+  © 2026 Paul Tournaille - Ressources SNT / NSI Montesquieu
 
 theme:
   name: material
@@ -68,26 +71,27 @@ nav:
 
   - Accueil : index.md
 
-  - SNT 🥉:
+  - SNT :
       - Présentation: snt/index.md
-      - Internet: snt/internet.md
-      - Web: snt/web.md
-      - Réseaux sociaux: snt/reseaux_sociaux.md
-      - Données structurées: snt/donnees.md
-      - Localisation, cartographie et mobilité : snt/localisation.md
-      - Informatique embarquée et objets connectés : snt/embarque.md
-      - Photographie numérique : snt/photo.md
+      - Ressources : 
+        - Internet: snt/ressources/internet/internet.md
+        - Web: snt/ressources/web/web.md
+        - Réseaux sociaux: snt/ressources/reseaux_soc/reseaux_soc.md
+        - Données structurées: snt/ressources/data/data.md
+        - Localisation, cartographie et mobilité : snt/ressources/localisation/localisation.md
+        - Informatique embarquée et objets connectés : snt/ressources/embarque/embarque.md
+        - Photographie numérique : snt/ressources/photo/photo.md
 
   
 
-  - Première NSI 🥈 :
+  - Première NSI :
           - Présentation: nsi/premiere/index.md
           - Python: nsi/premiere/python.md
           - Types construits: nsi/premiere/types_construits.md
           - Web: nsi/premiere/web.md
           - Algorithmique: nsi/premiere/algo.md
 
-  - Terminale NSI 🥇 :
+  - Terminale NSI :
           - Présentation: nsi/terminale/index.md
           - BAC : nsi/terminale/BAC/index.md
           - Projets : nsi/terminale/Projets/index.md
@@ -120,7 +124,7 @@ nav:
               - Programmation dynamique : nsi/terminale/prog_dyn.md
               - Recherche textuelle : nsi/terminale/recherche_txt.md
 
-  - Outils pratiques 🔧 : outils/index.md
+  - Outils/Liens utiles : outils/index.md
 
 
 

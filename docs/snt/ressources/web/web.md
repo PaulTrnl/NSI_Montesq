@@ -1,0 +1,1 @@
+![Mon super GIF animé](img/spider.gif){ width="350" }

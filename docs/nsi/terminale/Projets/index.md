@@ -15,15 +15,6 @@ Les différentes étapes d'un projet :
 
 
 
-## Grille d'évaluation 
+## Critères d'évaluation 
 
-<iframe 
-    src="programme_terminale_nsi.pdf"
-    width="100%"
-    height="800px">
-</iframe>
-
-<br>
-
-📥 [Télécharger la grille d'évaluation](programme_terminale_nsi.pdf)
 

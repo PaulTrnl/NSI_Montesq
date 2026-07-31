@@ -1,0 +1,1 @@
+![Mon super GIF animé](img/lost.gif){ width="350" }
