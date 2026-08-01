@@ -24,15 +24,35 @@
 /* Titres */
 .md-typeset h1 {
     color: #4f78ad;
-    font-size: 2.1rem;
-    font-weight: 600;
+    font-size: 1.8rem;
+    font-weight: 700;
     margin-bottom: 1rem;
 }
 
 .md-typeset h2 {
     color: #1e7fcf;
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 600;
+}
+
+.md-typeset h3 {
+    font-size: 1.15rem;
+}
+
+@media print {
+
+    .md-typeset h1 {
+        font-size: 1.6rem;
+    }
+
+    .md-typeset h2 {
+        font-size: 1.1rem;
+    }
+
+    .md-typeset h3 {
+        font-size: 0.8rem;
+    }
+
 }
 
 
@@ -44,6 +64,20 @@
 
 .md-button:hover {
     background-color: #0f2a4d;
+}
+
+/* Boutons de téléchargement */
+.md-typeset .md-button {
+    background-color: #54607f;
+    border-color: #54607f;
+    color: white;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.md-typeset .md-button:hover {
+    background-color: #3f4963;
+    border-color: #3f4963;
 }
 
 

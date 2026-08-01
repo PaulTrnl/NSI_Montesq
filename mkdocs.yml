@@ -48,6 +48,9 @@ markdown_extensions:
 
   - pymdownx.details
 
+  - pymdownx.arithmatex:
+      generic: true
+
   - pymdownx.superfences
 
   - pymdownx.highlight:
@@ -66,6 +69,10 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 nav:
 
@@ -96,7 +103,7 @@ nav:
           - BAC : nsi/terminale/BAC/index.md
           - Projets : nsi/terminale/Projets/index.md
           - Ressources : 
-            - Révisions : nsi/terminale/ressources/revisions.md
+            - Révisions : nsi/terminale/ressources/revisions/revisions.md
             - Histoire de l'informatique : nsi/terminale/histoire.md
             - Structure de données : 
               - POO: nsi/terminale/ressources/poo.md
