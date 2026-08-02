@@ -121,7 +121,7 @@ nav:
               - Calculabilité, décidabilité : nsi/terminale/calculabilite.md
               - Récursivité : nsi/terminale/recursivite.md
               - Modularité : nsi/terminale/modularite.md
-              - Paradigmes de programmation (POO): nsi/terminale/paradigmes.md
+              - Paradigmes de programmation (POO): nsi/terminale/ressources/paradigmes/paradigmes.md
               - Gestion des bugs : nsi/terminale/bugs.md
             - Algorithmique :
               - Arbres binaires et ABR : nsi/terminale/abr.md

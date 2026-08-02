@@ -94,27 +94,27 @@
     padding: 1rem;
     border-radius: 12px;
     border: 1px solid #dbe4f0;
-    background: #f8fafc;
+    
 }
 
 
 /* Couleur de la barre latérale */
 .md-sidebar {
-    background-color: #f8fafc;
+    background-color: transparent;
 }
 
-/* Texte des éléments du menu */
+/* Texte du menu */
 .md-nav__link {
-    color: #334155;
+    color: inherit;
 }
 
 /* Élément actif */
 .md-nav__link--active {
-    color: #0f2a4d;
+    color: #4f9ee8;
     font-weight: 600;
 }
 
 /* Survol */
 .md-nav__link:hover {
-    color: #1769aa;
+    color: #1e7fcf;
 }
