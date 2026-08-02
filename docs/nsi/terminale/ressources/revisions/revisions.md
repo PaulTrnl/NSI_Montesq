@@ -7,10 +7,22 @@ Petit échauffement avant d'attaquer l'année !
 
 # Rappels de programmation Python
 
-Les notions à maitriser pour aborder correctement cette année :
+!!! warning "Attention"
 
-- [Bases de la programmation python (variables, types, fonctions)](bases_prog.md)
-- [Types construits (listes, dictionnaires, p-uplets)](types_construits.md)
+    Les notions de programmation à maitriser pour aborder correctement cette année :
+
+    - [Bases de la programmation Python](bases_prog.md)
+
+        - Variables
+        - Types de données
+        - Fonctions
+        - Boucles for / while
+
+    - [Types construits](types_construits.md)
+
+        - Listes
+        - Dictionnaires
+        - P-uplets
 
 
 # I. Activité de révision avec l'algorithme des K plus proches voisins (KNN)
@@ -40,7 +52,7 @@ Les notions à maitriser pour aborder correctement cette année :
 
 ---
 
-# TP - Algorithme des *k* plus proches voisins (KNN)
+
 
 !!! abstract "Objectif"
 
@@ -52,9 +64,7 @@ Les notions à maitriser pour aborder correctement cette année :
 
 !!! warning "À lire avant de commencer"
 
-    - Cette activité s'effectue **en autonomie**.
     - Les fichiers fournis doivent être utilisés et complétés.
-    - En cas de difficulté, vous pouvez demander de l'aide à votre professeur.
     - Certains moments de l'activité sont prévus pour faire valider votre travail.
 
 ---
@@ -341,8 +351,231 @@ Tester plusieurs valeurs de **k** et justifier votre conclusion.
 
 
 
+# II. Activité de révision : Les 4 maisons
+
+[📥 Feuille élève (PDF)](feuille_eleve.pdf){ .md-button }
 
 
+!!! abstract "Objectif"
+
+    Dans cette activité, vous allez manipuler un **dictionnaire de listes** représentant les élèves des différentes maisons de Poudlard.
+
+---
+
+!!! warning "À lire avant de commencer"
+
+    - Les fichiers fournis doivent être utilisés et complétés.
+    - Certains moments de l'activité sont prévus pour faire valider votre travail.
+
+---
+
+## Contexte
+
+L'école de sorcellerie **Poudlard** est composée de quatre maisons.
+
+Les élèves sont stockés dans un dictionnaire dont :
+
+- les **clés** sont les noms des maisons ;
+- les **valeurs** sont des listes contenant les prénoms des élèves.
+
+Les données sont fournies dans le fichier :
+
+```text
+eleves.py
+```
+
+Le dictionnaire est le suivant :
+
+```python
+eleves = {
+    "Gryffondor": ["Harry", "Hermione", "Ron", "Neville", "Ginny"],
+    "Serpentard": ["Draco", "Pansy", "Blaise", "Theodore", "Gregory"],
+    "Poufsouffle": ["Cedric", "Susan", "Hannah", "Ernie", "Justin"],
+    "Serdaigle": ["Luna", "Cho", "Terry", "Michael", "Padma"]
+}
+```
+
+---
+
+!!! info "Fichier à télécharger"
+
+    - [📥 Télécharger `eleves.py`](eleves.py)
+
+---
+
+
+# ❓ Question 1
+
+Écrire une fonction **`selection_eleves`** qui :
+
+- prend en paramètre le dictionnaire `eleves` ;
+- sélectionne **deux élèves au hasard** dans chaque maison ;
+- renvoie un nouveau dictionnaire contenant uniquement ces deux élèves.
+
+Utiliser le module `random`.
+
+Exemple de résultat :
+
+```python
+{
+    "Gryffondor": ["Harry", "Ginny"],
+    "Serpentard": ["Draco", "Pansy"],
+    "Poufsouffle": ["Cedric", "Hannah"],
+    "Serdaigle": ["Luna", "Cho"]
+}
+```
+
+!!! success "Validation"
+
+    Faites valider votre fonction par le professeur.
+
+
+!!! warning "À ne pas oublier"
+
+    Pensez à répondre aux questions sur la **feuille distribuée en classe**.
+    
+    Les programmes Python servent uniquement à tester et valider vos réponses.
+
+---
+
+# ❓ Question 2
+
+Écrire une fonction **`maison_eleve`** qui :
+
+- prend en paramètres le dictionnaire `eleves` et le prénom d'un élève ;
+- renvoie le **nom de la maison** dans laquelle se trouve cet élève ;
+- renvoie `None` si l'élève n'est pas présent.
+
+Exemple :
+
+```python
+maison_eleve(eleves, "Luna")
+```
+
+Résultat attendu :
+
+```python
+"Serdaigle"
+```
+
+!!! success "Validation"
+
+    Faites tester votre fonction avant de poursuivre.
+
+!!! warning "À ne pas oublier"
+
+    Pensez à répondre aux questions sur la **feuille distribuée en classe**.
+    
+    Les programmes Python servent uniquement à tester et valider vos réponses.
+
+---
+
+# ❓ Question 3
+
+Écrire une fonction **`ajouter_eleve`** qui :
+
+- prend en paramètres le dictionnaire `eleves`, le prénom d'un élève et une maison ;
+- ajoute l'élève dans la bonne liste ;
+- ne fait rien si l'élève est déjà présent dans cette maison.
+
+Exemple :
+
+```python
+ajouter_eleve(eleves, "Dean", "Gryffondor")
+
+print(eleves["Gryffondor"])
+```
+
+Résultat attendu :
+
+```python
+['Harry', 'Hermione', 'Ron', 'Neville', 'Ginny', 'Dean']
+
+```
+
+
+!!! success "Validation"
+
+    Faites valider votre fonction.
+
+!!! warning "À ne pas oublier"
+
+    Pensez à répondre aux questions sur la **feuille distribuée en classe**.
+    
+    Les programmes Python servent uniquement à tester et valider vos réponses.
+
+---
+
+# ❓ Question 4
+
+Écrire une fonction **`compter_eleves`** qui :
+
+- prend en paramètre le dictionnaire `eleves` ;
+- renvoie un **nouveau dictionnaire** contenant le nombre d'élèves dans chaque maison.
+
+Exemple :
+
+```python
+compter_eleves(eleves)
+```
+
+Résultat attendu :
+
+```python
+{
+    "Gryffondor": 6,
+    "Serpentard": 5,
+    "Poufsouffle": 5,
+    "Serdaigle": 5
+}
+```
+
+!!! success "Validation"
+
+    Faites valider votre fonction.
+
+!!! warning "À ne pas oublier"
+
+    Pensez à répondre aux questions sur la **feuille distribuée en classe**.
+    
+    Les programmes Python servent uniquement à tester et valider vos réponses.
+
+---
+
+# ❓ Question 5
+
+Écrire une fonction **`tous_les_eleves`** qui :
+
+- prend en paramètre le dictionnaire `eleves` ;
+- renvoie une **liste contenant tous les élèves** de l'école ;
+- les élèves peuvent être dans n'importe quel ordre.
+
+Exemple :
+
+```python
+tous_les_eleves(eleves)
+```
+
+Résultat attendu :
+
+```python
+[
+    "Harry", "Hermione", "Ron", "Neville", "Ginny",
+    "Draco", "Pansy", "Blaise", "Theodore", "Gregory",
+    "Cedric", "Susan", "Hannah", "Ernie", "Justin",
+    "Luna", "Cho", "Terry", "Michael", "Padma"
+]
+```
+
+!!! success "Fin du TP"
+
+    Vérifiez que toutes vos fonctions fonctionnent correctement.
+
+!!! warning "À ne pas oublier"
+
+    Pensez à répondre aux questions sur la **feuille distribuée en classe**.
+    
+    Les programmes Python servent uniquement à tester et valider vos réponses.
 
 
 

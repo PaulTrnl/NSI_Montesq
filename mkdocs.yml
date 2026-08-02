@@ -106,7 +106,6 @@ nav:
             - Révisions : nsi/terminale/ressources/revisions/revisions.md
             - Histoire de l'informatique : nsi/terminale/histoire.md
             - Structure de données : 
-              - POO: nsi/terminale/ressources/poo.md
               - Structures linéaires : nsi/terminale/lineaire.md
               - Arbres : nsi/terminale/arbres.md
               - Graphes: nsi/terminale/graphes.md
@@ -122,7 +121,7 @@ nav:
               - Calculabilité, décidabilité : nsi/terminale/calculabilite.md
               - Récursivité : nsi/terminale/recursivite.md
               - Modularité : nsi/terminale/modularite.md
-              - Paradigmes de programmation : nsi/terminale/paradigmes.md
+              - Paradigmes de programmation (POO): nsi/terminale/paradigmes.md
               - Gestion des bugs : nsi/terminale/bugs.md
             - Algorithmique :
               - Arbres binaires et ABR : nsi/terminale/abr.md
