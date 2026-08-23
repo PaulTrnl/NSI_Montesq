@@ -412,5 +412,5 @@
 
 </div>
 
-<script src="questions.js"></script>
+<script src="../questions.js"></script>
 <script src="script.js"></script>

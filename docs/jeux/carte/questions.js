@@ -1,181 +1,51 @@
-/* =========================================================
-   QUESTIONS DU MUR NSI
-   ========================================================= */
-
-   const questions = [
-
-    /* =========================
-       PYTHON
-       ========================= */
+const questions = [
 
     {
         theme: "Python",
-        question: "Que renvoie len([4, 7, 2, 9]) ?"
-    },
-
-    {
-        theme: "Python",
-        question: "Quelle est la différence entre une liste et un tuple ?"
-    },
-
-    {
-        theme: "Python",
-        question: "À quoi sert une boucle for en Python ?"
-    },
-
-
-    /* =========================
-       ALGORITHMIQUE
-       ========================= */
-
-    {
-        theme: "Algorithmique",
-        question: "Quelle est la complexité du tri par sélection dans le pire des cas ?"
+        question: "Que renvoie len([1, 2, 3]) ?",
+        reponses: [
+            "2",
+            "3",
+            "4",
+            "1"
+        ],
+        bonneReponse: 1
     },
 
     {
         theme: "Algorithmique",
-        question: "À quoi sert une recherche dichotomique ?"
-    },
-
-
-    /* =========================
-       BASES DE DONNÉES
-       ========================= */
-
-    {
-        theme: "Bases de données",
-        question: "Qu'est-ce qu'une clé primaire ?"
+        question: "Quelle est la complexité du tri par sélection ?",
+        reponses: [
+            "O(n)",
+            "O(log n)",
+            "O(n²)",
+            "O(2ⁿ)"
+        ],
+        bonneReponse: 2
     },
 
     {
         theme: "Bases de données",
-        question: "Pourquoi utiliser une clé étrangère ?"
-    },
-
-
-    /* =========================
-       RÉSEAUX
-       ========================= */
-
-    {
-        theme: "Réseaux",
-        question: "Quel est le rôle du protocole TCP ?"
+        question: "Quel mot-clé SQL permet de sélectionner des données ?",
+        reponses: [
+            "SELECT",
+            "PICK",
+            "GET",
+            "CHOOSE"
+        ],
+        bonneReponse: 0
     },
 
     {
         theme: "Réseaux",
-        question: "Quelle est la différence entre HTTP et HTTPS ?"
-    },
-
-
-    /* =========================
-       CRYPTOGRAPHIE
-       ========================= */
-
-    {
-        theme: "Cryptographie",
-        question: "Quelle est la différence entre chiffrement symétrique et asymétrique ?"
-    },
-
-
-    /* =========================
-       INTELLIGENCE ARTIFICIELLE
-       ========================= */
-
-    {
-        theme: "Intelligence artificielle",
-        question: "Qu'est-ce que l'apprentissage supervisé ?"
-    },
-
-
-    /* =========================
-       STRUCTURES DE DONNÉES
-       ========================= */
-
-    {
-        theme: "Structures de données",
-        question: "Qu'est-ce qu'un arbre binaire ?"
-    },
-
-
-    /* =========================
-       POO
-       ========================= */
-
-    {
-        theme: "POO",
-        question: "Qu'est-ce qu'une classe en programmation orientée objet ?"
-    },
-
-
-    /* =========================
-       ARCHITECTURE
-       ========================= */
-
-    {
-        theme: "Architecture",
-        question: "Quels sont les principaux éléments de l'architecture de Von Neumann ?"
-    },
-
-
-    /* =========================
-       DONNÉES
-       ========================= */
-
-    {
-        theme: "Données",
-        question: "Quelle est la différence entre une donnée et une information ?"
-    },
-
-
-    /* =========================
-       RECHERCHE
-       ========================= */
-
-    {
-        theme: "Recherche",
-        question: "Quelle est la complexité d'une recherche linéaire dans une liste ?"
-    },
-
-
-    /* =========================
-       SYSTÈMES
-       ========================= */
-
-    {
-        theme: "Systèmes",
-        question: "Quel est le rôle d'un système d'exploitation ?"
-    },
-
-
-    /* =========================
-       WEB
-       ========================= */
-
-    {
-        theme: "Web",
-        question: "Quel est le rôle d'un navigateur web ?"
-    },
-
-
-    /* =========================
-       GRAPHES
-       ========================= */
-
-    {
-        theme: "Graphes",
-        question: "Qu'est-ce qu'un sommet dans un graphe ?"
-    },
-
-
-    /* =========================
-       RÉCURSIVITÉ
-       ========================= */
-
-    {
-        theme: "Récursivité",
-        question: "Qu'est-ce qu'une fonction récursive ?"
+        question: "Quel protocole est utilisé pour transférer des pages Web sécurisées ?",
+        reponses: [
+            "FTP",
+            "HTTP",
+            "HTTPS",
+            "SMTP"
+        ],
+        bonneReponse: 2
     }
 
 ];
