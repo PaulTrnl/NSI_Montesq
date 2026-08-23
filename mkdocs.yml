@@ -129,10 +129,15 @@ nav:
               - Diviser pour régner : nsi/terminale/diviser.md
               - Programmation dynamique : nsi/terminale/prog_dyn.md
               - Recherche textuelle : nsi/terminale/recherche_txt.md
+          - Jeux de révision : 
+            - Mur NSI : jeux/mur/index.md
+            - Carte NSI : jeux/carte/index.md
+            - Le Millionnaire : jeux/millionnaire/index.md
+
 
   - Outils/Liens utiles : outils/index.md
 
-  - Jeux : jeux/mur/index.md
+  
 
 
 

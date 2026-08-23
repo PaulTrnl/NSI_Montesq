@@ -11,7 +11,7 @@
         <div class="jeu-header">
 
 
-            <h1>Le Mur NSI</h1>
+            <h1>Carte NSI</h1>
 
             <p>
                 Préparez votre partie de révision
