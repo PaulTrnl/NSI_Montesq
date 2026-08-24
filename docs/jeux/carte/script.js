@@ -1195,7 +1195,11 @@ function conquerirCase(
    CONQUÊTE D'UNE ZONE
    ========================================================= */
 
-function conquerirZone(caseJeu) {
+/* =========================================================
+   CONQUÊTE D'UNE ZONE
+   ========================================================= */
+
+   function conquerirZone(caseJeu) {
 
     const equipe =
         equipes[
@@ -1203,11 +1207,27 @@ function conquerirZone(caseJeu) {
         ];
 
 
+    /*
+     * L'équipe conquiert d'abord
+     * la case sélectionnée.
+     */
+
     conquerirCase(
         caseJeu,
         equipe
     );
 
+
+    /*
+     * Puis elle conquiert TOUS les voisins.
+     *
+     * Une case voisine peut être :
+     * - libre
+     * - déjà à cette équipe
+     * - appartenir à une autre équipe
+     *
+     * Dans tous les cas, elle est reprise.
+     */
 
     const voisins =
         obtenirVoisins(
@@ -1218,20 +1238,19 @@ function conquerirZone(caseJeu) {
     voisins.forEach(
         voisin => {
 
-            if (
-                voisin.proprietaire === null
-            ) {
-
-                conquerirCase(
-                    voisin,
-                    equipe
-                );
-
-            }
+            conquerirCase(
+                voisin,
+                equipe
+            );
 
         }
     );
 
+
+    /*
+     * Mise à jour de l'affichage
+     * et des territoires.
+     */
 
     mettreAJourPlateau();
 
