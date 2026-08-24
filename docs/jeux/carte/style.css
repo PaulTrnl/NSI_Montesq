@@ -155,13 +155,6 @@
 }
 
 
-.jeu-compteur-erreur {
-
-    color: var(--rouge) !important;
-
-}
-
-
 /* =========================================================
    COMPTEUR ÉQUIPES
    ========================================================= */
@@ -199,6 +192,7 @@
 .jeu-bouton-compteur {
 
     width: 45px;
+
     height: 45px;
 
     border: none;
@@ -219,6 +213,82 @@
 .jeu-bouton-compteur:hover {
 
     background: var(--bleu-fonce);
+
+}
+
+
+/* =========================================================
+   TAILLE DU PLATEAU
+   ========================================================= */
+
+.jeu-selection-plateau {
+
+    margin-top: 2rem;
+
+    padding-top: 1.5rem;
+
+    border-top: 1px solid var(--couleur-bordure);
+
+}
+
+
+.jeu-tailles-plateau {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: .7rem;
+
+    margin-top: 1rem;
+
+}
+
+
+.jeu-taille-plateau {
+
+    flex: 1;
+
+    min-width: 90px;
+
+    padding: .8rem;
+
+    border: 2px solid var(--couleur-bordure);
+
+    border-radius: 9px;
+
+    background: var(--couleur-fond);
+
+    color: var(--couleur-texte);
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform .15s ease,
+        background .15s ease,
+        border-color .15s ease;
+
+}
+
+
+.jeu-taille-plateau:hover {
+
+    border-color: var(--bleu);
+
+    transform: translateY(-2px);
+
+}
+
+
+.jeu-taille-plateau.jeu-taille-selectionnee {
+
+    background: var(--bleu);
+
+    border-color: var(--bleu);
+
+    color: white;
 
 }
 
@@ -587,19 +657,30 @@
 
 .jeu-zone-plateau {
 
-    max-width: 1100px;
-
-    margin: 0 auto;
-
     display: grid;
+
+    /*
+     * La grille et la légende sont côte à côte.
+     *
+     * 850px maximum pour la grille
+     * 230px pour la légende
+     */
 
     grid-template-columns:
         minmax(0, 850px)
-        220px;
+        230px;
+
+    align-items: start;
+
+    justify-content: center;
 
     gap: 1.5rem;
 
-    align-items: start;
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
 
 }
 
@@ -616,15 +697,32 @@
 
     align-items: stretch;
 
-    gap: .8rem;
+    gap: .7rem;
 
     padding: 1rem;
+
+    background: var(--couleur-carte);
 
     border: 1px solid var(--couleur-bordure);
 
     border-radius: 12px;
 
-    background: var(--couleur-carte);
+    /*
+     * La légende reste dans sa colonne.
+     */
+
+    min-width: 0;
+
+    max-height: 70vh;
+
+    overflow-y: auto;
+
+}
+
+
+.jeu-zone-plateau .jeu-legende h3 {
+
+    margin: 0 0 .3rem;
 
     color: var(--couleur-texte);
 
@@ -637,7 +735,7 @@
 
     flex-direction: column;
 
-    gap: .45rem;
+    gap: .4rem;
 
 }
 
@@ -650,9 +748,9 @@
 
     gap: .5rem;
 
-    padding: .4rem .55rem;
+    padding: .35rem .5rem;
 
-    border-radius: 8px;
+    border-radius: 7px;
 
     background: var(--couleur-fond);
 
@@ -660,7 +758,18 @@
 
     color: var(--couleur-texte);
 
-    font-size: .85rem;
+    font-size: .8rem;
+
+    min-width: 0;
+
+}
+
+
+.jeu-legende-item span:last-child {
+
+    min-width: 0;
+
+    overflow-wrap: anywhere;
 
 }
 
@@ -673,9 +782,7 @@
 
     flex-shrink: 0;
 
-    border-radius: 50%;
-
-    display: inline-block;
+    border-radius: 4px;
 
 }
 
@@ -692,9 +799,22 @@
 
     gap: .7rem;
 
+    margin-top: .5rem;
+
     cursor: pointer;
 
     user-select: none;
+
+}
+
+
+.jeu-switch input {
+
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
 
 }
 
@@ -739,18 +859,8 @@
     box-shadow:
         0 1px 3px rgba(0,0,0,.25);
 
-    transition: transform .2s ease;
-
-}
-
-
-.jeu-switch input {
-
-    position: absolute;
-
-    opacity: 0;
-
-    pointer-events: none;
+    transition:
+        transform .2s ease;
 
 }
 
@@ -786,23 +896,90 @@
 
 .jeu-plateau {
 
-    display: grid;
+    /*
+     * IMPORTANT :
+     * Les colonnes sont définies par JavaScript.
+     *
+     * Le CSS ne doit donc PAS imposer
+     * repeat(10, ...).
+     */
 
-    grid-template-columns:
-        repeat(10, minmax(35px, 1fr));
+    display: grid;
 
     gap: 4px;
 
+    width: 100%;
+
     max-width: 850px;
 
-    margin: 0;
+    margin: 0 auto;
+
+    /*
+     * Permet au plateau de rétrécir correctement
+     * dans la grille parent.
+     */
+
+    min-width: 0;
 
 }
 
 
+/* =========================================================
+   CASE DU PLATEAU
+   ========================================================= */
+
 .jeu-case-plateau {
 
-    aspect-ratio: 1;
+    /*
+     * Chaque case reste parfaitement carrée.
+     */
+
+    aspect-ratio: 1 / 1;
+
+    /*
+     * Très important pour les nombres à 3 chiffres.
+     */
+
+    min-width: 0;
+
+    min-height: 0;
+
+    /*
+     * Le numéro ne doit jamais passer sur deux lignes.
+     */
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    /*
+     * Centrage du numéro.
+     */
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    /*
+     * Aucun padding qui pourrait réduire
+     * inutilement l'espace disponible.
+     */
+
+    padding: 0;
+
+    /*
+     * Taille du texte adaptative.
+     */
+
+    font-size: clamp(
+        .55rem,
+        1.2vw,
+        .9rem
+    );
+
+    line-height: 1;
 
     border: 2px solid var(--couleur-theme);
 
@@ -828,6 +1005,42 @@
 }
 
 
+/* =========================================================
+   PLATEAU 12 × 12
+   ========================================================= */
+
+.jeu-plateau[data-taille="12"]
+.jeu-case-plateau {
+
+    font-size: .7rem;
+
+}
+
+
+/* =========================================================
+   PLATEAU 15 × 15
+   ========================================================= */
+
+.jeu-plateau[data-taille="15"]
+.jeu-case-plateau {
+
+    /*
+     * 225 doit tenir dans une case très petite.
+     */
+
+    font-size: .55rem;
+
+    border-width: 1px;
+
+    border-radius: 3px;
+
+}
+
+
+/* =========================================================
+   SURVOL DES CASES
+   ========================================================= */
+
 .jeu-case-plateau:hover {
 
     transform: scale(1.05);
@@ -837,6 +1050,13 @@
     color: white;
 
     z-index: 2;
+
+}
+
+
+.jeu-case-plateau:disabled {
+
+    opacity: 1;
 
 }
 
@@ -1234,10 +1454,34 @@
 
 
 /* =========================================================
-   RESPONSIVE
+   RESPONSIVE — TABLETTE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .jeu-zone-plateau {
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            200px;
+
+        gap: 1rem;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — PETIT ÉCRAN
    ========================================================= */
 
 @media (max-width: 900px) {
+
+    /*
+     * Sous 900px :
+     * la légende passe au-dessus du plateau.
+     */
 
     .jeu-zone-plateau {
 
@@ -1250,21 +1494,55 @@
 
         order: -1;
 
+        max-height: none;
+
     }
 
 
-    .jeu-zone-plateau
     .jeu-legende-themes {
 
         display: grid;
 
         grid-template-columns:
-            repeat(auto-fit, minmax(160px, 1fr));
+            repeat(
+                auto-fit,
+                minmax(150px, 1fr)
+            );
+
+    }
+
+
+    .jeu-plateau {
+
+        width: 100%;
+
+    }
+
+
+    .jeu-case-plateau {
+
+        font-size: .6rem;
+
+        border-width: 1px;
+
+        border-radius: 3px;
+
+    }
+
+
+    .jeu-plateau[data-taille="15"]
+    .jeu-case-plateau {
+
+        font-size: .5rem;
 
     }
 
 }
 
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
 
 @media (max-width: 700px) {
 
@@ -1291,11 +1569,19 @@
 
     .jeu-case-plateau {
 
+        font-size: .55rem;
+
         border-width: 1px;
 
-        border-radius: 4px;
+        border-radius: 3px;
 
-        font-size: .65rem;
+    }
+
+
+    .jeu-plateau[data-taille="15"]
+    .jeu-case-plateau {
+
+        font-size: .45rem;
 
     }
 
@@ -1317,6 +1603,40 @@
     .jeu-options-plateau {
 
         justify-content: center;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — TRÈS PETIT MOBILE
+   ========================================================= */
+
+@media (max-width: 500px) {
+
+    .jeu-plateau {
+
+        gap: 1px;
+
+    }
+
+
+    .jeu-case-plateau {
+
+        font-size: .48rem;
+
+        border-width: 1px;
+
+        border-radius: 2px;
+
+    }
+
+
+    .jeu-plateau[data-taille="15"]
+    .jeu-case-plateau {
+
+        font-size: .4rem;
 
     }
 

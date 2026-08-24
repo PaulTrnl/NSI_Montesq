@@ -1,5 +1,5 @@
 /* =========================================================
-   LE MUR NSI — JEU DE CONQUÊTE
+   LA CONQUÊTE NSI — JEU DE CONQUÊTE
    ========================================================= */
 
 
@@ -108,6 +108,8 @@
 
 let nombreEquipes = 4;
 
+let taillePlateau = 10;
+
 let equipeQuiJoue = 1;
 
 let equipes = [];
@@ -202,12 +204,6 @@ const questionNumero =
 const questionTexte =
     document.getElementById("question-texte");
 
-const afficherReponse =
-    document.getElementById("afficher-reponse");
-
-const reponseAttendue =
-    document.getElementById("reponse-attendue");
-
 const reponseCorrecte =
     document.getElementById("reponse-correcte");
 
@@ -234,11 +230,6 @@ const scoresEquipes =
         "scores-equipes"
     );
 
-const legendeThemes =
-    document.getElementById(
-        "legende-themes"
-    );
-
 const afficherCouleurs =
     document.getElementById(
         "afficher-couleurs"
@@ -249,6 +240,26 @@ const terminerPartie =
         "terminer-partie"
     );
 
+const afficherReponse =
+    document.getElementById(
+        "afficher-reponse"
+    );
+
+const reponseAttendue =
+    document.getElementById(
+        "reponse-attendue"
+    );
+
+const legendeThemes =
+    document.getElementById(
+        "legende-themes"
+    );
+
+const taillesPlateau =
+    document.querySelectorAll(
+        ".jeu-taille-plateau"
+    );
+
 
 /* =========================================================
    INITIALISATION
@@ -257,6 +268,10 @@ const terminerPartie =
 afficherThemesConfiguration();
 
 mettreAJourCompteurThemes();
+
+afficherLegendeThemes();
+
+initialiserTaillesPlateau();
 
 
 /* =========================================================
@@ -273,8 +288,6 @@ moins.addEventListener(
 
             nombreEquipesElement.textContent =
                 nombreEquipes;
-
-            mettreAJourCompteurThemes();
 
         }
 
@@ -293,8 +306,6 @@ plus.addEventListener(
             nombreEquipesElement.textContent =
                 nombreEquipes;
 
-            mettreAJourCompteurThemes();
-
         }
 
     }
@@ -302,12 +313,56 @@ plus.addEventListener(
 
 
 /* =========================================================
-   AFFICHAGE DES THÈMES DE CONFIGURATION
+   TAILLE DU PLATEAU
+   ========================================================= */
+
+function initialiserTaillesPlateau() {
+
+    taillesPlateau.forEach(
+        bouton => {
+
+            bouton.addEventListener(
+                "click",
+                () => {
+
+                    taillePlateau =
+                        Number(
+                            bouton.dataset.taille
+                        );
+
+
+                    taillesPlateau.forEach(
+                        autre => {
+
+                            autre.classList.remove(
+                                "jeu-taille-selectionnee"
+                            );
+
+                        }
+                    );
+
+
+                    bouton.classList.add(
+                        "jeu-taille-selectionnee"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   AFFICHAGE DES THÈMES
    ========================================================= */
 
 function afficherThemesConfiguration() {
 
     listeThemesConfiguration.innerHTML = "";
+
 
     themes.forEach(
         (theme, index) => {
@@ -315,15 +370,20 @@ function afficherThemesConfiguration() {
             const bouton =
                 document.createElement("button");
 
-            bouton.type = "button";
+
+            bouton.type =
+                "button";
+
 
             bouton.className =
                 "jeu-theme-configuration";
+
 
             bouton.style.setProperty(
                 "--couleur-theme",
                 theme.couleur
             );
+
 
             if (
                 themesDuJeu.includes(index)
@@ -334,6 +394,7 @@ function afficherThemesConfiguration() {
                 );
 
             }
+
 
             bouton.innerHTML = `
 
@@ -348,6 +409,7 @@ function afficherThemesConfiguration() {
 
             `;
 
+
             bouton.addEventListener(
                 "click",
                 () => {
@@ -360,12 +422,14 @@ function afficherThemesConfiguration() {
                 }
             );
 
+
             listeThemesConfiguration.appendChild(
                 bouton
             );
 
         }
     );
+
 
     mettreAJourCompteurThemes();
 
@@ -409,7 +473,10 @@ function selectionnerThemeConfiguration(
 
     }
 
+
     mettreAJourCompteurThemes();
+
+    afficherLegendeThemes();
 
 }
 
@@ -428,18 +495,78 @@ function mettreAJourCompteurThemes() {
         `${nombre} thème${nombre > 1 ? "s" : ""} sélectionné${nombre > 1 ? "s" : ""}`;
 
 
-    if (
-        nombre < nombreEquipes
-    ) {
+    /*
+     * Il suffit d'avoir au moins un thème.
+     *
+     * Le nombre de thèmes n'est PAS lié
+     * au nombre d'équipes.
+     */
 
-        compteurThemes.textContent +=
-            ` — minimum ${nombreEquipes}`;
+    commencerNoms.disabled =
+        nombre === 0;
+
+}
+
+
+/* =========================================================
+   LÉGENDE DES THÈMES
+   ========================================================= */
+
+function afficherLegendeThemes() {
+
+    if (!legendeThemes) {
+
+        return;
 
     }
 
 
-    commencerNoms.disabled =
-        nombre < nombreEquipes;
+    legendeThemes.innerHTML = "";
+
+
+    themes.forEach(
+        (theme, index) => {
+
+            if (
+                !themesDuJeu.includes(index)
+            ) {
+
+                return;
+
+            }
+
+
+            const element =
+                document.createElement("div");
+
+
+            element.className =
+                "jeu-legende-item";
+
+
+            element.innerHTML = `
+
+                <span
+                    class="jeu-legende-couleur"
+                    style="
+                        background: ${theme.couleur};
+                    "
+                ></span>
+
+                <span>
+                    ${theme.emoji}
+                    ${theme.nom}
+                </span>
+
+            `;
+
+
+            legendeThemes.appendChild(
+                element
+            );
+
+        }
+    );
 
 }
 
@@ -453,8 +580,7 @@ commencerNoms.addEventListener(
     () => {
 
         if (
-            themesDuJeu.length <
-            nombreEquipes
+            themesDuJeu.length === 0
         ) {
 
             return;
@@ -484,6 +610,7 @@ function afficherFormulaireNoms() {
 
         const ligne =
             document.createElement("div");
+
 
         ligne.className =
             "jeu-champ-equipe";
@@ -604,6 +731,7 @@ function afficherRecapitulatif() {
             const element =
                 document.createElement("div");
 
+
             element.className =
                 "jeu-equipe";
 
@@ -635,7 +763,8 @@ function afficherRecapitulatif() {
                     <div class="jeu-specialite">
 
                         ${themesDuJeu.length}
-                        thèmes disponibles
+                        thème${themesDuJeu.length > 1 ? "s" : ""}
+                        disponible${themesDuJeu.length > 1 ? "s" : ""}
 
                     </div>
 
@@ -661,6 +790,10 @@ function afficherRecapitulatif() {
 modifier.addEventListener(
     "click",
     () => {
+
+        afficherThemesConfiguration();
+
+        afficherLegendeThemes();
 
         afficherEcran(
             configuration
@@ -693,8 +826,7 @@ function lancerPartie() {
 
 
     if (
-        themesDuJeu.length <
-        nombreEquipes
+        themesDuJeu.length === 0
     ) {
 
         return;
@@ -720,32 +852,7 @@ function lancerPartie() {
     );
 
 
-    if (
-        afficherReponse
-    ) {
-
-        afficherReponse.textContent =
-            "👁️ Afficher la réponse";
-
-    }
-
-
-    if (
-        reponseAttendue
-    ) {
-
-        reponseAttendue.textContent = "";
-
-        reponseAttendue.classList.add(
-            "jeu-cache"
-        );
-
-    }
-
-
-    if (
-        terminerPartie
-    ) {
+    if (terminerPartie) {
 
         terminerPartie.disabled =
             false;
@@ -753,9 +860,7 @@ function lancerPartie() {
     }
 
 
-    if (
-        afficherCouleurs
-    ) {
+    if (afficherCouleurs) {
 
         afficherCouleurs.checked =
             true;
@@ -763,9 +868,7 @@ function lancerPartie() {
     }
 
 
-    if (
-        grilleJeu
-    ) {
+    if (grilleJeu) {
 
         grilleJeu.classList.remove(
             "jeu-sans-couleurs"
@@ -774,9 +877,9 @@ function lancerPartie() {
     }
 
 
-    creerPlateau();
-
     afficherLegendeThemes();
+
+    creerPlateau();
 
 
     afficherEcran(
@@ -792,77 +895,10 @@ function lancerPartie() {
 
 
 /* =========================================================
-   LÉGENDE DES THÈMES
+   AFFICHAGE / MASQUAGE DES COULEURS
    ========================================================= */
 
-function afficherLegendeThemes() {
-
-    if (!legendeThemes) {
-
-        return;
-
-    }
-
-
-    legendeThemes.innerHTML = "";
-
-
-    themesDuJeu.forEach(
-        indexTheme => {
-
-            const theme =
-                themes[indexTheme];
-
-
-            if (!theme) {
-
-                return;
-
-            }
-
-
-            const element =
-                document.createElement("div");
-
-
-            element.className =
-                "jeu-legende-item";
-
-
-            element.innerHTML = `
-
-                <span
-                    class="jeu-legende-couleur"
-                    style="
-                        background: ${theme.couleur};
-                    "
-                ></span>
-
-                <span>
-                    ${theme.emoji}
-                    ${theme.nom}
-                </span>
-
-            `;
-
-
-            legendeThemes.appendChild(
-                element
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   SLIDER DES COULEURS
-   ========================================================= */
-
-if (
-    afficherCouleurs
-) {
+if (afficherCouleurs) {
 
     afficherCouleurs.addEventListener(
         "change",
@@ -888,11 +924,29 @@ function creerPlateau() {
 
 
     const taille =
-        10;
+        taillePlateau;
 
+
+    /*
+     * Les colonnes prennent exactement la place disponible.
+     *
+     * minmax(0, 1fr) est important pour le 15 × 15 :
+     * les nombres 100 à 225 ne peuvent plus imposer
+     * une largeur minimale à leur colonne.
+     */
 
     grilleJeu.style.gridTemplateColumns =
-        `repeat(${taille}, minmax(35px, 1fr))`;
+        `repeat(${taille}, minmax(0, 1fr))`;
+
+
+    /*
+     * Permet au CSS d'identifier le plateau.
+     * Exemple :
+     * .jeu-plateau[data-taille="15"]
+     */
+
+    grilleJeu.dataset.taille =
+        taille;
 
 
     for (
@@ -912,10 +966,6 @@ function creerPlateau() {
                 colonne;
 
 
-            /*
-             * Choix aléatoire du thème
-             */
-
             const indexTheme =
                 themesDuJeu[
                     Math.floor(
@@ -928,10 +978,6 @@ function creerPlateau() {
             const theme =
                 themes[indexTheme];
 
-
-            /*
-             * Questions correspondant au thème
-             */
 
             const questionsTheme =
                 questions.filter(
@@ -973,10 +1019,6 @@ function creerPlateau() {
             }
 
 
-            /*
-             * Données de la case
-             */
-
             const caseJeu = {
 
                 index: index,
@@ -1004,10 +1046,6 @@ function creerPlateau() {
                 caseJeu
             );
 
-
-            /*
-             * Bouton HTML
-             */
 
             const bouton =
                 document.createElement("button");
@@ -1066,35 +1104,25 @@ function creerPlateau() {
    VOISINS D'UNE CASE
    ========================================================= */
 
-function obtenirVoisins(
-    caseJeu
-) {
+function obtenirVoisins(caseJeu) {
 
     const voisins = [];
-
 
     const ligne =
         caseJeu.ligne;
 
-
     const colonne =
         caseJeu.colonne;
 
-
     const taille =
-        10;
+        taillePlateau;
 
 
-    /* HAUT */
-
-    if (
-        ligne > 0
-    ) {
+    if (ligne > 0) {
 
         voisins.push(
             plateau[
-                (ligne - 1) *
-                taille +
+                (ligne - 1) * taille +
                 colonne
             ]
         );
@@ -1102,17 +1130,11 @@ function obtenirVoisins(
     }
 
 
-    /* DROITE */
-
-    if (
-        colonne <
-        taille - 1
-    ) {
+    if (colonne < taille - 1) {
 
         voisins.push(
             plateau[
-                ligne *
-                taille +
+                ligne * taille +
                 (colonne + 1)
             ]
         );
@@ -1120,17 +1142,11 @@ function obtenirVoisins(
     }
 
 
-    /* BAS */
-
-    if (
-        ligne <
-        taille - 1
-    ) {
+    if (ligne < taille - 1) {
 
         voisins.push(
             plateau[
-                (ligne + 1) *
-                taille +
+                (ligne + 1) * taille +
                 colonne
             ]
         );
@@ -1138,16 +1154,11 @@ function obtenirVoisins(
     }
 
 
-    /* GAUCHE */
-
-    if (
-        colonne > 0
-    ) {
+    if (colonne > 0) {
 
         voisins.push(
             plateau[
-                ligne *
-                taille +
+                ligne * taille +
                 (colonne - 1)
             ]
         );
@@ -1184,9 +1195,7 @@ function conquerirCase(
    CONQUÊTE D'UNE ZONE
    ========================================================= */
 
-function conquerirZone(
-    caseJeu
-) {
+function conquerirZone(caseJeu) {
 
     const equipe =
         equipes[
@@ -1194,19 +1203,11 @@ function conquerirZone(
         ];
 
 
-    /*
-     * Case sélectionnée
-     */
-
     conquerirCase(
         caseJeu,
         equipe
     );
 
-
-    /*
-     * Cases adjacentes
-     */
 
     const voisins =
         obtenirVoisins(
@@ -1217,18 +1218,20 @@ function conquerirZone(
     voisins.forEach(
         voisin => {
 
-            conquerirCase(
-                voisin,
-                equipe
-            );
+            if (
+                voisin.proprietaire === null
+            ) {
+
+                conquerirCase(
+                    voisin,
+                    equipe
+                );
+
+            }
 
         }
     );
 
-
-    /*
-     * Mise à jour globale
-     */
 
     mettreAJourPlateau();
 
@@ -1374,11 +1377,6 @@ function mettreAJourCouleursPlateau() {
     }
 
 
-    /*
-     * Les couleurs des équipes restent
-     * toujours visibles.
-     */
-
     mettreAJourPlateau();
 
 }
@@ -1393,10 +1391,6 @@ function ouvrirQuestion(
     bouton
 ) {
 
-    /*
-     * Partie terminée
-     */
-
     if (
         partieTerminee
     ) {
@@ -1405,11 +1399,6 @@ function ouvrirQuestion(
 
     }
 
-
-    /*
-     * Une case déjà conquise ne peut
-     * pas être sélectionnée.
-     */
 
     if (
         caseJeu.proprietaire !== null
@@ -1437,10 +1426,6 @@ function ouvrirQuestion(
         ];
 
 
-    /*
-     * Thème
-     */
-
     questionTheme.textContent =
         `${caseJeu.theme.emoji} ${caseJeu.theme.nom}`;
 
@@ -1449,47 +1434,31 @@ function ouvrirQuestion(
         caseJeu.theme.couleur;
 
 
-    /*
-     * Numéro
-     */
-
     questionNumero.textContent =
-        `Case ${caseJeu.numero} / 100`;
+        `Case ${caseJeu.numero} / ${taillePlateau * taillePlateau}`;
 
-
-    /*
-     * Question
-     */
 
     questionTexte.textContent =
         caseJeu.question;
 
 
-    /*
-     * Réinitialisation de la réponse
-     */
+    reponseAttendue.textContent =
+        caseJeu.reponse ||
+        "Aucune réponse disponible.";
 
-    reponseAttendue.textContent = "";
 
     reponseAttendue.classList.add(
         "jeu-cache"
     );
 
+
     afficherReponse.textContent =
         "👁️ Afficher la réponse";
 
 
-    /*
-     * Message
-     */
-
     messageJeu.textContent =
         `🎯 ${equipe.nom} doit répondre`;
 
-
-    /*
-     * Affichage
-     */
 
     questionPanel.classList.remove(
         "jeu-cache"
@@ -1513,63 +1482,49 @@ function ouvrirQuestion(
    AFFICHER / MASQUER LA RÉPONSE
    ========================================================= */
 
-if (
-    afficherReponse
-) {
+afficherReponse.addEventListener(
+    "click",
+    () => {
 
-    afficherReponse.addEventListener(
-        "click",
-        () => {
+        if (!caseActuelle) {
 
-            if (!caseActuelle) {
-
-                return;
-
-            }
-
-
-            const caseJeu =
-                caseActuelle.donnees;
-
-
-            const reponseVisible =
-                !reponseAttendue.classList.contains(
-                    "jeu-cache"
-                );
-
-
-            if (
-                reponseVisible
-            ) {
-
-                reponseAttendue.classList.add(
-                    "jeu-cache"
-                );
-
-                afficherReponse.textContent =
-                    "👁️ Afficher la réponse";
-
-            }
-
-            else {
-
-                reponseAttendue.textContent =
-                    caseJeu.reponse ||
-                    "Aucune réponse disponible.";
-
-                reponseAttendue.classList.remove(
-                    "jeu-cache"
-                );
-
-                afficherReponse.textContent =
-                    "🙈 Masquer la réponse";
-
-            }
+            return;
 
         }
-    );
 
-}
+
+        const reponseVisible =
+            !reponseAttendue.classList.contains(
+                "jeu-cache"
+            );
+
+
+        if (reponseVisible) {
+
+            reponseAttendue.classList.add(
+                "jeu-cache"
+            );
+
+
+            afficherReponse.textContent =
+                "👁️ Afficher la réponse";
+
+        }
+
+        else {
+
+            reponseAttendue.classList.remove(
+                "jeu-cache"
+            );
+
+
+            afficherReponse.textContent =
+                "🙈 Masquer la réponse";
+
+        }
+
+    }
+);
 
 
 /* =========================================================
@@ -1580,9 +1535,7 @@ reponseCorrecte.addEventListener(
     "click",
     () => {
 
-        traiterReponse(
-            true
-        );
+        traiterReponse(true);
 
     }
 );
@@ -1596,9 +1549,7 @@ reponseIncorrecte.addEventListener(
     "click",
     () => {
 
-        traiterReponse(
-            false
-        );
+        traiterReponse(false);
 
     }
 );
@@ -1608,13 +1559,9 @@ reponseIncorrecte.addEventListener(
    TRAITEMENT DE LA RÉPONSE
    ========================================================= */
 
-function traiterReponse(
-    correcte
-) {
+function traiterReponse(correcte) {
 
-    if (
-        !caseActuelle
-    ) {
+    if (!caseActuelle) {
 
         return;
 
@@ -1631,13 +1578,7 @@ function traiterReponse(
         ];
 
 
-    /*
-     * BONNE RÉPONSE
-     */
-
-    if (
-        correcte
-    ) {
+    if (correcte) {
 
         conquerirZone(
             caseJeu
@@ -1649,11 +1590,6 @@ function traiterReponse(
 
     }
 
-
-    /*
-     * MAUVAISE RÉPONSE
-     */
-
     else {
 
         messageJeu.textContent =
@@ -1661,10 +1597,6 @@ function traiterReponse(
 
     }
 
-
-    /*
-     * Fermeture de la question
-     */
 
     questionPanel.classList.add(
         "jeu-cache"
@@ -1675,30 +1607,8 @@ function traiterReponse(
         null;
 
 
-    /*
-     * Réinitialisation de la réponse
-     */
-
-    reponseAttendue.classList.add(
-        "jeu-cache"
-    );
-
-    reponseAttendue.textContent = "";
-
-    afficherReponse.textContent =
-        "👁️ Afficher la réponse";
-
-
-    /*
-     * Scores
-     */
-
     afficherScores();
 
-
-    /*
-     * Vérification de la fin
-     */
 
     if (
         verifierFinTerritoire()
@@ -1708,10 +1618,6 @@ function traiterReponse(
 
     }
 
-
-    /*
-     * Équipe suivante
-     */
 
     equipeQuiJoue++;
 
@@ -1950,9 +1856,7 @@ function verifierFinTerritoire() {
    BOUTON TERMINER LA PARTIE
    ========================================================= */
 
-if (
-    terminerPartie
-) {
+if (terminerPartie) {
 
     terminerPartie.addEventListener(
         "click",
@@ -2028,10 +1932,6 @@ function afficherResultatsFinaux() {
             );
 
 
-    /*
-     * Désactivation des cases
-     */
-
     grilleJeu
         .querySelectorAll(
             ".jeu-case-plateau"
@@ -2045,10 +1945,6 @@ function afficherResultatsFinaux() {
             }
         );
 
-
-    /*
-     * Message
-     */
 
     messageJeu.textContent =
         "🏆 Partie terminée !";
@@ -2064,10 +1960,6 @@ function afficherResultatsFinaux() {
 
     `;
 
-
-    /*
-     * Classement
-     */
 
     scoresEquipes.innerHTML = "";
 
@@ -2090,8 +1982,7 @@ function afficherResultatsFinaux() {
                 index === 0
             ) {
 
-                medaille =
-                    "🥇";
+                medaille = "🥇";
 
             }
 
@@ -2099,8 +1990,7 @@ function afficherResultatsFinaux() {
                 index === 1
             ) {
 
-                medaille =
-                    "🥈";
+                medaille = "🥈";
 
             }
 
@@ -2108,8 +1998,7 @@ function afficherResultatsFinaux() {
                 index === 2
             ) {
 
-                medaille =
-                    "🥉";
+                medaille = "🥉";
 
             }
 
@@ -2143,10 +2032,6 @@ function afficherResultatsFinaux() {
     );
 
 
-    /*
-     * Désactivation du bouton
-     */
-
     if (
         terminerPartie
     ) {
@@ -2163,9 +2048,7 @@ function afficherResultatsFinaux() {
    CHANGEMENT D'ÉCRAN
    ========================================================= */
 
-function afficherEcran(
-    ecran
-) {
+function afficherEcran(ecran) {
 
     const ecrans = [
 

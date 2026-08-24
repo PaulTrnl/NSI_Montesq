@@ -11,13 +11,20 @@
         <div class="jeu-header">
 
             <h1>La Conquête NSI</h1>
-            <p>Préparez votre partie</p>
+
+            <p>
+                Préparez votre partie
+            </p>
 
         </div>
 
         <div class="jeu-contenu">
 
             <div class="jeu-configuration">
+
+                <!-- =================================================
+                     NOMBRE D'ÉQUIPES
+                     ================================================= -->
 
                 <h2>Nombre d'équipes</h2>
 
@@ -30,7 +37,9 @@
                         −
                     </button>
 
-                    <span id="nombre-equipes">4</span>
+                    <span id="nombre-equipes">
+                        4
+                    </span>
 
                     <button
                         id="plus"
@@ -43,7 +52,63 @@
 
 
                 <!-- =================================================
-                     NOMBRE DE THÈMES
+                     TAILLE DU PLATEAU
+                     ================================================= -->
+
+                <div class="jeu-selection-plateau">
+
+                    <h2>Taille du plateau</h2>
+
+                    <p class="jeu-description-themes">
+                        Choisissez la taille du territoire.
+                    </p>
+
+                    <div
+                        id="tailles-plateau"
+                        class="jeu-tailles-plateau">
+
+                        <button
+                            type="button"
+                            class="jeu-taille-plateau"
+                            data-taille="6">
+                            6 × 6
+                        </button>
+
+                        <button
+                            type="button"
+                            class="jeu-taille-plateau"
+                            data-taille="8">
+                            8 × 8
+                        </button>
+
+                        <button
+                            type="button"
+                            class="jeu-taille-plateau jeu-taille-selectionnee"
+                            data-taille="10">
+                            10 × 10
+                        </button>
+
+                        <button
+                            type="button"
+                            class="jeu-taille-plateau"
+                            data-taille="12">
+                            12 × 12
+                        </button>
+
+                        <button
+                            type="button"
+                            class="jeu-taille-plateau"
+                            data-taille="15">
+                            15 × 15
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     THÈMES
                      ================================================= -->
 
                 <div class="jeu-selection-themes">
@@ -51,8 +116,8 @@
                     <h2>Choisissez les thèmes</h2>
 
                     <p class="jeu-description-themes">
-                        Sélectionnez au moins autant de thèmes
-                        qu'il y a d'équipes.
+                        Sélectionnez les thèmes que vous souhaitez
+                        utiliser pendant la partie.
                     </p>
 
                     <p
@@ -94,9 +159,11 @@
 
         <div class="jeu-header">
 
-            <div class="jeu-logo">🏰</div>
+          
 
-            <h1>La Conquête NSI</h1>
+            <h1>
+                La Conquête NSI
+            </h1>
 
             <p>
                 Donnez un nom à chaque équipe
@@ -137,7 +204,9 @@
 
         <div class="jeu-header">
 
-            <h1>La partie est prête !</h1>
+            <h1>
+                La partie est prête !
+            </h1>
 
             <p>
                 Les équipes vont maintenant conquérir
@@ -186,7 +255,9 @@
 
         <div class="jeu-header">
 
-            <h1>La Conquête NSI</h1>
+            <h1>
+                La Conquête NSI
+            </h1>
 
             <p id="message-jeu">
                 Choisissez une case à conquérir
@@ -236,9 +307,9 @@
 
                 <aside class="jeu-legende">
 
-                    <strong>
-                        Légende des thèmes
-                    </strong>
+                    <h3>
+                        Légende
+                    </h3>
 
                     <div
                         id="legende-themes"
@@ -291,7 +362,9 @@
                 </h2>
 
 
-                <!-- RÉPONSE CACHÉE -->
+                <!-- =================================================
+                     RÉPONSE
+                     ================================================= -->
 
                 <div
                     id="reponse-cachee"
@@ -312,7 +385,9 @@
                 </div>
 
 
-                <!-- ACTIONS -->
+                <!-- =================================================
+                     ACTIONS
+                     ================================================= -->
 
                 <div class="jeu-question-actions">
 
