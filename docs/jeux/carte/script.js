@@ -103,37 +103,12 @@
 
 
 /* =========================================================
-   QUESTIONS
-   ========================================================= */
-
-/*
- * Le tableau "questions" doit être chargé depuis
- * ton fichier questions.js avant ce fichier.
- *
- * Exemple :
- *
- * const questions = [
- *
- *     {
- *         theme: "Python",
- *         question: "Que renvoie len([1, 2, 3]) ?"
- *     },
- *
- *     ...
- *
- * ];
- */
-
-
-/* =========================================================
    VARIABLES DU JEU
    ========================================================= */
 
 let nombreEquipes = 4;
 
 let equipeQuiJoue = 1;
-
-let equipeActuelle = 1;
 
 let equipes = [];
 
@@ -175,9 +150,6 @@ const configuration =
 
 const nomsEquipes =
     document.getElementById("noms-equipes");
-
-const selection =
-    document.getElementById("selection");
 
 const recapitulatif =
     document.getElementById("recapitulatif");
@@ -230,6 +202,12 @@ const questionNumero =
 const questionTexte =
     document.getElementById("question-texte");
 
+const afficherReponse =
+    document.getElementById("afficher-reponse");
+
+const reponseAttendue =
+    document.getElementById("reponse-attendue");
+
 const reponseCorrecte =
     document.getElementById("reponse-correcte");
 
@@ -254,6 +232,11 @@ const equipeQuiJoueElement =
 const scoresEquipes =
     document.getElementById(
         "scores-equipes"
+    );
+
+const legendeThemes =
+    document.getElementById(
+        "legende-themes"
     );
 
 const afficherCouleurs =
@@ -319,7 +302,7 @@ plus.addEventListener(
 
 
 /* =========================================================
-   AFFICHAGE DES THÈMES
+   AFFICHAGE DES THÈMES DE CONFIGURATION
    ========================================================= */
 
 function afficherThemesConfiguration() {
@@ -444,11 +427,6 @@ function mettreAJourCompteurThemes() {
     compteurThemes.textContent =
         `${nombre} thème${nombre > 1 ? "s" : ""} sélectionné${nombre > 1 ? "s" : ""}`;
 
-
-    /*
-     * Il faut au minimum autant de thèmes
-     * que d'équipes.
-     */
 
     if (
         nombre < nombreEquipes
@@ -600,7 +578,7 @@ function enregistrerNoms() {
         ).fill(0);
 
 
-    equipeActuelle = 1;
+    equipeQuiJoue = 1;
 
     afficherRecapitulatif();
 
@@ -743,6 +721,29 @@ function lancerPartie() {
 
 
     if (
+        afficherReponse
+    ) {
+
+        afficherReponse.textContent =
+            "👁️ Afficher la réponse";
+
+    }
+
+
+    if (
+        reponseAttendue
+    ) {
+
+        reponseAttendue.textContent = "";
+
+        reponseAttendue.classList.add(
+            "jeu-cache"
+        );
+
+    }
+
+
+    if (
         terminerPartie
     ) {
 
@@ -775,6 +776,8 @@ function lancerPartie() {
 
     creerPlateau();
 
+    afficherLegendeThemes();
+
 
     afficherEcran(
         jeu
@@ -784,6 +787,71 @@ function lancerPartie() {
     afficherEquipeQuiJoue();
 
     afficherScores();
+
+}
+
+
+/* =========================================================
+   LÉGENDE DES THÈMES
+   ========================================================= */
+
+function afficherLegendeThemes() {
+
+    if (!legendeThemes) {
+
+        return;
+
+    }
+
+
+    legendeThemes.innerHTML = "";
+
+
+    themesDuJeu.forEach(
+        indexTheme => {
+
+            const theme =
+                themes[indexTheme];
+
+
+            if (!theme) {
+
+                return;
+
+            }
+
+
+            const element =
+                document.createElement("div");
+
+
+            element.className =
+                "jeu-legende-item";
+
+
+            element.innerHTML = `
+
+                <span
+                    class="jeu-legende-couleur"
+                    style="
+                        background: ${theme.couleur};
+                    "
+                ></span>
+
+                <span>
+                    ${theme.emoji}
+                    ${theme.nom}
+                </span>
+
+            `;
+
+
+            legendeThemes.appendChild(
+                element
+            );
+
+        }
+    );
 
 }
 
@@ -895,7 +963,10 @@ function creerPlateau() {
                 question = {
 
                     question:
-                        "Aucune question disponible pour ce thème."
+                        "Aucune question disponible pour ce thème.",
+
+                    reponse:
+                        "Aucune réponse disponible."
 
                 };
 
@@ -921,6 +992,8 @@ function creerPlateau() {
                 indexTheme: indexTheme,
 
                 question: question.question,
+
+                reponse: question.reponse,
 
                 proprietaire: null
 
@@ -1012,9 +1085,7 @@ function obtenirVoisins(
         10;
 
 
-    /*
-     * HAUT
-     */
+    /* HAUT */
 
     if (
         ligne > 0
@@ -1031,9 +1102,7 @@ function obtenirVoisins(
     }
 
 
-    /*
-     * DROITE
-     */
+    /* DROITE */
 
     if (
         colonne <
@@ -1051,9 +1120,7 @@ function obtenirVoisins(
     }
 
 
-    /*
-     * BAS
-     */
+    /* BAS */
 
     if (
         ligne <
@@ -1071,9 +1138,7 @@ function obtenirVoisins(
     }
 
 
-    /*
-     * GAUCHE
-     */
+    /* GAUCHE */
 
     if (
         colonne > 0
@@ -1191,10 +1256,6 @@ function mettreAJourAffichageCase(
     }
 
 
-    /*
-     * Suppression des anciennes classes
-     */
-
     bouton.classList.remove(
         "jeu-case-equipe-1",
         "jeu-case-equipe-2",
@@ -1206,10 +1267,6 @@ function mettreAJourAffichageCase(
         "jeu-case-equipe-8"
     );
 
-
-    /*
-     * Case libre
-     */
 
     if (
         caseJeu.proprietaire === null
@@ -1227,10 +1284,6 @@ function mettreAJourAffichageCase(
 
     }
 
-
-    /*
-     * Équipe propriétaire
-     */
 
     const equipe =
         equipes[
@@ -1413,6 +1466,20 @@ function ouvrirQuestion(
 
 
     /*
+     * Réinitialisation de la réponse
+     */
+
+    reponseAttendue.textContent = "";
+
+    reponseAttendue.classList.add(
+        "jeu-cache"
+    );
+
+    afficherReponse.textContent =
+        "👁️ Afficher la réponse";
+
+
+    /*
      * Message
      */
 
@@ -1438,6 +1505,69 @@ function ouvrirQuestion(
             "center"
 
     });
+
+}
+
+
+/* =========================================================
+   AFFICHER / MASQUER LA RÉPONSE
+   ========================================================= */
+
+if (
+    afficherReponse
+) {
+
+    afficherReponse.addEventListener(
+        "click",
+        () => {
+
+            if (!caseActuelle) {
+
+                return;
+
+            }
+
+
+            const caseJeu =
+                caseActuelle.donnees;
+
+
+            const reponseVisible =
+                !reponseAttendue.classList.contains(
+                    "jeu-cache"
+                );
+
+
+            if (
+                reponseVisible
+            ) {
+
+                reponseAttendue.classList.add(
+                    "jeu-cache"
+                );
+
+                afficherReponse.textContent =
+                    "👁️ Afficher la réponse";
+
+            }
+
+            else {
+
+                reponseAttendue.textContent =
+                    caseJeu.reponse ||
+                    "Aucune réponse disponible.";
+
+                reponseAttendue.classList.remove(
+                    "jeu-cache"
+                );
+
+                afficherReponse.textContent =
+                    "🙈 Masquer la réponse";
+
+            }
+
+        }
+    );
 
 }
 
@@ -1502,9 +1632,7 @@ function traiterReponse(
 
 
     /*
-     * =========================================
      * BONNE RÉPONSE
-     * =========================================
      */
 
     if (
@@ -1523,9 +1651,7 @@ function traiterReponse(
 
 
     /*
-     * =========================================
      * MAUVAISE RÉPONSE
-     * =========================================
      */
 
     else {
@@ -1547,6 +1673,20 @@ function traiterReponse(
 
     caseActuelle =
         null;
+
+
+    /*
+     * Réinitialisation de la réponse
+     */
+
+    reponseAttendue.classList.add(
+        "jeu-cache"
+    );
+
+    reponseAttendue.textContent = "";
+
+    afficherReponse.textContent =
+        "👁️ Afficher la réponse";
 
 
     /*
@@ -2032,8 +2172,6 @@ function afficherEcran(
         configuration,
 
         nomsEquipes,
-
-        selection,
 
         recapitulatif,
 

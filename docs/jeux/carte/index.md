@@ -12,6 +12,7 @@
 
             <h1>La Conquête NSI</h1>
             <p>Préparez votre partie</p>
+
         </div>
 
         <div class="jeu-contenu">
@@ -136,8 +137,6 @@
 
         <div class="jeu-header">
 
-       
-
             <h1>La partie est prête !</h1>
 
             <p>
@@ -187,8 +186,6 @@
 
         <div class="jeu-header">
 
-    
-
             <h1>La Conquête NSI</h1>
 
             <p id="message-jeu">
@@ -222,48 +219,52 @@
 
 
             <!-- =================================================
-                 LÉGENDE / OPTIONS
+                 PLATEAU + LÉGENDE
                  ================================================= -->
 
-            <div class="jeu-options-plateau">
+            <div class="jeu-zone-plateau">
 
-                <div class="jeu-legende">
+                <!-- PLATEAU -->
 
-                    <strong>Légende :</strong>
+                <div
+                    id="grille-jeu"
+                    class="jeu-plateau">
+                </div>
+
+
+                <!-- LÉGENDE -->
+
+                <aside class="jeu-legende">
+
+                    <strong>
+                        Légende des thèmes
+                    </strong>
 
                     <div
                         id="legende-themes"
                         class="jeu-legende-themes">
                     </div>
 
-                </div>
 
+                    <!-- SWITCH -->
 
-                <label class="jeu-switch">
+                    <label class="jeu-switch">
 
-                    <input
-                        type="checkbox"
-                        id="afficher-couleurs"
-                        checked>
+                        <input
+                            type="checkbox"
+                            id="afficher-couleurs"
+                            checked>
 
-                    <span class="jeu-slider"></span>
+                        <span class="jeu-slider"></span>
 
-                    <span class="jeu-switch-texte">
-                        Afficher les thèmes
-                    </span>
+                        <span class="jeu-switch-texte">
+                            Afficher les thèmes
+                        </span>
 
-                </label>
+                    </label>
 
-            </div>
+                </aside>
 
-
-            <!-- =================================================
-                 PLATEAU
-                 ================================================= -->
-
-            <div
-                id="grille-jeu"
-                class="jeu-plateau">
             </div>
 
 
