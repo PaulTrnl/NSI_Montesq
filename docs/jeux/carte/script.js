@@ -1,10 +1,10 @@
 /* =========================================================
-   CONQUÊTE NSI
+   LE MUR NSI — JEU DE CONQUÊTE
    ========================================================= */
 
 
 /* =========================================================
-   THÈMES
+   THÈMES DISPONIBLES
    ========================================================= */
 
    const themes = [
@@ -103,24 +103,47 @@
 
 
 /* =========================================================
-   VARIABLES
+   QUESTIONS
+   ========================================================= */
+
+/*
+ * Le tableau "questions" doit être chargé depuis
+ * ton fichier questions.js avant ce fichier.
+ *
+ * Exemple :
+ *
+ * const questions = [
+ *
+ *     {
+ *         theme: "Python",
+ *         question: "Que renvoie len([1, 2, 3]) ?"
+ *     },
+ *
+ *     ...
+ *
+ * ];
+ */
+
+
+/* =========================================================
+   VARIABLES DU JEU
    ========================================================= */
 
 let nombreEquipes = 4;
+
+let equipeQuiJoue = 1;
 
 let equipeActuelle = 1;
 
 let equipes = [];
 
-let specialites = [];
-
 let themesDuJeu = [];
 
 let scores = [];
 
-let territoires = [];
+let plateau = [];
 
-let territoireActuel = null;
+let caseActuelle = null;
 
 let partieTerminee = false;
 
@@ -144,7 +167,7 @@ const couleursEquipes = [
 
 
 /* =========================================================
-   ÉLÉMENTS HTML
+   RÉCUPÉRATION DES ÉLÉMENTS HTML
    ========================================================= */
 
 const configuration =
@@ -180,18 +203,6 @@ const formulaireEquipes =
 const validerNoms =
     document.getElementById("valider-noms");
 
-const grilleThemes =
-    document.getElementById("grille-themes");
-
-const instructionSelection =
-    document.getElementById("instruction-selection");
-
-const texteProgression =
-    document.getElementById("texte-progression");
-
-const progression =
-    document.getElementById("progression");
-
 const listeEquipes =
     document.getElementById("liste-equipes");
 
@@ -201,17 +212,11 @@ const modifier =
 const lancer =
     document.getElementById("lancer");
 
-const carteConquete =
-    document.getElementById("carte-conquete");
+const grilleJeu =
+    document.getElementById("grille-jeu");
 
 const messageJeu =
     document.getElementById("message-jeu");
-
-const equipeQuiJoueElement =
-    document.getElementById("equipe-qui-joue");
-
-const scoresEquipes =
-    document.getElementById("scores-equipes");
 
 const questionPanel =
     document.getElementById("question-panel");
@@ -219,27 +224,46 @@ const questionPanel =
 const questionTheme =
     document.getElementById("question-theme");
 
-const questionTerritoire =
-    document.getElementById("question-territoire");
+const questionNumero =
+    document.getElementById("question-numero");
 
 const questionTexte =
     document.getElementById("question-texte");
 
-const legendeTerritoires =
-    document.getElementById("legende-territoires");
+const reponseCorrecte =
+    document.getElementById("reponse-correcte");
 
-const fermerQuestion =
-    document.getElementById("fermer-question");
-
-const terminerPartie =
-    document.getElementById("terminer-partie");
-
-const compteurThemes =
-    document.getElementById("compteur-themes");
+const reponseIncorrecte =
+    document.getElementById("reponse-incorrecte");
 
 const listeThemesConfiguration =
     document.getElementById(
         "liste-themes-configuration"
+    );
+
+const compteurThemes =
+    document.getElementById(
+        "compteur-themes"
+    );
+
+const equipeQuiJoueElement =
+    document.getElementById(
+        "equipe-qui-joue"
+    );
+
+const scoresEquipes =
+    document.getElementById(
+        "scores-equipes"
+    );
+
+const afficherCouleurs =
+    document.getElementById(
+        "afficher-couleurs"
+    );
+
+const terminerPartie =
+    document.getElementById(
+        "terminer-partie"
     );
 
 
@@ -295,7 +319,7 @@ plus.addEventListener(
 
 
 /* =========================================================
-   THÈMES
+   AFFICHAGE DES THÈMES
    ========================================================= */
 
 function afficherThemesConfiguration() {
@@ -345,32 +369,10 @@ function afficherThemesConfiguration() {
                 "click",
                 () => {
 
-                    if (
-                        themesDuJeu.includes(index)
-                    ) {
-
-                        themesDuJeu =
-                            themesDuJeu.filter(
-                                i => i !== index
-                            );
-
-                        bouton.classList.remove(
-                            "jeu-theme-selectionne"
-                        );
-
-                    }
-
-                    else {
-
-                        themesDuJeu.push(index);
-
-                        bouton.classList.add(
-                            "jeu-theme-selectionne"
-                        );
-
-                    }
-
-                    mettreAJourCompteurThemes();
+                    selectionnerThemeConfiguration(
+                        index,
+                        bouton
+                    );
 
                 }
             );
@@ -382,16 +384,81 @@ function afficherThemesConfiguration() {
         }
     );
 
+    mettreAJourCompteurThemes();
+
 }
 
+
+/* =========================================================
+   SÉLECTION D'UN THÈME
+   ========================================================= */
+
+function selectionnerThemeConfiguration(
+    index,
+    bouton
+) {
+
+    const dejaSelectionne =
+        themesDuJeu.includes(index);
+
+
+    if (dejaSelectionne) {
+
+        themesDuJeu =
+            themesDuJeu.filter(
+                themeIndex =>
+                    themeIndex !== index
+            );
+
+        bouton.classList.remove(
+            "jeu-theme-selectionne"
+        );
+
+    }
+
+    else {
+
+        themesDuJeu.push(index);
+
+        bouton.classList.add(
+            "jeu-theme-selectionne"
+        );
+
+    }
+
+    mettreAJourCompteurThemes();
+
+}
+
+
+/* =========================================================
+   COMPTEUR DES THÈMES
+   ========================================================= */
 
 function mettreAJourCompteurThemes() {
 
     const nombre =
         themesDuJeu.length;
 
+
     compteurThemes.textContent =
         `${nombre} thème${nombre > 1 ? "s" : ""} sélectionné${nombre > 1 ? "s" : ""}`;
+
+
+    /*
+     * Il faut au minimum autant de thèmes
+     * que d'équipes.
+     */
+
+    if (
+        nombre < nombreEquipes
+    ) {
+
+        compteurThemes.textContent +=
+            ` — minimum ${nombreEquipes}`;
+
+    }
+
 
     commencerNoms.disabled =
         nombre < nombreEquipes;
@@ -400,7 +467,7 @@ function mettreAJourCompteurThemes() {
 
 
 /* =========================================================
-   NOMS DES ÉQUIPES
+   PASSAGE AUX NOMS
    ========================================================= */
 
 commencerNoms.addEventListener(
@@ -416,47 +483,62 @@ commencerNoms.addEventListener(
 
         }
 
-        formulaireEquipes.innerHTML = "";
-
-        for (
-            let i = 1;
-            i <= nombreEquipes;
-            i++
-        ) {
-
-            const ligne =
-                document.createElement("div");
-
-            ligne.className =
-                "jeu-champ-equipe";
-
-            ligne.innerHTML = `
-
-                <label>
-                    Équipe ${i}
-                </label>
-
-                <input
-                    id="equipe-${i}"
-                    maxlength="25"
-                    type="text"
-                    placeholder="Nom de l'équipe"
-                >
-
-            `;
-
-            formulaireEquipes.appendChild(
-                ligne
-            );
-
-        }
-
-        afficherEcran(
-            nomsEquipes
-        );
+        afficherFormulaireNoms();
 
     }
 );
+
+
+/* =========================================================
+   FORMULAIRE DES NOMS
+   ========================================================= */
+
+function afficherFormulaireNoms() {
+
+    formulaireEquipes.innerHTML = "";
+
+
+    for (
+        let i = 1;
+        i <= nombreEquipes;
+        i++
+    ) {
+
+        const ligne =
+            document.createElement("div");
+
+        ligne.className =
+            "jeu-champ-equipe";
+
+
+        ligne.innerHTML = `
+
+            <label for="equipe-${i}">
+                Équipe ${i}
+            </label>
+
+            <input
+                id="equipe-${i}"
+                type="text"
+                maxlength="25"
+                placeholder="Nom de l'équipe"
+            >
+
+        `;
+
+
+        formulaireEquipes.appendChild(
+            ligne
+        );
+
+    }
+
+
+    afficherEcran(
+        nomsEquipes
+    );
+
+}
 
 
 /* =========================================================
@@ -465,207 +547,66 @@ commencerNoms.addEventListener(
 
 validerNoms.addEventListener(
     "click",
-    () => {
-
-        equipes = [];
-
-        for (
-            let i = 1;
-            i <= nombreEquipes;
-            i++
-        ) {
-
-            const input =
-                document.getElementById(
-                    `equipe-${i}`
-                );
-
-            const nom =
-                input.value.trim();
-
-            if (!nom) {
-
-                input.focus();
-
-                return;
-
-            }
-
-            equipes.push({
-
-                numero: i,
-
-                nom: nom,
-
-                couleur:
-                    couleursEquipes[i - 1]
-
-            });
-
-        }
-
-        scores =
-            new Array(nombreEquipes).fill(0);
-
-        equipeActuelle = 1;
-
-        specialites = [];
-
-        afficherSelection();
-
-        afficherEcran(
-            selection
-        );
-
-    }
+    enregistrerNoms
 );
 
 
-/* =========================================================
-   SPÉCIALITÉS
-   ========================================================= */
+function enregistrerNoms() {
 
-function afficherSelection() {
-
-    grilleThemes.innerHTML = "";
-
-    const equipe =
-        equipes[
-            equipeActuelle - 1
-        ];
-
-    instructionSelection.textContent =
-        `${equipe.nom} : choisissez votre spécialité`;
-
-    texteProgression.textContent =
-        `Équipe ${equipeActuelle} sur ${nombreEquipes}`;
-
-    progression.style.width =
-        `${((equipeActuelle - 1) / nombreEquipes) * 100}%`;
+    equipes = [];
 
 
-    themesDuJeu.forEach(
-        index => {
-
-            const theme =
-                themes[index];
-
-            const bouton =
-                document.createElement("button");
-
-            bouton.type = "button";
-
-            bouton.className =
-                "jeu-case-theme";
-
-            bouton.style.setProperty(
-                "--couleur-theme",
-                theme.couleur
-            );
-
-            const pris =
-                specialites.some(
-                    s => s.index === index
-                );
-
-            if (pris) {
-
-                bouton.classList.add(
-                    "jeu-pris"
-                );
-
-                bouton.disabled = true;
-
-            }
-
-            bouton.innerHTML = `
-
-                <span>
-                    ${theme.emoji}
-                </span>
-
-                <strong>
-                    ${theme.nom}
-                </strong>
-
-            `;
-
-            if (!pris) {
-
-                bouton.addEventListener(
-                    "click",
-                    () => {
-
-                        choisirSpecialite(
-                            index
-                        );
-
-                    }
-                );
-
-            }
-
-            grilleThemes.appendChild(
-                bouton
-            );
-
-        }
-    );
-
-}
-
-
-function choisirSpecialite(index) {
-
-    const theme =
-        themes[index];
-
-    const equipe =
-        equipes[
-            equipeActuelle - 1
-        ];
-
-    specialites.push({
-
-        equipe:
-            equipe.numero,
-
-        nomEquipe:
-            equipe.nom,
-
-        index:
-            index,
-
-        nom:
-            theme.nom,
-
-        emoji:
-            theme.emoji,
-
-        couleur:
-            theme.couleur
-
-    });
-
-
-    if (
-        equipeActuelle ===
-        nombreEquipes
+    for (
+        let i = 1;
+        i <= nombreEquipes;
+        i++
     ) {
 
-        afficherRecapitulatif();
+        const input =
+            document.getElementById(
+                `equipe-${i}`
+            );
 
-        afficherEcran(
-            recapitulatif
-        );
 
-        return;
+        const nom =
+            input.value.trim();
+
+
+        if (
+            nom === ""
+        ) {
+
+            input.focus();
+
+            return;
+
+        }
+
+
+        equipes.push({
+
+            numero: i,
+
+            nom: nom
+
+        });
 
     }
 
-    equipeActuelle++;
 
-    afficherSelection();
+    scores =
+        new Array(
+            nombreEquipes
+        ).fill(0);
+
+
+    equipeActuelle = 1;
+
+    afficherRecapitulatif();
+
+    afficherEcran(
+        recapitulatif
+    );
 
 }
 
@@ -678,8 +619,9 @@ function afficherRecapitulatif() {
 
     listeEquipes.innerHTML = "";
 
-    specialites.forEach(
-        specialite => {
+
+    equipes.forEach(
+        equipe => {
 
             const element =
                 document.createElement("div");
@@ -687,36 +629,42 @@ function afficherRecapitulatif() {
             element.className =
                 "jeu-equipe";
 
+
+            const couleur =
+                couleursEquipes[
+                    (equipe.numero - 1) %
+                    couleursEquipes.length
+                ];
+
+
             element.innerHTML = `
 
                 <div
                     class="jeu-numero-equipe"
                     style="
-                        background:
-                        ${equipes[
-                            specialite.equipe - 1
-                        ].couleur};
+                        background: ${couleur};
                     "
                 >
-                    ${specialite.equipe}
+                    ${equipe.numero}
                 </div>
 
                 <div>
 
                     <strong>
-                        ${specialite.nomEquipe}
+                        ${equipe.nom}
                     </strong>
 
                     <div class="jeu-specialite">
 
-                        ${specialite.emoji}
-                        ${specialite.nom}
+                        ${themesDuJeu.length}
+                        thèmes disponibles
 
                     </div>
 
                 </div>
 
             `;
+
 
             listeEquipes.appendChild(
                 element
@@ -729,21 +677,15 @@ function afficherRecapitulatif() {
 
 
 /* =========================================================
-   MODIFIER
+   MODIFICATION
    ========================================================= */
 
 modifier.addEventListener(
     "click",
     () => {
 
-        equipeActuelle = 1;
-
-        specialites = [];
-
-        afficherSelection();
-
         afficherEcran(
-            selection
+            configuration
         );
 
     }
@@ -751,7 +693,7 @@ modifier.addEventListener(
 
 
 /* =========================================================
-   LANCER
+   LANCEMENT
    ========================================================= */
 
 lancer.addEventListener(
@@ -762,200 +704,584 @@ lancer.addEventListener(
 
 function lancerPartie() {
 
+    if (
+        equipes.length !==
+        nombreEquipes
+    ) {
+
+        return;
+
+    }
+
+
+    if (
+        themesDuJeu.length <
+        nombreEquipes
+    ) {
+
+        return;
+
+    }
+
+
+    equipeQuiJoue = 1;
+
     scores =
-        new Array(nombreEquipes).fill(0);
+        new Array(
+            nombreEquipes
+        ).fill(0);
 
-    equipeActuelle = 1;
 
-    territoireActuel = null;
+    caseActuelle = null;
 
     partieTerminee = false;
+
 
     questionPanel.classList.add(
         "jeu-cache"
     );
 
-    terminerPartie.disabled = false;
 
-    creerTerritoires();
+    if (
+        terminerPartie
+    ) {
 
-    afficherLegende();
+        terminerPartie.disabled =
+            false;
 
-    afficherScores();
+    }
 
-    afficherEquipe();
+
+    if (
+        afficherCouleurs
+    ) {
+
+        afficherCouleurs.checked =
+            true;
+
+    }
+
+
+    if (
+        grilleJeu
+    ) {
+
+        grilleJeu.classList.remove(
+            "jeu-sans-couleurs"
+        );
+
+    }
+
+
+    creerPlateau();
+
 
     afficherEcran(
         jeu
     );
 
+
+    afficherEquipeQuiJoue();
+
+    afficherScores();
+
 }
 
 
 /* =========================================================
-   CRÉATION DES TERRITOIRES
+   SLIDER DES COULEURS
    ========================================================= */
 
-function creerTerritoires() {
+if (
+    afficherCouleurs
+) {
 
-    carteConquete.innerHTML = "";
+    afficherCouleurs.addEventListener(
+        "change",
+        () => {
 
-    territoires = [];
+            mettreAJourCouleursPlateau();
 
+        }
+    );
 
-    /*
-     * Première carte :
-     * 36 territoires.
-     *
-     * Les coordonnées sont volontairement
-     * irrégulières pour donner un aspect
-     * plateau de jeu.
-     */
-
-    const formes = [
-
-        [40,40, 150,30, 270,55, 250,145, 120,150],
-
-        [270,55, 390,25, 500,65, 470,155, 250,145],
-
-        [500,65, 630,35, 750,75, 720,160, 470,155],
-
-        [750,75, 900,45, 965,130, 910,220, 720,160],
-
-        [25,165, 120,150, 250,145, 225,250, 105,265],
-
-        [250,145, 470,155, 450,250, 225,250],
-
-        [470,155, 720,160, 700,255, 450,250],
-
-        [720,160, 910,220, 875,305, 700,255],
-
-        [105,265, 225,250, 210,360, 85,380, 30,320],
-
-        [225,250, 450,250, 430,360, 210,360],
-
-        [450,250, 700,255, 675,365, 430,360],
-
-        [700,255, 875,305, 900,390, 675,365],
-
-        [85,380, 210,360, 220,470, 100,500, 40,440],
-
-        [210,360, 430,360, 445,475, 220,470],
-
-        [430,360, 675,365, 660,480, 445,475],
-
-        [675,365, 900,390, 950,475, 850,530, 660,480],
-
-        [100,500, 220,470, 250,590, 120,635, 50,565],
-
-        [220,470, 445,475, 460,590, 250,590],
-
-        [445,475, 660,480, 650,600, 460,590],
-
-        [660,480, 850,530, 900,625, 650,600],
-
-        [120,635, 250,590, 300,675, 170,690],
-
-        [250,590, 460,590, 470,680, 300,675],
-
-        [460,590, 650,600, 620,685, 470,680],
-
-        [650,600, 900,625, 850,685, 620,685],
-
-        [40,40, 120,150, 25,165, 20,90],
-
-        [120,150, 250,145, 225,250, 105,265],
-
-        [25,165, 105,265, 30,320, 10,220],
-
-        [30,320, 85,380, 40,440, 5,365],
-
-        [40,440, 100,500, 50,565, 10,500],
-
-        [50,565, 120,635, 170,690, 70,680],
-
-        [900,45, 965,130, 910,220, 900,150],
-
-        [910,220, 875,305, 900,390, 980,330],
-
-        [900,390, 950,475, 850,530, 900,625, 980,560],
-
-        [900,625, 850,685, 950,680, 980,640],
-
-        [170,690, 300,675, 470,680, 500,700, 150,700],
-
-        [620,685, 850,685, 950,680, 900,700, 600,700]
-
-    ];
+}
 
 
-    formes.forEach(
-        (points, index) => {
+/* =========================================================
+   CRÉATION DU PLATEAU
+   ========================================================= */
 
-            const polygon =
-                document.createElementNS(
-                    "http://www.w3.org/2000/svg",
-                    "polygon"
+function creerPlateau() {
+
+    grilleJeu.innerHTML = "";
+
+    plateau = [];
+
+
+    const taille =
+        10;
+
+
+    grilleJeu.style.gridTemplateColumns =
+        `repeat(${taille}, minmax(35px, 1fr))`;
+
+
+    for (
+        let ligne = 0;
+        ligne < taille;
+        ligne++
+    ) {
+
+        for (
+            let colonne = 0;
+            colonne < taille;
+            colonne++
+        ) {
+
+            const index =
+                ligne * taille +
+                colonne;
+
+
+            /*
+             * Choix aléatoire du thème
+             */
+
+            const indexTheme =
+                themesDuJeu[
+                    Math.floor(
+                        Math.random() *
+                        themesDuJeu.length
+                    )
+                ];
+
+
+            const theme =
+                themes[indexTheme];
+
+
+            /*
+             * Questions correspondant au thème
+             */
+
+            const questionsTheme =
+                questions.filter(
+                    question =>
+                        question.theme ===
+                        theme.nom
                 );
 
-            const coordonnees = [];
 
-            for (
-                let i = 0;
-                i < points.length;
-                i += 2
+            let question;
+
+
+            if (
+                questionsTheme.length > 0
             ) {
 
-                coordonnees.push(
-                    `${points[i]},${points[i + 1]}`
-                );
+                question =
+                    questionsTheme[
+                        Math.floor(
+                            Math.random() *
+                            questionsTheme.length
+                        )
+                    ];
 
             }
 
-            polygon.setAttribute(
-                "points",
-                coordonnees.join(" ")
+            else {
+
+                question = {
+
+                    question:
+                        "Aucune question disponible pour ce thème."
+
+                };
+
+            }
+
+
+            /*
+             * Données de la case
+             */
+
+            const caseJeu = {
+
+                index: index,
+
+                ligne: ligne,
+
+                colonne: colonne,
+
+                numero: index + 1,
+
+                theme: theme,
+
+                indexTheme: indexTheme,
+
+                question: question.question,
+
+                proprietaire: null
+
+            };
+
+
+            plateau.push(
+                caseJeu
             );
 
-            polygon.classList.add(
-                "territoire"
-            );
 
-            polygon.dataset.id =
+            /*
+             * Bouton HTML
+             */
+
+            const bouton =
+                document.createElement("button");
+
+
+            bouton.type =
+                "button";
+
+
+            bouton.className =
+                "jeu-case-plateau";
+
+
+            bouton.textContent =
+                index + 1;
+
+
+            bouton.dataset.index =
                 index;
 
-            polygon.addEventListener(
+
+            bouton.style.setProperty(
+                "--couleur-theme",
+                theme.couleur
+            );
+
+
+            bouton.addEventListener(
                 "click",
                 () => {
 
-                    cliquerTerritoire(
-                        index,
-                        polygon
+                    ouvrirQuestion(
+                        caseJeu,
+                        bouton
                     );
 
                 }
             );
 
-            carteConquete.appendChild(
-                polygon
+
+            grilleJeu.appendChild(
+                bouton
             );
 
+        }
 
-            territoires.push({
+    }
 
-                id:
-                    index,
 
-                equipe:
-                    null,
+    mettreAJourCouleursPlateau();
 
-                element:
-                    polygon,
+}
 
-                question:
-                    choisirQuestion()
 
-            });
+/* =========================================================
+   VOISINS D'UNE CASE
+   ========================================================= */
+
+function obtenirVoisins(
+    caseJeu
+) {
+
+    const voisins = [];
+
+
+    const ligne =
+        caseJeu.ligne;
+
+
+    const colonne =
+        caseJeu.colonne;
+
+
+    const taille =
+        10;
+
+
+    /*
+     * HAUT
+     */
+
+    if (
+        ligne > 0
+    ) {
+
+        voisins.push(
+            plateau[
+                (ligne - 1) *
+                taille +
+                colonne
+            ]
+        );
+
+    }
+
+
+    /*
+     * DROITE
+     */
+
+    if (
+        colonne <
+        taille - 1
+    ) {
+
+        voisins.push(
+            plateau[
+                ligne *
+                taille +
+                (colonne + 1)
+            ]
+        );
+
+    }
+
+
+    /*
+     * BAS
+     */
+
+    if (
+        ligne <
+        taille - 1
+    ) {
+
+        voisins.push(
+            plateau[
+                (ligne + 1) *
+                taille +
+                colonne
+            ]
+        );
+
+    }
+
+
+    /*
+     * GAUCHE
+     */
+
+    if (
+        colonne > 0
+    ) {
+
+        voisins.push(
+            plateau[
+                ligne *
+                taille +
+                (colonne - 1)
+            ]
+        );
+
+    }
+
+
+    return voisins;
+
+}
+
+
+/* =========================================================
+   CONQUÊTE D'UNE CASE
+   ========================================================= */
+
+function conquerirCase(
+    caseJeu,
+    equipe
+) {
+
+    caseJeu.proprietaire =
+        equipe.numero;
+
+
+    mettreAJourAffichageCase(
+        caseJeu
+    );
+
+}
+
+
+/* =========================================================
+   CONQUÊTE D'UNE ZONE
+   ========================================================= */
+
+function conquerirZone(
+    caseJeu
+) {
+
+    const equipe =
+        equipes[
+            equipeQuiJoue - 1
+        ];
+
+
+    /*
+     * Case sélectionnée
+     */
+
+    conquerirCase(
+        caseJeu,
+        equipe
+    );
+
+
+    /*
+     * Cases adjacentes
+     */
+
+    const voisins =
+        obtenirVoisins(
+            caseJeu
+        );
+
+
+    voisins.forEach(
+        voisin => {
+
+            conquerirCase(
+                voisin,
+                equipe
+            );
+
+        }
+    );
+
+
+    /*
+     * Mise à jour globale
+     */
+
+    mettreAJourPlateau();
+
+}
+
+
+/* =========================================================
+   AFFICHAGE D'UNE CASE CONQUISE
+   ========================================================= */
+
+function mettreAJourAffichageCase(
+    caseJeu
+) {
+
+    const bouton =
+        grilleJeu.querySelector(
+            `[data-index="${caseJeu.index}"]`
+        );
+
+
+    if (!bouton) {
+
+        return;
+
+    }
+
+
+    /*
+     * Suppression des anciennes classes
+     */
+
+    bouton.classList.remove(
+        "jeu-case-equipe-1",
+        "jeu-case-equipe-2",
+        "jeu-case-equipe-3",
+        "jeu-case-equipe-4",
+        "jeu-case-equipe-5",
+        "jeu-case-equipe-6",
+        "jeu-case-equipe-7",
+        "jeu-case-equipe-8"
+    );
+
+
+    /*
+     * Case libre
+     */
+
+    if (
+        caseJeu.proprietaire === null
+    ) {
+
+        bouton.style.removeProperty(
+            "--couleur-equipe"
+        );
+
+        bouton.classList.remove(
+            "jeu-case-conquise"
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * Équipe propriétaire
+     */
+
+    const equipe =
+        equipes[
+            caseJeu.proprietaire - 1
+        ];
+
+
+    if (!equipe) {
+
+        return;
+
+    }
+
+
+    const couleur =
+        couleursEquipes[
+            (equipe.numero - 1) %
+            couleursEquipes.length
+        ];
+
+
+    bouton.style.setProperty(
+        "--couleur-equipe",
+        couleur
+    );
+
+
+    bouton.classList.add(
+        `jeu-case-equipe-${equipe.numero}`
+    );
+
+
+    bouton.classList.add(
+        "jeu-case-conquise"
+    );
+
+}
+
+
+/* =========================================================
+   MISE À JOUR DE TOUT LE PLATEAU
+   ========================================================= */
+
+function mettreAJourPlateau() {
+
+    plateau.forEach(
+        caseJeu => {
+
+            mettreAJourAffichageCase(
+                caseJeu
+            );
 
         }
     );
@@ -964,242 +1290,144 @@ function creerTerritoires() {
 
 
 /* =========================================================
-   QUESTION ALÉATOIRE
+   COULEURS DES THÈMES
    ========================================================= */
 
-function choisirQuestion() {
+function mettreAJourCouleursPlateau() {
 
-    const disponibles =
-        questions.filter(
-            question =>
-                themesDuJeu.some(
-                    index =>
-                        themes[index].nom ===
-                        question.theme
-                )
-        );
+    if (!afficherCouleurs) {
 
-    if (
-        disponibles.length === 0
-    ) {
-
-        return {
-
-            theme: "NSI",
-
-            question:
-                "Question indisponible.",
-
-            reponses: [
-                "A",
-                "B",
-                "C",
-                "D"
-            ],
-
-            bonneReponse: 0
-
-        };
+        return;
 
     }
 
-    return disponibles[
-        Math.floor(
-            Math.random() *
-            disponibles.length
-        )
-    ];
+
+    if (
+        afficherCouleurs.checked
+    ) {
+
+        grilleJeu.classList.remove(
+            "jeu-sans-couleurs"
+        );
+
+    }
+
+    else {
+
+        grilleJeu.classList.add(
+            "jeu-sans-couleurs"
+        );
+
+    }
+
+
+    /*
+     * Les couleurs des équipes restent
+     * toujours visibles.
+     */
+
+    mettreAJourPlateau();
 
 }
 
 
 /* =========================================================
-   TERRITOIRE CLIQUÉ
-   ========================================================= */
-
-function cliquerTerritoire(
-    id,
-    element
-) {
-
-    if (partieTerminee) {
-        return;
-    }
-
-    if (territoireActuel !== null) {
-        return;
-    }
-
-    const territoire =
-        territoires[id];
-
-
-    /*
-     * Territoire déjà conquis :
-     * pour cette première version,
-     * on ne peut pas l'attaquer.
-     */
-
-    if (
-        territoire.equipe !== null
-    ) {
-
-        return;
-
-    }
-
-
-    /*
-     * Premier territoire :
-     * libre.
-     */
-
-    if (
-        !aTerritoireEquipe(
-            equipeActuelle
-        )
-    ) {
-
-        ouvrirQuestion(
-            territoire
-        );
-
-        return;
-
-    }
-
-
-    /*
-     * Ensuite :
-     * il faut être adjacent.
-     */
-
-    if (
-        !estAdjacent(
-            id,
-            equipeActuelle
-        )
-    ) {
-
-        messageJeu.textContent =
-            "⚠️ Vous devez choisir un territoire adjacent à votre territoire.";
-
-        element.classList.add(
-            "territoire-refus"
-        );
-
-        setTimeout(
-            () => {
-
-                element.classList.remove(
-                    "territoire-refus"
-                );
-
-            },
-            500
-        );
-
-        return;
-
-    }
-
-
-    ouvrirQuestion(
-        territoire
-    );
-
-}
-
-
-/* =========================================================
-   OUVRIR QUESTION
+   OUVERTURE D'UNE QUESTION
    ========================================================= */
 
 function ouvrirQuestion(
-    territoire
+    caseJeu,
+    bouton
 ) {
 
-    territoireActuel =
-        territoire;
+    /*
+     * Partie terminée
+     */
 
-    const question =
-        territoire.question;
+    if (
+        partieTerminee
+    ) {
 
-    questionTheme.textContent =
-        question.theme;
-
-    const theme =
-        themes.find(
-            t =>
-                t.nom ===
-                question.theme
-        );
-
-    if (theme) {
-
-        questionTheme.style.background =
-            theme.couleur;
+        return;
 
     }
 
-    questionTerritoire.textContent =
-        `Territoire ${territoire.id + 1}`;
+
+    /*
+     * Une case déjà conquise ne peut
+     * pas être sélectionnée.
+     */
+
+    if (
+        caseJeu.proprietaire !== null
+    ) {
+
+        return;
+
+    }
+
+
+    caseActuelle = {
+
+        donnees:
+            caseJeu,
+
+        bouton:
+            bouton
+
+    };
+
+
+    const equipe =
+        equipes[
+            equipeQuiJoue - 1
+        ];
+
+
+    /*
+     * Thème
+     */
+
+    questionTheme.textContent =
+        `${caseJeu.theme.emoji} ${caseJeu.theme.nom}`;
+
+
+    questionTheme.style.background =
+        caseJeu.theme.couleur;
+
+
+    /*
+     * Numéro
+     */
+
+    questionNumero.textContent =
+        `Case ${caseJeu.numero} / 100`;
+
+
+    /*
+     * Question
+     */
 
     questionTexte.textContent =
-        question.question;
+        caseJeu.question;
 
 
-    const boutons = [
+    /*
+     * Message
+     */
 
-        document.getElementById(
-            "reponse-a"
-        ),
-
-        document.getElementById(
-            "reponse-b"
-        ),
-
-        document.getElementById(
-            "reponse-c"
-        ),
-
-        document.getElementById(
-            "reponse-d"
-        )
-
-    ];
+    messageJeu.textContent =
+        `🎯 ${equipe.nom} doit répondre`;
 
 
-    boutons.forEach(
-        (bouton, index) => {
-
-            bouton.textContent =
-                `${String.fromCharCode(65 + index)}. ${
-                    question.reponses[index]
-                }`;
-
-            bouton.disabled = false;
-
-            bouton.classList.remove(
-                "bonne",
-                "mauvaise"
-            );
-
-            bouton.onclick = () => {
-
-                traiterReponse(
-                    index
-                );
-
-            };
-
-        }
-    );
-
+    /*
+     * Affichage
+     */
 
     questionPanel.classList.remove(
         "jeu-cache"
     );
+
 
     questionPanel.scrollIntoView({
 
@@ -1215,162 +1443,47 @@ function ouvrirQuestion(
 
 
 /* =========================================================
-   RÉPONSE
+   RÉPONSE CORRECTE
    ========================================================= */
 
-function traiterReponse(
-    index
-) {
-
-    if (
-        !territoireActuel
-    ) {
-
-        return;
-
-    }
-
-    const question =
-        territoireActuel.question;
-
-    const boutons = [
-
-        document.getElementById("reponse-a"),
-        document.getElementById("reponse-b"),
-        document.getElementById("reponse-c"),
-        document.getElementById("reponse-d")
-
-    ];
-
-    boutons.forEach(
-        bouton => {
-            bouton.disabled = true;
-        }
-    );
-
-
-    const correcte =
-        index ===
-        question.bonneReponse;
-
-
-    if (correcte) {
-
-        conquérirTerritoire();
-
-    }
-
-    else {
-
-        boutons[index].classList.add(
-            "mauvaise"
-        );
-
-        boutons[
-            question.bonneReponse
-        ].classList.add(
-            "bonne"
-        );
-
-        messageJeu.textContent =
-            `❌ Mauvaise réponse. Le territoire reste neutre.`;
-
-        setTimeout(
-            fermerQuestionEtContinuer,
-            1400
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   CONQUÊTE
-   ========================================================= */
-
-function conquérirTerritoire() {
-
-    const territoire =
-        territoireActuel;
-
-    territoire.equipe =
-        equipeActuelle;
-
-
-    territoire.element.style.setProperty(
-        "--couleur-equipe",
-        equipes[
-            equipeActuelle - 1
-        ].couleur
-    );
-
-    territoire.element.classList.add(
-        "territoire-conquis"
-    );
-
-
-    scores[
-        equipeActuelle - 1
-    ]++;
-
-
-    messageJeu.textContent =
-        `🏆 ${equipes[equipeActuelle - 1].nom} conquiert le territoire !`;
-
-
-    afficherScores();
-
-
-    setTimeout(
-        () => {
-
-            fermerQuestionEtContinuer();
-
-        },
-        1000
-    );
-
-}
-
-
-/* =========================================================
-   FERMER QUESTION
-   ========================================================= */
-
-fermerQuestion.addEventListener(
+reponseCorrecte.addEventListener(
     "click",
     () => {
 
-        if (
-            territoireActuel
-        ) {
-
-            territoireActuel =
-                null;
-
-        }
-
-        questionPanel.classList.add(
-            "jeu-cache"
+        traiterReponse(
+            true
         );
 
     }
 );
 
 
-function fermerQuestionEtContinuer() {
+/* =========================================================
+   RÉPONSE INCORRECTE
+   ========================================================= */
 
-    questionPanel.classList.add(
-        "jeu-cache"
-    );
+reponseIncorrecte.addEventListener(
+    "click",
+    () => {
 
-    territoireActuel =
-        null;
+        traiterReponse(
+            false
+        );
 
+    }
+);
+
+
+/* =========================================================
+   TRAITEMENT DE LA RÉPONSE
+   ========================================================= */
+
+function traiterReponse(
+    correcte
+) {
 
     if (
-        verifierFinPartie()
+        !caseActuelle
     ) {
 
         return;
@@ -1378,91 +1491,142 @@ function fermerQuestionEtContinuer() {
     }
 
 
-    equipeActuelle++;
+    const caseJeu =
+        caseActuelle.donnees;
+
+
+    const equipe =
+        equipes[
+            equipeQuiJoue - 1
+        ];
+
+
+    /*
+     * =========================================
+     * BONNE RÉPONSE
+     * =========================================
+     */
 
     if (
-        equipeActuelle >
-        nombreEquipes
+        correcte
     ) {
 
-        equipeActuelle = 1;
+        conquerirZone(
+            caseJeu
+        );
+
+
+        messageJeu.textContent =
+            `✅ ${equipe.nom} conquiert la case et ses voisines !`;
 
     }
 
 
-    afficherEquipe();
-
-}
-
-
-/* =========================================================
-   ADJACENCE
-   ========================================================= */
-
-function estAdjacent(
-    id,
-    equipe
-) {
-
     /*
-     * Première approximation :
-     * les territoires sont voisins
-     * lorsque leur numéro est proche.
-     *
-     * Cette fonction sera remplacée
-     * par une vraie définition des
-     * frontières dans la prochaine version.
+     * =========================================
+     * MAUVAISE RÉPONSE
+     * =========================================
      */
 
-    const possedes =
-        territoires.filter(
-            t =>
-                t.equipe === equipe
-        );
+    else {
 
-    return possedes.some(
-        territoire =>
-            Math.abs(
-                territoire.id - id
-            ) <= 5
+        messageJeu.textContent =
+            `❌ Mauvaise réponse pour ${equipe.nom}`;
+
+    }
+
+
+    /*
+     * Fermeture de la question
+     */
+
+    questionPanel.classList.add(
+        "jeu-cache"
     );
+
+
+    caseActuelle =
+        null;
+
+
+    /*
+     * Scores
+     */
+
+    afficherScores();
+
+
+    /*
+     * Vérification de la fin
+     */
+
+    if (
+        verifierFinTerritoire()
+    ) {
+
+        return;
+
+    }
+
+
+    /*
+     * Équipe suivante
+     */
+
+    equipeQuiJoue++;
+
+
+    if (
+        equipeQuiJoue >
+        nombreEquipes
+    ) {
+
+        equipeQuiJoue =
+            1;
+
+    }
+
+
+    afficherEquipeQuiJoue();
+
+    afficherScores();
 
 }
 
 
 /* =========================================================
-   L'ÉQUIPE POSSÈDE-T-ELLE UN TERRITOIRE ?
+   ÉQUIPE QUI JOUE
    ========================================================= */
 
-function aTerritoireEquipe(
-    equipe
-) {
+function afficherEquipeQuiJoue() {
 
-    return territoires.some(
-        territoire =>
-            territoire.equipe === equipe
-    );
+    if (
+        partieTerminee
+    ) {
 
-}
+        return;
 
+    }
 
-/* =========================================================
-   ÉQUIPE ACTUELLE
-   ========================================================= */
-
-function afficherEquipe() {
 
     const equipe =
         equipes[
-            equipeActuelle - 1
+            equipeQuiJoue - 1
         ];
 
-    const specialite =
-        specialites.find(
-            s =>
-                s.equipe ===
-                equipeActuelle
-        );
+
+    if (!equipe) {
+
+        return;
+
+    }
+
+
+    const couleur =
+        couleursEquipes[
+            (equipe.numero - 1) %
+            couleursEquipes.length
+        ];
 
 
     equipeQuiJoueElement.innerHTML = `
@@ -1473,25 +1637,71 @@ function afficherEquipe() {
             ${equipe.nom}
         </strong>
 
-        <span class="jeu-tour-specialite">
-
-            ${specialite.emoji}
-            ${specialite.nom}
-
-        </span>
-
     `;
+
+
+    equipeQuiJoueElement.style.border =
+        `3px solid ${couleur}`;
+
+
+    afficherScores();
 
 }
 
 
 /* =========================================================
-   SCORES
+   CALCUL DES TERRITOIRES
+   ========================================================= */
+
+function calculerTerritoires() {
+
+    const territoires =
+        new Array(
+            nombreEquipes
+        ).fill(0);
+
+
+    plateau.forEach(
+        caseJeu => {
+
+            if (
+                caseJeu.proprietaire !== null
+            ) {
+
+                territoires[
+                    caseJeu.proprietaire - 1
+                ]++;
+
+            }
+
+        }
+    );
+
+
+    return territoires;
+
+}
+
+
+/* =========================================================
+   AFFICHAGE DES SCORES
    ========================================================= */
 
 function afficherScores() {
 
+    if (!scoresEquipes) {
+
+        return;
+
+    }
+
+
+    const territoires =
+        calculerTerritoires();
+
+
     scoresEquipes.innerHTML = "";
+
 
     equipes.forEach(
         (equipe, index) => {
@@ -1499,13 +1709,14 @@ function afficherScores() {
             const element =
                 document.createElement("div");
 
+
             element.className =
                 "jeu-score-equipe";
 
 
             if (
                 equipe.numero ===
-                equipeActuelle
+                equipeQuiJoue
             ) {
 
                 element.classList.add(
@@ -1515,9 +1726,16 @@ function afficherScores() {
             }
 
 
+            const couleur =
+                couleursEquipes[
+                    (equipe.numero - 1) %
+                    couleursEquipes.length
+                ];
+
+
             element.style.setProperty(
                 "--couleur-equipe",
-                equipe.couleur
+                couleur
             );
 
 
@@ -1529,14 +1747,18 @@ function afficherScores() {
                         ${equipe.nom}
                     </strong>
 
+                    <span>
+                        Équipe ${equipe.numero}
+                    </span>
+
                 </div>
 
                 <div class="jeu-score-points">
 
-                    ${scores[index]}
+                    ${territoires[index]}
 
                     <small>
-                        territoires
+                        cases
                     </small>
 
                 </div>
@@ -1555,87 +1777,21 @@ function afficherScores() {
 
 
 /* =========================================================
-   LÉGENDE
+   VÉRIFICATION DE FIN
    ========================================================= */
 
-function afficherLegende() {
+function verifierFinTerritoire() {
 
-    legendeTerritoires.innerHTML = "";
-
-    equipes.forEach(
-        equipe => {
-
-            const element =
-                document.createElement("div");
-
-            element.className =
-                "jeu-legende-equipe";
-
-            element.innerHTML = `
-
-                <span
-                    class="jeu-legende-couleur"
-                    style="
-                        background:
-                        ${equipe.couleur};
-                    ">
-                </span>
-
-                <span>
-                    ${equipe.nom}
-                </span>
-
-            `;
-
-            legendeTerritoires.appendChild(
-                element
-            );
-
-        }
-    );
-
-
-    const neutre =
-        document.createElement("div");
-
-    neutre.className =
-        "jeu-legende-equipe";
-
-    neutre.innerHTML = `
-
-        <span
-            class="jeu-legende-couleur
-                   jeu-legende-neutre">
-        </span>
-
-        <span>
-            Territoire neutre
-        </span>
-
-    `;
-
-    legendeTerritoires.appendChild(
-        neutre
-    );
-
-}
-
-
-/* =========================================================
-   FIN AUTOMATIQUE
-   ========================================================= */
-
-function verifierFinPartie() {
-
-    const restants =
-        territoires.filter(
-            territoire =>
-                territoire.equipe === null
-        );
+    const nombreCasesConquises =
+        plateau.filter(
+            caseJeu =>
+                caseJeu.proprietaire !== null
+        ).length;
 
 
     if (
-        restants.length === 0
+        nombreCasesConquises >=
+        plateau.length
     ) {
 
         afficherResultatsFinaux();
@@ -1644,37 +1800,72 @@ function verifierFinPartie() {
 
     }
 
+
     return false;
 
 }
 
 
 /* =========================================================
-   TERMINER
+   BOUTON TERMINER LA PARTIE
    ========================================================= */
 
-terminerPartie.addEventListener(
-    "click",
-    afficherResultatsFinaux
-);
+if (
+    terminerPartie
+) {
 
+    terminerPartie.addEventListener(
+        "click",
+        () => {
+
+            if (
+                partieTerminee
+            ) {
+
+                return;
+
+            }
+
+
+            if (
+                caseActuelle
+            ) {
+
+                questionPanel.classList.add(
+                    "jeu-cache"
+                );
+
+                caseActuelle =
+                    null;
+
+            }
+
+
+            afficherResultatsFinaux();
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   RÉSULTATS FINAUX
+   ========================================================= */
 
 function afficherResultatsFinaux() {
 
-    partieTerminee = true;
+    partieTerminee =
+        true;
+
 
     questionPanel.classList.add(
         "jeu-cache"
     );
 
-    territoires.forEach(
-        territoire => {
 
-            territoire.element.style.cursor =
-                "default";
-
-        }
-    );
+    const territoires =
+        calculerTerritoires();
 
 
     const classement =
@@ -1685,16 +1876,58 @@ function afficherResultatsFinaux() {
                     equipe:
                         equipe,
 
-                    score:
-                        scores[index]
+                    territoire:
+                        territoires[index]
 
                 })
             )
             .sort(
                 (a, b) =>
-                    b.score - a.score
+                    b.territoire -
+                    a.territoire
             );
 
+
+    /*
+     * Désactivation des cases
+     */
+
+    grilleJeu
+        .querySelectorAll(
+            ".jeu-case-plateau"
+        )
+        .forEach(
+            bouton => {
+
+                bouton.disabled =
+                    true;
+
+            }
+        );
+
+
+    /*
+     * Message
+     */
+
+    messageJeu.textContent =
+        "🏆 Partie terminée !";
+
+
+    equipeQuiJoueElement.innerHTML = `
+
+        🏁
+
+        <strong>
+            Partie terminée
+        </strong>
+
+    `;
+
+
+    /*
+     * Classement
+     */
 
     scoresEquipes.innerHTML = "";
 
@@ -1705,20 +1938,40 @@ function afficherResultatsFinaux() {
             const ligne =
                 document.createElement("div");
 
+
             ligne.className =
                 "jeu-classement-ligne";
 
 
             let medaille = "";
 
-            if (index === 0)
-                medaille = "🥇";
 
-            else if (index === 1)
-                medaille = "🥈";
+            if (
+                index === 0
+            ) {
 
-            else if (index === 2)
-                medaille = "🥉";
+                medaille =
+                    "🥇";
+
+            }
+
+            else if (
+                index === 1
+            ) {
+
+                medaille =
+                    "🥈";
+
+            }
+
+            else if (
+                index === 2
+            ) {
+
+                medaille =
+                    "🥉";
+
+            }
 
 
             ligne.innerHTML = `
@@ -1735,15 +1988,8 @@ function afficherResultatsFinaux() {
                 </span>
 
                 <strong>
-
-                    ${element.score}
-
-                    territoire${
-                        element.score > 1
-                        ? "s"
-                        : ""
-                    }
-
+                    ${element.territoire}
+                    case${element.territoire > 1 ? "s" : ""}
                 </strong>
 
             `;
@@ -1757,22 +2003,18 @@ function afficherResultatsFinaux() {
     );
 
 
-    equipeQuiJoueElement.innerHTML = `
+    /*
+     * Désactivation du bouton
+     */
 
-        🏁
+    if (
+        terminerPartie
+    ) {
 
-        <strong>
-            Partie terminée
-        </strong>
+        terminerPartie.disabled =
+            true;
 
-    `;
-
-
-    messageJeu.textContent =
-        "🏆 La conquête est terminée !";
-
-    terminerPartie.disabled =
-        true;
+    }
 
 }
 
@@ -1785,33 +2027,60 @@ function afficherEcran(
     ecran
 ) {
 
-    [
+    const ecrans = [
 
         configuration,
+
         nomsEquipes,
+
         selection,
+
         recapitulatif,
+
         jeu
 
-    ].forEach(
+    ];
+
+
+    ecrans.forEach(
         element => {
 
-            element.classList.add(
-                "jeu-cache"
-            );
+            if (
+                element
+            ) {
+
+                element.classList.add(
+                    "jeu-cache"
+                );
+
+            }
 
         }
     );
 
 
-    ecran.classList.remove(
-        "jeu-cache"
-    );
+    if (
+        ecran
+    ) {
+
+        ecran.classList.remove(
+            "jeu-cache"
+        );
+
+    }
 
 
-    document
-        .querySelector(".mur-nsi")
-        .scrollIntoView({
+    const mur =
+        document.querySelector(
+            ".mur-nsi"
+        );
+
+
+    if (
+        mur
+    ) {
+
+        mur.scrollIntoView({
 
             behavior:
                 "smooth",
@@ -1820,5 +2089,7 @@ function afficherEcran(
                 "start"
 
         });
+
+    }
 
 }

@@ -9,13 +9,9 @@
     <section id="configuration" class="jeu-ecran">
 
         <div class="jeu-header">
-            <div class="jeu-logo">🏆</div>
 
-            <h1>Conquête NSI</h1>
-
-            <p>
-                Préparez votre partie
-            </p>
+            <h1>La Conquête NSI</h1>
+            <p>Préparez votre partie</p>
         </div>
 
         <div class="jeu-contenu">
@@ -33,9 +29,7 @@
                         −
                     </button>
 
-                    <span id="nombre-equipes">
-                        4
-                    </span>
+                    <span id="nombre-equipes">4</span>
 
                     <button
                         id="plus"
@@ -47,22 +41,23 @@
                 </div>
 
 
-                <!-- ================================
-                     THÈMES
-                     ================================ -->
+                <!-- =================================================
+                     NOMBRE DE THÈMES
+                     ================================================= -->
 
                 <div class="jeu-selection-themes">
 
                     <h2>Choisissez les thèmes</h2>
 
-                    <p id="compteur-themes"
-                       class="jeu-compteur-themes">
-                        0 thème sélectionné
+                    <p class="jeu-description-themes">
+                        Sélectionnez au moins autant de thèmes
+                        qu'il y a d'équipes.
                     </p>
 
-                    <p class="jeu-info">
-                        Sélectionnez au minimum autant
-                        de thèmes qu'il y a d'équipes.
+                    <p
+                        id="compteur-themes"
+                        class="jeu-compteur-themes">
+                        0 thème sélectionné
                     </p>
 
                     <div
@@ -76,7 +71,8 @@
                 <button
                     id="commencer-noms"
                     class="jeu-bouton-principal"
-                    type="button">
+                    type="button"
+                    disabled>
                     Continuer
                 </button>
 
@@ -97,9 +93,9 @@
 
         <div class="jeu-header">
 
-            <div class="jeu-logo">🏆</div>
+            <div class="jeu-logo">🏰</div>
 
-            <h1>Conquête NSI</h1>
+            <h1>La Conquête NSI</h1>
 
             <p>
                 Donnez un nom à chaque équipe
@@ -120,55 +116,8 @@
                     id="valider-noms"
                     class="jeu-bouton-principal"
                     type="button">
-                    Choisir les spécialités
+                    Préparer le plateau
                 </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         CHOIX DES SPÉCIALITÉS
-         ===================================================== -->
-
-    <section
-        id="selection"
-        class="jeu-ecran jeu-cache">
-
-        <div class="jeu-header">
-
-            <div class="jeu-logo">🧠</div>
-
-            <h1>Choisissez votre spécialité</h1>
-
-            <p id="instruction-selection">
-            </p>
-
-        </div>
-
-        <div class="jeu-contenu">
-
-            <div
-                id="grille-themes"
-                class="jeu-grille">
-            </div>
-
-            <div class="jeu-progression">
-
-                <div id="texte-progression">
-                </div>
-
-                <div class="jeu-barre">
-
-                    <div
-                        id="progression"
-                        class="jeu-progression-interne">
-                    </div>
-
-                </div>
 
             </div>
 
@@ -187,12 +136,12 @@
 
         <div class="jeu-header">
 
-            <div class="jeu-logo">🗺️</div>
+       
 
             <h1>La partie est prête !</h1>
 
             <p>
-                Les équipes sont prêtes à conquérir
+                Les équipes vont maintenant conquérir
                 le territoire.
             </p>
 
@@ -218,7 +167,7 @@
                     id="lancer"
                     class="jeu-bouton-principal"
                     type="button">
-                    🗺️ Lancer la conquête
+                    🚀 Lancer la partie
                 </button>
 
             </div>
@@ -238,12 +187,12 @@
 
         <div class="jeu-header">
 
-            <div class="jeu-logo">🗺️</div>
+    
 
-            <h1>Conquête NSI</h1>
+            <h1>La Conquête NSI</h1>
 
             <p id="message-jeu">
-                Choisissez un territoire
+                Choisissez une case à conquérir
             </p>
 
         </div>
@@ -252,9 +201,9 @@
         <div class="jeu-contenu">
 
 
-            <!-- =========================================
-                 ÉQUIPE QUI JOUE
-                 ========================================= -->
+            <!-- =================================================
+                 ÉQUIPE ACTUELLE
+                 ================================================= -->
 
             <div
                 id="equipe-qui-joue"
@@ -262,9 +211,9 @@
             </div>
 
 
-            <!-- =========================================
-                 SCORES / ÉQUIPES
-                 ========================================= -->
+            <!-- =================================================
+                 SCORES
+                 ================================================= -->
 
             <div
                 id="scores-equipes"
@@ -272,39 +221,55 @@
             </div>
 
 
-            <!-- =========================================
-                 LÉGENDE
-                 ========================================= -->
+            <!-- =================================================
+                 LÉGENDE / OPTIONS
+                 ================================================= -->
+
+            <div class="jeu-options-plateau">
+
+                <div class="jeu-legende">
+
+                    <strong>Légende :</strong>
+
+                    <div
+                        id="legende-themes"
+                        class="jeu-legende-themes">
+                    </div>
+
+                </div>
+
+
+                <label class="jeu-switch">
+
+                    <input
+                        type="checkbox"
+                        id="afficher-couleurs"
+                        checked>
+
+                    <span class="jeu-slider"></span>
+
+                    <span class="jeu-switch-texte">
+                        Afficher les thèmes
+                    </span>
+
+                </label>
+
+            </div>
+
+
+            <!-- =================================================
+                 PLATEAU
+                 ================================================= -->
 
             <div
-                id="legende-territoires"
-                class="jeu-legende">
+                id="grille-jeu"
+                class="jeu-plateau">
             </div>
 
 
-            <!-- =========================================
-                 CARTE
-                 ========================================= -->
-
-            <div class="jeu-carte-container">
-
-                <svg
-                    id="carte-conquete"
-                    class="jeu-carte"
-                    viewBox="0 0 1000 700"
-                    preserveAspectRatio="xMidYMid meet">
-
-                    <!-- Les territoires sont générés
-                         par JavaScript -->
-
-                </svg>
-
-            </div>
-
-
-            <!-- =========================================
+            <!-- =================================================
                  QUESTION
-                 ========================================= -->
+                 ================================================= -->
 
             <div
                 id="question-panel"
@@ -316,7 +281,7 @@
                 </div>
 
                 <div
-                    id="question-territoire"
+                    id="question-numero"
                     class="jeu-question-numero">
                 </div>
 
@@ -324,43 +289,44 @@
                     Question
                 </h2>
 
+
+                <!-- RÉPONSE CACHÉE -->
+
                 <div
-                    class="jeu-reponses">
+                    id="reponse-cachee"
+                    class="jeu-reponse-cachee">
 
                     <button
-                        id="reponse-a"
-                        class="jeu-reponse-bouton"
+                        id="afficher-reponse"
+                        class="jeu-bouton-reponse"
                         type="button">
+                        👁️ Afficher la réponse
                     </button>
 
-                    <button
-                        id="reponse-b"
-                        class="jeu-reponse-bouton"
-                        type="button">
-                    </button>
-
-                    <button
-                        id="reponse-c"
-                        class="jeu-reponse-bouton"
-                        type="button">
-                    </button>
-
-                    <button
-                        id="reponse-d"
-                        class="jeu-reponse-bouton"
-                        type="button">
-                    </button>
+                    <div
+                        id="reponse-attendue"
+                        class="jeu-reponse-attendue jeu-cache">
+                    </div>
 
                 </div>
 
-                <div
-                    class="jeu-question-actions">
+
+                <!-- ACTIONS -->
+
+                <div class="jeu-question-actions">
 
                     <button
-                        id="fermer-question"
-                        class="jeu-bouton-secondaire"
+                        id="reponse-correcte"
+                        class="jeu-bouton-correct"
                         type="button">
-                        Annuler
+                        ✅ Bonne réponse
+                    </button>
+
+                    <button
+                        id="reponse-incorrecte"
+                        class="jeu-bouton-incorrect"
+                        type="button">
+                        ❌ Mauvaise réponse
                     </button>
 
                 </div>
@@ -368,9 +334,9 @@
             </div>
 
 
-            <!-- =========================================
+            <!-- =================================================
                  TERMINER
-                 ========================================= -->
+                 ================================================= -->
 
             <div class="jeu-fin">
 
@@ -378,17 +344,15 @@
                     id="terminer-partie"
                     class="jeu-bouton-fin"
                     type="button">
-
                     🏁 Terminer la partie
-
                 </button>
 
             </div>
 
 
-            <!-- =========================================
-                 CLASSEMENT
-                 ========================================= -->
+            <!-- =================================================
+                 CLASSEMENT FINAL
+                 ================================================= -->
 
             <div
                 id="classement-final"
@@ -400,7 +364,6 @@
     </section>
 
 </div>
-
 
 
 <script src="questions.js"></script>

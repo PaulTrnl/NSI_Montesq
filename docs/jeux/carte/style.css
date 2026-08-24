@@ -1,5 +1,5 @@
 /* =========================================================
-   CONQUÊTE NSI
+   LA CONQUÊTE NSI
    ========================================================= */
 
    .mur-nsi {
@@ -79,8 +79,7 @@
 
     font-size: 2.2rem;
 
-    color:
-        var(--couleur-texte);
+    color: var(--couleur-texte);
 
 }
 
@@ -89,8 +88,7 @@
 
     margin-top: .5rem;
 
-    color:
-        var(--couleur-secondaire);
+    color: var(--couleur-secondaire);
 
 }
 
@@ -103,8 +101,7 @@
 
     max-width: 1100px;
 
-    margin:
-        0 auto;
+    margin: 0 auto;
 
 }
 
@@ -115,23 +112,17 @@
 
 .jeu-configuration {
 
-    max-width: 700px;
+    max-width: 800px;
 
-    margin:
-        0 auto;
+    margin: 0 auto;
 
-    padding:
-        2rem;
+    padding: 2rem;
 
-    background:
-        var(--couleur-carte);
+    background: var(--couleur-carte);
 
-    border:
-        1px solid
-        var(--couleur-bordure);
+    border: 1px solid var(--couleur-bordure);
 
-    border-radius:
-        16px;
+    border-radius: 16px;
 
 }
 
@@ -140,92 +131,91 @@
 
     margin-top: 0;
 
-    color:
-        var(--couleur-texte);
+    color: var(--couleur-texte);
 
 }
 
 
-.jeu-info {
+.jeu-description-themes {
 
-    color:
-        var(--couleur-secondaire);
+    color: var(--couleur-secondaire);
 
-    font-size:
-        .9rem;
+}
+
+
+.jeu-compteur-themes {
+
+    font-weight: 700;
+
+    color: var(--bleu);
+
+}
+
+
+.jeu-compteur-erreur {
+
+    color: var(--rouge) !important;
 
 }
 
 
 /* =========================================================
-   COMPTEUR
+   COMPTEUR ÉQUIPES
    ========================================================= */
 
 .jeu-compteur {
 
-    display:
-        flex;
+    display: flex;
 
-    justify-content:
-        center;
+    justify-content: center;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        1.5rem;
+    gap: 1.5rem;
 
-    margin:
-        1.5rem 0;
+    margin: 1.5rem 0;
 
 }
 
 
 .jeu-compteur span {
 
-    min-width:
-        60px;
+    min-width: 60px;
 
-    text-align:
-        center;
+    text-align: center;
 
-    font-size:
-        2rem;
+    font-size: 2rem;
 
-    font-weight:
-        800;
+    font-weight: 800;
 
-    color:
-        var(--couleur-texte);
+    color: var(--couleur-texte);
 
 }
 
 
 .jeu-bouton-compteur {
 
-    width:
-        45px;
+    width: 45px;
+    height: 45px;
 
-    height:
-        45px;
+    border: none;
 
-    border:
-        none;
+    border-radius: 50%;
 
-    border-radius:
-        50%;
+    background: var(--bleu);
 
-    background:
-        var(--bleu);
+    color: white;
 
-    color:
-        white;
+    font-size: 1.6rem;
 
-    font-size:
-        1.6rem;
+    cursor: pointer;
 
-    cursor:
-        pointer;
+}
+
+
+.jeu-bouton-compteur:hover {
+
+    background: var(--bleu-fonce);
 
 }
 
@@ -236,107 +226,83 @@
 
 .jeu-selection-themes {
 
-    margin-top:
-        2rem;
+    margin-top: 2rem;
 
-    padding-top:
-        1.5rem;
+    padding-top: 1.5rem;
 
-    border-top:
-        1px solid
-        var(--couleur-bordure);
-
-}
-
-
-.jeu-compteur-themes {
-
-    font-weight:
-        700;
-
-    color:
-        var(--bleu) !important;
+    border-top: 1px solid var(--couleur-bordure);
 
 }
 
 
 .jeu-themes-configuration {
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(
-                180px,
-                1fr
-            )
-        );
+        repeat(auto-fit, minmax(180px, 1fr));
 
-    gap:
-        .8rem;
+    gap: .8rem;
 
-    margin-top:
-        1.2rem;
+    margin-top: 1.2rem;
 
 }
 
 
 .jeu-theme-configuration {
 
-    position:
-        relative;
+    position: relative;
 
-    padding:
-        1rem;
+    padding: 1rem;
 
-    border:
-        2px solid
-        var(--couleur-theme);
+    border: 2px solid var(--couleur-theme);
 
-    border-radius:
-        10px;
+    border-radius: 10px;
 
-    background:
-        var(--couleur-fond);
+    background: var(--couleur-fond);
 
-    color:
-        var(--couleur-texte);
+    color: var(--couleur-texte);
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
-    font-weight:
-        600;
+    font-weight: 600;
+
+    transition: all .15s ease;
+
+}
+
+
+.jeu-theme-configuration:hover {
+
+    transform: translateY(-2px);
+
+    background: var(--couleur-theme);
+
+    color: white;
 
 }
 
 
 .jeu-theme-configuration.jeu-theme-selectionne {
 
-    background:
-        var(--couleur-theme);
+    background: var(--couleur-theme);
 
-    color:
-        white;
+    color: white;
 
 }
 
 
 .jeu-theme-check {
 
-    position:
-        absolute;
+    position: absolute;
 
-    top:
-        5px;
+    top: 5px;
 
-    right:
-        8px;
+    right: 8px;
 
-    opacity:
-        0;
+    font-weight: 900;
+
+    opacity: 0;
 
 }
 
@@ -344,8 +310,7 @@
 .jeu-theme-selectionne
 .jeu-theme-check {
 
-    opacity:
-        1;
+    opacity: 1;
 
 }
 
@@ -356,73 +321,60 @@
 
 .jeu-bouton-principal {
 
-    width:
-        100%;
+    width: 100%;
 
-    margin-top:
-        1.5rem;
+    margin-top: 1.5rem;
 
-    padding:
-        .9rem 1.2rem;
+    padding: .9rem 1.2rem;
 
-    border:
-        none;
+    border: none;
 
-    border-radius:
-        9px;
+    border-radius: 9px;
 
-    background:
-        var(--bleu);
+    background: var(--bleu);
 
-    color:
-        white;
+    color: white;
 
-    font-size:
-        1rem;
+    font-size: 1rem;
 
-    font-weight:
-        700;
+    font-weight: 700;
 
-    cursor:
-        pointer;
+    cursor: pointer;
+
+}
+
+
+.jeu-bouton-principal:hover {
+
+    background: var(--bleu-fonce);
 
 }
 
 
 .jeu-bouton-principal:disabled {
 
-    opacity:
-        .4;
+    opacity: .4;
 
-    cursor:
-        not-allowed;
+    cursor: not-allowed;
 
 }
 
 
 .jeu-bouton-secondaire {
 
-    padding:
-        .9rem 1.2rem;
+    padding: .9rem 1.2rem;
 
-    border:
-        1px solid
-        var(--couleur-bordure);
+    border: 1px solid var(--couleur-bordure);
 
-    border-radius:
-        9px;
+    border-radius: 9px;
 
-    background:
-        var(--couleur-carte);
+    background: var(--couleur-carte);
 
-    color:
-        var(--couleur-texte);
+    color: var(--couleur-texte);
 
-    font-weight:
-        600;
+    font-weight: 600;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
 }
 
@@ -433,69 +385,56 @@
 
 .jeu-formulaire-equipes {
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(
-                220px,
-                1fr
-            )
-        );
+        repeat(auto-fit, minmax(220px, 1fr));
 
-    gap:
-        1rem;
+    gap: 1rem;
 
 }
 
 
 .jeu-champ-equipe {
 
-    display:
-        flex;
+    display: flex;
 
-    flex-direction:
-        column;
+    flex-direction: column;
 
-    gap:
-        .4rem;
+    gap: .4rem;
 
 }
 
 
 .jeu-champ-equipe label {
 
-    font-weight:
-        700;
+    font-weight: 700;
 
-    color:
-        var(--couleur-texte);
+    color: var(--couleur-texte);
 
 }
 
 
 .jeu-champ-equipe input {
 
-    padding:
-        .8rem;
+    padding: .8rem;
 
-    border:
-        1px solid
-        var(--couleur-bordure);
+    border: 1px solid var(--couleur-bordure);
 
-    border-radius:
-        8px;
+    border-radius: 8px;
 
-    background:
-        var(--couleur-carte);
+    background: var(--couleur-carte);
 
-    color:
-        var(--couleur-texte);
+    color: var(--couleur-texte);
 
-    font-size:
-        1rem;
+    font-size: 1rem;
+
+}
+
+
+.jeu-champ-equipe input:focus {
+
+    outline: 2px solid var(--bleu);
 
 }
 
@@ -506,403 +445,102 @@
 
 .jeu-actions {
 
-    display:
-        grid;
+    display: grid;
 
-    grid-template-columns:
-        1fr 2fr;
+    grid-template-columns: 1fr 2fr;
 
-    gap:
-        1rem;
+    gap: 1rem;
 
-    margin-top:
-        1.5rem;
+    margin-top: 1.5rem;
 
 }
 
 
 .jeu-actions .jeu-bouton-principal {
 
-    margin-top:
-        0;
+    margin-top: 0;
 
 }
 
 
 /* =========================================================
-   SPÉCIALITÉS
-   ========================================================= */
-
-#grille-themes {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(
-                180px,
-                1fr
-            )
-        );
-
-    gap:
-        1rem;
-
-}
-
-
-.jeu-case-theme {
-
-    min-height:
-        120px;
-
-    padding:
-        1rem;
-
-    border:
-        3px solid
-        var(--couleur-theme);
-
-    border-radius:
-        13px;
-
-    background:
-        var(--couleur-fond);
-
-    color:
-        var(--couleur-texte);
-
-    cursor:
-        pointer;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    gap:
-        .5rem;
-
-}
-
-
-.jeu-case-theme.jeu-pris {
-
-    opacity:
-        .25;
-
-    cursor:
-        not-allowed;
-
-}
-
-
-/* =========================================================
-   PROGRESSION
-   ========================================================= */
-
-.jeu-progression {
-
-    margin-top:
-        2rem;
-
-}
-
-
-#texte-progression {
-
-    margin-bottom:
-        .5rem;
-
-    text-align:
-        center;
-
-    font-weight:
-        700;
-
-    color:
-        var(--couleur-texte);
-
-}
-
-
-.jeu-barre {
-
-    width:
-        100%;
-
-    height:
-        8px;
-
-    border-radius:
-        20px;
-
-    background:
-        var(--couleur-bordure);
-
-    overflow:
-        hidden;
-
-}
-
-
-.jeu-progression-interne {
-
-    height:
-        100%;
-
-    width:
-        0;
-
-    background:
-        var(--bleu);
-
-    transition:
-        width .3s ease;
-
-}
-
-
-/* =========================================================
-   RÉCAPITULATIF
-   ========================================================= */
-
-.jeu-liste-equipes {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(
-                220px,
-                1fr
-            )
-        );
-
-    gap:
-        1rem;
-
-}
-
-
-.jeu-equipe {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        .8rem;
-
-    padding:
-        1rem;
-
-    border:
-        1px solid
-        var(--couleur-bordure);
-
-    border-radius:
-        10px;
-
-    background:
-        var(--couleur-carte);
-
-}
-
-
-.jeu-numero-equipe {
-
-    display:
-        flex;
-
-    justify-content:
-        center;
-
-    align-items:
-        center;
-
-    width:
-        42px;
-
-    height:
-        42px;
-
-    flex-shrink:
-        0;
-
-    border-radius:
-        50%;
-
-    color:
-        white;
-
-    font-weight:
-        800;
-
-}
-
-
-.jeu-specialite {
-
-    margin-top:
-        .2rem;
-
-    color:
-        var(--couleur-secondaire);
-
-    font-size:
-        .85rem;
-
-}
-
-
-/* =========================================================
-   TOUR
+   ÉQUIPE / SCORES
    ========================================================= */
 
 .jeu-tour {
 
-    max-width:
-        850px;
+    max-width: 850px;
 
-    margin:
-        0 auto 1rem;
+    margin: 0 auto 1rem;
 
-    padding:
-        1rem;
+    padding: 1rem;
 
-    border-radius:
-        12px;
+    border-radius: 12px;
 
-    background:
-        var(--bleu-fonce);
+    background: var(--bleu-fonce);
 
-    color:
-        white;
+    color: white;
 
-    text-align:
-        center;
+    text-align: center;
 
 }
 
 
 .jeu-tour strong {
 
-    margin-left:
-        .3rem;
+    margin-left: .3rem;
 
-    font-size:
-        1.3rem;
+    font-size: 1.3rem;
 
 }
 
-
-.jeu-tour-specialite {
-
-    display:
-        inline-block;
-
-    margin-left:
-        .7rem;
-
-    padding:
-        .3rem .7rem;
-
-    border-radius:
-        999px;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            .15
-        );
-
-}
-
-
-/* =========================================================
-   SCORES
-   ========================================================= */
 
 .jeu-scores {
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(
-                160px,
-                1fr
-            )
-        );
+        repeat(auto-fit, minmax(160px, 1fr));
 
-    gap:
-        .7rem;
+    gap: .7rem;
 
-    max-width:
-        850px;
+    max-width: 850px;
 
-    margin:
-        0 auto 1rem;
+    margin: 0 auto 1.5rem;
 
 }
 
 
 .jeu-score-equipe {
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
-    padding:
-        .8rem;
+    gap: .5rem;
 
-    border:
-        3px solid
-        var(--couleur-bordure);
+    padding: .8rem;
 
-    border-radius:
-        10px;
+    border: 2px solid var(--couleur-bordure);
 
-    background:
-        var(--couleur-carte);
+    border-radius: 10px;
+
+    background: var(--couleur-carte);
 
 }
 
 
 .jeu-score-equipe.jeu-equipe-active {
 
-    border-color:
-        var(--couleur-equipe);
+    border-color: var(--bleu);
 
     box-shadow:
         0 0 0 2px
         color-mix(
             in srgb,
-            var(--couleur-equipe)
-            25%,
+            var(--bleu) 20%,
             transparent
         );
 
@@ -911,245 +549,321 @@
 
 .jeu-score-nom {
 
-    color:
-        var(--couleur-texte);
+    display: flex;
+
+    flex-direction: column;
+
+    gap: .15rem;
+
+    color: var(--couleur-texte);
+
+}
+
+
+.jeu-score-nom span {
+
+    color: var(--couleur-secondaire);
+
+    font-size: .75rem;
 
 }
 
 
 .jeu-score-points {
 
-    font-size:
-        1.4rem;
+    font-size: 1.5rem;
 
-    font-weight:
-        800;
-
-    color:
-        var(--couleur-equipe);
-
-}
-
-
-.jeu-score-points small {
-
-    display:
-        block;
-
-    font-size:
-        .6rem;
-
-    color:
-        var(--couleur-secondaire);
+    font-weight: 800;
 
 }
 
 
 /* =========================================================
-   LÉGENDE
+   OPTIONS / LÉGENDE
    ========================================================= */
 
-.jeu-legende {
+.jeu-options-plateau {
 
-    display:
-        flex;
+    max-width: 850px;
 
-    justify-content:
-        center;
+    margin: 0 auto 1rem;
 
-    flex-wrap:
-        wrap;
+    display: flex;
 
-    gap:
-        .8rem 1.5rem;
+    align-items: center;
 
-    margin:
-        1rem auto;
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    flex-wrap: wrap;
 
 }
 
 
-.jeu-legende-equipe {
+.jeu-legende {
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        .4rem;
+    gap: .6rem;
 
-    color:
-        var(--couleur-texte);
+    flex-wrap: wrap;
 
-    font-size:
-        .85rem;
+    color: var(--couleur-texte);
+
+    font-size: .85rem;
+
+}
+
+
+.jeu-legende-themes {
+
+    display: flex;
+
+    gap: .5rem;
+
+    flex-wrap: wrap;
+
+}
+
+
+.jeu-legende-item {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: .3rem;
+
+    padding: .25rem .5rem;
+
+    border-radius: 999px;
+
+    background: var(--couleur-fond);
+
+    border: 1px solid var(--couleur-bordure);
 
 }
 
 
 .jeu-legende-couleur {
 
-    width:
-        18px;
+    width: 12px;
+    height: 12px;
 
-    height:
-        18px;
+    border-radius: 50%;
 
-    border-radius:
-        5px;
-
-}
-
-
-.jeu-legende-neutre {
-
-    background:
-        var(--couleur-bordure);
+    display: inline-block;
 
 }
 
 
 /* =========================================================
-   CARTE
+   SWITCH
    ========================================================= */
 
-.jeu-carte-container {
+.jeu-switch {
 
-    width:
-        100%;
+    display: inline-flex;
 
-    max-width:
-        1000px;
+    align-items: center;
 
-    margin:
-        0 auto;
+    gap: .7rem;
 
-    padding:
-        .5rem;
+    cursor: pointer;
 
-    border-radius:
-        20px;
+    user-select: none;
 
-    background:
-        linear-gradient(
-            135deg,
-            #dbeafe,
-            #fef3c7,
-            #dcfce7
-        );
+}
+
+
+.jeu-switch input {
+
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+.jeu-slider {
+
+    position: relative;
+
+    width: 46px;
+    height: 24px;
+
+    flex-shrink: 0;
+
+    border-radius: 999px;
+
+    background: var(--couleur-bordure);
+
+    transition: background .2s ease;
+
+}
+
+
+.jeu-slider::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    left: 3px;
+    top: 3px;
+
+    border-radius: 50%;
+
+    background: white;
 
     box-shadow:
-        0 12px 35px
-        rgba(
-            15,
-            42,
-            77,
-            .18
-        );
+        0 1px 3px rgba(0,0,0,.25);
+
+    transition: transform .2s ease;
 
 }
 
 
-.jeu-carte {
+.jeu-switch input:checked + .jeu-slider {
 
-    display:
-        block;
+    background: var(--bleu);
 
-    width:
-        100%;
+}
 
-    height:
-        auto;
+
+.jeu-switch input:checked + .jeu-slider::before {
+
+    transform: translateX(22px);
+
+}
+
+
+.jeu-switch-texte {
+
+    color: var(--couleur-secondaire);
+
+    font-size: .85rem;
+
+    font-weight: 600;
 
 }
 
 
 /* =========================================================
-   TERRITOIRES
+   PLATEAU
    ========================================================= */
 
-.territoire {
+.jeu-plateau {
 
-    fill:
-        #e2e8f0;
+    display: grid;
 
-    stroke:
-        white;
+    grid-template-columns:
+        repeat(10, minmax(35px, 1fr));
 
-    stroke-width:
-        4;
+    gap: 4px;
 
-    cursor:
-        pointer;
+    max-width: 850px;
 
-    transition:
-        fill .2s ease,
-        filter .2s ease,
-        transform .2s ease;
+    margin: 0 auto;
 
 }
 
 
-.territoire:hover {
+.jeu-case-plateau {
 
-    filter:
-        brightness(
-            1.08
+    aspect-ratio: 1;
+
+    border: 2px solid var(--couleur-theme);
+
+    border-radius: 6px;
+
+    background:
+        color-mix(
+            in srgb,
+            var(--couleur-theme) 15%,
+            transparent
         );
 
-    stroke:
-        #172033;
+    color: var(--couleur-theme);
 
-    stroke-width:
-        6;
+    font-weight: 800;
 
-}
+    cursor: pointer;
 
-
-.territoire-conquis {
-
-    fill:
-        var(--couleur-equipe);
+    transition:
+        transform .15s ease,
+        background .15s ease;
 
 }
 
 
-.territoire-refus {
+.jeu-case-plateau:hover {
 
-    animation:
-        territoireRefus .4s ease;
+    transform: scale(1.05);
+
+    background: var(--couleur-theme);
+
+    color: white;
+
+    z-index: 2;
 
 }
 
 
-@keyframes territoireRefus {
+/* =========================================================
+   CASE CONQUISE
+   ========================================================= */
 
-    0% {
-        transform:
-            translateX(0);
-    }
+.jeu-case-plateau.jeu-case-conquise {
 
-    25% {
-        transform:
-            translateX(-4px);
-    }
+    border-color: var(--couleur-equipe);
 
-    50% {
-        transform:
-            translateX(4px);
-    }
+    background: var(--couleur-equipe);
 
-    75% {
-        transform:
-            translateX(-4px);
-    }
+    color: white;
 
-    100% {
-        transform:
-            translateX(0);
-    }
+    cursor: default;
+
+}
+
+
+.jeu-case-plateau.jeu-case-conquise:hover {
+
+    transform: none;
+
+}
+
+
+/* =========================================================
+   PLATEAU SANS COULEURS
+   ========================================================= */
+
+.jeu-plateau.jeu-sans-couleurs
+.jeu-case-plateau:not(.jeu-case-conquise) {
+
+    border-color: var(--couleur-bordure);
+
+    background: var(--couleur-carte);
+
+    color: var(--couleur-texte);
+
+}
+
+
+.jeu-plateau.jeu-sans-couleurs
+.jeu-case-plateau:not(.jeu-case-conquise):hover {
+
+    background: var(--couleur-fond);
+
+    border-color: var(--bleu);
 
 }
 
@@ -1160,217 +874,228 @@
 
 .jeu-question-panel {
 
-    max-width:
-        850px;
+    max-width: 850px;
 
-    margin:
-        2rem auto 0;
+    margin: 2rem auto 0;
 
-    padding:
-        2rem;
+    padding: 2rem;
 
-    border:
-        1px solid
-        var(--couleur-bordure);
+    border: 1px solid var(--couleur-bordure);
 
-    border-radius:
-        16px;
+    border-radius: 16px;
 
-    background:
-        var(--couleur-carte);
+    background: var(--couleur-carte);
 
-    text-align:
-        center;
+    text-align: center;
 
     box-shadow:
-        0 8px 25px
-        rgba(
-            0,
-            0,
-            0,
-            .1
-        );
+        0 8px 25px rgba(0,0,0,.1);
 
 }
 
 
 .jeu-question-theme {
 
-    display:
-        inline-block;
+    display: inline-block;
 
-    padding:
-        .5rem 1rem;
+    padding: .5rem 1rem;
 
-    border-radius:
-        999px;
+    border-radius: 999px;
 
-    color:
-        white;
+    color: white;
 
-    font-weight:
-        700;
+    font-weight: 700;
 
 }
 
 
 .jeu-question-numero {
 
-    margin-top:
-        .7rem;
+    margin-top: .7rem;
 
-    color:
-        var(--couleur-secondaire);
+    color: var(--couleur-secondaire);
 
-    font-size:
-        .85rem;
+    font-size: .85rem;
 
 }
 
 
 .jeu-question-panel h2 {
 
-    margin:
-        1.5rem 0;
+    margin: 1.5rem 0;
 
-    color:
-        var(--couleur-texte);
-
-}
-
-
-.jeu-reponses {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:
-        .8rem;
-
-}
-
-
-.jeu-reponse-bouton {
-
-    padding:
-        1rem;
-
-    border:
-        2px solid
-        var(--couleur-bordure);
-
-    border-radius:
-        10px;
-
-    background:
-        var(--couleur-fond);
-
-    color:
-        var(--couleur-texte);
-
-    text-align:
-        left;
-
-    font-size:
-        1rem;
-
-    cursor:
-        pointer;
-
-}
-
-
-.jeu-reponse-bouton:hover {
-
-    border-color:
-        var(--bleu);
-
-}
-
-
-.jeu-reponse-bouton.bonne {
-
-    background:
-        var(--vert);
-
-    border-color:
-        var(--vert);
-
-    color:
-        white;
-
-}
-
-
-.jeu-reponse-bouton.mauvaise {
-
-    background:
-        var(--rouge);
-
-    border-color:
-        var(--rouge);
-
-    color:
-        white;
+    color: var(--couleur-texte);
 
 }
 
 
 /* =========================================================
-   FIN
+   RÉPONSE
+   ========================================================= */
+
+.jeu-reponse-cachee {
+
+    margin: 1.5rem 0;
+
+}
+
+
+.jeu-bouton-reponse {
+
+    padding: .7rem 1.2rem;
+
+    border: 1px solid var(--couleur-bordure);
+
+    border-radius: 9px;
+
+    background: var(--couleur-fond);
+
+    color: var(--couleur-texte);
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.jeu-bouton-reponse:hover {
+
+    border-color: var(--bleu);
+
+}
+
+
+.jeu-reponse-attendue {
+
+    margin-top: 1rem;
+
+    padding: 1rem;
+
+    border-radius: 10px;
+
+    background: var(--couleur-fond);
+
+    border: 2px solid var(--bleu);
+
+    color: var(--couleur-texte);
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   ACTIONS QUESTION
+   ========================================================= */
+
+.jeu-question-actions {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 1rem;
+
+    margin-top: 1.5rem;
+
+}
+
+
+.jeu-bouton-correct,
+.jeu-bouton-incorrect {
+
+    padding: 1rem;
+
+    border: none;
+
+    border-radius: 9px;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.jeu-bouton-correct {
+
+    background: var(--vert);
+
+}
+
+
+.jeu-bouton-correct:hover {
+
+    background: #15803d;
+
+}
+
+
+.jeu-bouton-incorrect {
+
+    background: var(--rouge);
+
+}
+
+
+.jeu-bouton-incorrect:hover {
+
+    background: #b91c1c;
+
+}
+
+
+/* =========================================================
+   FIN DE PARTIE
    ========================================================= */
 
 .jeu-fin {
 
-    max-width:
-        850px;
+    max-width: 850px;
 
-    margin:
-        1.5rem auto;
+    margin: 1.5rem auto;
 
 }
 
 
 .jeu-bouton-fin {
 
-    width:
-        100%;
+    width: 100%;
 
-    padding:
-        .8rem;
+    padding: .8rem;
 
-    border:
-        1px solid
-        var(--rouge);
+    border: 1px solid var(--rouge);
 
-    border-radius:
-        9px;
+    border-radius: 9px;
 
-    background:
-        transparent;
+    background: transparent;
 
-    color:
-        var(--rouge);
+    color: var(--rouge);
 
-    font-weight:
-        700;
+    font-weight: 700;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
 }
 
 
 .jeu-bouton-fin:hover {
 
-    background:
-        var(--rouge);
+    background: var(--rouge);
 
-    color:
-        white;
+    color: white;
+
+}
+
+
+.jeu-bouton-fin:disabled {
+
+    opacity: .4;
+
+    cursor: not-allowed;
 
 }
 
@@ -1379,32 +1104,107 @@
    CLASSEMENT
    ========================================================= */
 
+.jeu-classement {
+
+    max-width: 700px;
+
+    margin: 2rem auto;
+
+}
+
+
 .jeu-classement-ligne {
 
-    display:
-        flex;
+    display: flex;
 
-    justify-content:
-        space-between;
+    align-items: center;
 
-    align-items:
-        center;
+    justify-content: space-between;
 
-    padding:
-        1rem;
+    padding: 1rem;
 
-    margin-bottom:
-        .6rem;
+    margin-bottom: .6rem;
 
-    border-radius:
-        10px;
+    border-radius: 10px;
 
-    background:
-        var(--couleur-carte);
+    background: var(--couleur-carte);
 
-    border:
-        1px solid
-        var(--couleur-bordure);
+    border: 1px solid var(--couleur-bordure);
+
+}
+
+
+.jeu-classement-ligne strong {
+
+    font-size: 1.2rem;
+
+}
+
+
+/* =========================================================
+   RÉCAPITULATIF
+   ========================================================= */
+
+.jeu-liste-equipes {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 1rem;
+
+}
+
+
+.jeu-equipe {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: .8rem;
+
+    padding: 1rem;
+
+    border: 1px solid var(--couleur-bordure);
+
+    border-radius: 10px;
+
+    background: var(--couleur-carte);
+
+}
+
+
+.jeu-numero-equipe {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    color: white;
+
+    font-weight: 800;
+
+}
+
+
+.jeu-specialite {
+
+    margin-top: .2rem;
+
+    color: var(--couleur-secondaire);
+
+    font-size: .85rem;
 
 }
 
@@ -1417,51 +1217,53 @@
 
     .jeu-header h1 {
 
-        font-size:
-            1.8rem;
+        font-size: 1.8rem;
 
     }
 
 
     .jeu-configuration {
 
-        padding:
-            1.2rem;
+        padding: 1.2rem;
+
+    }
+
+
+    .jeu-plateau {
+
+        gap: 2px;
+
+    }
+
+
+    .jeu-case-plateau {
+
+        border-width: 1px;
+
+        border-radius: 4px;
+
+        font-size: .65rem;
+
+    }
+
+
+    .jeu-question-actions {
+
+        grid-template-columns: 1fr;
 
     }
 
 
     .jeu-actions {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
     }
 
 
-    .jeu-reponses {
+    .jeu-options-plateau {
 
-        grid-template-columns:
-            1fr;
-
-    }
-
-
-    .jeu-carte-container {
-
-        padding:
-            .2rem;
-
-        border-radius:
-            10px;
-
-    }
-
-
-    .territoire {
-
-        stroke-width:
-            3;
+        justify-content: center;
 
     }
 
