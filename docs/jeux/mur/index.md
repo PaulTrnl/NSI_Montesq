@@ -10,7 +10,6 @@
 
         <div class="jeu-header">
 
-
             <h1>Le Mur NSI</h1>
 
             <p>
@@ -104,7 +103,7 @@
 
         <div class="jeu-header">
 
-            <div class="jeu-logo">🏆</div>
+     
 
             <h1>Le Mur NSI</h1>
 
@@ -149,7 +148,7 @@
 
         <div class="jeu-header">
 
-            <div class="jeu-logo">🧠</div>
+      
 
             <h1>Le Mur NSI</h1>
 
@@ -197,8 +196,6 @@
         class="jeu-ecran jeu-cache">
 
         <div class="jeu-header">
-
-
 
             <h1>La partie est prête !</h1>
 
@@ -251,8 +248,6 @@
         class="jeu-ecran jeu-cache">
 
         <div class="jeu-header">
-
-
 
             <h1>Le Mur NSI</h1>
 
@@ -308,11 +303,13 @@
 
             </div>
 
-            <!-- =========================
-            LÉGENDE DES THÈMES
-            ========================= -->
 
-            <div id="legende-themes"
+            <!-- =========================
+                 LÉGENDE DES THÈMES
+                 ========================= -->
+
+            <div
+                id="legende-themes"
                 class="jeu-legende">
             </div>
 
@@ -367,10 +364,33 @@
                     Question
                 </h2>
 
-                <div
-                    id="reponse-proposee"
-                    class="jeu-reponse">
+
+                <!-- =========================
+                     RÉPONSE
+                     ========================= -->
+
+                <div class="jeu-reponse-zone">
+
+                    <button
+                        id="afficher-reponse"
+                        class="jeu-bouton-reponse"
+                        type="button">
+
+                        Afficher la réponse
+
+                    </button>
+
+                    <div
+                        id="reponse"
+                        class="jeu-reponse-jeu jeu-cache">
+                    </div>
+
                 </div>
+
+
+                <!-- =========================
+                     VALIDATION
+                     ========================= -->
 
                 <div class="jeu-question-actions">
 
@@ -412,5 +432,6 @@
 
 </div>
 
-<script src="../questions.js"></script>
+
+<script src="../carte/questions.js"></script>
 <script src="script.js"></script>

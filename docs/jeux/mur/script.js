@@ -103,37 +103,6 @@
 
 
 /* =========================================================
-   QUESTIONS
-   ========================================================= */
-
-/*
-   ==========================================================
-   GARDE ICI TON TABLEAU DE QUESTIONS ACTUEL
-   ==========================================================
-
-   Exemple de structure :
-
-const questions = [
-
-    {
-        theme: "Python",
-        question: "Que renvoie len([1, 2, 3]) ?"
-    },
-
-    {
-        theme: "Algorithmique",
-        question: "Quelle est la complexité du tri par sélection ?"
-    }
-
-];
-
-   ==========================================================
-*/
-
-
-
-
-/* =========================================================
    VARIABLES
    ========================================================= */
 
@@ -233,6 +202,12 @@ const questionNumero =
 
 const questionTexte =
     document.getElementById("question-texte");
+
+const afficherReponse =
+    document.getElementById("afficher-reponse");
+
+const reponse =
+    document.getElementById("reponse");
 
 const reponseCorrecte =
     document.getElementById("reponse-correcte");
@@ -368,7 +343,7 @@ function afficherThemesConfiguration() {
                 </span>
 
                 <span>
-                    ${theme.emoji}
+        
                     ${theme.nom}
                 </span>
 
@@ -410,13 +385,6 @@ function selectionnerThemeConfiguration(
         themesDuJeu.includes(index);
 
 
-    /*
-     * Désélection
-     *
-     * On interdit de descendre sous
-     * le nombre d'équipes.
-     */
-
     if (dejaSelectionne) {
 
         if (
@@ -438,11 +406,6 @@ function selectionnerThemeConfiguration(
         );
 
     }
-
-
-    /*
-     * Sélection
-     */
 
     else {
 
@@ -707,9 +670,7 @@ function creerCaseTheme(
 
     bouton.innerHTML = `
 
-        <span>
-            ${theme.emoji}
-        </span>
+   
 
         <span>
             ${theme.nom}
@@ -764,8 +725,7 @@ function choisirTheme(index) {
         nom:
             theme.nom,
 
-        emoji:
-            theme.emoji,
+        
 
         couleur:
             theme.couleur
@@ -826,7 +786,7 @@ function afficherRecapitulatif() {
 
                     <div class="jeu-specialite">
 
-                        ${specialite.emoji}
+                    
                         ${specialite.nom}
 
                     </div>
@@ -881,10 +841,6 @@ lancer.addEventListener(
 
 function lancerPartie() {
 
-    /*
-     * Sécurité
-     */
-
     if (
         equipes.length !== nombreEquipes
     ) {
@@ -901,7 +857,6 @@ function lancerPartie() {
 
     }
 
-
     equipeQuiJoue = 1;
 
     scores =
@@ -914,6 +869,13 @@ function lancerPartie() {
     questionPanel.classList.add(
         "jeu-cache"
     );
+
+    reponse.classList.add(
+        "jeu-cache"
+    );
+
+    afficherReponse.textContent =
+        "Afficher la réponse";
 
     terminerPartie.disabled =
         false;
@@ -939,7 +901,6 @@ function lancerPartie() {
 
     messageJeu.textContent =
         "Choisissez une case";
-
 }
 
 
@@ -1026,7 +987,10 @@ function creerPlateau() {
             question = {
 
                 question:
-                    "Aucune question n'est disponible pour ce thème."
+                    "Aucune question n'est disponible pour ce thème.",
+
+                reponse:
+                    "Aucune réponse disponible."
 
             };
 
@@ -1045,6 +1009,10 @@ function creerPlateau() {
 
             question:
                 question.question,
+
+            reponse:
+                question.reponse ||
+                "Aucune réponse disponible.",
 
             jouee:
                 false
@@ -1135,7 +1103,6 @@ function calculerPoints(
             indexTheme
         );
 
-
     if (
         equipeSpecialite ===
         equipeQuiJoue
@@ -1145,7 +1112,6 @@ function calculerPoints(
 
     }
 
-
     if (
         equipeSpecialite !== null
     ) {
@@ -1153,7 +1119,6 @@ function calculerPoints(
         return 3;
 
     }
-
 
     return 1;
 }
@@ -1198,7 +1163,7 @@ function ouvrirQuestion(
         ];
 
     questionTheme.textContent =
-        `${caseJeu.theme.emoji} ${caseJeu.theme.nom}`;
+        `${caseJeu.theme.nom}`;
 
     questionTheme.style.background =
         caseJeu.theme.couleur;
@@ -1209,8 +1174,24 @@ function ouvrirQuestion(
     questionTexte.textContent =
         caseJeu.question;
 
+
+    /* =====================================================
+       RÉINITIALISATION DE LA RÉPONSE
+       ===================================================== */
+
+    reponse.textContent =
+        caseJeu.reponse;
+
+    reponse.classList.add(
+        "jeu-cache"
+    );
+
+    afficherReponse.textContent =
+        "Afficher la réponse";
+
+
     messageJeu.textContent =
-        `🎯 ${equipe.nom} — Bonne réponse : +${points} point${points > 1 ? "s" : ""}`;
+        `${equipe.nom} — Bonne réponse : +${points} point${points > 1 ? "s" : ""}`;
 
     questionPanel.classList.remove(
         "jeu-cache"
@@ -1226,6 +1207,46 @@ function ouvrirQuestion(
 
     });
 }
+
+
+/* =========================================================
+   AFFICHER / MASQUER LA RÉPONSE
+   ========================================================= */
+
+afficherReponse.addEventListener(
+    "click",
+    () => {
+
+        const reponseCachee =
+            reponse.classList.contains(
+                "jeu-cache"
+            );
+
+        if (
+            reponseCachee
+        ) {
+
+            reponse.classList.remove(
+                "jeu-cache"
+            );
+
+            afficherReponse.textContent =
+                "Masquer la réponse";
+
+        }
+        else {
+
+            reponse.classList.add(
+                "jeu-cache"
+            );
+
+            afficherReponse.textContent =
+                "Afficher la réponse";
+
+        }
+
+    }
+);
 
 
 /* =========================================================
@@ -1296,11 +1317,6 @@ function traiterReponse(
             equipeQuiJoue - 1
         ] += points;
 
-        /*
-         * IMPORTANT :
-         * classes correspondant au CSS
-         */
-
         bouton.classList.add(
             "jeu-case-correcte"
         );
@@ -1328,6 +1344,13 @@ function traiterReponse(
     questionPanel.classList.add(
         "jeu-cache"
     );
+
+    reponse.classList.add(
+        "jeu-cache"
+    );
+
+    afficherReponse.textContent =
+        "Afficher la réponse";
 
     caseActuelle =
         null;
@@ -1379,7 +1402,7 @@ function afficherEquipeQuiJoue() {
 
     equipeQuiJoueElement.innerHTML = `
 
-        🎯 Au tour de
+        Au tour de
 
         <strong>
             ${equipe.nom}
@@ -1387,7 +1410,7 @@ function afficherEquipeQuiJoue() {
 
         <span class="jeu-tour-specialite">
 
-            ${specialite.emoji}
+   
             ${specialite.nom}
 
         </span>
@@ -1443,7 +1466,7 @@ function afficherScores() {
 
                     <span>
 
-                        ${specialite.emoji}
+                    
                         ${specialite.nom}
 
                     </span>
@@ -1575,6 +1598,11 @@ function afficherResultatsFinaux() {
 
 
     questionPanel.classList.add(
+        "jeu-cache"
+    );
+
+
+    reponse.classList.add(
         "jeu-cache"
     );
 
@@ -1737,7 +1765,7 @@ function afficherEcran(
    LÉGENDE DES THÈMES
    ========================================================= */
 
-   function afficherLegendeThemes() {
+function afficherLegendeThemes() {
 
     legendeThemes.innerHTML = "";
 

@@ -374,7 +374,7 @@
                         id="afficher-reponse"
                         class="jeu-bouton-reponse"
                         type="button">
-                        👁️ Afficher la réponse
+                        Afficher la réponse
                     </button>
 
                     <div

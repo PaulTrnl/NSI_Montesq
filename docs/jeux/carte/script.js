@@ -403,7 +403,7 @@ function afficherThemesConfiguration() {
                 </span>
 
                 <span>
-                    ${theme.emoji}
+                   
                     ${theme.nom}
                 </span>
 
@@ -554,7 +554,7 @@ function afficherLegendeThemes() {
                 ></span>
 
                 <span>
-                    ${theme.emoji}
+         
                     ${theme.nom}
                 </span>
 
@@ -1427,7 +1427,7 @@ function ouvrirQuestion(
 
 
     questionTheme.textContent =
-        `${caseJeu.theme.emoji} ${caseJeu.theme.nom}`;
+        `${caseJeu.theme.nom}`;
 
 
     questionTheme.style.background =
@@ -1453,11 +1453,11 @@ function ouvrirQuestion(
 
 
     afficherReponse.textContent =
-        "👁️ Afficher la réponse";
+        "Afficher la réponse";
 
 
     messageJeu.textContent =
-        `🎯 ${equipe.nom} doit répondre`;
+        `${equipe.nom} doit répondre`;
 
 
     questionPanel.classList.remove(
@@ -1507,7 +1507,7 @@ afficherReponse.addEventListener(
 
 
             afficherReponse.textContent =
-                "👁️ Afficher la réponse";
+                "Afficher la réponse";
 
         }
 
@@ -1519,7 +1519,7 @@ afficherReponse.addEventListener(
 
 
             afficherReponse.textContent =
-                "🙈 Masquer la réponse";
+                "Masquer la réponse";
 
         }
 
@@ -1677,7 +1677,7 @@ function afficherEquipeQuiJoue() {
 
     equipeQuiJoueElement.innerHTML = `
 
-        🎯 Au tour de
+        Au tour de
 
         <strong>
             ${equipe.nom}
