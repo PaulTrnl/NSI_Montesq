@@ -433,5 +433,5 @@
 </div>
 
 
-<script src="../carte/questions.js"></script>
+<script src="../questions.js"></script>
 <script src="script.js"></script>

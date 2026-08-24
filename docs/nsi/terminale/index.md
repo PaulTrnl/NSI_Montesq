@@ -6,7 +6,7 @@ Bienvenue dans le programme de Terminale.
 
 Une liste des principales thématiques abordées cette année :
 
-- [POO (Programmation orientée objet)](poo.md)
+
 - [Structures de données (linéaires, hiérarchiques et relationnelles)](structure.md)
 - [Bases de données](bdd.md)
 - [Architectures matérielles, OS et réseaux](archi.md)
