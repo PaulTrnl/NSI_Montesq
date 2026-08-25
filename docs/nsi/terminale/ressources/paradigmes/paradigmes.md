@@ -417,9 +417,17 @@ Ajouter ensuite une méthode permettant à la classe `Ennemi` de tirer nommée `
 
 Créer deux instances de la classe `Ennemi`. Puis effectuer un tirage aléatoire de valeurs, si la valeur est paire alors c'est le premier ennemi qui tire, réduisant la vie du second. Si la valeur est impaire c'est l'inverse. Réaliser des tirages aléatoires de valeurs jusqu'à la mort d'un des Ennemis et afficher le nombre de points de vie restant du vainqueur.
 
+
+??? success "Correction"
+    ![Mon super GIF animé](img/vite.gif){ width="350" }
+    Bientôt disponible.
 ---
 
 ## Activité 2 (Bot-aille)
+
+!!! warning "À ne pas oublier"
+
+    Pensez à répondre aux questions sur la **feuille distribuée en classe**.
 
 On récupère la classe JeuDeCartes suivante, les attributs ont été complétés, mais les méthodes non.
 
@@ -521,6 +529,10 @@ Simuler un jeu de bataille entre deux bots (= joueur robot). Le joueur qui rempo
 En utilisant le programme `affichage_image.py` et les images PNG (fournies dans le répertoire `data`) représentant les différentes cartes, effectuer un rendu graphique de la simulation de la bataille.
 
 
+??? success "Correction"
+    ![Mon super GIF animé](img/vite.gif){ width="350" }
+    Bientôt disponible.
+
 ---
 
 ## Exercice 2 (Appartement non meublé)
@@ -607,6 +619,71 @@ class Appartement:
             list: Liste des instances de Piece.
         """
         ...
+
+```
+
+!!! warning "À ne pas oublier"
+
+    Pensez à répondre aux questions sur la **feuille distribuée en classe**.
+
+---
+
+
+## Activité 3 (Temps pis)
+
+
+Créer et compléter une classe `Temps` permettant de représenter une durée à l'aide de trois attributs :
+
+- `h` : le nombre d'heures ;
+- `m` : le nombre de minutes ;
+- `s` : le nombre de secondes.
+
+La classe devra également comporter quatre méthodes :
+
+- `__init__` : initialise les attributs de l'objet ;
+- `add` : additionne deux durées ;
+- `sous` : soustrait une durée à une autre ;
+- `__repr__` : permet d'afficher une durée sous la forme **« x heures y minutes z secondes »**.
+
+
+??? success "Correction"
+    ![Mon super GIF animé](img/vite.gif){ width="350" }
+    Bientôt disponible.
+
+---
+
+
+## Exercice 3 (Ave César)
+
+Dans cet exercice, on étudie une méthode de chiffrement de chaînes de caractères alphabétiques appelée **code de César**.
+
+On considère que les messages à chiffrer sont composés uniquement de lettres majuscules de l'alphabet :
+
+`ABCDEFGHIJKLMNOPQRSTUVWXYZ`
+
+Le chiffrement utilise un nombre entier appelé **clé de chiffrement**. Cette clé détermine le décalage appliqué aux lettres du message.
+
+
+Soit la classe CodeCesar définie ci-dessous:
+
+```python
+class CodeCesar:
+    def __init__(self, cle):
+        self.cle = cle
+        self.alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+    def decale(self, lettre):
+        """Décale une lettre selon la clé de chiffrement."""
+        num1 = self.alphabet.find(lettre.upper())
+
+        # Si le caractère n'est pas une lettre de l'alphabet
+        if num1 == -1:
+            return lettre
+
+        # Application du décalage avec retour au début de l'alphabet
+        num2 = (num1 + self.cle) % 26
+
+        return self.alphabet[num2]
 
 ```
 
