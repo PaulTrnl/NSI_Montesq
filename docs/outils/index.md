@@ -8,7 +8,7 @@
 - [Pyxel : moteur jeux vidéo rétro Python](https://www.pyxelstudio.net/)
 - [Execubot : jeu d'apprentissage Python](https://execubot.fr/)
 
-
+[📥 Fiche mémo python (PDF)](fiche_memo.pdf){ .md-button }
 
 
 ## Développement WEB

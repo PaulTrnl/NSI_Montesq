@@ -404,7 +404,7 @@ eleves = {
 ---
 
 
-# ❓ Question 1
+❓ Question 1
 
 Écrire une fonction **`selection_eleves`** qui :
 
@@ -438,7 +438,7 @@ Exemple de résultat :
 
 ---
 
-# ❓ Question 2
+## ❓ Question 2
 
 Écrire une fonction **`maison_eleve`** qui :
 
