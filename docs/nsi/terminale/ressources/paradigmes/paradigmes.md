@@ -381,21 +381,30 @@ while not mechant.est_vaincu():
     Pensez à répondre aux questions sur la **feuille distribuée en classe**.
 
 ❓ Question 1 :
-    Identifier le type de la variable `mechant`.
+
+Identifier le type de la variable `mechant`.
 
 ❓ Question 2 :
-    Lister les attributs et méthodes de la classe `Ennemi`.
+
+Lister les attributs et méthodes de la classe `Ennemi`.
 
 ❓ Question 3 :
-    Quelles sont les valeurs des attributs de l'objet `mechant`à sa création ?
+
+Quelles sont les valeurs des attributs de l'objet `mechant`à sa création ?
 
 ❓ Question 4 :
-    Noter à chaque tour de la boucle, les valeurs des attributs de `mechant`.
+
+Noter à chaque tour de la boucle, les valeurs des attributs de `mechant`.
 
 
 ## Activité 1
 
 ❓ Question 1 :
-    Implémenter la classe `Ennemi` donnée précédemment. Puis ajouter lui un nouvel attribut nommé `arme`. Cet attribut correspond à un tuple (nom de l'arme, dégât de l'arme).
+    
+Implémenter la classe `Ennemi` donnée précédemment. Puis ajouter lui un nouvel attribut nommé `arme`. Cet attribut correspond à un tuple (nom de l'arme, dégât de l'arme).
+
+❓ Question 2 :
+
+Ajouter une méthode `prendre_arme` qui met à jour l'arme de l'Ennemi. Cette méthode prend en paramètres un nom d'arme et des dégâts.
 
 [📥 Résumé de cours du thème 1 (PDF)](feuille_cours.pdf){ .md-button }

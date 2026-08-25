@@ -25,7 +25,7 @@ Petit échauffement avant d'attaquer l'année !
         - P-uplets
 
 
-# I. Activité de révision avec l'algorithme des K plus proches voisins (KNN)
+## I. Activité de révision avec l'algorithme des K plus proches voisins (KNN)
 
 
 [📥 Feuille élève (PDF)](feuille_eleve.pdf){ .md-button }
@@ -60,7 +60,7 @@ Petit échauffement avant d'attaquer l'année !
 
 ---
 
-## Consignes
+### Consignes
 
 !!! warning "À lire avant de commencer"
 
@@ -69,7 +69,7 @@ Petit échauffement avant d'attaquer l'année !
 
 ---
 
-## Contexte
+### Contexte
 
 Le renard est un animal capable de vivre dans des milieux très variés :
 
@@ -85,7 +85,7 @@ Afin de mieux connaître sa répartition, on souhaite déterminer si une zone es
 
 ---
 
-## Les caractéristiques d'une zone
+### Les caractéristiques d'une zone
 
 Chaque habitat est décrit par les caractéristiques suivantes, notées sur une échelle de **1 à 10** :
 
@@ -100,7 +100,7 @@ Pour les habitats déjà étudiés, une information supplémentaire est connue :
 
 ---
 
-## Jeu de données
+### Jeu de données
 
 Les données sont fournies dans le fichier donnees_habitats.py
 
@@ -140,7 +140,7 @@ Le fichier **`prediction_habitat.py`** contient plusieurs fonctions à compléte
 
 ---
 
-## Distance entre deux habitats
+### Distance entre deux habitats
 
 Deux habitats sont comparés grâce à la distance euclidienne :
 
@@ -161,7 +161,7 @@ où :
 
 ---
 
-## ❓ Question 1
+❓ Question 1
 
 Écrire la fonction **`distance`** qui :
 
@@ -184,7 +184,7 @@ où :
 
 ---
 
-## ❓ Question 2
+❓ Question 2
 
 Écrire la fonction **`distance_d_un_habitat`** qui reçoit :
 
@@ -208,7 +208,7 @@ Elle doit renvoyer une liste de tuples contenant :
 
 ---
 
-## ❓ Question 3
+❓ Question 3
 
 Tester la fonction précédente avec l'habitat `nouveau`.
 
@@ -251,7 +251,7 @@ Les résultats attendus sont du type :
 
 ---
 
-## Décision
+### Décision
 
 La fonction **`presence_renard`** renvoie :
 
@@ -260,7 +260,7 @@ La fonction **`presence_renard`** renvoie :
 
 ---
 
-## ❓ Question 4
+❓ Question 4
 
 La fonction **`presence_renard`** contient une erreur dans le traitement des tuples.
 
@@ -274,7 +274,7 @@ Corriger cette fonction.
 
 ---
 
-## ❓ Question 5
+❓ Question 5
 
 Déterminer si **l'habitat `nouveau`** est susceptible d'accueillir une population de renards.
 
@@ -351,7 +351,7 @@ Tester plusieurs valeurs de **k** et justifier votre conclusion.
 
 
 
-# II. Activité de révision : Les 4 maisons
+## II. Activité de révision : Les 4 maisons
 
 [📥 Feuille élève (PDF)](feuille_eleve.pdf){ .md-button }
 
@@ -369,7 +369,7 @@ Tester plusieurs valeurs de **k** et justifier votre conclusion.
 
 ---
 
-## Contexte
+### Contexte
 
 L'école de sorcellerie **Poudlard** est composée de quatre maisons.
 
@@ -438,7 +438,7 @@ Exemple de résultat :
 
 ---
 
-## ❓ Question 2
+❓ Question 2
 
 Écrire une fonction **`maison_eleve`** qui :
 
@@ -470,7 +470,7 @@ Résultat attendu :
 
 ---
 
-# ❓ Question 3
+❓ Question 3
 
 Écrire une fonction **`ajouter_eleve`** qui :
 
@@ -506,7 +506,7 @@ Résultat attendu :
 
 ---
 
-# ❓ Question 4
+❓ Question 4
 
 Écrire une fonction **`compter_eleves`** qui :
 
@@ -542,7 +542,7 @@ Résultat attendu :
 
 ---
 
-# ❓ Question 5
+❓ Question 5
 
 Écrire une fonction **`tous_les_eleves`** qui :
 
