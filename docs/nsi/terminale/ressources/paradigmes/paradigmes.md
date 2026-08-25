@@ -77,7 +77,7 @@ L'approche impérative décrit donc les différentes étapes permettant de **mod
 
 ![Mon super GIF animé](img/transfo.gif){ width="350" }
 
-## I. Principe 
+## Principe 
 
 !!! note "À retenir"
     La programmation fonctionnelle est un paradigme de programmation qui consiste à construire un programme en utilisant principalement des fonctions et des transformations de données.
@@ -99,7 +99,7 @@ print(list(carres))
 L'approche fonctionnelle ne décrit donc pas les différentes étapes de modification d'une liste. Elle décrit plutôt **la transformation que l'on souhaite appliquer aux données**.
 
 
-## II. Fonctions pures et effets de bord
+## Fonctions pures et effets de bord
 
 Une fonction est dite **pure** si :
 
@@ -147,7 +147,7 @@ Dans les deux cas, la fonction ne se contente pas de calculer et de retourner un
     Cela rend les fonctions plus faciles à comprendre, à tester et à réutiliser.
 
 
-## III. Les fonctions comme objets
+## Les fonctions comme objets
 
 En Python, une fonction peut être utilisée comme une donnée.
 
@@ -198,7 +198,7 @@ La fonction `appliquer` reçoit `carre` comme argument et l'utilise ensuite sur 
 
     Une **fonction d'ordre supérieur** est une fonction qui reçoit une fonction en argument ou qui renvoie une fonction.
 
-## IV. Les fonctions lambda
+## Les fonctions lambda
 
 Une fonction `lambda` permet de créer rapidement une petite fonction.
 
@@ -231,7 +231,7 @@ print(f(5)) # renverra 25
 !!! note "À retenir"
     `lambda` permet de définir rapidement une petite fonction, généralement utilisée directement à un endroit précis.
 
-## V. map : transformer
+## map : transformer
 
 La fonction `map` permet d'appliquer une fonction à chaque élément d'une collection.
 
@@ -247,7 +247,7 @@ print(list(carres)) # [1, 4, 9, 16, 25]
 On peut lire ce programme ainsi : pour chaque élément de `nombres`, calculer son carré.
 
 
-## VI. filter : sélectionner
+## filter : sélectionner
 
 La fonction `filter` permet de conserver uniquement les éléments qui vérifient une condition. La fonction utilisée doit renvoyer `True` ou `False`.
 
@@ -263,7 +263,7 @@ print(list(pairs)) # [2, 4, 6]
 On peut lire ce programme ainsi : pour chaque élément, vérifier s'il est pair et conserver uniquement ceux qui le sont.
 
 
-## VII. reduce : combiner
+## reduce : combiner
 
 La fonction `reduce` permet de combiner les éléments d'une collection pour obtenir une seule valeur. Elle se trouve dans le module `functools`.
 
@@ -285,7 +285,7 @@ Le calcul est effectué progressivement :
 10 + 5 → 15
 ```
 
-## VIII. Combiner filter, map et reduce
+## Combiner filter, map et reduce
 
 Les trois fonctions peuvent être utilisées successivement.
 
@@ -330,7 +330,7 @@ print(somme) # 56
 
     Pensez à répondre aux questions sur la **feuille distribuée en classe**.
 
-## I. Principe
+## Principe
 !!! note "À retenir"
     La programmation orientée objet (POO) est un paradigme de programmation qui consiste à organiser un programme autour d'**objets**.
 
@@ -343,9 +343,9 @@ Prenons l'exemple d'une voiture, celle-ci possède des caractéristiques, comme 
 
 Une classe va donc correspondre à un modèle, une sorte de moule, dont tous les objets qui seront créés avec ce dernier partageront les mêmes attributs et méthodes. Ces objets seront donc du type class en python. Chaque objet créé correspond à une **instance** d'une classe, on utilise par exemple le moule qui correspond à une voiture, puis il ne reste qu'à définir la valeur de ses attributs (ex : Rouge pour la couleur).
 
-## II. Application
+## Application
 
-## Exercice 1
+## Exercice 1 (C'est la classe)
 
 Soit le programme suivant :
 
@@ -396,8 +396,10 @@ Quelles sont les valeurs des attributs de l'objet `mechant`à sa création ?
 
 Noter à chaque tour de la boucle, les valeurs des attributs de `mechant`.
 
+---
 
-## Activité 1
+
+## Activité 1 (Classe-ment)
 
 ❓ Question 1 :
     
@@ -406,5 +408,206 @@ Implémenter la classe `Ennemi` donnée précédemment. Puis ajouter lui un nouv
 ❓ Question 2 :
 
 Ajouter une méthode `prendre_arme` qui met à jour l'arme de l'Ennemi. Cette méthode prend en paramètres un nom d'arme et des dégâts.
+
+❓ Question 3 :
+
+Ajouter ensuite une méthode permettant à la classe `Ennemi` de tirer nommée `faire_degat` et qui renvoie les dégâts de l'arme.
+
+❓ Question 4 :
+
+Créer deux instances de la classe `Ennemi`. Puis effectuer un tirage aléatoire de valeurs, si la valeur est paire alors c'est le premier ennemi qui tire, réduisant la vie du second. Si la valeur est impaire c'est l'inverse. Réaliser des tirages aléatoires de valeurs jusqu'à la mort d'un des Ennemis et afficher le nombre de points de vie restant du vainqueur.
+
+---
+
+## Activité 2 (Bot-aille)
+
+On récupère la classe JeuDeCartes suivante, les attributs ont été complétés, mais les méthodes non.
+
+```python
+class JeuDeCartes:
+
+    def __init__(self):
+        """Construit un jeu de 52 cartes."""
+        self.cartes = []
+
+        self.valeurs = [
+            2, 3, 4, 5, 6, 7, 8, 9, 10,
+            "valet", "dame", "roi", "as"
+        ]
+
+        self.couleurs = [
+            "Pique", "Trèfle", "Carreau", "Coeur"
+        ]
+
+        # Création des 52 cartes
+        # À compléter
+
+    def nomCarte(self, c):
+        """Renvoie le nom d'une carte."""
+        # À compléter
+
+    def battre(self):
+        """Mélange les cartes."""
+        # À compléter
+
+    def tirer(self):
+        """Retire et renvoie une carte."""
+        # À compléter
+
+    #Q1 Initialisation de la classe JeuDeCartes
+    jeu = JeuDeCartes()
+    print(jeu.cartes)
+
+    #Q2 Affichage du nom d'une carte
+    print(jeu.nomCarte((1, 2)))
+    print(jeu.nomCarte((12, 1)))
+
+    #Q3 Battre les cartes
+    jeu.battre()
+    print(jeu.cartes)   
+
+    #Q4 Tirer une carte
+    carte = jeu.tirer()
+    print(jeu.nomCarte(carte))
+    print(jeu.cartes)
+
+    #Q5 Tirage de toutes les cartes
+    jeu = JeuDeCartes()
+    jeu.battre()
+    for n in range(52):
+        '''
+        à compléter
+        '''
+
+    #Q6 Simuler un jeu de bataille entre deux bots (joueur robot)
+    jeuA = JeuDeCartes()
+    jeuB = JeuDeCartes()
+    jeuA.battre()
+    jeuB.battre()
+    pointA = 0
+    pointB = 0
+    # à compléter
+```
+
+On souhaite simuler le jeu de la bataille, utilisant 52 cartes. On sépare les cartes par ce qu'on appelle les couleurs (Trèfle, Carreau, Pique, Coeur). Chaque carte possède également une valeur (2, 3, 4, 5, 6, 7, 8, 9, 10, Valet, Dame, Roi, As).
+
+
+❓ Question 1 :
+
+Compléter la méthode `init` de la classe `JeuDeCartes`, de façon à ce que l'attribut `cartes` contienne toutes les cartes du jeu. Autrement dit, que la liste contienne tous les tuples (valeur,couleur) possibles afin de représenter les cartes existantes dans un jeu de 52 cartes.
+
+❓ Question 2 :
+
+Désormais, compléter la méthode `nomCarte` permettant d'afficher le nom d'une carte. (Ex : As Pique)
+
+❓ Question 3 :
+
+Compléter la méthode `battre` permettant de mélanger les cartes. Pour cela, utiliser la fonction `shuffle` présente dans la bibliothèque `random`.
+
+❓ Question 4 :
+
+Compléter la méthode `tirer` permettant de tirer la carte à l'indice 0 et de la supprimer de la liste de l'attribut `cartes`. La méthode retourne le tuple correspondant à la carte. Si toutes les cartes sont tirées, il faudra retourner `None`.
+
+❓ Question 5 :
+
+Vérifier la méthode `tirer` en retirant toutes les cartes de la liste une par une avec une boucle `for`.
+
+❓ Question 6 :
+
+Simuler un jeu de bataille entre deux bots (= joueur robot). Le joueur qui remporte le pli gagne un point.
+
+❓ Question 7 :
+
+En utilisant le programme `affichage_image.py` et les images PNG (fournies dans le répertoire `data`) représentant les différentes cartes, effectuer un rendu graphique de la simulation de la bataille.
+
+
+---
+
+## Exercice 2 (Appartement non meublé)
+
+Compléter les classes suivantes.
+
+```python
+class Piece:
+    """Représente une pièce d'un appartement."""
+
+    def __init__(self, nom, surface):
+        """Initialise une pièce avec son nom et sa surface en m².
+
+        Args:
+            nom (str): Nom de la pièce.
+            surface (float): Surface de la pièce en m².
+        """
+        ...
+
+    def getNom(self):
+        """Retourne le nom de la pièce.
+
+        Returns:
+            str: Nom de la pièce.
+        """
+        ...
+
+    def getSurface(self):
+        """Retourne la surface de la pièce.
+
+        Returns:
+            float: Surface de la pièce en m².
+        """
+        ...
+
+    def setSurface(self, s):
+        """Modifie la surface de la pièce.
+
+        Args:
+            s (float): Nouvelle surface de la pièce en m².
+        """
+        ...
+
+
+class Appartement:
+    """Représente un appartement composé de plusieurs pièces."""
+
+    def __init__(self, nom):
+        """Initialise un appartement avec une liste de pièces vide.
+
+        Args:
+            nom (str): Nom de l'appartement.
+        """
+        ...
+
+    def ajouter(self, piece):
+        """Ajoute une pièce à l'appartement.
+
+        Args:
+            piece (Piece): Pièce à ajouter à l'appartement.
+        """
+        ...
+
+    def nbPieces(self):
+        """Retourne le nombre de pièces de l'appartement.
+
+        Returns:
+            int: Nombre de pièces.
+        """
+        ...
+
+    def getSurfaceTotale(self):
+        """Calcule et retourne la surface totale de l'appartement.
+
+        Returns:
+            float: Surface totale de l'appartement en m².
+        """
+        ...
+
+    def getListePieces(self):
+        """Retourne la liste des pièces de l'appartement.
+
+        Returns:
+            list: Liste des instances de Piece.
+        """
+        ...
+
+```
 
 [📥 Résumé de cours du thème 1 (PDF)](feuille_cours.pdf){ .md-button }
