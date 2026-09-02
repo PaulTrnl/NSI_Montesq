@@ -27,7 +27,14 @@
 * comprendre qu'un réseau permet de **faire circuler des informations** ;
 * identifier quelques problèmes liés à la communication entre machines.
 
+[📥 Support élève (PDF)](01_Internet_fiche_seance_1.pdf){ .md-button }
 
+!!! warning "À lire avant de commencer"
+
+    - Les fichiers fournis doivent être utilisés et complétés.
+    - Certains moments de l'activité sont prévus pour faire valider votre travail.
+
+---
 
 ---
 
@@ -74,6 +81,13 @@ Mais les deux ordinateurs sont actuellement **isolés**.
 
 > 💡 Proposez plusieurs solutions.
 
+!!! warning "À lire avant de commencer"
+
+    - Les fichiers fournis doivent être utilisés et complétés.
+    - Certains moments de l'activité sont prévus pour faire valider votre travail.
+
+
+
 ---
 
 ## 2. Première solution : relier les ordinateurs
@@ -118,6 +132,11 @@ On souhaite permettre aux différents bâtiments de communiquer :
 **Quel est le problème avec cette organisation si la ville possède 1 000 bâtiments ?**
 
 Réfléchissez en groupe.
+
+!!! warning "À lire avant de commencer"
+
+    - Les fichiers fournis doivent être utilisés et complétés.
+    - Certains moments de l'activité sont prévus pour faire valider votre travail.
 
 ---
 
@@ -338,6 +357,12 @@ Vous devez faire apparaître :
 4. ajoutez les équipements intermédiaires que vous jugez nécessaires ;
 5. expliquez votre choix.
 
+
+!!! warning "À lire avant de commencer"
+
+    - Les fichiers fournis doivent être utilisés et complétés.
+    - Certains moments de l'activité sont prévus pour faire valider votre travail.
+
 ---
 
 # VIII. Et maintenant... Internet 🌍
@@ -471,14 +496,19 @@ Un nouvel habitant arrive à Montesquéria.
 Il utilise son ordinateur et souhaite envoyer un message à la mairie.
 
 ```text
-💻 Habitant ──── 🔲 ──── 🔀 ──── 🔲 ──── 🏛️ Mairie
+💻 Habitant ──── 🔲 ──── 🔀 ──── 🔀 ──── 🏛️ Mairie
 ```
 
-### Question
+### Question 3
 
 Comment l'ordinateur de l'habitant sait-il **à quel ordinateur envoyer son message** ?
 
 Après tout, il y a maintenant des centaines, puis des milliers d'ordinateurs dans la ville.
+
+!!! warning "À lire avant de commencer"
+
+    - Les fichiers fournis doivent être utilisés et complétés.
+    - Certains moments de l'activité sont prévus pour faire valider votre travail.
 
 ---
 
