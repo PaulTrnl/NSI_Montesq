@@ -28,7 +28,7 @@ Petit échauffement avant d'attaquer l'année !
 ## I. Activité de révision avec l'algorithme des K plus proches voisins (KNN)
 
 
-[📥 Feuille élève (PDF)](feuille_eleve.pdf){ .md-button }
+[📥 Support élève (PDF)](ece_knn/support_eleve_part1.pdf){ .md-button }
 
 
 !!! question "À vous de réfléchir (pas trop longtemps svp)"
@@ -136,7 +136,7 @@ Le fichier **`prediction_habitat.py`** contient plusieurs fonctions à compléte
 
 !!! info "Fichier à télécharger"
 
-    - [📥 Télécharger `prediction_habitat.py`](ece_knn/prediction_habitat.py)
+    - [📥 Télécharger `prediction_habitat.py`](ece_knn/prediction_habitat_eleve.py)
 
 ---
 
@@ -353,7 +353,7 @@ Tester plusieurs valeurs de **k** et justifier votre conclusion.
 
 ## II. Activité de révision : Les 4 maisons
 
-[📥 Feuille élève (PDF)](feuille_eleve.pdf){ .md-button }
+[📥 Support élève (PDF)](ece_knn/support_eleve_part2.pdf){ .md-button }
 
 
 !!! abstract "Objectif"
@@ -399,7 +399,7 @@ eleves = {
 
 !!! info "Fichier à télécharger"
 
-    - [📥 Télécharger `eleves.py`](eleves.py)
+    - [📥 Télécharger `eleves.py`](ece_knn/eleves.py)
 
 ---
 
@@ -585,7 +585,7 @@ Résultat attendu :
 
 
 
-
+<!-->
 
 ---
 
