@@ -585,7 +585,7 @@ Résultat attendu :
 
 
 
-<!-->
+<!--
 
 ---
 
@@ -688,3 +688,4 @@ Résultat attendu :
 !!! note "À retenir"
 
     Une clé primaire identifie de manière unique un enregistrement.
+-->
