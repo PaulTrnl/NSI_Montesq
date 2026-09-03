@@ -579,9 +579,15 @@ Résultat attendu :
 
 
 
+## Pour aller plus loin
 
+Vous pouvez continuer à vous entrainer en réalisant le sujet d'ECE 17, permettant également de réviser la manipulation des dictionnaires python.
 
+!!! info "Fichier à télécharger"
 
+    - [📥 Télécharger `archive_sujet_17`](17.zip)
+
+---
 
 
 
