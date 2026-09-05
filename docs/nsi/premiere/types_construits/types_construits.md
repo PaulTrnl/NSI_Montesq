@@ -6,7 +6,7 @@ Supports de l'année dernière concernant les types construits.
 ## Listes
 
 <iframe
-    src="/nsi/premiere/types_construits/05_tableau.pdf"
+    src="05_tableau.pdf"
     width="100%"
     height="800px">
 </iframe>
@@ -16,7 +16,7 @@ Supports de l'année dernière concernant les types construits.
 ## P-uplets, dictionnaires
 
 <iframe 
-    src="/nsi/premiere/types_construits/05_puplet_dico.pdf"
+    src="05_puplet_dico.pdf"
     width="100%"
     height="800px">
 </iframe>
@@ -27,7 +27,7 @@ Supports de l'année dernière concernant les types construits.
 ## Matrices
 
 <iframe 
-    src="/nsi/premiere/types_construits/05_matrices.pdf"
+    src="05_matrices.pdf"
     width="100%"
     height="800px">
 </iframe>
