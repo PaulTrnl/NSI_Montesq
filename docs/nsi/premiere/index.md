@@ -6,9 +6,9 @@ Bienvenue dans le programme de Première.
 
 Une liste des principales thématiques abordées cette année :
 
-- [Bases de la programmation Python](python.md)
+- [Bases de la programmation Python](bases_python/python.md)
 - [Représentation des données : types et valeurs de base](types.md)
-- [Types construits](types_construits.md)
+- [Types construits](types_construits/types_construits.md)
 - [Traitement de données en tables](donnees.md)
 - [Interactions entre l’homme et la machine sur le Web](ihm.md)
 - [Architectures matérielles et systèmes d’exploitation](archi.md)

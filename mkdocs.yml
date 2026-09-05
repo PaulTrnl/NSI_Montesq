@@ -93,8 +93,8 @@ nav:
 
   - Première NSI :
           - Présentation: nsi/premiere/index.md
-          - Python: nsi/premiere/python.md
-          - Types construits: nsi/premiere/types_construits.md
+          - Python: nsi/premiere/bases_python/python.md
+          - Types construits: nsi/premiere/types_construits/types_construits.md
           - Web: nsi/premiere/web.md
           - Algorithmique: nsi/premiere/algo.md
 
