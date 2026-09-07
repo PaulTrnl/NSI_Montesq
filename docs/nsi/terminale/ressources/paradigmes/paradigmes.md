@@ -321,7 +321,7 @@ print(somme) # 56
     Une approche fonctionnelle permet d'**enchaîner des transformations** pour obtenir progressivement le résultat souhaité.
 
 
-## Exercice 1 - Programmation fonctionnelle
+## Activité 1 - Programmation fonctionnelle
 
 !!! warning "À ne pas oublier"
 
@@ -404,15 +404,16 @@ ___
     Écrire une fonction `recuperer_nom` qui reçoit un couple `(nom, note)` et renvoie le nom de l'élève.
 
     Par exemple :
+
     ```python 
     recuperer_nom(("Alice", 15)) # doit renvoyer "Alice" 
     ```
 
-    Utiliser ensuite `map` pour appliquer cette fonction aux élèves admis. 
-    On souhaite obtenir :
+    Utiliser ensuite `map` pour appliquer cette fonction aux élèves admis. On souhaite obtenir :
 
     ```python
-    ['Alice', 'Chloé', 'David', 'Farid', 'Gabriel', 'Hugo', 'Inès'] ```
+    ['Alice', 'Chloé', 'David', 'Farid', 'Gabriel', 'Hugo', 'Inès']
+    ```
 
 !!! tip "Coup de pouce"
     `map` reçoit une fonction et un itérable.
@@ -567,42 +568,34 @@ while not mechant.est_vaincu():
 
     Pensez à répondre aux questions sur la **feuille distribuée en classe**.
 
-❓ Question 1 :
+!!! question "Question 1"
+    Identifier le type de la variable `mechant`.
 
-Identifier le type de la variable `mechant`.
+!!! question "Question 2"
+    Lister les attributs et méthodes de la classe `Ennemi`.
 
-❓ Question 2 :
+!!! question "Question 3"
+    Quelles sont les valeurs des attributs de l'objet `mechant`à sa création ?
 
-Lister les attributs et méthodes de la classe `Ennemi`.
-
-❓ Question 3 :
-
-Quelles sont les valeurs des attributs de l'objet `mechant`à sa création ?
-
-❓ Question 4 :
-
-Noter à chaque tour de la boucle, les valeurs des attributs de `mechant`.
+!!! question "Question 4"
+    Noter à chaque tour de la boucle, les valeurs des attributs de `mechant`.
 
 ---
 
 
-## Activité 1 (Classe-ment)
+## Activité 2 - Classe-ment
 
-❓ Question 1 :
-    
-Implémenter la classe `Ennemi` donnée précédemment. Puis ajouter lui un nouvel attribut nommé `arme`. Cet attribut correspond à un tuple (nom de l'arme, dégât de l'arme).
+!!! question "Question 1"
+    Implémenter la classe `Ennemi` donnée précédemment. Puis ajouter lui un nouvel attribut nommé `arme`. Cet attribut correspond à un tuple (nom de l'arme, dégât de l'arme).
 
-❓ Question 2 :
+!!! question "Question 2"
+    Ajouter une méthode `prendre_arme` qui met à jour l'arme de l'Ennemi. Cette méthode prend en paramètres un nom d'arme et des dégâts.
 
-Ajouter une méthode `prendre_arme` qui met à jour l'arme de l'Ennemi. Cette méthode prend en paramètres un nom d'arme et des dégâts.
+!!! question "Question 3"
+    Ajouter ensuite une méthode permettant à la classe `Ennemi` de tirer nommée `faire_degat` et qui renvoie les dégâts de l'arme.
 
-❓ Question 3 :
-
-Ajouter ensuite une méthode permettant à la classe `Ennemi` de tirer nommée `faire_degat` et qui renvoie les dégâts de l'arme.
-
-❓ Question 4 :
-
-Créer deux instances de la classe `Ennemi`. Puis effectuer un tirage aléatoire de valeurs, si la valeur est paire alors c'est le premier ennemi qui tire, réduisant la vie du second. Si la valeur est impaire c'est l'inverse. Réaliser des tirages aléatoires de valeurs jusqu'à la mort d'un des Ennemis et afficher le nombre de points de vie restant du vainqueur.
+!!! question "Question 4"
+    Créer deux instances de la classe `Ennemi`. Puis effectuer un tirage aléatoire de valeurs, si la valeur est paire alors c'est le premier ennemi qui tire, réduisant la vie du second. Si la valeur est impaire c'est l'inverse. Réaliser des tirages aléatoires de valeurs jusqu'à la mort d'un des Ennemis et afficher le nombre de points de vie restant du vainqueur.
 
 
 ??? success "Correction"
@@ -610,7 +603,7 @@ Créer deux instances de la classe `Ennemi`. Puis effectuer un tirage aléatoire
     Bientôt disponible.
 ---
 
-## Activité 2 (Bot-aille)
+## Activité 3 - Bot-aille
 
 !!! warning "À ne pas oublier"
 
