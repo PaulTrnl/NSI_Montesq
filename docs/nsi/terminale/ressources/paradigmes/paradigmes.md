@@ -77,7 +77,7 @@ L'approche impérative décrit donc les différentes étapes permettant de **mod
 
 ![Mon super GIF animé](img/transfo.gif){ width="350" }
 
-[📥 Support élève du thème 1 (PDF)](feuille_eleve.pdf){ .md-button }
+[📥 Support élève du thème 1 (PDF)](01_Paradigmes_fiche_activite.pdf){ .md-button }
 
 ## Principe 
 
@@ -510,7 +510,7 @@ ___
 
 ![Mon super GIF animé](img/chaine.gif){ width="350" }
 
-[📥 Support élève du thème 1 (PDF)](feuille_eleve.pdf){ .md-button }
+[📥 Support élève du thème 1 (PDF)](01_Paradigmes_fiche_activite.pdf){ .md-button }
 
 ## Introduction à la POO (Activité débranchée 1)
 
@@ -609,105 +609,77 @@ while not mechant.est_vaincu():
 
     Pensez à répondre aux questions sur la **feuille distribuée en classe**.
 
-On récupère la classe JeuDeCartes suivante, les attributs ont été complétés, mais les méthodes non.
+On récupère la classe `JeuDeCartes` suivante, les attributs ont été complétés, mais les méthodes non.
 
 ```python
 class JeuDeCartes:
 
-    def __init__(self):
-        """Construit un jeu de 52 cartes."""
-        self.cartes = []
+        def __init__(self):
+            """Construit un jeu de 52 cartes."""
+            self.cartes = []
 
-        self.valeurs = [
-            2, 3, 4, 5, 6, 7, 8, 9, 10,
-            "valet", "dame", "roi", "as"
-        ]
+            self.valeurs = [
+                2, 3, 4, 5, 6, 7, 8, 9, 10,
+                "valet", "dame", "roi", "as"
+            ]
 
-        self.couleurs = [
-            "Pique", "Trèfle", "Carreau", "Coeur"
-        ]
+            self.couleurs = [
+                "Pique", "Trèfle", "Carreau", "Coeur"
+            ]
 
-        # Création des 52 cartes
-        # À compléter
+            # Création des 52 cartes
+            # À compléter (Question 1)
 
-    def nomCarte(self, c):
-        """Renvoie le nom d'une carte."""
-        # À compléter
+        def nomCarte(self, c):
+            """Renvoie le nom d'une carte."""
+            # À compléter (Question 2)
 
-    def battre(self):
-        """Mélange les cartes."""
-        # À compléter
+        def battre(self):
+            """Mélange les cartes."""
+            # À compléter (Question 3)
 
-    def tirer(self):
-        """Retire et renvoie une carte."""
-        # À compléter
+        def tirer(self):
+            """Retire et renvoie une carte."""
+            # À compléter (Question 4)
 
-    #Q1 Initialisation de la classe JeuDeCartes
-    jeu = JeuDeCartes()
-    print(jeu.cartes)
-
-    #Q2 Affichage du nom d'une carte
-    print(jeu.nomCarte((1, 2)))
-    print(jeu.nomCarte((12, 1)))
-
-    #Q3 Battre les cartes
-    jeu.battre()
-    print(jeu.cartes)   
-
-    #Q4 Tirer une carte
-    carte = jeu.tirer()
-    print(jeu.nomCarte(carte))
-    print(jeu.cartes)
-
-    #Q5 Tirage de toutes les cartes
-    jeu = JeuDeCartes()
-    jeu.battre()
-    for n in range(52):
-        '''
-        à compléter
-        '''
-
-    #Q6 Simuler un jeu de bataille entre deux bots (joueur robot)
-    jeuA = JeuDeCartes()
-    jeuB = JeuDeCartes()
-    jeuA.battre()
-    jeuB.battre()
-    pointA = 0
-    pointB = 0
-    # à compléter
+    # À compléter (Questions 5 et 6 )
 ```
 
 On souhaite simuler le jeu de la bataille, utilisant 52 cartes. On sépare les cartes par ce qu'on appelle les couleurs (Trèfle, Carreau, Pique, Coeur). Chaque carte possède également une valeur (2, 3, 4, 5, 6, 7, 8, 9, 10, Valet, Dame, Roi, As).
 
 
-❓ Question 1 :
+!!! question "Question 1"
+    Compléter la méthode `init` de la classe `JeuDeCartes`, de façon à ce que l'attribut `cartes` contienne toutes les cartes du jeu. Autrement dit, que la liste contienne tous les tuples (valeur, couleur) possibles afin de représenter les cartes existantes dans un jeu de 52 cartes.
 
-Compléter la méthode `init` de la classe `JeuDeCartes`, de façon à ce que l'attribut `cartes` contienne toutes les cartes du jeu. Autrement dit, que la liste contienne tous les tuples (valeur,couleur) possibles afin de représenter les cartes existantes dans un jeu de 52 cartes.
+---
 
-❓ Question 2 :
+!!! question "Question 2"
+    Désormais, compléter la méthode `nomCarte` permettant d'afficher le nom d'une carte. (Ex : As de Pique)
 
-Désormais, compléter la méthode `nomCarte` permettant d'afficher le nom d'une carte. (Ex : As Pique)
+---
 
-❓ Question 3 :
+!!! question "Question 3"
+    Compléter la méthode `battre` permettant de mélanger les cartes. Pour cela, utiliser la fonction `shuffle` présente dans la bibliothèque `random`.
 
-Compléter la méthode `battre` permettant de mélanger les cartes. Pour cela, utiliser la fonction `shuffle` présente dans la bibliothèque `random`.
+---
 
-❓ Question 4 :
+!!! question "Question 4"
+    Compléter la méthode `tirer` permettant de tirer la carte à l'indice 0 et de la supprimer de la liste de l'attribut `cartes`. La méthode retourne le tuple correspondant à la carte. Si toutes les cartes sont tirées, il faudra retourner `None`.
 
-Compléter la méthode `tirer` permettant de tirer la carte à l'indice 0 et de la supprimer de la liste de l'attribut `cartes`. La méthode retourne le tuple correspondant à la carte. Si toutes les cartes sont tirées, il faudra retourner `None`.
+---
 
-❓ Question 5 :
+!!! question "Question 5"
+    Vérifier la méthode `tirer` en retirant toutes les cartes de la liste une par une avec une boucle `for`.
 
-Vérifier la méthode `tirer` en retirant toutes les cartes de la liste une par une avec une boucle `for`.
+---
 
-❓ Question 6 :
+!!! question "Question 6"
+    Simuler un jeu de bataille entre deux bots (= joueur robot). Le joueur qui remporte le pli gagne un point. 
 
-Simuler un jeu de bataille entre deux bots (= joueur robot). Le joueur qui remporte le pli gagne un point.
+!!! tip "Conseil"
+    Vous avez le droit d'ajouter des méthodes si nécessaire.
 
-❓ Question 7 :
-
-En utilisant le programme `affichage_image.py` et les images PNG (fournies dans le répertoire `data`) représentant les différentes cartes, effectuer un rendu graphique de la simulation de la bataille.
-
+---
 
 ??? success "Correction"
     ![Mon super GIF animé](img/vite.gif){ width="350" }
@@ -809,7 +781,7 @@ class Appartement:
 ---
 
 
-## Activité 3 (Temps pis)
+## Activité 4 - Temps pis
 
 
 Créer et compléter une classe `Temps` permettant de représenter une durée à l'aide de trois attributs :
