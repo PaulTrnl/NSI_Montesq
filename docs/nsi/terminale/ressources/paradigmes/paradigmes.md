@@ -77,6 +77,8 @@ L'approche impérative décrit donc les différentes étapes permettant de **mod
 
 ![Mon super GIF animé](img/transfo.gif){ width="350" }
 
+[📥 Support élève du thème 1 (PDF)](feuille_eleve.pdf){ .md-button }
+
 ## Principe 
 
 !!! note "À retenir"
@@ -317,6 +319,191 @@ print(somme) # 56
 
 !!! note "À retenir"
     Une approche fonctionnelle permet d'**enchaîner des transformations** pour obtenir progressivement le résultat souhaité.
+
+
+## Exercice 1 - Programmation fonctionnelle
+
+!!! warning "À ne pas oublier"
+
+    Pensez à répondre aux questions sur la **feuille distribuée en classe**.
+
+On dispose d'un dictionnaire contenant les résultats d'une classe :
+
+```python
+notes = {
+    "Alice": 15,
+    "Baptiste": 8,
+    "Chloé": 12,
+    "David": 17,
+    "Emma": 6,
+    "Farid": 14,
+    "Gabriel": 19,
+    "Hugo": 10,
+    "Inès": 13,
+    "Jules": 7
+}
+```
+
+L'objectif est d'analyser ces résultats en utilisant les principes de la programmation fonctionnelle.
+
+On cherchera notamment à utiliser les fonctions `map`, `filter` et `reduce`.
+
+!!! question "Question 1"
+    On souhaite sélectionner uniquement les élèves ayant obtenu au moins 10.
+
+    Écrire une fonction `est_admis` qui reçoit un couple `(nom, note)` et renvoie :
+    
+    * `True` si la note est supérieure ou égale à 10 ;
+    * `False` sinon.
+
+    Par exemple :
+    ```python
+    est_admis(("Alice", 15)) # doit renvoyer True
+    ```
+    Utiliser ensuite `filter` pour sélectionner les élèves admis.
+
+
+!!! tip "Coup de pouce"
+    `filter` reçoit une fonction et un itérable.
+
+    Il conserve les éléments pour lesquels la fonction renvoie `True`.
+
+    On pourra utiliser `list()` pour obtenir et afficher les éléments de l'objet `filter`.
+
+!!! warning "Attention : les itérateurs sont épuisables"
+
+    `filter` et `map` renvoient des **itérateurs**.
+
+    Un itérateur fournit ses éléments **une seule fois**. Lorsqu'on parcourt tous ses éléments, on dit qu'il est **épuisé**.
+
+    Par exemple :
+
+    ```python
+    resultat = filter(est_admis, notes.items())
+
+    print(list(resultat))
+    print(list(resultat))
+    ```
+
+    Le premier `print` affiche les éléments filtrés, mais le second affiche une liste vide :
+
+    ```text
+    [...]
+    []
+    ```
+
+    En effet, les éléments ont déjà été parcourus par le premier `list()`.
+
+    **Attention donc à ne pas afficher un itérateur avant de vouloir le réutiliser.**
+
+___
+
+!!! question "Question 2"
+    On souhaite maintenant récupérer uniquement les noms des élèves admis.
+
+    Écrire une fonction `recuperer_nom` qui reçoit un couple `(nom, note)` et renvoie le nom de l'élève.
+
+    Par exemple :
+    ```python 
+    recuperer_nom(("Alice", 15)) # doit renvoyer "Alice" 
+    ```
+
+    Utiliser ensuite `map` pour appliquer cette fonction aux élèves admis. 
+    On souhaite obtenir :
+
+    ```python
+    ['Alice', 'Chloé', 'David', 'Farid', 'Gabriel', 'Hugo', 'Inès'] ```
+
+!!! tip "Coup de pouce"
+    `map` reçoit une fonction et un itérable.
+
+    Il applique la fonction à chacun des éléments de l'itérable.
+
+    Comme pour `filter`, on pourra utiliser `list()` pour obtenir les éléments de l'objet `map`.
+
+---
+
+!!! question "Question 3"
+    On souhaite maintenant récupérer uniquement les notes des élèves admis.
+
+    Écrire une fonction `recuperer_note` qui reçoit un couple `(nom, note)` et renvoie la note. 
+    
+    Par exemple : 
+    
+    ```python 
+    recuperer_note(("Alice", 15)) # doit renvoyer 15 
+    ``` 
+    
+    Utiliser `map` pour obtenir la liste des notes des élèves admis. Résultat attendu :
+
+    ```text 
+    [15, 12, 17, 14, 19, 10, 13] 
+    ```
+
+---
+
+!!! question "Question 4"
+    On souhaite maintenant calculer la somme des notes des élèves admis.
+
+    Importer la fonction `reduce` :
+
+    ```python
+    from functools import reduce
+    ```
+
+    Écrire une fonction `additionner` qui reçoit deux nombres `x` et `y` et renvoie leur somme.
+
+    Utiliser `reduce` pour calculer la somme des notes obtenues à la question précédente.
+
+    Résultat attendu :
+
+    ```text
+    100
+    ```
+
+!!! tip "Coup de pouce"
+    `reduce` reçoit une fonction et un itérable.
+
+    Il applique progressivement la fonction aux éléments de l'itérable afin d'obtenir **une seule valeur**.
+
+---
+
+!!! question "Question 5"
+    On souhaite maintenant calculer la moyenne des élèves admis.
+
+    Utiliser : 
+    
+    * `filter` pour sélectionner les élèves admis ; 
+    * `map` pour récupérer leurs notes ; 
+    * `reduce` pour calculer leur somme ; 
+    * `len` pour connaître leur nombre. 
+    
+    Le programme doit afficher : 
+    
+    ```text 
+    Nombre d'admis : 7 
+    Somme des notes : 100 
+    Moyenne : 14.29 
+    ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Programmation Orientée Objet (POO)
 
