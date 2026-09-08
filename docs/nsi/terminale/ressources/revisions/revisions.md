@@ -571,6 +571,10 @@ Résultat attendu :
 
     Vérifiez que toutes vos fonctions fonctionnent correctement.
 
+
+??? success "Correction"
+    - [📥 Correction du TP](eleves_corrige.py)
+
 !!! warning "À ne pas oublier"
 
     Pensez à répondre aux questions sur la **feuille distribuée en classe**.
