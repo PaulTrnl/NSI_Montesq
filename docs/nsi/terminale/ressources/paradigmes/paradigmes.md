@@ -839,4 +839,95 @@ class CodeCesar:
 
 ```
 
+!!! tip "Coup de pouce"
+    On rappelle que la méthode `str.find(lettre)` renvoie l'indice (index) de la lettre dans la chaîne de caractères `str`.
+
+!!! question "Question 1"
+    Représenter le résultat d’exécution du code Python suivant :
+    ```python
+        code1 = CodeCesar(3)
+        print(code1.decale("A"))
+        print(code1.decale("X"))
+    ```
+
+---
+
+La méthode de chiffrement du « code César » consiste à décaler les lettres du message dans l’alphabet d'un nombre de rangs fixé par la clé. Par exemple, avec la clé 3, toutes les lettres sont décalées de 3 rangs vers la droite : le A devient le D, le B devient le E, etc.
+
+!!! question "Question 2"
+    Ajouter une méthode `chiffrement(self, texte)` dans la classe `CodeCesar` définie à la question précédente, qui reçoit en paramètre une chaîne de caractères (le message à chiffrer) et qui retourne une chaîne de caractères (le message chiffré).
+
+    Cette méthode `chiffrement(self, texte)` doit chiffrer la chaîne `texte` avec l'attribut `clé` de l'instance.
+
+    Exemple : 
+    ```python
+    code1 = CodeCesar(3)
+    code1.chiffrement("NSI") 
+    print(code1) # affiche "QVL"
+    ```
+
+---
+
+!!! question "Question 3"
+    Écrire un programme qui :
+
+    * demande de saisir la clé de chiffrement ;
+    * crée un objet de classe `CodeCesar`;
+    * demande de saisir le texte à chiffrer ;
+    * affiche le texte chiffré en appelant la méthode de `chiffrement(self, texte)`.
+
+---
+
+!!! question "Question 4"
+    On ajoute la méthode `transforme(texte)` à la classe `CodeCesar` :
+    ```python
+    def transforme(self, texte):
+        self.cle = -self.cle
+        message = self.chiffrement(texte)
+        self.cle = -self.cle
+        return message
+    ```
+    On exécute la ligne suivante :
+    ```python
+    print(CodeCesar(10.transforme("PSX")))
+    ```
+    Que va-t-il s'afficher ? Expliquer votre réponse.
+
+
+## Exercice 4 - Problème de colorisation
+
+Un pays est composé de différentes régions. Deux régions sont voisines si elles ont au moins une frontière en commun. L'objectif est d'attribuer une couleur à chaque région sur la carte du pays sans que deux régions voisines aient la même couleur et en utilisant le moins de couleurs possibles.
+
+L'image ci-dessous (Figure 1) donne un exemple de résultat de coloration des régions de la France métropolitaine.
+
+![Figure 1](img/france_couleurs.png){ width="450" }
+
+
+!!! tip "Rappel"
+    On rappelle quelques fonctions et méthodes des tableaux (le type `list` en Python) qui pourront être utilisées dans cet exercice :
+
+    * `len(tab)` : renvoie le nombre d'éléments du tableau `tab` ;
+    * `tab.append(elt)` : ajoute l'élément `elt` en fin de tableau `tab` ;
+    * `tab.remove(elt)` : enlève la première occurrence de `elt` de `tab` si `elt` est dans `tab`. Provoque une erreur sinon.
+
+Les deux parties de cet exercice forment un ensemble. Cependant, il n’est pas nécessaire d’avoir répondu à une question pour aborder la suivante. En particulier, on pourra utiliser les méthodes des questions précédentes même quand elles n’ont pas encore été écrites.
+
+### Partie 1
+
+On considère la classe `Region` qui modélise une région sur une carte et dont le début de l'implémentation est :
+```python
+class Region :
+    """ Modélise une région d'un pays sur une carte. """
+    def __init__(self, nom_region):
+        """initialise une région"""
+
+        """
+        Args:
+            nom_region (str): Nom de la région.
+            
+        """
+        self.nom = nom_region
+
+```
+
 [📥 Résumé de cours du thème 1 (PDF)](feuille_cours.pdf){ .md-button }
