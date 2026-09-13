@@ -125,6 +125,17 @@ let caseActuelle = null;
 let partieTerminee = false;
 
 
+/*
+ * Questions encore disponibles pendant la partie.
+ *
+ * Cette variable est réinitialisée à chaque nouvelle partie.
+ * Une question retirée de ce tableau ne pourra plus être
+ * attribuée à une autre case pendant la même partie.
+ */
+
+let questionsDisponibles = [];
+
+
 /* =========================================================
    COULEURS DES ÉQUIPES
    ========================================================= */
@@ -403,7 +414,6 @@ function afficherThemesConfiguration() {
                 </span>
 
                 <span>
-                   
                     ${theme.nom}
                 </span>
 
@@ -495,13 +505,6 @@ function mettreAJourCompteurThemes() {
         `${nombre} thème${nombre > 1 ? "s" : ""} sélectionné${nombre > 1 ? "s" : ""}`;
 
 
-    /*
-     * Il suffit d'avoir au moins un thème.
-     *
-     * Le nombre de thèmes n'est PAS lié
-     * au nombre d'équipes.
-     */
-
     commencerNoms.disabled =
         nombre === 0;
 
@@ -554,7 +557,6 @@ function afficherLegendeThemes() {
                 ></span>
 
                 <span>
-         
                     ${theme.nom}
                 </span>
 
@@ -847,6 +849,16 @@ function lancerPartie() {
     partieTerminee = false;
 
 
+    /*
+     * -----------------------------------------------------
+     * NOUVELLE PARTIE :
+     * toutes les questions redeviennent disponibles.
+     * -----------------------------------------------------
+     */
+
+    initialiserQuestionsDisponibles();
+
+
     questionPanel.classList.add(
         "jeu-cache"
     );
@@ -895,6 +907,159 @@ function lancerPartie() {
 
 
 /* =========================================================
+   GESTION DES QUESTIONS
+   ========================================================= */
+
+/*
+ * Création d'une clé unique pour une question.
+ *
+ * Cela permet d'éviter deux fois exactement la même question,
+ * même si elle apparaît plusieurs fois dans le tableau
+ * "questions".
+ */
+
+function obtenirCleQuestion(question) {
+
+    return [
+        question.theme || "",
+        question.question || "",
+        question.reponse || ""
+    ].join("|||");
+
+}
+
+
+/*
+ * Initialise le stock de questions disponibles
+ * pour une nouvelle partie.
+ */
+
+function initialiserQuestionsDisponibles() {
+
+    if (
+        typeof questions === "undefined"
+    ) {
+
+        questionsDisponibles = [];
+
+        return;
+
+    }
+
+
+    const questionsUniques =
+        new Map();
+
+
+    questions.forEach(
+        question => {
+
+            const cle =
+                obtenirCleQuestion(
+                    question
+                );
+
+
+            if (
+                !questionsUniques.has(cle)
+            ) {
+
+                questionsUniques.set(
+                    cle,
+                    question
+                );
+
+            }
+
+        }
+    );
+
+
+    questionsDisponibles =
+        Array.from(
+            questionsUniques.values()
+        );
+
+}
+
+
+/*
+ * Retire une question du stock et la renvoie.
+ *
+ * La question est choisie uniquement parmi celles
+ * correspondant au thème demandé.
+ *
+ * Une fois renvoyée, elle disparaît définitivement
+ * du stock pour la partie en cours.
+ */
+
+function obtenirQuestionDisponible(
+    nomTheme
+) {
+
+    const indicesDisponibles = [];
+
+
+    questionsDisponibles.forEach(
+        (question, index) => {
+
+            if (
+                question.theme ===
+                nomTheme
+            ) {
+
+                indicesDisponibles.push(
+                    index
+                );
+
+            }
+
+        }
+    );
+
+
+    if (
+        indicesDisponibles.length === 0
+    ) {
+
+        return null;
+
+    }
+
+
+    const indiceAleatoire =
+        indicesDisponibles[
+            Math.floor(
+                Math.random() *
+                indicesDisponibles.length
+            )
+        ];
+
+
+    const question =
+        questionsDisponibles[
+            indiceAleatoire
+        ];
+
+
+    /*
+     * La question est retirée du stock.
+     * Elle ne pourra donc plus être utilisée
+     * pendant cette partie.
+     */
+
+    questionsDisponibles.splice(
+        indiceAleatoire,
+        1
+    );
+
+
+    return question;
+
+}
+
+
+/* =========================================================
    AFFICHAGE / MASQUAGE DES COULEURS
    ========================================================= */
 
@@ -927,23 +1092,9 @@ function creerPlateau() {
         taillePlateau;
 
 
-    /*
-     * Les colonnes prennent exactement la place disponible.
-     *
-     * minmax(0, 1fr) est important pour le 15 × 15 :
-     * les nombres 100 à 225 ne peuvent plus imposer
-     * une largeur minimale à leur colonne.
-     */
-
     grilleJeu.style.gridTemplateColumns =
         `repeat(${taille}, minmax(0, 1fr))`;
 
-
-    /*
-     * Permet au CSS d'identifier le plateau.
-     * Exemple :
-     * .jeu-plateau[data-taille="15"]
-     */
 
     grilleJeu.dataset.taille =
         taille;
@@ -979,42 +1130,54 @@ function creerPlateau() {
                 themes[indexTheme];
 
 
-            const questionsTheme =
-                questions.filter(
-                    question =>
-                        question.theme ===
-                        theme.nom
+            /*
+             * -------------------------------------------------
+             * NOUVEAU SYSTÈME DE QUESTIONS
+             * -------------------------------------------------
+             *
+             * On prend une question encore disponible
+             * pour ce thème.
+             *
+             * Une fois utilisée, elle est supprimée du
+             * tableau "questionsDisponibles".
+             */
+
+            const question =
+                obtenirQuestionDisponible(
+                    theme.nom
                 );
 
 
-            let question;
+            /*
+             * Si aucune question de ce thème n'est encore
+             * disponible, la case reste sans question.
+             *
+             * On ne réutilise surtout pas une ancienne question.
+             */
+
+            let texteQuestion;
+            let texteReponse;
 
 
             if (
-                questionsTheme.length > 0
+                question
             ) {
 
-                question =
-                    questionsTheme[
-                        Math.floor(
-                            Math.random() *
-                            questionsTheme.length
-                        )
-                    ];
+                texteQuestion =
+                    question.question;
+
+                texteReponse =
+                    question.reponse;
 
             }
 
             else {
 
-                question = {
+                texteQuestion =
+                    "Aucune question disponible pour ce thème dans cette partie.";
 
-                    question:
-                        "Aucune question disponible pour ce thème.",
-
-                    reponse:
-                        "Aucune réponse disponible."
-
-                };
+                texteReponse =
+                    "Cette case ne peut pas être jouée.";
 
             }
 
@@ -1033,9 +1196,17 @@ function creerPlateau() {
 
                 indexTheme: indexTheme,
 
-                question: question.question,
+                question: texteQuestion,
 
-                reponse: question.reponse,
+                reponse: texteReponse,
+
+                /*
+                 * Permet de savoir si cette case possède
+                 * réellement une question jouable.
+                 */
+
+                questionDisponible:
+                    question !== null,
 
                 proprietaire: null
 
@@ -1071,6 +1242,24 @@ function creerPlateau() {
                 "--couleur-theme",
                 theme.couleur
             );
+
+
+            /*
+             * Une case sans question est désactivée.
+             */
+
+            if (
+                !caseJeu.questionDisponible
+            ) {
+
+                bouton.disabled =
+                    true;
+
+                bouton.classList.add(
+                    "jeu-case-sans-question"
+                );
+
+            }
 
 
             bouton.addEventListener(
@@ -1195,11 +1384,7 @@ function conquerirCase(
    CONQUÊTE D'UNE ZONE
    ========================================================= */
 
-/* =========================================================
-   CONQUÊTE D'UNE ZONE
-   ========================================================= */
-
-   function conquerirZone(caseJeu) {
+function conquerirZone(caseJeu) {
 
     const equipe =
         equipes[
@@ -1207,27 +1392,11 @@ function conquerirCase(
         ];
 
 
-    /*
-     * L'équipe conquiert d'abord
-     * la case sélectionnée.
-     */
-
     conquerirCase(
         caseJeu,
         equipe
     );
 
-
-    /*
-     * Puis elle conquiert TOUS les voisins.
-     *
-     * Une case voisine peut être :
-     * - libre
-     * - déjà à cette équipe
-     * - appartenir à une autre équipe
-     *
-     * Dans tous les cas, elle est reprise.
-     */
 
     const voisins =
         obtenirVoisins(
@@ -1246,11 +1415,6 @@ function conquerirCase(
         }
     );
 
-
-    /*
-     * Mise à jour de l'affichage
-     * et des territoires.
-     */
 
     mettreAJourPlateau();
 
@@ -1421,6 +1585,19 @@ function ouvrirQuestion(
 
     if (
         caseJeu.proprietaire !== null
+    ) {
+
+        return;
+
+    }
+
+
+    /*
+     * Une case sans question n'est pas jouable.
+     */
+
+    if (
+        !caseJeu.questionDisponible
     ) {
 
         return;
