@@ -460,67 +460,223 @@
 
 
     /* =====================================================
-       POO
+       Paradigmes
        ===================================================== */
 
     {
-        theme: "POO",
+        theme: "Paradigmes de programmation",
         question: "Que signifie POO ?",
         reponse: "Programmation orientée objet"
     },
 
     {
-        theme: "POO",
+        theme: "Paradigmes de programmation",
         question: "Comment appelle-t-on le modèle permettant de créer des objets ?",
         reponse: "Une classe"
     },
 
     {
-        theme: "POO",
+        theme: "Paradigmes de programmation",
         question: "Comment appelle-t-on une instance d'une classe ?",
         reponse: "Un objet"
     },
 
     {
-        theme: "POO",
+        theme: "Paradigmes de programmation",
         question: "À quoi sert la méthode __init__ en Python ?",
         reponse: "À initialiser un objet lors de sa création"
     },
 
     {
-        theme: "POO",
+        theme: "Paradigmes de programmation",
         question: "Que représente généralement self dans une méthode Python ?",
         reponse: "L'objet sur lequel la méthode est appelée"
     },
 
     {
-        theme: "POO",
+        theme: "Paradigmes de programmation",
         question: "Une classe peut-elle créer plusieurs objets ?",
         reponse: "Oui"
     },
 
     {
-        theme: "POO",
+        theme: "Paradigmes de programmation",
         question: "Une classe et un objet sont-ils la même chose ?",
         reponse: "Non"
     },
 
     {
-        theme: "POO",
+        theme: "Paradigmes de programmation",
         question: "Comment appelle-t-on une variable appartenant à un objet ?",
         reponse: "Un attribut"
     },
 
     {
-        theme: "POO",
+        theme: "Paradigmes de programmation",
         question: "Comment appelle-t-on une fonction définie dans une classe ?",
         reponse: "Une méthode"
     },
 
     {
-        theme: "POO",
-        question: "Peut-on avoir plusieurs objets différents issus d'une même classe ?",
+        theme: "Paradigmes de programmation",
+        question: "Quels sont les trois paradigmes de programmation étudiés en Terminale NSI ?",
+        reponse: "La programmation impérative, la programmation fonctionnelle et la programmation orientée objet"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Quel paradigme décrit un programme comme une suite d'instructions modifiant un état ?",
+        reponse: "La programmation impérative"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Une fonction peut-elle être considérée comme une donnée en programmation fonctionnelle ?",
         reponse: "Oui"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Comment appelle-t-on une fonction qui reçoit une autre fonction en argument ou renvoie une fonction ?",
+        reponse: "Une fonction d'ordre supérieur"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Comment appelle-t-on une fonction qui peut être utilisée comme une valeur ou passée en argument à une autre fonction ?",
+        reponse: "Une fonction de première classe"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Qu'est-ce qu'une fonction pure ?",
+        reponse: "Une fonction dont le résultat dépend uniquement de ses paramètres et qui n'a pas d'effet de bord"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Une fonction pure peut-elle modifier une variable globale ?",
+        reponse: "Non"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Une fonction pure peut-elle produire un affichage avec print() ?",
+        reponse: "Non"
+    },
+    
+    {
+        theme: "Paradigmes de programmation",
+        question: "Qu'appelle-t-on un effet de bord ?",
+        reponse: "Une modification de l'état du programme ou une interaction avec l'extérieur d'une fonction"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Modifier une liste reçue en paramètre constitue-t-il un effet de bord ?",
+        reponse: "Oui"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Une fonction qui retourne toujours le même résultat pour les mêmes paramètres est-elle nécessairement pure ?",
+        reponse: "Non, elle ne doit également pas avoir d'effet de bord"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "À quoi sert la fonction map en programmation fonctionnelle ?",
+        reponse: "À appliquer une fonction à chaque élément d'un itérable"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "À quoi sert la fonction filter en programmation fonctionnelle ?",
+        reponse: "À sélectionner les éléments qui vérifient une condition"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "À quoi sert la fonction reduce en programmation fonctionnelle ?",
+        reponse: "À combiner les éléments d'un itérable pour obtenir une seule valeur"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Que renvoie map en Python ?",
+        reponse: "Un itérateur"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Que renvoie filter en Python ?",
+        reponse: "Un itérateur"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Un itérateur peut-il être parcouru plusieurs fois sans être recréé ?",
+        reponse: "Non"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "La programmation fonctionnelle interdit-elle complètement les boucles en Python ?",
+        reponse: "Non"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "La présence d'une fonction def signifie-t-elle qu'un programme est impératif ?",
+        reponse: "Non"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Un même programme Python peut-il utiliser plusieurs paradigmes de programmation ?",
+        reponse: "Oui"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Quel est le rôle principal d'une classe ?",
+        reponse: "Définir la structure et le comportement des objets qui en sont issus"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Deux objets issus de la même classe peuvent-ils avoir des attributs différents ?",
+        reponse: "Oui"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Quel paradigme cherche principalement à décrire comment un résultat est obtenu étape par étape ?",
+        reponse: "La programmation impérative"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Quel paradigme cherche davantage à décrire les transformations appliquées aux données ?",
+        reponse: "La programmation fonctionnelle"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Quel type de programmation utilise particulièrement les fonctions map, filter et reduce ?",
+        reponse: "La programmation fonctionnelle"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Pourquoi peut-on considérer map comme une fonction d'ordre supérieur ?",
+        reponse: "Parce qu'elle reçoit une fonction en argument"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Quelle est la principale différence entre une classe et un objet ?",
+        reponse: "La classe définit un modèle tandis que l'objet est une instance de cette classe"
     },
 
 

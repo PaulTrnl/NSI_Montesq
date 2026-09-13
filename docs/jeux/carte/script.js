@@ -52,7 +52,7 @@
     },
 
     {
-        nom: "POO",
+        nom: "Paradigmes de programmation",
         emoji: "🧩",
         couleur: "#ca8a04"
     },
