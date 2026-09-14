@@ -814,7 +814,7 @@ class Appartement:
 
 ---
 !!! question "Question 7"
-    Compléter la méthode `nbPieces` permettant de retourner le nombre de pièces de l'appartement.
+    Compléter la méthode `nbPieces` permettant de renvoyer le nombre de pièces de l'appartement.
 
 ---
 !!! question "Question 8"
