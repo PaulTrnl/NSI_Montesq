@@ -77,7 +77,7 @@ L'approche impérative décrit donc les différentes étapes permettant de **mod
 
 ![Mon super GIF animé](img/transfo.gif){ width="350" }
 
-[📥 Support élève du thème 1 (PDF)](01_Paradigmes_fiche_activite.pdf){ .md-button }
+[📥 Support élève du thème 1 (PDF)](01_Paradigmes_fiche_activite_complet.pdf){ .md-button }
 
 ## Principe 
 
@@ -510,7 +510,7 @@ ___
 
 ![Mon super GIF animé](img/chaine.gif){ width="350" }
 
-[📥 Support élève du thème 1 (PDF)](01_Paradigmes_fiche_activite.pdf){ .md-button }
+[📥 Support élève du thème 1 (PDF)](01_Paradigmes_fiche_activite_complet.pdf){ .md-button }
 
 ## Introduction à la POO (Activité débranchée 1)
 
