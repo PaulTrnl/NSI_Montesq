@@ -533,7 +533,7 @@ Une classe va donc correspondre à un modèle, une sorte de moule, dont tous les
 
 ## Application
 
-## Exercice 1 (C'est la classe)
+## Exercice 1 - C'est la classe
 
 Soit le programme suivant :
 
@@ -550,10 +550,10 @@ class Ennemi:
         self.point_de_vie -= degat
 
     def mise_a_jour_ia(self):
-        if self.point_de_vie < 13:
-            self.difficulte_ia = "Moyenne"
-        elif self.point_de_vie < 5:
+        if self.point_de_vie < 5:
             self.difficulte_ia = "Difficile"
+        elif self.point_de_vie < 13:
+            self.difficulte_ia = "Moyenne"
 
 mechant = Ennemi()
 
@@ -599,8 +599,7 @@ while not mechant.est_vaincu():
 
 
 ??? success "Correction"
-    ![Mon super GIF animé](img/vite.gif){ width="350" }
-    Bientôt disponible.
+    [📥 Télécharger la correction de l'activité 2](correction_activite2.py)
 ---
 
 ## Activité 3 - Bot-aille
@@ -614,35 +613,36 @@ On récupère la classe `JeuDeCartes` suivante, les attributs ont été complét
 ```python
 class JeuDeCartes:
 
-        def __init__(self):
-            """Construit un jeu de 52 cartes."""
-            self.cartes = []
+    def __init__(self):
+        """Construit un jeu de 52 cartes."""
+        self.cartes = []
 
-            self.valeurs = [
-                2, 3, 4, 5, 6, 7, 8, 9, 10,
-                "valet", "dame", "roi", "as"
-            ]
+        self.valeurs = [
+            2, 3, 4, 5, 6, 7, 8, 9, 10,
+            "valet", "dame", "roi", "as"
+        ]
 
-            self.couleurs = [
-                "Pique", "Trèfle", "Carreau", "Coeur"
-            ]
+        self.couleurs = [
+            "Pique", "Trèfle", "Carreau", "Coeur"
+        ]
 
-            # Création des 52 cartes
-            # À compléter (Question 1)
+        # Création des 52 cartes
+        # À compléter (Question 1)
+        
 
-        def nomCarte(self, c):
-            """Renvoie le nom d'une carte."""
-            # À compléter (Question 2)
+    def nomCarte(self, c):
+        """Renvoie le nom d'une carte."""
+        # À compléter (Question 2)
 
-        def battre(self):
-            """Mélange les cartes."""
-            # À compléter (Question 3)
+    def battre(self):
+        """Mélange les cartes."""
+        # À compléter (Question 3)
 
-        def tirer(self):
-            """Retire et renvoie une carte."""
-            # À compléter (Question 4)
+    def tirer(self):
+        """Retire et renvoie une carte."""
+        # À compléter (Question 4)
 
-    # À compléter (Questions 5 et 6 )
+# À compléter (Questions 5 et 6 )
 ```
 
 On souhaite simuler le jeu de la bataille, utilisant 52 cartes. On sépare les cartes par ce qu'on appelle les couleurs (Trèfle, Carreau, Pique, Coeur). Chaque carte possède également une valeur (2, 3, 4, 5, 6, 7, 8, 9, 10, Valet, Dame, Roi, As).
@@ -677,7 +677,7 @@ On souhaite simuler le jeu de la bataille, utilisant 52 cartes. On sépare les c
     Simuler un jeu de bataille entre deux bots (= joueur robot). Le joueur qui remporte le pli gagne un point. 
 
 !!! tip "Conseil"
-    Vous avez le droit d'ajouter des méthodes si nécessaire.
+    Vous avez le droit d'ajouter des méthodes si nécessaire, voire de modifier les attributs de la classe.
 
 ---
 
@@ -687,9 +687,10 @@ On souhaite simuler le jeu de la bataille, utilisant 52 cartes. On sépare les c
 
 ---
 
-## Exercice 2 (Appartement non meublé)
+## Activité 4 - Appartement non meublé
 
-Compléter les classes suivantes.
+
+On souhaite modéliser un appartement composé de plusieurs pièces. Une pièce est caractérisée par un **nom** et une **surface** en m². Un appartement est caractérisé par un **nom** et contient une liste de pièces. Compléter les méthodes des deux classes `Piece` et `Appartement`.
 
 ```python
 class Piece:
@@ -740,6 +741,14 @@ class Appartement:
         """
         ...
 
+    def getNom(self):
+        """Retourne le nom de l'appartement'.
+
+        Returns:
+            str: Nom de l'appartement.
+        """
+        ...
+
     def ajouter(self, piece):
         """Ajoute une pièce à l'appartement.
 
@@ -774,14 +783,71 @@ class Appartement:
 
 ```
 
+!!! question "Question 1"
+    Compléter la méthode __init__ de la classe `Piece`.
+    Elle doit permettre de mémoriser le nom et la surface de la pièce.
+
+---
+
+!!! question "Question 2"
+    Compléter les méthodes `getNom` et `getSurface` de la classe `Piece`.
+
+---
+
+!!! question "Question 3"
+    Compléter la méthode `setSurface` permettant de modifier la surface d'une pièce.
+
+---
+
+!!! question "Question 4"
+    Compléter la méthode __init__ de la classe `Appartement`.
+    Un nouvel appartement doit avoir un nom et une liste de pièces vide.
+
+---
+
+!!! question "Question 5"
+    Compléter la méthode `getNom` de la classe `Appartement`.
+
+---
+!!! question "Question 6"
+    Compléter la méthode `ajouter` permettant d'ajouter une pièce à l'appartement.
+
+---
+!!! question "Question 7"
+    Compléter la méthode `nbPieces` permettant de retourner le nombre de pièces de l'appartement.
+
+---
+!!! question "Question 8"
+    Compléter la méthode `getSurfaceTotale` permettant de calculer la surface totale de l'appartement.
+
+---
+!!! question "Question 9"
+    Compléter la méthode `getListePieces` permettant de retourner la liste des pièces de l'appartement.
+
+---
+!!! question "Question 10"
+    Créer un appartement et plusieurs pièces afin de tester les différentes méthodes.
+
+    Vérifier notamment que :
+
+    - les pièces sont correctement ajoutées à l'appartement ;
+    - le nombre de pièces est correct ;
+    - la surface totale est correctement calculée ;
+    - la modification de la surface d'une pièce est prise en compte.
+
+
 !!! warning "À ne pas oublier"
 
     Pensez à répondre aux questions sur la **feuille distribuée en classe**.
 
+??? success "Correction"
+    ![Mon super GIF animé](img/vite.gif){ width="350" }
+    Bientôt disponible.
+
 ---
 
 
-## Activité 4 - Temps pis
+## Activité 5 - Temps pis
 
 
 Créer et compléter une classe `Temps` permettant de représenter une durée à l'aide de trois attributs :
@@ -793,9 +859,56 @@ Créer et compléter une classe `Temps` permettant de représenter une durée à
 La classe devra également comporter quatre méthodes :
 
 - `__init__` : initialise les attributs de l'objet ;
-- `add` : additionne deux durées ;
-- `sous` : soustrait une durée à une autre ;
+- `add` : additionne deux durées et renvoie le résultat ; 
+- `sous` : soustrait une durée à une autre et renvoie le résultat ;
 - `__repr__` : permet d'afficher une durée sous la forme **« x heures y minutes z secondes »**.
+
+
+!!! question "Question 1" 
+    Écrire la classe `Temps` et compléter la méthode `__init__`.
+
+---
+
+!!! question "Question 2" 
+    Compléter la méthode `__repr__` permettant d'afficher une durée sous la forme : 
+    ```text 
+    2 heures 15 minutes 30 secondes 
+    ```
+---
+
+!!! question "Question 3" 
+    Compléter la méthode `add` permettant d'additionner deux durées. Par exemple : 
+
+    ```python 
+    t1 = Temps(2, 15, 30) 
+    t2 = Temps(1, 50, 45) 
+    t3 = t1.add(t2) 
+    ```
+    
+    `t3` doit alors représenter une durée de 4 heures, 6 minutes et 15 secondes.
+    
+---
+
+!!! question "Question 4"
+    Compléter la méthode `sous` permettant de soustraire une durée à une autre.
+
+    On supposera que la première durée est supérieure ou égale à la seconde.
+
+    Par exemple :
+
+    ```python
+    t1 = Temps(4, 30, 20)
+    t2 = Temps(1, 45, 50)
+
+    t3 = t1.sous(t2)
+    ```
+
+    `t3` doit alors représenter une durée de 2 heures, 44 minutes et 30 secondes.
+
+!!! warning "À ne pas oublier"
+
+    Pensez à répondre aux questions sur la **feuille distribuée en classe**.
+
 
 
 ??? success "Correction"
@@ -805,7 +918,7 @@ La classe devra également comporter quatre méthodes :
 ---
 
 
-## Exercice 3 (Ave César)
+## Exercice 2 - Ave César
 
 Dans cet exercice, on étudie une méthode de chiffrement de chaînes de caractères alphabétiques appelée **code de César**.
 
@@ -816,10 +929,11 @@ On considère que les messages à chiffrer sont composés uniquement de lettres 
 Le chiffrement utilise un nombre entier appelé **clé de chiffrement**. Cette clé détermine le décalage appliqué aux lettres du message.
 
 
-Soit la classe CodeCesar définie ci-dessous:
+Soit la classe `CodeCesar` définie ci-dessous:
 
 ```python
 class CodeCesar:
+
     def __init__(self, cle):
         self.cle = cle
         self.alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -855,15 +969,15 @@ class CodeCesar:
 La méthode de chiffrement du « code César » consiste à décaler les lettres du message dans l’alphabet d'un nombre de rangs fixé par la clé. Par exemple, avec la clé 3, toutes les lettres sont décalées de 3 rangs vers la droite : le A devient le D, le B devient le E, etc.
 
 !!! question "Question 2"
-    Ajouter une méthode `chiffrement(self, texte)` dans la classe `CodeCesar` définie à la question précédente, qui reçoit en paramètre une chaîne de caractères (le message à chiffrer) et qui retourne une chaîne de caractères (le message chiffré).
-
-    Cette méthode `chiffrement(self, texte)` doit chiffrer la chaîne `texte` avec l'attribut `clé` de l'instance.
+    Ajouter une méthode `chiffrement(self, texte)` dans la classe `CodeCesar` définie à la question précédente. 
+    Cette méthode reçoit en paramètre une chaîne de caractères correspondant au message à chiffrer et retourne le message chiffré. 
+    Elle doit utiliser la clé de chiffrement de l'instance et la méthode `decale`.
 
     Exemple : 
-    ```python
-    code1 = CodeCesar(3)
-    code1.chiffrement("NSI") 
-    print(code1) # affiche "QVL"
+    ```python 
+    code1 = CodeCesar(3) 
+    print(code1.chiffrement("NSI")) 
+    # affiche "QVL" 
     ```
 
 ---
@@ -871,10 +985,10 @@ La méthode de chiffrement du « code César » consiste à décaler les lettres
 !!! question "Question 3"
     Écrire un programme qui :
 
-    * demande de saisir la clé de chiffrement ;
-    * crée un objet de classe `CodeCesar`;
-    * demande de saisir le texte à chiffrer ;
-    * affiche le texte chiffré en appelant la méthode de `chiffrement(self, texte)`.
+    * demande de saisir la clé de chiffrement ; 
+    * crée un objet de classe `CodeCesar` avec cette clé ; 
+    * demande de saisir le texte à chiffrer ; 
+    * affiche le texte chiffré en appelant la méthode `chiffrement`.
 
 ---
 
@@ -888,17 +1002,23 @@ La méthode de chiffrement du « code César » consiste à décaler les lettres
         return message
     ```
     On exécute la ligne suivante :
-    ```python
-    print(CodeCesar(10.transforme("PSX")))
+    ```python 
+    code1 = CodeCesar(10) 
+    print(code1.transforme("PSX")) 
     ```
-    Que va-t-il s'afficher ? Expliquer votre réponse.
+    Que va-t-il se passer ? Expliquer votre réponse.
 
 
-## Exercice 4 - Problème de colorisation
+!!! warning "À ne pas oublier"
 
-Un pays est composé de différentes régions. Deux régions sont voisines si elles ont au moins une frontière en commun. L'objectif est d'attribuer une couleur à chaque région sur la carte du pays sans que deux régions voisines aient la même couleur et en utilisant le moins de couleurs possibles.
+    Pensez à répondre aux questions sur la **feuille distribuée en classe**.
 
-L'image ci-dessous (Figure 1) donne un exemple de résultat de coloration des régions de la France métropolitaine.
+## Activité 6 - Problème de colorisation
+
+
+Un pays est composé de différentes régions. Deux régions sont voisines si elles ont au moins une frontière en commun. L'objectif est d'attribuer une couleur à chaque région de la carte sans que deux régions voisines aient la même couleur, en cherchant à utiliser un nombre de couleurs aussi faible que possible.
+
+L'image ci-dessous (Figure 1) donne un exemple de résultat de colorisation des régions de la France métropolitaine.
 
 ![Figure 1](img/france_couleurs.png){ width="450" }
 
@@ -910,24 +1030,260 @@ L'image ci-dessous (Figure 1) donne un exemple de résultat de coloration des r�
     * `tab.append(elt)` : ajoute l'élément `elt` en fin de tableau `tab` ;
     * `tab.remove(elt)` : enlève la première occurrence de `elt` de `tab` si `elt` est dans `tab`. Provoque une erreur sinon.
 
-Les deux parties de cet exercice forment un ensemble. Cependant, il n’est pas nécessaire d’avoir répondu à une question pour aborder la suivante. En particulier, on pourra utiliser les méthodes des questions précédentes même quand elles n’ont pas encore été écrites.
+
+!!! warning "Remarque"
+
+    Les deux parties de cet exercice forment un ensemble. Cependant, il n’est pas nécessaire d’avoir répondu à une question pour aborder la suivante. En particulier, on pourra utiliser les méthodes des questions précédentes même quand elles n’ont pas encore été écrites.
+
 
 ### Partie 1
 
-On considère la classe `Region` qui modélise une région sur une carte et dont le début de l'implémentation est :
-```python
-class Region :
-    """ Modélise une région d'un pays sur une carte. """
-    def __init__(self, nom_region):
-        """initialise une région"""
+On considère la classe `Region` qui modélise une région d'un pays sur une carte.
 
-        """
-        Args:
-            nom_region (str): Nom de la région.
-            
+Le début de son implémentation est donné ci-dessous :
+```python
+class Region:
+    """Modélise une région d'un pays sur une carte."""
+
+    def __init__(self, nom_region):
+        """Initialise une région.
+
+        Paramètre :
+            nom_region (str) : nom de la région.
         """
         self.nom = nom_region
+        self.tab_voisines = []
+        self.tab_couleurs_disponibles = [
+            "rouge",
+            "vert",
+            "bleu",
+            "jaune",
+            "orange",
+            "marron"
+        ]
+        self.couleur_attribuee = None
 
 ```
+
+L'attribut `tab_voisines` contient la liste des régions voisines de la région.
+
+L'attribut `tab_couleurs_disponibles` contient les couleurs qui peuvent encore être attribuées à la région.
+
+Enfin, l'attribut `couleur_attribuee` contient la couleur attribuée à la région. Il vaut `None` lorsqu'aucune couleur ne lui a encore été attribuée.
+
+!!! question "Question 1"
+    Donner une instruction permettant de créer une instance nommée `ge` de la classe `Region` correspondant à la région « Grand Est ».
+
+---
+
+!!! question "Question 2"
+    On souhaite ajouter à la classe `Region` une méthode `premiere_dispo` qui renvoie la première couleur disponible.
+
+    On supposera que la liste `tab_couleurs_disponibles` n'est pas vide.
+
+    ```python
+    def premiere_dispo(self):
+        """Renvoie la première couleur disponible.
+
+        Returns:
+            str : première couleur disponible.
+        """
+
+        return ...
+    ```
+    Compléter la méthode ci-dessus.
+
+
+---
+
+!!! question "Question 3"
+    On souhaite ajouter à la classe `Region` une méthode `renvoie_nb_voisines` qui renvoie le nombre de régions voisines.
+
+    ```python
+    def renvoie_nb_voisines(self):
+        """Renvoie le nombre de régions voisines.
+
+        Returns:
+            int : nombre de régions voisines.
+        """
+
+        return ...
+    ```
+
+    Compléter la méthode ci-dessus.
+
+---
+
+!!! question "Question 4"
+    On souhaite ajouter à la classe `Region` une méthode `est_colorisee` qui indique si une couleur a été attribuée à la région.
+
+    La méthode renvoie `True` si une couleur a été attribuée et `False` sinon.
+
+    ```python
+    def est_colorisee(self):
+        """Indique si une couleur a été attribuée à la région.
+
+        Returns:
+            bool : True si une couleur est attribuée, False sinon.
+        """
+
+        ...
+    ```
+    Compléter la méthode ci-dessus.
+
+---
+
+!!! question "Question 5"
+    On souhaite ajouter à la classe `Region` une méthode `retirer_couleur`.
+
+    Cette méthode reçoit une couleur en paramètre et la retire de la liste des couleurs disponibles si elle s'y trouve.
+
+    Si la couleur n'est pas présente dans la liste, la méthode ne fait rien.
+
+    ```python
+    def retirer_couleur(self, couleur):
+        """Retire une couleur de la liste des couleurs disponibles.
+
+        Args:
+            couleur (str) : couleur à retirer.
+        """
+
+        ...
+    ```
+    Compléter la méthode ci-dessus.
+
+---
+
+!!! question "Question 6"
+    On souhaite ajouter à la classe `Region` une méthode `est_voisine`.
+
+    Cette méthode reçoit une région en paramètre et renvoie `True` si cette région est une voisine de la région courante, et `False` sinon.
+
+    ```python
+    def est_voisine(self, region):
+        """Indique si une région est voisine de la région courante.
+
+        Args:
+            region (Region) : région à tester.
+
+        Returns:
+            bool : True si la région est voisine, False sinon.
+        """
+
+        ...
+    ```
+    Compléter la méthode ci-dessus.
+
+---
+
+!!! warning "À ne pas oublier"
+
+    Pensez à répondre aux questions sur la **feuille distribuée en classe**.
+
+
+
+??? success "Correction"
+    ![Mon super GIF animé](img/vite.gif){ width="350" }
+    Bientôt disponible.
+
+---
+
+### Partie 2
+
+Dans cette partie :
+
+- on dispose d'un ensemble d'instances de la classe `Region` pour lesquelles l'attribut `tab_voisines` a été renseigné ;
+- on pourra utiliser les méthodes de la classe `Region` écrites dans la partie 1 :
+    - `premiere_dispo`
+    - `renvoie_nb_voisines`
+    - `est_colorisee`
+    - `retirer_couleur`
+    - `est_voisine`
+
+
+On considère maintenant une classe `Pays` qui modélise la carte d'un pays composé de plusieurs régions.
+
+Cette classe possède un unique attribut `tab_regions`. Il s'agit d'une liste Python dont les éléments sont des instances de la classe `Region`.
+
+
+!!! question "Question 7"
+
+    On souhaite ajouter à la classe `Pays` une méthode `renvoie_tab_regions_non_coloriees` qui renvoie la liste des régions du pays auxquelles aucune couleur n'a encore été attribuée.
+
+    ```python
+    def renvoie_tab_regions_non_coloriees(self):
+        """Renvoie la liste des régions auxquelles aucune couleur
+        n'a encore été attribuée.
+
+        Returns:
+            list : liste d'instances de la classe Region.
+        """
+
+        ...
+    ```
+    Compléter la méthode ci-dessus.
+
+---
+
+!!! question "Question 8"
+
+    On considère la méthode suivante :
+
+    ```python
+    def renvoie_max(self):
+        """Renvoie une région non colorisée ayant le plus de voisines."""
+
+        nb_voisines_max = -1
+        region_max = None
+
+        for reg in self.renvoie_tab_regions_non_coloriees():
+            if reg.renvoie_nb_voisines() > nb_voisines_max:
+                nb_voisines_max = reg.renvoie_nb_voisines()
+                region_max = reg
+
+        return region_max
+    ```
+
+    1. Expliquer dans quel cas cette méthode renvoie `None`.
+    2. Dans le cas où cette méthode ne renvoie pas `None`, indiquer les deux particularités de la région renvoyée par rapport aux autres régions non colorisées.
+
+---
+
+!!! question "Question 9"
+
+    Écrire la méthode `colorie` de la classe `Pays` qui permet de coloriser toutes les régions du pays selon l'algorithme suivant :
+
+    - récupérer la région non colorisée qui possède le plus de voisines ;
+    - tant que cette région existe :
+        - récupérer sa première couleur disponible ;
+        - attribuer cette couleur à la région ;
+        - pour chaque région voisine, retirer cette couleur de sa liste de couleurs disponibles si elle y est présente ;
+        - récupérer à nouveau la région non colorisée qui possède le plus de voisines.
+
+    La méthode s'arrête lorsqu'il n'y a plus de région non colorisée.
+
+    On supposera qu'il reste toujours au moins une couleur disponible pour la région à coloriser.
+
+    Compléter la méthode suivante :
+
+    ```python
+    def colorie(self):
+        """Colorise toutes les régions du pays."""
+        
+        ...
+    ```
+---
+
+!!! warning "À ne pas oublier"
+
+    Pensez à répondre aux questions sur la **feuille distribuée en classe**.
+
+
+
+??? success "Correction"
+    ![Mon super GIF animé](img/vite.gif){ width="350" }
+    Bientôt disponible.
+---
+
 
 [📥 Résumé de cours du thème 1 (PDF)](feuille_cours.pdf){ .md-button }
