@@ -16,6 +16,30 @@
 
     {
         theme: "Python",
+        question: "Que vaut [x * 2 for x in range(4)] ?",
+        reponse: "[0, 2, 4, 6]"
+    },
+    
+    {
+        theme: "Python",
+        question: "Que vaut 17 % 5 ?",
+        reponse: "2"
+    },
+    
+    {
+        theme: "Python",
+        question: "Quelle est la complexité de l'accès à un élément d'une liste Python par son indice ?",
+        reponse: "O(1)"
+    },
+    
+    {
+        theme: "Python",
+        question: "Quelle différence entre une copie superficielle et une copie profonde d'une structure contenant des listes ?",
+        reponse: "La copie profonde recopie également les structures imbriquées"
+    },
+
+    {
+        theme: "Python",
         question: "Quel symbole permet de commencer un commentaire en Python ?",
         reponse: "#"
     },
@@ -76,6 +100,25 @@
     {
         theme: "Algorithmique",
         question: "Quelle est la complexité du tri par sélection dans le pire des cas ?",
+        reponse: "O(n²)"
+    },
+
+    {
+        theme: "Algorithmique",
+        question: "Quelle est la complexité d'une recherche dichotomique ?",
+        reponse: "O(log n)"
+    },
+    
+
+    {
+        theme: "Algorithmique",
+        question: "Quel est le principe de la méthode diviser pour régner ?",
+        reponse: "Diviser le problème en sous-problèmes plus petits puis combiner les résultats"
+    },
+
+    {
+        theme: "Algorithmique",
+        question: "Quelle est la complexité du tri par insertion dans le pire des cas ?",
         reponse: "O(n²)"
     },
 
@@ -158,6 +201,30 @@
 
     {
         theme: "Bases de données",
+        question: "Quelle clause SQL permet de regrouper des lignes ayant une même valeur ?",
+        reponse: "GROUP BY"
+    },
+    
+    {
+        theme: "Bases de données",
+        question: "Quelle différence entre WHERE et HAVING ?",
+        reponse: "WHERE filtre les lignes ; HAVING filtre les groupes"
+    },
+    
+    {
+        theme: "Bases de données",
+        question: "Quelle jointure conserve toutes les lignes de la table de gauche, même sans correspondance ?",
+        reponse: "LEFT JOIN"
+    },
+    
+    {
+        theme: "Bases de données",
+        question: "Une clé étrangère peut-elle référencer une clé primaire d'une autre table ?",
+        reponse: "Oui"
+    },
+
+    {
+        theme: "Bases de données",
         question: "Quelle commande SQL permet de récupérer des données ?",
         reponse: "SELECT"
     },
@@ -219,6 +286,30 @@
         theme: "Réseaux",
         question: "Quel protocole est utilisé pour transporter de manière fiable les données sur Internet ?",
         reponse: "TCP"
+    },
+
+    {
+        theme: "Réseaux",
+        question: "À quoi sert le masque de sous-réseau ?",
+        reponse: "À déterminer la partie réseau et la partie hôte d'une adresse IP"
+    },
+    
+    {
+        theme: "Réseaux",
+        question: "Quelle adresse IP privée commence typiquement par 192.168 ?",
+        reponse: "Une adresse du réseau privé 192.168.0.0/16"
+    },
+    
+    {
+        theme: "Réseaux",
+        question: "Quel protocole traduit une adresse IP privée en adresse IP publique ?",
+        reponse: "NAT"
+    },
+    
+    {
+        theme: "Réseaux",
+        question: "Quel protocole permet de vérifier qu'une machine est joignable sur un réseau ?",
+        reponse: "ICMP"
     },
 
     {
@@ -418,6 +509,24 @@
 
     {
         theme: "Structures de données",
+        question: "Quelle structure permet généralement d'accéder au sommet en temps constant ?",
+        reponse: "Une pile"
+    },
+    
+    {
+        theme: "Structures de données",
+        question: "Quelle structure est adaptée à un parcours en largeur d'un graphe ?",
+        reponse: "Une file"
+    },
+    
+    {
+        theme: "Structures de données",
+        question: "Quelle structure est utilisée par un algorithme de parcours en profondeur récursif ?",
+        reponse: "Une pile d'appels"
+    },
+
+    {
+        theme: "Structures de données",
         question: "Dans une file, quel élément est retiré en premier ?",
         reponse: "Le plus ancien"
     },
@@ -474,6 +583,31 @@
         question: "Comment appelle-t-on le modèle permettant de créer des objets ?",
         reponse: "Une classe"
     },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Que devient un itérateur après avoir été entièrement parcouru ?",
+        reponse: "Il est épuisé"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Quel est le paradigme privilégiant la modification explicite de l'état du programme ?",
+        reponse: "La programmation impérative"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Pourquoi une fonction qui utilise une variable globale peut-elle ne pas être pure ?",
+        reponse: "Son résultat peut dépendre d'un état extérieur à ses paramètres"
+    },
+
+    {
+        theme: "Paradigmes de programmation",
+        question: "Une fonction qui modifie une liste reçue en paramètre peut-elle être pure ?",
+        reponse: "Non"
+    },
+    
 
     {
         theme: "Paradigmes de programmation",

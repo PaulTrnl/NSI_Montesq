@@ -429,11 +429,11 @@ On peut recommencer avec de nombreux autres réseaux :
           │ 💻 ─ 🔲 ─ 💻 │
           └──────┬──────┘
                  │
-                 🔀
-              ╱  │  ╲
-            ╱    │    ╲
-          🔀     🔀     🔀
-        │        │        │
+          🔀 --  🔀  -- 🔀
+          │   ╱  │  ╲   │
+          │ ╱    │    ╲ │
+          🔀 --  🔀  -- 🔀
+         │       │       │
     RÉSEAU B  RÉSEAU C  RÉSEAU D
        │         │         │
     💻─🔲─💻   💻─🔲─💻   💻─🔲─💻
@@ -454,7 +454,7 @@ C'est l'idée fondamentale derrière **Internet**.
 Imaginons que l'ordinateur du lycée veuille envoyer un message à celui de l'hôpital.
 
 ```text
-🏫 Lycée 💻 - 🔲 -- 🔀 -- 🔲 - 💻 🏥 Hôpital
+🏫 Lycée 💻 - 🔲 -- 🔀 -- 🔀 -- 🔀 -- 🔲 - 💻 Hôpital 🏥
 
 ```
 
@@ -494,7 +494,7 @@ Un nouvel habitant arrive à Montesquéria.
 Il utilise son ordinateur et souhaite envoyer un message à la mairie.
 
 ```text
-💻 Habitant ──── 🔲 ──── 🔀 ──── 🔀 ──── 🏛️ Mairie
+💻 Habitant ──── 🔲 ──── 🔀 ──── 🔀 ────  🔲 ──── 🏛️ Mairie
 ```
 
 !!! question "Question 3"
@@ -660,6 +660,7 @@ se cache une représentation en **binaire**.
 * expliquer pourquoi elle est nécessaire ;
 * reconnaître une adresse IPv4 ;
 * comprendre comment une machine utilise l'adresse IP d'une autre machine pour lui envoyer des données.
+* comprendre comment assurer une transmission fiable des données dans un réseau.
 
 [📥 Support élève (PDF)](01_Internet_fiche_seance_2.pdf){ .md-button }
 
@@ -710,8 +711,9 @@ Par exemple :
 ```text
 Nom Prénom
 Numéro Rue
-Code postal
+Code postal 
 Ville
+Pays
 ```
 
 Sur Internet, les ordinateurs rencontrent un problème similaire.
@@ -839,33 +841,46 @@ Ainsi :
 
     Chaque partie d'une adresse IPv4 utilise **8 bits**, soit un **octet**. Il y a 4 octets, une adresse IPv4 contient donc :
 
-    **4 × 8 = 32 bits.**
+    **4 × 8 = 32 bits.** Avec 32 bits, il est donc possible d’écrire $2^{32}$ adresses IPv4 différentes, soit environ 4 milliards.
 
+!!! note "Et avec IPv6 ?"
+
+    Le nombre d'adresses IPv4 étant limité, un nouveau protocole a été créé : **IPv6**.
+
+    Une adresse IPv6 est codée sur **128 bits**. Il est donc possible d'écrire $2^{128}$ adresses IPv6 différentes, soit environ **340 milliards de milliards de milliards de milliards** d'adresses.
+
+    Ce nombre est suffisamment grand pour attribuer une adresse unique à un très grand nombre d'appareils.
+
+    Une adresse IPv6 s'écrit en **hexadécimal**, par exemple :
+
+    `2001:0db8:85a3:0000:0000:8a2e:0370:7334`
+
+    Elle comporte **8 groupes de 4 chiffres hexadécimaux**, séparés par des deux-points `:`.
 
 !!! question "Question 3"
 
-    **CConvertissez les nombres suivants de la base 10 vers la base 2 (binaire).**
+    **Convertissez les nombres suivants de la base 10 vers la base 2 (binaire).**
 
     ```text
-    1   → ______________________________
+    1₁₀   → ______________________________
 
-    3   → ______________________________
+    3₁₀   → ______________________________
 
-    6   → ______________________________
+    6₁₀   → ______________________________
 
-    9   → ______________________________
+    9₁₀   → ______________________________
 
-    12  → ______________________________
+    12₁₀  → ______________________________
 
-    18  → ______________________________
+    18₁₀  → ______________________________
 
-    37  → ______________________________
+    37₁₀  → ______________________________
 
-    75 → ______________________________
+    75₁₀ → ______________________________
 
-    150 → ______________________________
+    150₁₀ → ______________________________
 
-    240 → ______________________________
+    240₁₀ → ______________________________
     ```
 ---
 
@@ -873,24 +888,24 @@ Ainsi :
 
 !!! question "Question 4"
 
-    **Convertissez les nombres suivants de la base 2 vers la base 10. **
+    **Convertissez les nombres suivants de la base 2 vers la base 10.**
 
     ```text
-    00000001 → ______________________
+    00000001₂ → ______________________
 
-    00000010 → ______________________
+    00000010₂ → ______________________
 
-    00001010 → ______________________
+    00001010₂ → ______________________
 
-    00001111 → ______________________
+    00001111₂ → ______________________
 
-    00101010 → ______________________
+    00101010₂ → ______________________
 
-    01100100 → ______________________
+    01100100₂ → ______________________
 
-    11000000 → ______________________
+    11000000₂ → ______________________
 
-    11111111 → ______________________
+    11111111₂ → ______________________
     ```
 
 
@@ -902,13 +917,13 @@ Ainsi :
 
     Complétez : 
 
-    192  → 
+    192₁₀  → 
 
-    168  → 
+    168₁₀  → 
 
-    1    → 
+    1₁₀    → 
 
-    10   → 
+    10₁₀   → 
 
     L'adresse complète devient :
    
