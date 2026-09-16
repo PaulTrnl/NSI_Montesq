@@ -1183,33 +1183,29 @@ function creerPlateau() {
 
 
             const caseJeu = {
-
                 index: index,
-
                 ligne: ligne,
-
                 colonne: colonne,
-
                 numero: index + 1,
-
                 theme: theme,
-
                 indexTheme: indexTheme,
-
-                question: texteQuestion,
-
-                reponse: texteReponse,
-
-                /*
-                 * Permet de savoir si cette case possède
-                 * réellement une question jouable.
-                 */
-
+            
+                question:
+                    question !== null
+                        ? question.question
+                        : "Aucune question disponible pour cette partie.",
+            
+                reponse:
+                    question !== null
+                        ? question.reponse
+                        : "Toutes les questions disponibles ont déjà été utilisées.",
+            
                 questionDisponible:
                     question !== null,
-
+            
+                jouee: false,
+            
                 proprietaire: null
-
             };
 
 
@@ -1228,6 +1224,13 @@ function creerPlateau() {
 
             bouton.className =
                 "jeu-case-plateau";
+
+            if (!caseJeu.questionDisponible) {
+                bouton.disabled = true;
+                bouton.classList.add(
+                    "jeu-case-sans-question"
+                );
+            }
 
 
             bouton.textContent =
@@ -1569,7 +1572,7 @@ function mettreAJourCouleursPlateau() {
    OUVERTURE D'UNE QUESTION
    ========================================================= */
 
-function ouvrirQuestion(
+   function ouvrirQuestion(
     caseJeu,
     bouton
 ) {
@@ -1577,31 +1580,43 @@ function ouvrirQuestion(
     if (
         partieTerminee
     ) {
-
         return;
-
-    }
-
-
-    if (
-        caseJeu.proprietaire !== null
-    ) {
-
-        return;
-
     }
 
 
     /*
-     * Une case sans question n'est pas jouable.
+     * Une case déjà conquise ne peut
+     * pas être sélectionnée.
+     */
+
+    if (
+        caseJeu.proprietaire !== null
+    ) {
+        return;
+    }
+
+
+    /*
+     * Une case déjà jouée ne peut
+     * pas être sélectionnée.
+     */
+
+    if (
+        caseJeu.jouee
+    ) {
+        return;
+    }
+
+
+    /*
+     * Une case sans question ne peut
+     * pas être sélectionnée.
      */
 
     if (
         !caseJeu.questionDisponible
     ) {
-
         return;
-
     }
 
 
@@ -1612,7 +1627,6 @@ function ouvrirQuestion(
 
         bouton:
             bouton
-
     };
 
 
@@ -1662,15 +1676,12 @@ function ouvrirQuestion(
 
 
     questionPanel.scrollIntoView({
-
         behavior:
             "smooth",
 
         block:
             "center"
-
     });
-
 }
 
 
@@ -1755,17 +1766,23 @@ reponseIncorrecte.addEventListener(
    TRAITEMENT DE LA RÉPONSE
    ========================================================= */
 
-function traiterReponse(correcte) {
+   function traiterReponse(
+    correcte
+) {
 
-    if (!caseActuelle) {
-
+    if (
+        !caseActuelle
+    ) {
         return;
-
     }
 
 
     const caseJeu =
         caseActuelle.donnees;
+
+
+    const bouton =
+        caseActuelle.bouton;
 
 
     const equipe =
@@ -1774,23 +1791,61 @@ function traiterReponse(correcte) {
         ];
 
 
-    if (correcte) {
+    /*
+     * La case est considérée comme jouée
+     * dès qu'une réponse a été donnée.
+     */
+
+    caseJeu.jouee =
+        true;
+
+
+    /*
+     * La case ne pourra plus être rejouée.
+     */
+
+    bouton.disabled =
+        true;
+
+
+    bouton.classList.add(
+        "jeu-case-jouee"
+    );
+
+
+    if (
+        correcte
+    ) {
 
         conquerirZone(
             caseJeu
         );
 
 
+        /*
+         * La classe "jeu-case-jouee"
+         * est remplacée visuellement par
+         * l'affichage de la case conquise.
+         */
+
+        bouton.classList.remove(
+            "jeu-case-jouee"
+        );
+
+
         messageJeu.textContent =
             `✅ ${equipe.nom} conquiert la case et ses voisines !`;
-
     }
 
     else {
 
+        /*
+         * La case reste neutre mais devient
+         * définitivement indisponible.
+         */
+
         messageJeu.textContent =
             `❌ Mauvaise réponse pour ${equipe.nom}`;
-
     }
 
 
@@ -1809,9 +1864,7 @@ function traiterReponse(correcte) {
     if (
         verifierFinTerritoire()
     ) {
-
         return;
-
     }
 
 
@@ -1825,14 +1878,13 @@ function traiterReponse(correcte) {
 
         equipeQuiJoue =
             1;
-
     }
 
 
     afficherEquipeQuiJoue();
 
-    afficherScores();
 
+    afficherScores();
 }
 
 
