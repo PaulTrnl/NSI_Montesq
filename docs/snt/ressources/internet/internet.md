@@ -443,6 +443,8 @@ Nous obtenons progressivement un **réseau de réseaux**.
 
 C'est l'idée fondamentale derrière **Internet**.
 
+![Mon super GIF animé](img/internet.png){ width="380" }
+
 !!! note "À retenir"
     **Internet est un réseau mondial qui relie entre eux une multitude de réseaux informatiques.**
 
@@ -1116,4 +1118,342 @@ Nous découvrirons notamment :
 
 * Ce qu'est un nom de domaine ;
 * Le rôle du DNS ;
+
+---
+
+# Séance 3 — Comment retrouver une machine et lui faire parvenir des données ?
+
+!!! abstract "Projet fil rouge — Montesquéria"
+
+    Dans les séances précédentes, nous avons construit le réseau de Montesquéria.
+
+    Nous avons découvert les **switchs**, les **routeurs**, les **adresses IP** et le rôle de **TCP**.
+
+    Mais dans la vie quotidienne, personne ne demande à son ordinateur de se connecter à une adresse comme `142.250.74.196`.
+
+    Alors comment faisons-nous pour retrouver un site ?
+
+    Et comment les données trouvent-elles leur chemin sur Internet ?
+
+---
+
+## Objectifs de la séance
+
+À la fin de cette séance, je dois être capable de :
+
+* expliquer le rôle du **DNS** ;
+* expliquer la différence entre un **nom de domaine** et une **adresse IP** ;
+* retrouver l'adresse IP d'un ordinateur ;
+* distinguer une **adresse IP privée** d'une **adresse IP publique** ;
+* comprendre le principe du **routage** ;
+* utiliser `traceroute` pour observer le chemin suivi par des données ;
+* distinguer **Internet** et **Web**.
+
+[📥 Support élève (PDF)](01_Internet_fiche_seance_3.pdf){ .md-button }
+
+!!! warning "À lire avant de commencer"
+
+    - Les fichiers fournis doivent être utilisés et complétés.
+    - Certains moments de l'activité sont prévus pour faire valider votre travail.
+
+---
+
+## I. Comment retrouver un site ?
+
+Dans Montesquéria, un habitant souhaite consulter le site de la mairie.
+
+Il tape dans son navigateur :
+
+```text
+www.montesqueria.fr
+```
+
+Mais nous avons vu dans la séance précédente qu'une machine communique grâce à une adresse IP.
+
+!!! question "Question 1"
+    Pourquoi le navigateur ne peut-il pas simplement utiliser le nom `www.montesqueria.fr` pour communiquer avec le serveur ?
+
+    De quoi a-t-il besoin ?
+
+## Le DNS
+
+Pour faire le lien entre un **nom de domaine** et une **adresse IP**, Internet utilise le **DNS**.
+
+DNS signifie **Domain Name System**.
+
+On peut le comparer à un annuaire :
+
+```text
+Nom de domaine                    Adresse IP
+
+www.montesqueria.fr   ───────►    203.0.113.25
+```
+
+Le principe est donc :
+
+![Mon super GIF animé](img/dns.png){ width="400" }
+
+Le navigateur peut alors utiliser l'adresse IP pour contacter le serveur.
+
+!!! note "À retenir"
+    Le **DNS** permet de retrouver l'adresse IP associée à un **nom de domaine**.
+
+    Il permet aux utilisateurs d'utiliser des noms faciles à retenir plutôt que des adresses IP.
+
+---
+
+## II. Observer le fonctionnement du DNS
+
+Nous pouvons directement demander à un ordinateur de rechercher l'adresse IP associée à un nom de domaine.
+
+Dans un terminal, on peut utiliser la commande :
+```text
+nslookup www.google.fr
+```
+
+Le résultat peut ressembler à :
+```text
+Serveur :    ...
+Address:     ...
+
+Nom :        www.google.fr
+Addresses:   142.250.xxx.xxx
+             ...
+```
+
+!!! tip "À retenir"
+    `nslookup` permet d'interroger un serveur DNS pour connaître l'adresse IP associée à un nom de domaine.
+
+## III. Quelle est l'adresse IP de mon ordinateur ?
+
+Nous avons parlé des adresses IP comme si chaque ordinateur en possédait une.
+
+Mais quelle est l'adresse IP de notre ordinateur ?
+
+Nous pouvons directement l'observer.
+
+### Sur Windows
+
+Dans le terminal, on peut utiliser :
+```text
+ipconfig
+```
+
+On obtient notamment une ligne ressemblant à :
+```text
+Adresse IPv4 . . . . . . . . . . : 192.168.1.25
+```
+
+### Sur macOS
+
+Dans le terminal, on peut utiliser :
+```text
+ifconfig
+```
+
+## IV. Adresse IP privée ou publique ?
+
+L'adresse que nous venons de trouver ressemble souvent à :
+
+```text
+192.168.1.25
+```
+
+Cette adresse est une **adresse IP privée**.
+
+Elle est utilisée à l'intérieur d'un réseau local.
+
+Par exemple, dans une maison :
+```text
+                  BOX / ROUTEUR
+                       │
+          ┌──────-─────┼───-────────┐
+          │            │            │
+          ▼            ▼            ▼
+         PC        téléphone    imprimante
+     192.168.1.25 192.168.1.26  192.168.1.27
+```
+
+Ces adresses permettent aux appareils de communiquer **à l'intérieur du réseau local**.
+
+Mais comment notre réseau communique-t-il avec Internet ?
+
+La box possède également une **adresse IP publique**.
+
+!!! note "À retenir"
+    Une **adresse IP privée** est utilisée dans un réseau local.
+
+    Une **adresse IP publique** permet d'identifier une connexion ou une interface utilisée pour communiquer sur Internet.
+
+    Plusieurs appareils d'un même réseau local peuvent donc utiliser des adresses privées différentes tout en partageant une même connexion à Internet.
+
+### Quelques plages d'adresses privées
+
+Certaines plages d'adresses IPv4 sont réservées aux réseaux privés.
+
+On rencontre notamment :
+
+```text
+10.0.0.0   à   10.255.255.255
+
+172.16.0.0   à   172.31.255.255
+
+192.168.0.0   à   192.168.255.255
+```
+
+Par exemple :
+```text
+192.168.1.25
+10.0.0.12
+172.20.4.8
+```
+sont des adresses privées.
+
+!!! question "Question 2"
+    Parmi les adresses suivantes, indiquer lesquelles sont des adresses IP privées :
+
+    * `192.168.0.15`
+    * `8.8.8.8`
+    * `10.12.4.7`
+    * `172.20.5.12`
+    * `172.40.2.8`
+    * `91.198.174.192`
+
+!!! tip "Méthode"
+    Pour reconnaître une adresse IP privée, il faut vérifier si elle appartient à l'une des trois plages étudiées.
+---
+
+## V. Comment les données trouvent-elles leur chemin ?
+
+Revenons à Montesquéria.
+
+Un ordinateur du lycée veut communiquer avec un serveur situé ailleurs sur Internet.
+
+Les deux machines ne sont pas directement reliées.
+
+![Mon super GIF animé](img/routage.png){ width="320" }
+
+Les données passent donc par plusieurs routeurs.
+
+Chaque routeur reçoit les données et détermine vers quel autre réseau les envoyer.
+
+C'est le **routage**.
+
+!!! note "À retenir"
+    Le **routage** consiste à déterminer par quels équipements les données doivent passer pour atteindre leur destination.
+
+    Les **routeurs** jouent un rôle essentiel dans ce fonctionnement.
+
+## Observer le chemin avec tracert
+
+Nous pouvons observer une partie du chemin suivi par les données grâce à une commande.
+
+### Sur Windows
+
+On utilise :
+```text
+tracert www.google.fr
+```
+
+### Sur macOS ou Linux
+
+On utilise :
+```text
+traceroute www.google.fr
+```
+
+!!! question "Question 3"
+    Après exécution de la commande précédente, indiquer :
+
+    * Combien de sauts sont affichés ?
+    * Quelle est l'adresse IP du premier équipement ?
+    * Le chemin est-il constitué d'un seul routeur ?
+    * Le nombre de sauts est-il nécessairement le même pour deux sites différents ?
+
+
+!!! tip "Attention"
+    Le résultat de `traceroute` peut varier selon le moment, le réseau utilisé et le site choisi.
+
+    Certains équipements peuvent également ne pas répondre aux demandes de la commande.
+
+    L'objectif n'est donc pas de mémoriser le chemin obtenu, mais de comprendre le **principe du routage**.
+
+## VI. Internet et le Web, est-ce la même chose ?
+
+Lorsque nous parlons d'Internet, nous pensons souvent aux sites Web.
+
+Pourtant, **Internet et le Web ne sont pas la même chose**.
+
+**Internet est l'infrastructure** qui permet aux machines et aux réseaux de communiquer.
+
+**Le Web est un service qui utilise Internet**.
+
+---
+
+## VII. Que se passe-t-il lorsque je consulte un site ?
+
+Reprenons l'exemple du site de la mairie :
+```text
+https://www.montesqueria.fr
+```
+
+Plusieurs étapes sont nécessaires pour afficher le site.
+
+!!! question "Question 4"
+    Remettre dans l'ordre les éléments suivants :
+
+    `serveur Web` — `DNS` — `routeurs` — `nom de domaine` — `adresse IP`
+
+    Puis expliquer en quelques lignes ce qui se passe lorsque l'on saisit :
+
+    `https://www.montesqueria.fr`
+
+
+
+
+# 📝 Trace écrite
+
+!!! note "À retenir"
+    **Le DNS**
+
+    Le DNS (*Domain Name System*) permet d'associer un **nom de domaine** à une **adresse IP**.
+
+    **Les adresses IP**
+
+    Une machine connectée à un réseau utilise une ou plusieurs adresses IP pour communiquer. On distingue notamment les **adresses privées**, utilisées dans les réseaux locaux, et les **adresses publiques**, utilisées pour les communications sur Internet.
+
+    **Le routage**
+
+    Les données peuvent traverser plusieurs **routeurs** avant d'atteindre leur destination. Le routage permet de déterminer le chemin à suivre entre les différents réseaux.
+
+    **Le Web**
+
+    Le Web est un **service qui utilise Internet**. Il permet notamment de consulter des pages Web à l'aide d'un navigateur et de serveurs Web.
+
+    **Consulter un site Web**
+
+    Lorsqu'un utilisateur saisit un nom de domaine dans son navigateur :
+
+    1. le **DNS** permet de retrouver l'adresse IP du serveur ;
+    2. les données sont acheminées grâce au **routage** et aux **routeurs** ;
+    3. le **serveur Web** communique avec le navigateur pour fournir les ressources nécessaires à l'affichage du site.
+
+
+---
+
+# Prochaine étape — Sujets des exposés sur Internet
+
+Voici les sujets possibles :
+
+* Thème 1 : Réseaux pair à pair : intérêts et usages illicites.  
+* Thème 2 : Internet : quel impact écologique pour la planète ?
+* Thème 3 : Internet : enjeux et coûts des câbles sous-marins.
+* Thème 4 : Internet : quels impacts sur les activités humaines ?
+* Thème 5 : Les métiers autour d'Internet : Administrateur réseaux (études, qualités et compétences, rôle) 
+* Thème 6 : Les métiers autour d'Internet : Technicien / technicienne télécoms et réseaux
+* Thème 7 : Attaques : déni de service et phishing
+* Thème 8 : Attaques : ransomware et mail bombing
+* Thème 9 : Attaques : Man in the Middle et logiciels malveillants
+* Thème 10 : Internet en 2050 : quelles évolutions et quels nouveaux usages ?
+* Thème 11 : La naissance d'Internet : d'ARPANET au réseau mondial
 
