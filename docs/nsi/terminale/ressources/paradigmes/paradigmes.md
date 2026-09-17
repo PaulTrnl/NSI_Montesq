@@ -1287,3 +1287,207 @@ Cette classe possède un unique attribut `tab_regions`. Il s'agit d'une liste Py
 
 
 [📥 Résumé de cours du thème 1 (PDF)](feuille_cours.pdf){ .md-button }
+
+---
+
+# Projet POO
+
+## Liste des sujets retenus :
+
+* [Diamant](https://www.regledujeu.fr/diamant/) ;
+* [Tetris](https://fr.wikipedia.org/wiki/Tetris) ;
+* [Jeu de la Vie](https://fr.wikipedia.org/wiki/Jeu_de_la_vie) ;
+* [Echecs](https://fr.wikipedia.org/wiki/R%C3%A8gles_du_jeu_d%27%C3%A9checs) ;
+* [Dames](https://fr.wikipedia.org/wiki/Dames).
+
+## Consignes
+
+Par groupes de **2 à 3 élèves**, vous allez concevoir et programmer un jeu en Python **en utilisant le paradigme de la programmation orientée objet (POO)**.
+
+Le jeu devra être **jouable au minimum dans une console**. Les groupes qui le souhaitent pourront aller plus loin en développant une **interface graphique avec la bibliothèque Pyxel**.
+
+L'objectif n'est pas seulement d'obtenir un jeu fonctionnel : vous devrez être capables de concevoir votre programme en utilisant les principes de la POO, de justifier vos choix et d'expliquer votre travail.
+
+## Organisation du travail 
+
+Le travail devra être **réparti entre les membres du groupe**, en fonction des capacités, des connaissances et des points forts de chacun.
+
+Chaque membre doit avoir une contribution réelle et identifiable au projet.
+
+La répartition peut par exemple concerner :
+
+* la conception des classes et de l'architecture du programme ;
+* la programmation des règles du jeu ;
+* la gestion des joueurs et des interactions ;
+* la gestion du plateau ou des éléments du jeu ;
+* l'affichage et les interactions avec l'utilisateur ;
+* l'interface graphique avec Pyxel ;
+* les tests et la correction des erreurs ;
+* la rédaction du rapport.
+
+La répartition du travail devra être présentée dans le rapport écrit et pourra être questionnée lors de la soutenance.
+
+!!! warning "Attention"
+    Attention : travailler en groupe ne signifie pas que chacun programme uniquement « sa partie » sans comprendre le reste du projet. Chaque membre doit être capable d'expliquer le fonctionnement général du programme.
+
+
+## Contraintes de programmation
+
+### 1. Utiliser la programmation orientée objet
+
+Le projet doit obligatoirement utiliser le paradigme de la POO.
+
+Vous devrez notamment réfléchir aux :
+
+* classes nécessaires au fonctionnement du jeu ;
+* attributs permettant de représenter l'état des objets ;
+* méthodes permettant de modifier ou d'exploiter cet état ;
+* relations entre les différents objets.
+
+Le nombre de classes n'est pas imposé : il doit être adapté au jeu choisi.
+
+La POO ne doit pas être utilisée uniquement pour respecter la consigne. Elle doit permettre de **structurer réellement le programme**.
+
+Vous devrez être capables de répondre à des questions telles que :
+
+* Quelles sont les classes de votre programme ?
+* Pourquoi avez-vous créé ces classes ?
+* Quels sont leurs attributs ?
+* Quelles sont leurs méthodes ?
+* Quels objets sont créés pendant une partie ?
+* Comment les objets communiquent-ils entre eux ?
+* Pourquoi avoir choisi cette organisation ?
+
+---
+
+### 2. Une version jouable
+
+Le jeu doit être jouable au minimum en console.
+
+La version minimale devra permettre de réaliser une partie ou une simulation complète en respectant les principales règles du jeu.
+
+L'affichage peut rester simple : l'objectif est avant tout de travailler sur la conception et la programmation du jeu.
+
+---
+
+### 3. Interface graphique avec Pyxel
+
+
+Une interface graphique avec Pyxel pourra être ajoutée au projet.
+
+Elle n'est pas obligatoire si le temps disponible ne permet pas de la réaliser correctement.
+
+Elle pourra notamment permettre :
+
+* d'afficher le plateau ou la zone de jeu ;
+* de représenter graphiquement les éléments du jeu ;
+* de gérer les interactions avec le joueur ;
+* d'afficher les scores ou les informations de partie.
+
+!!! tip "Conseil"
+    Commencez par obtenir une **version console fonctionnelle** avant de vous lancer dans l'interface graphique.
+
+---
+
+### Tests et qualité du programme
+
+Votre programme devra être testé avec différentes situations.
+
+Vous devrez notamment rechercher :
+
+* les erreurs de saisie ;
+* les situations particulières du jeu ;
+* les cas limites ;
+* les situations de victoire ou de défaite ;
+* les comportements inattendus.
+
+Le programme devra être lisible, organisé et commenté lorsque cela est nécessaire.
+
+Les noms des variables, fonctions, classes et méthodes devront être explicites.
+
+---
+
+## Rapport écrit
+
+Chaque groupe devra produire un rapport présentant le travail réalisé.
+
+Le rapport devra notamment contenir :
+
+
+
+### 1. Présentation du jeu
+
+* Nom du jeu ;
+* Règles principales ;
+* Objectif du joueur.
+
+### 2. Conception du programme
+
+Présenter les principales classes utilisées dans le programme.
+
+Pour chaque classe importante, indiquer :
+
+* son rôle ;
+* ses principaux attributs ;
+* ses principales méthodes.
+
+Un schéma de conception pourra être utilisé pour représenter les relations entre les différentes classes.
+
+### 3. Choix de programmation
+
+Expliquer quelques choix importants réalisés pendant le développement :
+
+* organisation du programme ;
+* représentation des données ;
+* choix des classes ;
+* gestion des interactions ;
+* gestion des règles du jeu.
+
+### 4. Répartition du travail
+
+Indiquer précisément le travail réalisé par chaque membre du groupe.
+
+### 5. Difficultés rencontrées
+
+Présenter les principales difficultés rencontrées et expliquer comment elles ont été résolues.
+
+### 6. Bilan
+
+Présenter :
+
+* ce qui fonctionne ;
+* les fonctionnalités éventuellement non terminées ;
+* les améliorations qui pourraient être ajoutées.
+
+---
+
+## Soutenance orale
+
+Chaque groupe présentera son projet lors d'une soutenance orale.
+
+La présentation devra permettre de comprendre :
+
+* le fonctionnement du jeu ;
+* les choix réalisés ;
+* l'organisation du programme ;
+* l'utilisation de la POO ;
+* la répartition du travail.
+
+Vous devrez également effectuer une démonstration du jeu.
+
+Chaque membre du groupe devra prendre la parole.
+
+Des questions pourront être posées sur le programme afin de vérifier que chaque membre comprend le travail réalisé par le groupe.
+
+---
+
+## Livrables
+
+À la fin du projet, vous devrez rendre :
+
+* le(s) programme(s) Python ;
+* le rapport écrit ;
+* la présentation orale ;
+* éventuellement, une interface graphique Pyxel.
+
+Votre projet devra surtout montrer que vous êtes capables de concevoir un programme suffisamment complexe en utilisant la programmation orientée objet.
