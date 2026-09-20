@@ -682,8 +682,7 @@ On souhaite simuler le jeu de la bataille, utilisant 52 cartes. On sépare les c
 ---
 
 ??? success "Correction"
-    ![Mon super GIF animé](img/vite.gif){ width="350" }
-    Bientôt disponible.
+    [📥 Télécharger la correction de l'activité 3](correction_activite3.py)
 
 ---
 
@@ -841,8 +840,7 @@ class Appartement:
     Pensez à répondre aux questions sur la **feuille distribuée en classe**.
 
 ??? success "Correction"
-    ![Mon super GIF animé](img/vite.gif){ width="350" }
-    Bientôt disponible.
+    [📥 Télécharger la correction de l'activité 4](correction_activite4.py)
 
 ---
 
@@ -912,8 +910,7 @@ La classe devra également comporter quatre méthodes :
 
 
 ??? success "Correction"
-    ![Mon super GIF animé](img/vite.gif){ width="350" }
-    Bientôt disponible.
+    [📥 Télécharger la correction de l'activité 5](correction_activite5.py)
 
 ---
 
@@ -1012,6 +1009,9 @@ La méthode de chiffrement du « code César » consiste à décaler les lettres
 !!! warning "À ne pas oublier"
 
     Pensez à répondre aux questions sur la **feuille distribuée en classe**.
+
+??? success "Correction"
+    [📥 Télécharger la correction de l'exercice 2](correction_exercice2.py)
 
 ## Activité 6 - Problème de colorisation
 
