@@ -5,7 +5,7 @@
 
 
 
-# Séance 1 — Comment faire communiquer une ville ?
+## Séance 1 — Comment faire communiquer une ville ?
 
 !!! abstract "Projet fil rouge — Montesquéria"
     Bienvenue à **Montesquéria**, une ville du futur.
@@ -16,7 +16,7 @@
 
 ---
 
-## Objectifs de la séance
+### Objectifs de la séance
 
 À la fin de cette séance, je dois être capable de :
 
@@ -38,9 +38,9 @@
 
 ---
 
-# I. Bienvenue à Montesquéria
+### I. Bienvenue à Montesquéria
 
-## 1. La ville du futur
+#### 1. La ville du futur
 
 Nous sommes en **2050**.
 
@@ -59,7 +59,7 @@ On trouve notamment :
 
 Chaque bâtiment possède plusieurs ordinateurs.
 
-### Problème
+#### Problème
 
 La mairie souhaite pouvoir envoyer rapidement une information à l'hôpital.
 
@@ -89,7 +89,7 @@ Mais les deux ordinateurs sont actuellement **isolés**.
 
 ---
 
-## 2. Première solution : relier les ordinateurs
+#### 2. Première solution : relier les ordinateurs
 
 Une première idée consiste à relier directement les deux ordinateurs.
 
@@ -110,7 +110,7 @@ L'information peut maintenant circuler d'un ordinateur à l'autre.
 
 ---
 
-# II. Et si la ville grandissait ?
+### II. Et si la ville grandissait ?
 
 La mairie décide maintenant de connecter **toute la ville**.
 
@@ -138,7 +138,7 @@ On souhaite permettre aux différents bâtiments de communiquer :
 
 ---
 
-### 💭 Quelques problèmes possibles
+#### 💭 Quelques problèmes possibles
 
 * Il faudrait énormément de câbles.
 * Chaque ordinateur devrait être relié à beaucoup d'autres.
@@ -150,7 +150,7 @@ Il faut donc trouver une meilleure organisation.
 
 ---
 
-# III. Une nouvelle idée
+### III. Une nouvelle idée
 
 Les ingénieurs de Montesquéria proposent une nouvelle solution.
 
@@ -188,7 +188,7 @@ Lorsqu'un appareil envoie des données, le switch les reçoit et les transmet ve
 
 ---
 
-# IV. Le réseau du lycée
+### IV. Le réseau du lycée
 
 On peut appliquer exactement la même idée à notre établissement.
 
@@ -226,7 +226,7 @@ Le switch permet justement d'ajouter facilement de nouvelles machines au réseau
     Un **réseau local** est un réseau qui relie des équipements situés dans un espace géographique limité, par exemple une maison, un lycée ou un bâtiment.
 ---
 
-# V. Plusieurs réseaux locaux
+### V. Plusieurs réseaux locaux
 
 Nous savons maintenant construire un réseau local.
 
@@ -260,7 +260,7 @@ Chaque réseau local ressemble à ceci :
     Chaque bâtiment possède son propre **réseau local**.
 
 
-# VI. Comment relier plusieurs réseaux ?
+### VI. Comment relier plusieurs réseaux ?
 
 Nous avons maintenant un problème.
 
@@ -278,7 +278,7 @@ Il nous faut donc un nouvel équipement.
 
 ---
 
-## 🔀 Le routeur
+#### 🔀 Le routeur
 
 Pour relier plusieurs réseaux différents, on utilise un **routeur**.
 
@@ -311,7 +311,7 @@ Il permet aux informations de passer d'un réseau à un autre.
 
 
 
-# VII. Activité — Construisons le réseau de Montesquéria
+### VII. Activité — Construisons le réseau de Montesquéria
 
 !!! abstract "Mission"
     Vous devez maintenant proposer une organisation du réseau informatique de **Montesquéria**.
@@ -328,11 +328,11 @@ La ville de Montesquéria possède les bâtiments suivants :
 
 Chaque bâtiment possède au moins un ordinateur.
 
-### Votre mission
+#### Votre mission
 
 Vous devez proposer une organisation permettant à **tous les bâtiments de communiquer**.
 
-### Contraintes
+#### Contraintes
 
 Votre réseau doit :
 
@@ -343,7 +343,7 @@ Votre réseau doit :
 
 La quatrième contrainte vous demande de réfléchir au problème rencontré précédemment : que se passe-t-il lorsqu'une connexion est coupée ?
 
-### Travail demandé
+#### Travail demandé
 
 Sur votre feuille, représentez votre réseau.
 
@@ -363,7 +363,7 @@ Vous devez faire apparaître :
 
 ---
 
-# VIII. Et maintenant... Internet 🌍
+### VIII. Et maintenant... Internet 🌍
 
 Nous savons maintenant construire plusieurs réseaux locaux et les relier entre eux.
 
@@ -451,7 +451,7 @@ C'est l'idée fondamentale derrière **Internet**.
 
 ---
 
-# IX. Comment faire circuler une information ?
+### IX. Comment faire circuler une information ?
 
 Imaginons que l'ordinateur du lycée veuille envoyer un message à celui de l'hôpital.
 
@@ -485,7 +485,7 @@ Sur Internet, les informations sont également transportées à travers différe
 
 
 
-# X. Un problème apparaît... 🚧 
+### X. Un problème apparaît... 🚧 
 
 Internet permet maintenant de relier une multitude de réseaux.
 
@@ -511,7 +511,7 @@ Il utilise son ordinateur et souhaite envoyer un message à la mairie.
 
 ---
 
-## 💭 Imaginez la situation
+#### 💭 Imaginez la situation
 
 Si je vous dis :
 
@@ -525,7 +525,7 @@ Les ordinateurs rencontrent exactement ce problème.
 
 ---
 
-# XI. Donner une identité aux machines 🏷️
+### XI. Donner une identité aux machines 🏷️
 
 Pour pouvoir communiquer correctement, les machines doivent pouvoir être **identifiées**.
 
@@ -560,9 +560,9 @@ Nous verrons la réponse à ce problème lors de la prochaine séance.
 ---
 
 
-# XII. Bilan de la séance
+### XII. Bilan de la séance
 
-## Ce que nous avons découvert
+#### Ce que nous avons découvert
 
 Nous sommes partis d'un problème très simple :
 
@@ -597,7 +597,7 @@ Ces questions vont nous permettre de découvrir progressivement le fonctionnemen
 
 ---
 
-# 📝 Trace écrite
+### 📝 Trace écrite
 
 !!! note "À retenir"
     Un **réseau informatique** est un ensemble d'équipements reliés entre eux afin d'échanger des informations.
@@ -613,7 +613,7 @@ Ces questions vont nous permettre de découvrir progressivement le fonctionnemen
     Pour communiquer sur un réseau, les machines doivent notamment pouvoir être **identifiées** et les informations doivent pouvoir être **acheminées vers leur destination**.
 ---
 
-# Prochaine étape : les adresses IP
+### Prochaine étape : les adresses IP
 
 Dans la prochaine séance, nous allons résoudre le problème rencontré à Montesquéria :
 
@@ -639,7 +639,7 @@ se cache une représentation en **binaire**.
 
 ---
 
-# Séance 2 — Comment identifier une machine et transmettre des données dans un réseau ?
+## Séance 2 — Comment identifier une machine et transmettre des données dans un réseau ?
 
 
 !!! abstract "Projet fil rouge — Montesquéria"
@@ -654,7 +654,7 @@ se cache une représentation en **binaire**.
 
 ---
 
-## Objectifs de la séance
+### Objectifs de la séance
 
 À la fin de cette séance, je dois être capable de :
 
@@ -674,7 +674,7 @@ se cache une représentation en **binaire**.
 ---
 
 
-# I. Le problème de Montesquéria
+### I. Le problème de Montesquéria
 
 Revenons à notre ville.
 
@@ -699,7 +699,7 @@ Mais un problème apparaît :
 
 ---
 
-💭 Une comparaison avec le courrier
+#### 💭 Une comparaison avec le courrier
 
 Imaginez que vous vouliez envoyer une lettre.
 
@@ -724,7 +724,7 @@ Ils ont besoin d'une adresse permettant d'identifier le destinataire.
 
 ---
 
-# II. L'adresse IP
+### II. L'adresse IP
 
 Pour communiquer sur Internet, les machines utilisent notamment des adresses IP.
 
@@ -748,7 +748,7 @@ Lorsqu'un ordinateur veut envoyer des données à une autre machine, il doit not
 !!! note "À retenir"
     Une **adresse IP** permet d'identifier une interface réseau et de désigner une destination pour les communications utilisant le protocole IP.
 
-# III. À quoi ressemble une adresse IP ?
+### III. À quoi ressemble une adresse IP ?
 
 Nous allons commencer par IPv4, la version que nous allons utiliser dans cette séance.
 
@@ -787,7 +787,7 @@ Quelques exemples d'adresses valides :
     Chaque nombre peut aller de **0 à 255**.
 
 
-# IV. Pourquoi les ordinateurs utilisent-ils des nombres ?
+### IV. Pourquoi les ordinateurs utilisent-ils des nombres ?
 
 Les ordinateurs manipulent les informations sous forme de bits.
 
@@ -805,13 +805,13 @@ devient :
 11000000.10101000.00000001.00101010
 ```
 
-# V. Un peu de binaire
+### V. Un peu de binaire
 
-## Abracadabra
+#### Abracadabra
 
 ![Montesquéria](img/grille_bin.png){ width="550" }
 
-## Comment ça fonctionne ?
+#### Comment ça fonctionne ?
 
 Pour comprendre cette représentation, observons les valeurs associées aux positions d'un nombre binaire sur 8 bits :
 ```text
@@ -929,7 +929,7 @@ Ainsi :
 
     L'adresse complète devient :
    
-# VI. Adresse source et adresse destination
+### VI. Adresse source et adresse destination
 
 Lorsqu'un ordinateur communique avec un autre, il faut savoir :
 
@@ -973,7 +973,7 @@ On peut représenter le message ainsi :
 
 ---
 
-# VII. Deux protocoles essentiels : TCP et IP
+### VII. Deux protocoles essentiels : TCP et IP
 
 
 Nous savons maintenant qu'une communication contient notamment :
@@ -1077,7 +1077,7 @@ Une fois les données reçues, TCP permet également de les remettre dans le bon
 
 ---
 
-# 📝 Trace écrite
+### 📝 Trace écrite
 
 !!! note "À retenir"
     Pour communiquer sur Internet, les données doivent pouvoir être **adressées**, **acheminées** et **transmises de manière fiable**.
@@ -1092,7 +1092,7 @@ Une fois les données reçues, TCP permet également de les remettre dans le bon
 
 ---
 
-# Prochaine étape — Comment retenir toutes ces adresses ?
+### Prochaine étape — Comment retenir toutes ces adresses ?
 
 Nous savons maintenant qu'un ordinateur peut communiquer avec un autre grâce notamment aux adresses IP.
 
@@ -1121,7 +1121,7 @@ Nous découvrirons notamment :
 
 ---
 
-# Séance 3 — Comment retrouver une machine et lui faire parvenir des données ?
+## Séance 3 — Comment retrouver une machine et lui faire parvenir des données ?
 
 !!! abstract "Projet fil rouge — Montesquéria"
 
@@ -1137,7 +1137,7 @@ Nous découvrirons notamment :
 
 ---
 
-## Objectifs de la séance
+### Objectifs de la séance
 
 À la fin de cette séance, je dois être capable de :
 
@@ -1158,7 +1158,7 @@ Nous découvrirons notamment :
 
 ---
 
-## I. Comment retrouver un site ?
+### I. Comment retrouver un site ?
 
 Dans Montesquéria, un habitant souhaite consulter le site de la mairie.
 
@@ -1175,7 +1175,7 @@ Mais nous avons vu dans la séance précédente qu'une machine communique grâce
 
     De quoi a-t-il besoin ?
 
-## Le DNS
+#### Le DNS
 
 Pour faire le lien entre un **nom de domaine** et une **adresse IP**, Internet utilise le **DNS**.
 
@@ -1202,7 +1202,7 @@ Le navigateur peut alors utiliser l'adresse IP pour contacter le serveur.
 
 ---
 
-## II. Observer le fonctionnement du DNS
+### II. Observer le fonctionnement du DNS
 
 Nous pouvons directement demander à un ordinateur de rechercher l'adresse IP associée à un nom de domaine.
 
@@ -1224,7 +1224,7 @@ Addresses:   142.250.xxx.xxx
 !!! tip "À retenir"
     `nslookup` permet d'interroger un serveur DNS pour connaître l'adresse IP associée à un nom de domaine.
 
-## III. Quelle est l'adresse IP de mon ordinateur ?
+### III. Quelle est l'adresse IP de mon ordinateur ?
 
 Nous avons parlé des adresses IP comme si chaque ordinateur en possédait une.
 
@@ -1232,7 +1232,7 @@ Mais quelle est l'adresse IP de notre ordinateur ?
 
 Nous pouvons directement l'observer.
 
-### Sur Windows
+#### Sur Windows
 
 Dans le terminal, on peut utiliser :
 ```text
@@ -1244,14 +1244,14 @@ On obtient notamment une ligne ressemblant à :
 Adresse IPv4 . . . . . . . . . . : 192.168.1.25
 ```
 
-### Sur macOS
+#### Sur macOS
 
 Dans le terminal, on peut utiliser :
 ```text
 ifconfig
 ```
 
-## IV. Adresse IP privée ou publique ?
+### IV. Adresse IP privée ou publique ?
 
 L'adresse que nous venons de trouver ressemble souvent à :
 
@@ -1287,7 +1287,7 @@ La box possède également une **adresse IP publique**.
 
     Plusieurs appareils d'un même réseau local peuvent donc utiliser des adresses privées différentes tout en partageant une même connexion à Internet.
 
-### Quelques plages d'adresses privées
+#### Quelques plages d'adresses privées
 
 Certaines plages d'adresses IPv4 sont réservées aux réseaux privés.
 
@@ -1323,7 +1323,7 @@ sont des adresses privées.
     Pour reconnaître une adresse IP privée, il faut vérifier si elle appartient à l'une des trois plages étudiées.
 ---
 
-## V. Comment les données trouvent-elles leur chemin ?
+### V. Comment les données trouvent-elles leur chemin ?
 
 Revenons à Montesquéria.
 
@@ -1344,18 +1344,18 @@ C'est le **routage**.
 
     Les **routeurs** jouent un rôle essentiel dans ce fonctionnement.
 
-## Observer le chemin avec tracert
+#### Observer le chemin avec tracert
 
 Nous pouvons observer une partie du chemin suivi par les données grâce à une commande.
 
-### Sur Windows
+#### Sur Windows
 
 On utilise :
 ```text
 tracert www.google.fr
 ```
 
-### Sur macOS ou Linux
+#### Sur macOS ou Linux
 
 On utilise :
 ```text
@@ -1378,7 +1378,7 @@ traceroute www.google.fr
 
     L'objectif n'est donc pas de mémoriser le chemin obtenu, mais de comprendre le **principe du routage**.
 
-## VI. Internet et le Web, est-ce la même chose ?
+### VI. Internet et le Web, est-ce la même chose ?
 
 Lorsque nous parlons d'Internet, nous pensons souvent aux sites Web.
 
@@ -1390,7 +1390,7 @@ Pourtant, **Internet et le Web ne sont pas la même chose**.
 
 ---
 
-## VII. Que se passe-t-il lorsque je consulte un site ?
+### VII. Que se passe-t-il lorsque je consulte un site ?
 
 Reprenons l'exemple du site de la mairie :
 ```text
@@ -1411,7 +1411,7 @@ Plusieurs étapes sont nécessaires pour afficher le site.
 
 
 
-# 📝 Trace écrite
+### 📝 Trace écrite
 
 !!! note "À retenir"
     **Le DNS**
@@ -1441,7 +1441,7 @@ Plusieurs étapes sont nécessaires pour afficher le site.
 
 ---
 
-# Prochaine étape — Sujets des exposés sur Internet
+## Sujets des exposés sur Internet
 
 Voici les sujets possibles :
 

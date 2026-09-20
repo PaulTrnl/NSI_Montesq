@@ -32,17 +32,21 @@ Au cours de l'année, nous allons apprendre à :
 
 - [**Internet**](ressources/internet/internet.md)
 
-    - réseaux ;
-    - protocoles ;
+    - réseaux informatiques ;
+    - protocoles de communication ;
     - adressage IP ;
-    - échanges de données.
+    - DNS et noms de domaine ;
+    - routage ;
+    - transmission et échanges de données.
 
 - [**Le Web**](ressources/web/web.md)
 
-    - fonctionnement d'un site web ;
+    - fonctionnement du Web ;
+    - URL et navigation ;
     - HTML et CSS ;
+    - serveurs et clients Web ;
     - moteurs de recherche ;
-    - protection des données.
+    - données personnelles et protection de la vie privée.
 
    
 - [**Les données**](ressources/data/data.md)
@@ -50,30 +54,56 @@ Au cours de l'année, nous allons apprendre à :
     - données structurées ;
     - fichiers CSV ;
     - bases de données ;
-    - visualisation.
+    - requêtes et traitement des données ;
+    - visualisation des données ;
+    - qualité et fiabilité des données.
 
 - [**Les réseaux sociaux**](ressources/reseaux_soc/reseaux_soc.md)
 
-    - To do
+    - identité numérique et traces numériques ;
+    - données personnelles ;
+    - graphe social et relations entre utilisateurs ;
+    - représentation et analyse d'un réseau ;
+    - propagation de l'information ;
+    - algorithmes de recommandation.
 
 - [**Localisation et cartographie**](ressources/localisation/localisation.md)
 
+    - géolocalisation ;
     - GPS ;
     - coordonnées géographiques ;
-    - cartographie numérique.
+    - triangulation et positionnement ;
+    - cartographie numérique ;
+    - données géographiques et itinéraires.
 
 - [**Objets connectés**](ressources/embarque/embarque.md)
 
-    - capteurs ;
+    - capteurs et actionneurs ;
     - systèmes embarqués ;
-    - communication.
+    - acquisition et traitement des données ;
+    - communication entre objets ;
+    - Internet des objets (IoT) ;
+    - enjeux liés aux données et à la sécurité.
 
 - [**Photographie numérique**](ressources/photo/photo.md)
 
     - images numériques ;
-    - pixels ;
+    - pixels et résolution ;
+    - codage des couleurs ;
+    - formats d'image ;
     - compression ;
-    - formats.
+    - métadonnées et données EXIF.
+
+- [**Programmation avec Python**](ressources/prog/python.md)
+
+    - variables et types de données ;
+    - entrées et sorties ;
+    - conditions ;
+    - boucles ;
+    - fonctions ;
+    - listes ;
+    - manipulation de données ;
+    - résolution de problèmes simples.
 
 </div>
 
@@ -96,10 +126,10 @@ La SNT ne se limite pas à la théorie. Nous réaliserons de nombreuses activit�
 
 Pendant l'année, nous utiliserons notamment :
 
-- 🐍 Python pour programmer ;
-- 🌐 un navigateur et les outils du Web ;
-- 📊 des outils d'analyse de données ;
-- 📝 des environnements de développement.
+- Python pour programmer ;
+- un navigateur et les outils du Web ;
+- des outils d'analyse de données ;
+- des environnements de développement.
 
 ---
 
