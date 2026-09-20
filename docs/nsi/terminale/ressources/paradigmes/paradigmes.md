@@ -1,5 +1,6 @@
-# Thème 1 : Paradigmes de programmation
+# Thème 1 : Paradigmes de programmation { #paradigmes }
 
+<a id="haut"></a>
 
 !!! note "À retenir"
 
@@ -26,7 +27,7 @@
     Dans ce chapitre, nous allons identifier les différences entre ces paradigmes de programmation et comprendre les caractéristiques de chacun.
 
 
-# Programmation impérative
+## Programmation impérative { #imperative }
 
 ![Mon super GIF animé](img/instructions.gif){ width="350" }
 
@@ -73,13 +74,13 @@ L'approche impérative décrit donc les différentes étapes permettant de **mod
 
 
 
-# Programmation fonctionnelle
+## Programmation fonctionnelle { #fonctionnelle }
 
 ![Mon super GIF animé](img/transfo.gif){ width="350" }
 
 [📥 Support élève du thème 1 (PDF)](01_Paradigmes_fiche_activite_complet.pdf){ .md-button }
 
-## Principe 
+### Principe 
 
 !!! note "À retenir"
     La programmation fonctionnelle est un paradigme de programmation qui consiste à construire un programme en utilisant principalement des fonctions et des transformations de données.
@@ -101,7 +102,7 @@ print(list(carres))
 L'approche fonctionnelle ne décrit donc pas les différentes étapes de modification d'une liste. Elle décrit plutôt **la transformation que l'on souhaite appliquer aux données**.
 
 
-## Fonctions pures et effets de bord
+### Fonctions pures et effets de bord
 
 Une fonction est dite **pure** si :
 
@@ -149,7 +150,7 @@ Dans les deux cas, la fonction ne se contente pas de calculer et de retourner un
     Cela rend les fonctions plus faciles à comprendre, à tester et à réutiliser.
 
 
-## Les fonctions comme objets
+### Les fonctions comme objets
 
 En Python, une fonction peut être utilisée comme une donnée.
 
@@ -200,7 +201,7 @@ La fonction `appliquer` reçoit `carre` comme argument et l'utilise ensuite sur 
 
     Une **fonction d'ordre supérieur** est une fonction qui reçoit une fonction en argument ou qui renvoie une fonction.
 
-## Les fonctions lambda
+### Les fonctions lambda
 
 Une fonction `lambda` permet de créer rapidement une petite fonction.
 
@@ -233,7 +234,7 @@ print(f(5)) # renverra 25
 !!! note "À retenir"
     `lambda` permet de définir rapidement une petite fonction, généralement utilisée directement à un endroit précis.
 
-## map : transformer
+### map : transformer
 
 La fonction `map` permet d'appliquer une fonction à chaque élément d'une collection.
 
@@ -249,7 +250,7 @@ print(list(carres)) # [1, 4, 9, 16, 25]
 On peut lire ce programme ainsi : pour chaque élément de `nombres`, calculer son carré.
 
 
-## filter : sélectionner
+### filter : sélectionner
 
 La fonction `filter` permet de conserver uniquement les éléments qui vérifient une condition. La fonction utilisée doit renvoyer `True` ou `False`.
 
@@ -265,7 +266,7 @@ print(list(pairs)) # [2, 4, 6]
 On peut lire ce programme ainsi : pour chaque élément, vérifier s'il est pair et conserver uniquement ceux qui le sont.
 
 
-## reduce : combiner
+### reduce : combiner
 
 La fonction `reduce` permet de combiner les éléments d'une collection pour obtenir une seule valeur. Elle se trouve dans le module `functools`.
 
@@ -287,7 +288,7 @@ Le calcul est effectué progressivement :
 10 + 5 → 15
 ```
 
-## Combiner filter, map et reduce
+### Combiner filter, map et reduce
 
 Les trois fonctions peuvent être utilisées successivement.
 
@@ -321,7 +322,7 @@ print(somme) # 56
     Une approche fonctionnelle permet d'**enchaîner des transformations** pour obtenir progressivement le résultat souhaité.
 
 
-## Activité 1 - Programmation fonctionnelle
+### Activité 1 - Programmation fonctionnelle
 
 !!! warning "À ne pas oublier"
 
@@ -506,19 +507,19 @@ ___
 
 
 
-# Programmation Orientée Objet (POO)
+## Programmation Orientée Objet (POO) { #poo }
 
 ![Mon super GIF animé](img/chaine.gif){ width="350" }
 
 [📥 Support élève du thème 1 (PDF)](01_Paradigmes_fiche_activite_complet.pdf){ .md-button }
 
-## Introduction à la POO (Activité débranchée 1)
+### Introduction à la POO (Activité débranchée 1)
 
 !!! warning "À ne pas oublier"
 
     Pensez à répondre aux questions sur la **feuille distribuée en classe**.
 
-## Principe
+### Principe
 !!! note "À retenir"
     La programmation orientée objet (POO) est un paradigme de programmation qui consiste à organiser un programme autour d'**objets**.
 
@@ -531,9 +532,9 @@ Prenons l'exemple d'une voiture, celle-ci possède des caractéristiques, comme 
 
 Une classe va donc correspondre à un modèle, une sorte de moule, dont tous les objets qui seront créés avec ce dernier partageront les mêmes attributs et méthodes. Ces objets seront donc du type class en python. Chaque objet créé correspond à une **instance** d'une classe, on utilise par exemple le moule qui correspond à une voiture, puis il ne reste qu'à définir la valeur de ses attributs (ex : Rouge pour la couleur).
 
-## Application
+### Application
 
-## Exercice 1 - C'est la classe
+### Exercice 1 - C'est la classe
 
 Soit le programme suivant :
 
@@ -583,7 +584,7 @@ while not mechant.est_vaincu():
 ---
 
 
-## Activité 2 - Classe-ment
+### Activité 2 - Classe-ment
 
 !!! question "Question 1"
     Implémenter la classe `Ennemi` donnée précédemment. Puis ajouter lui un nouvel attribut nommé `arme`. Cet attribut correspond à un tuple (nom de l'arme, dégât de l'arme).
@@ -602,7 +603,7 @@ while not mechant.est_vaincu():
     [📥 Télécharger la correction de l'activité 2](correction_activite2.py)
 ---
 
-## Activité 3 - Bot-aille
+### Activité 3 - Bot-aille
 
 !!! warning "À ne pas oublier"
 
@@ -686,7 +687,7 @@ On souhaite simuler le jeu de la bataille, utilisant 52 cartes. On sépare les c
 
 ---
 
-## Activité 4 - Appartement non meublé
+### Activité 4 - Appartement non meublé
 
 
 On souhaite modéliser un appartement composé de plusieurs pièces. Une pièce est caractérisée par un **nom** et une **surface** en m². Un appartement est caractérisé par un **nom** et contient une liste de pièces. Compléter les méthodes des deux classes `Piece` et `Appartement`.
@@ -845,7 +846,7 @@ class Appartement:
 ---
 
 
-## Activité 5 - Temps pis
+### Activité 5 - Temps pis
 
 
 Créer et compléter une classe `Temps` permettant de représenter une durée à l'aide de trois attributs :
@@ -915,7 +916,7 @@ La classe devra également comporter quatre méthodes :
 ---
 
 
-## Exercice 2 - Ave César
+### Exercice 2 - Ave César
 
 Dans cet exercice, on étudie une méthode de chiffrement de chaînes de caractères alphabétiques appelée **code de César**.
 
@@ -1013,7 +1014,7 @@ La méthode de chiffrement du « code César » consiste à décaler les lettres
 ??? success "Correction"
     [📥 Télécharger la correction de l'exercice 2](correction_exercice2.py)
 
-## Activité 6 - Problème de colorisation
+### Activité 6 - Problème de colorisation
 
 
 Un pays est composé de différentes régions. Deux régions sont voisines si elles ont au moins une frontière en commun. L'objectif est d'attribuer une couleur à chaque région de la carte sans que deux régions voisines aient la même couleur, en cherchant à utiliser un nombre de couleurs aussi faible que possible.
@@ -1036,7 +1037,7 @@ L'image ci-dessous (Figure 1) donne un exemple de résultat de colorisation des 
     Les deux parties de cet exercice forment un ensemble. Cependant, il n’est pas nécessaire d’avoir répondu à une question pour aborder la suivante. En particulier, on pourra utiliser les méthodes des questions précédentes même quand elles n’ont pas encore été écrites.
 
 
-### Partie 1
+#### Partie 1
 
 On considère la classe `Region` qui modélise une région d'un pays sur une carte.
 
@@ -1188,7 +1189,7 @@ Enfin, l'attribut `couleur_attribuee` contient la couleur attribuée à la régi
 
 ---
 
-### Partie 2
+#### Partie 2
 
 Dans cette partie :
 
@@ -1290,17 +1291,20 @@ Cette classe possède un unique attribut `tab_regions`. Il s'agit d'une liste Py
 
 ---
 
-# Projet POO
+## Projet POO { #projet }
 
-## Liste des sujets retenus :
+### Liste des sujets retenus 
 
-* [Diamant](https://www.regledujeu.fr/diamant/) ;
-* [Tetris](https://fr.wikipedia.org/wiki/Tetris) ;
+* [FNAF 1](https://fnaf1.io/) Erik, Sacha, Malean ;
+* [FNAF 4](https://fnaf1.io/fnaf-4) Chayma, Wesley, Kacem;
+* [Diamant](https://iello.fr/wp-content/uploads/2022/07/DIAMANT_regles.pdf) : Gabriel, Lassana, Rayan ;
+* [Tetris](https://fr.wikipedia.org/wiki/Tetris) : Raphael, Kamel ;
 * [Jeu de la Vie](https://fr.wikipedia.org/wiki/Jeu_de_la_vie) ;
-* [Echecs](https://fr.wikipedia.org/wiki/R%C3%A8gles_du_jeu_d%27%C3%A9checs) ;
+* [Echecs](https://fr.wikipedia.org/wiki/R%C3%A8gles_du_jeu_d%27%C3%A9checs) Rafael, Edouard, Benjamin ;
+* [Morpion]() : Hamady, Adam
 * [Dames](https://fr.wikipedia.org/wiki/Dames).
 
-## Consignes
+### Consignes
 
 Par groupes de **2 à 3 élèves**, vous allez concevoir et programmer un jeu en Python **en utilisant le paradigme de la programmation orientée objet (POO)**.
 
@@ -1308,7 +1312,7 @@ Le jeu devra être **jouable au minimum dans une console**. Les groupes qui le s
 
 L'objectif n'est pas seulement d'obtenir un jeu fonctionnel : vous devrez être capables de concevoir votre programme en utilisant les principes de la POO, de justifier vos choix et d'expliquer votre travail.
 
-## Organisation du travail 
+### Organisation du travail 
 
 Le travail devra être **réparti entre les membres du groupe**, en fonction des capacités, des connaissances et des points forts de chacun.
 
@@ -1331,9 +1335,9 @@ La répartition du travail devra être présentée dans le rapport écrit et pou
     Attention : travailler en groupe ne signifie pas que chacun programme uniquement « sa partie » sans comprendre le reste du projet. Chaque membre doit être capable d'expliquer le fonctionnement général du programme.
 
 
-## Contraintes de programmation
+### Contraintes de programmation
 
-### 1. Utiliser la programmation orientée objet
+#### 1. Utiliser la programmation orientée objet
 
 Le projet doit obligatoirement utiliser le paradigme de la POO.
 
@@ -1360,7 +1364,7 @@ Vous devrez être capables de répondre à des questions telles que :
 
 ---
 
-### 2. Une version jouable
+#### 2. Une version jouable
 
 Le jeu doit être jouable au minimum en console.
 
@@ -1370,10 +1374,10 @@ L'affichage peut rester simple : l'objectif est avant tout de travailler sur la 
 
 ---
 
-### 3. Interface graphique avec Pyxel
+#### 3. Interface graphique avec Pyxel
 
 
-Une interface graphique avec Pyxel pourra être ajoutée au projet.
+Une interface graphique avec [Pyxel](https://www.pyxelstudio.net/) pourra être ajoutée au projet.
 
 Elle n'est pas obligatoire si le temps disponible ne permet pas de la réaliser correctement.
 
@@ -1389,7 +1393,7 @@ Elle pourra notamment permettre :
 
 ---
 
-### Tests et qualité du programme
+#### Tests et qualité du programme
 
 Votre programme devra être testé avec différentes situations.
 
@@ -1407,7 +1411,7 @@ Les noms des variables, fonctions, classes et méthodes devront être explicites
 
 ---
 
-## Rapport écrit
+### Rapport écrit
 
 Chaque groupe devra produire un rapport présentant le travail réalisé.
 
@@ -1415,13 +1419,13 @@ Le rapport devra notamment contenir :
 
 
 
-### 1. Présentation du jeu
+#### 1. Présentation du jeu
 
 * Nom du jeu ;
 * Règles principales ;
 * Objectif du joueur.
 
-### 2. Conception du programme
+#### 2. Conception du programme
 
 Présenter les principales classes utilisées dans le programme.
 
@@ -1433,7 +1437,7 @@ Pour chaque classe importante, indiquer :
 
 Un schéma de conception pourra être utilisé pour représenter les relations entre les différentes classes.
 
-### 3. Choix de programmation
+#### 3. Choix de programmation
 
 Expliquer quelques choix importants réalisés pendant le développement :
 
@@ -1443,15 +1447,15 @@ Expliquer quelques choix importants réalisés pendant le développement :
 * gestion des interactions ;
 * gestion des règles du jeu.
 
-### 4. Répartition du travail
+#### 4. Répartition du travail
 
 Indiquer précisément le travail réalisé par chaque membre du groupe.
 
-### 5. Difficultés rencontrées
+#### 5. Difficultés rencontrées
 
 Présenter les principales difficultés rencontrées et expliquer comment elles ont été résolues.
 
-### 6. Bilan
+#### 6. Bilan
 
 Présenter :
 
@@ -1461,7 +1465,7 @@ Présenter :
 
 ---
 
-## Soutenance orale
+### Soutenance orale
 
 Chaque groupe présentera son projet lors d'une soutenance orale.
 
@@ -1481,9 +1485,9 @@ Des questions pourront être posées sur le programme afin de vérifier que chaq
 
 ---
 
-## Livrables
+### Livrables
 
-À la fin du projet, vous devrez rendre :
+À la fin du projet **(le 18/09)**, vous devrez rendre une archive comprenant :
 
 * le(s) programme(s) Python ;
 * le rapport écrit ;
@@ -1491,3 +1495,12 @@ Des questions pourront être posées sur le programme afin de vérifier que chaq
 * éventuellement, une interface graphique Pyxel.
 
 Votre projet devra surtout montrer que vous êtes capables de concevoir un programme suffisamment complexe en utilisant la programmation orientée objet.
+
+
+
+<div class="navigation-page">
+    <a href="#paradigmes" id="bouton-remonter" class="bouton-navigation">↑</a>
+    <a href="#imperative" id="bouton-descendre" class="bouton-navigation">↓</a>
+</div>
+
+<a id="bas"></a>

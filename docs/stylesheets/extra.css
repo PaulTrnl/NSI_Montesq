@@ -118,3 +118,34 @@
 .md-nav__link:hover {
     color: #1e7fcf;
 }
+
+.navigation-page {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 1000;
+}
+
+.bouton-navigation {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #4f78ad;
+    color: white !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none !important;
+    font-size: 22px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    opacity: 0.7;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.bouton-navigation:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
