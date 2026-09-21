@@ -1,0 +1,389 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef1f4;
+    color: #263238;
+}
+
+.page {
+    max-width: 1500px;
+    margin: auto;
+}
+
+/* =========================
+   EN-TÊTE
+========================= */
+
+header {
+    background: #0f2a4d;
+    color: white;
+    padding: 18px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+header h1 span {
+    font-weight: normal;
+    opacity: 0.7;
+}
+
+header p {
+    margin: 4px 0 0;
+    opacity: 0.75;
+}
+
+.actions button {
+    border: none;
+    padding: 10px 15px;
+    margin-left: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    background: white;
+    color: #0f2a4d;
+    font-weight: bold;
+}
+
+.actions button:hover {
+    background: #e7edf4;
+}
+
+/* =========================
+   BARRE INFO
+========================= */
+
+.info-bar {
+    background: white;
+    padding: 12px 20px;
+    border-bottom: 1px solid #d5dbe0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#routeInfo {
+    font-weight: bold;
+}
+
+/* =========================
+   STRUCTURE
+========================= */
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 15px;
+    padding: 15px;
+}
+
+.map-container {
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+#map {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* =========================
+   CARTE
+========================= */
+
+.terrain {
+    fill: #f4f0e8;
+}
+
+.park {
+    fill: #c9dfc0;
+    stroke: #91b889;
+    stroke-width: 2;
+}
+
+.river {
+    fill: none;
+    stroke: #a9d5e8;
+    stroke-width: 55;
+}
+
+.bridge {
+    stroke: #a27d55;
+    stroke-width: 25;
+}
+
+.road {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 22;
+}
+
+.main-road {
+    stroke-width: 32;
+}
+
+.roundabout {
+    fill: #e4dfd4;
+    stroke: white;
+    stroke-width: 8;
+}
+
+.street-name {
+    font-size: 15px;
+    fill: #777;
+    pointer-events: none;
+}
+
+.district {
+    font-size: 30px;
+    font-weight: bold;
+    fill: #b5b0a5;
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+/* =========================
+   BÂTIMENTS
+========================= */
+
+.building {
+    cursor: pointer;
+}
+
+.building rect,
+.building ellipse {
+    fill: #d9d0c4;
+    stroke: #8d8172;
+    stroke-width: 3;
+    transition: 0.2s;
+}
+
+.building:hover rect,
+.building:hover ellipse {
+    fill: #f2d28c;
+    stroke: #a66c18;
+    stroke-width: 4;
+}
+
+.building.selected rect,
+.building.selected ellipse {
+    fill: #f3c969;
+    stroke: #b76e00;
+    stroke-width: 5;
+}
+
+.building text {
+    text-anchor: middle;
+    font-weight: bold;
+    font-size: 15px;
+    pointer-events: none;
+}
+
+.building .small {
+    font-size: 11px;
+    font-weight: normal;
+}
+
+/* =========================
+   ITINÉRAIRE
+========================= */
+
+#routeLine {
+    fill: none;
+    stroke: #d83b3b;
+    stroke-width: 9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 18 10;
+    opacity: 0.9;
+}
+
+/* =========================
+   RÉSEAU
+========================= */
+
+.network-layer {
+    display: none;
+}
+
+.network-layer.visible {
+    display: block;
+}
+
+.network-layer line {
+    stroke: #7b3fc6;
+    stroke-width: 5;
+    stroke-dasharray: 10 7;
+    opacity: 0.8;
+}
+
+.router {
+    fill: #7b3fc6;
+    stroke: white;
+    stroke-width: 3;
+}
+
+.switch {
+    fill: #f28c28;
+    stroke: white;
+    stroke-width: 3;
+}
+
+.network-label {
+    fill: #5b2b91;
+    font-weight: bold;
+}
+
+/* =========================
+   LÉGENDE
+========================= */
+
+.legend {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(255,255,255,0.94);
+    padding: 12px;
+    border-radius: 7px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    font-size: 13px;
+}
+
+.legend div {
+    margin: 5px 0;
+}
+
+.legend-road,
+.legend-building,
+.legend-route {
+    display: inline-block;
+    width: 25px;
+    height: 8px;
+    margin-right: 7px;
+    vertical-align: middle;
+}
+
+.legend-road {
+    background: white;
+    border: 1px solid #aaa;
+}
+
+.legend-building {
+    background: #d9d0c4;
+    border: 1px solid #8d8172;
+}
+
+.legend-route {
+    background: #d83b3b;
+}
+
+/* =========================
+   PANNEAU
+========================= */
+
+aside {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+aside h2 {
+    margin-top: 0;
+    color: #0f2a4d;
+}
+
+aside h3 {
+    color: #4f78ad;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.number {
+    background: #0f2a4d;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.step p {
+    margin: 4px 0;
+}
+
+.result {
+    background: #edf6ed;
+    border-left: 4px solid #5c9960;
+    padding: 12px;
+    margin: 20px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.clear {
+    width: 100%;
+    border: 1px solid #bbb;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.clear:hover {
+    background: #f1f1f1;
+}
+
+.description {
+    color: #666;
+    line-height: 1.5;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 25px 0;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .actions button {
+        margin-left: 0;
+        margin-right: 5px;
+    }
+}
