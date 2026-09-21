@@ -80,8 +80,10 @@
    ========================================================= */
 
 .montesqueria-layout {
-    display: block;
-    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 14px;
+    align-items: start;
 }
 
 
@@ -90,7 +92,6 @@
    ========================================================= */
 
 .montesqueria-map-card {
-    width: 100%;
     min-width: 0;
 
     background: white;
@@ -98,8 +99,6 @@
 
     border-radius: 12px;
     overflow: hidden;
-
-    margin-bottom: 14px;
 }
 
 .map-toolbar {
@@ -325,24 +324,18 @@
 
 
 /* =========================================================
-   PANNEAU SOUS LA CARTE
+   PANNEAU
    ========================================================= */
 
 .montesqueria-panel {
-    width: 100%;
-    min-width: 0;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
+    display: flex;
+    flex-direction: column;
     gap: 14px;
+
+    min-width: 0;
 }
 
 .panel-card {
-    min-width: 0;
-
     padding: 16px;
 
     background: white;
@@ -902,9 +895,13 @@
 
 @media (max-width: 1050px) {
 
+    .montesqueria-layout {
+        grid-template-columns: 1fr;
+    }
+
     .montesqueria-panel {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .panel-card:last-child {
@@ -921,8 +918,7 @@
 
         display: grid;
 
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .observation-card {
@@ -1021,10 +1017,6 @@
 
 <main class="montesqueria-layout">
 
-
-<!-- =========================================================
-     CARTE
-     ========================================================= -->
 
 <section class="montesqueria-map-card">
 
@@ -1151,10 +1143,6 @@
 
 </section>
 
-
-<!-- =========================================================
-     PANNEAUX SOUS LA CARTE
-     ========================================================= -->
 
 <aside class="montesqueria-panel">
 
@@ -2729,6 +2717,10 @@ function svgElement(tag, attributes = {}) {
 }
 
 
+/* =========================================================
+   DESSIN DES ROUTES
+   ========================================================= */
+
 function pointsToString(points) {
 
     return points
@@ -2737,10 +2729,6 @@ function pointsToString(points) {
 
 }
 
-
-/* =========================================================
-   DESSIN DES ROUTES
-   ========================================================= */
 
 function drawRoads() {
 
@@ -3990,15 +3978,16 @@ function drawNetworkOverview() {
 
 
     if (!networkToggle.checked) {
-
-        networkLayer.classList.remove("visible");
-
         return;
     }
 
 
     networkLayer.classList.add("visible");
 
+
+    /* -----------------------------------------------------
+       LIENS ENTRE LES RÉSEAUX
+       ----------------------------------------------------- */
 
     const backboneLinks = [
 
@@ -4038,6 +4027,10 @@ function drawNetworkOverview() {
 
     }
 
+
+    /* -----------------------------------------------------
+       ZONES LOCALES
+       ----------------------------------------------------- */
 
     for (
         const [id, network]
@@ -4102,6 +4095,8 @@ function drawNetworkOverview() {
         networkLayer.appendChild(label);
 
 
+        /* routeur */
+
         const router =
             network.overview.router;
 
@@ -4124,6 +4119,8 @@ function drawNetworkOverview() {
 
         networkLayer.appendChild(routerShape);
 
+
+        /* switches */
 
         for (
             const position
@@ -4269,6 +4266,8 @@ function renderNetworkDetail(network) {
     networkDetailMap.innerHTML = "";
 
 
+    /* fond */
+
     networkDetailMap.appendChild(
         svgElement("rect", {
             x:0,
@@ -4279,6 +4278,8 @@ function renderNetworkDetail(network) {
         })
     );
 
+
+    /* titre dans le schéma */
 
     const title =
         svgElement("text", {
@@ -4299,6 +4300,8 @@ function renderNetworkDetail(network) {
     networkDetailMap.appendChild(title);
 
 
+    /* réseau */
+
     const subtitle =
         svgElement("text", {
 
@@ -4316,6 +4319,10 @@ function renderNetworkDetail(network) {
 
     networkDetailMap.appendChild(subtitle);
 
+
+    /* -----------------------------------------------------
+       LIENS
+       ----------------------------------------------------- */
 
     const devicesById = {};
 
@@ -4355,12 +4362,20 @@ function renderNetworkDetail(network) {
     }
 
 
+    /* -----------------------------------------------------
+       ÉQUIPEMENTS
+       ----------------------------------------------------- */
+
     for (const device of network.devices) {
 
         drawDetailDevice(device);
 
     }
 
+
+    /* -----------------------------------------------------
+       LISTE
+       ----------------------------------------------------- */
 
     detailEquipmentList.innerHTML = "";
 
@@ -4450,6 +4465,8 @@ function drawDetailDevice(device) {
 
     group.appendChild(body);
 
+
+    /* petits détails */
 
     if (device.type === "router") {
 
@@ -4676,13 +4693,7 @@ function drawDetailDevice(device) {
 
     group.addEventListener(
         "click",
-        event => {
-
-            event.stopPropagation();
-
-            showEquipment(device);
-
-        }
+        () => showEquipment(device)
     );
 
 
