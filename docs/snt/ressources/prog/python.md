@@ -7,7 +7,7 @@
 
 !!! abstract "Projet fil rouge — Montesquéria"
     Après avoir découvert comment les différentes parties de la ville peuvent communiquer grâce aux réseaux, nous allons maintenant apprendre à **programmer**. 
-    L'objectif de cette nouvelle partie est de donner progressivement vie à Montesquéria : informations, calcu
+    L'objectif final de cette nouvelle partie, sera de réaliser le blason de la ville, ceci en utilisant une bibliothèque python permettant de dessiner.
 
 ---
 
@@ -496,6 +496,24 @@ Le nombre indique la taille du point.
 On peut également choisir sa couleur :
 ```python
 t.dot(30, "red")
+```
+
+#### Remplir une forme
+
+Pour remplir une forme avec une couleur, on utilise `fillcolor()`.
+
+Il faut commencer le remplissage avant de dessiner la forme avec `begin_fill()`, puis le terminer avec `end_fill()` :
+
+```python
+t.fillcolor("red")
+
+t.begin_fill()
+
+for i in range(4):
+    t.forward(80)
+    t.right(90)
+
+t.end_fill()
 ```
 
 ---
