@@ -581,9 +581,5 @@ Votre mission consiste à réaliser un **blason de Montesquéria 2050** avec Pyt
     - effectuer des calculs avec Python ;
     - utiliser et modifier des variables ;
     - utiliser `turtle` pour réaliser des dessins ;
-    - déplacer et faire tourner un curseur ;
-    - modifier l'apparence d'un dessin ;
-    - déplacer le curseur sans tracer avec `penup()` et `pendown()` ;
-    - utiliser `circle()`, `goto()` et `dot()` ;
     - répéter des instructions avec une boucle `for`.
 
