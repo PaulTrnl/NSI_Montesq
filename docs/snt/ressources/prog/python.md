@@ -225,6 +225,10 @@ Pour cela, nous allons utiliser une bibliothèque appelée `turtle`.
 import turtle
 
 t = turtle.Turtle()
+
+
+
+turtle.done()
 ```
 
 !!! note "À retenir"
@@ -255,6 +259,9 @@ Le nombre `100` indique la distance parcourue.
 
 
     # Compléter le programme pour revenir au point de départ
+
+
+    turtle.done()
 
 
 
@@ -306,7 +313,7 @@ Le nombre `90` indique l'angle de rotation, exprimé en degrés.
 
     # Compléter le programme
 
-
+    turtle.done()
     ```
 
     Le carré doit être fermé.
