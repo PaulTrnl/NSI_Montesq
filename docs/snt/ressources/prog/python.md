@@ -189,8 +189,8 @@ la variable contient maintenant `26200`.
     habitants = groupes + reste
     bus = bus - reste
 
-    groupes = habitants % bus
-    reste = habitants // bus
+    groupes = habitants // bus
+    reste = habitants % bus
 
     print(habitants)
     print(bus)
