@@ -2,16 +2,16 @@
 
 Bienvenue dans le programme de Terminale.
 
-# Thématiques de l'année de Terminale
+## Thématiques de l'année de Terminale
 
 Une liste des principales thématiques abordées cette année :
 
 
-- [Structures de données (linéaires, hiérarchiques et relationnelles)](structure.md)
-- [Bases de données](bdd.md)
-- [Architectures matérielles, OS et réseaux](archi.md)
-- [Langages et programmation](prog.md)
-- [Algorithmique](algo.md)
+- Structures de données (linéaires, hiérarchiques et relationnelles) ;
+- Bases de données ;
+- Architectures matérielles, OS et réseaux ;
+- Langages et programmation ;
+- Algorithmique.
 
 
 

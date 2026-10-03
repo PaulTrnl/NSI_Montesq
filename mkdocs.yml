@@ -121,7 +121,7 @@ nav:
             - Architectures matérielles, OS et réseaux :
               - Système sur puce : nsi/terminale/embarque.md
               - Processus : nsi/terminale/processus.md
-              - Routage : nsi/terminale/routage.md
+              - Routage : nsi/terminale/ressources/routage/routage.md
               - Sécurisation des communications : nsi/terminale/secu.md
             - Langages et programmation :
               - Calculabilité, décidabilité : nsi/terminale/calculabilite.md

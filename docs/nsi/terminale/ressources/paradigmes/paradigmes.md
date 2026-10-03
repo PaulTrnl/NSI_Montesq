@@ -1487,7 +1487,7 @@ Des questions pourront être posées sur le programme afin de vérifier que chaq
 
 ### Livrables
 
-À la fin du projet **(le 18/09)**, vous devrez rendre une archive comprenant :
+À la fin du projet **(le 06/10)**, vous devrez rendre une archive comprenant :
 
 * le(s) programme(s) Python ;
 * le rapport écrit ;
