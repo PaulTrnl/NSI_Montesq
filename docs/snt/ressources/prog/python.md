@@ -22,7 +22,7 @@
 
 ---
 
-[📥 Télécharger le PDF](02_Python_fiche_seance_1.pdf){ .md-button }
+[📥 Télécharger le PDF](02_Python_fiche_seance1.pdf){ .md-button }
 
 !!! warning "À lire avant de commencer"
 
