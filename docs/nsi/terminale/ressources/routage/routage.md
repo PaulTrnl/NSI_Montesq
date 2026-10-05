@@ -270,7 +270,7 @@ C'est ce que l'on appelle le **routage**.
 
     1. **Sur la figure ci-dessus, entourer les différents réseaux locaux.**
 
-    2. **La machine `172.168.1.3` souhaite envoyer un paquet à la machine `10.4.0.2`. Quel chemin sera emprunté par le paquet ?**
+    2. **La machine `192.168.1.3` (M3) souhaite envoyer un paquet à la machine `10.1.1.4` (M6). Quel chemin sera emprunté par le paquet ?**
 
     3. **Pour chaque réseau, indiquer les informations suivantes :**
    
