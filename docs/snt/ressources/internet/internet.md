@@ -12,7 +12,7 @@
 
     Tout au long de l'année, vous allez participer à sa construction et découvrir les technologies qui permettent à ses habitants de communiquer, de s'informer, de se déplacer et d'interagir.
 
-    ![Montesquéria](img/ville.jpeg){ width="550" }
+    ![Montesquéria](img/ville.jpeg){ width="400" }
 
 ---
 
@@ -1264,15 +1264,8 @@ Cette adresse est une **adresse IP privée**.
 Elle est utilisée à l'intérieur d'un réseau local.
 
 Par exemple, dans une maison :
-```text
-                  BOX / ROUTEUR
-                       │
-          ┌──────-─────┼───-────────┐
-          │            │            │
-          ▼            ▼            ▼
-         PC        téléphone    imprimante
-     192.168.1.25 192.168.1.26  192.168.1.27
-```
+
+![Mon super GIF animé](img/local1.png){ width="350" }
 
 Ces adresses permettent aux appareils de communiquer **à l'intérieur du réseau local**.
 
