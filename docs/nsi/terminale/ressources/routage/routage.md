@@ -770,6 +770,85 @@ RIP peut donc être moins adapté aux réseaux importants ou aux réseaux dans l
     - une métrique très simple ;
     - aucune prise en compte directe du débit des liaisons ;
     - une convergence moins adaptée aux grands réseaux.
+
+
+!!! question "Exercice 6"
+
+    Au départ, **R1 ne connaît que les réseaux qui lui sont directement connectés**.
+
+    ![Mon super GIF animé](img/rip1.png){ width="420" }
+
+    Il construit donc sa table de routage à partir des informations qu'il connaît lui-même :
+
+    | Destination | Prochain saut | Interface | Distance |
+    |---|---|---|---:|
+    | `192.168.1.0/24` | -- | eth0 | 0 |
+    | `192.168.2.0/24` | -- | eth2 | 0 |
+    | `192.168.10.0/30` | -- | eth1 | 0 |
+
+    R1 ne connaît pas encore le réseau `192.168.3.0/24`.
+
+    1. **R1 demande à son voisin R2 quels réseaux celui-ci connaît.**
+
+        R2 lui répond :
+
+        > « Je connais le réseau `192.168.3.0/24`. Il se trouve à **1 saut** de moi. »
+
+        R1 décide de faire confiance à cette information.
+
+        a. **Par quel routeur R1 doit-il passer pour atteindre le réseau `192.168.3.0/24` ?**
+
+        b. **Par quelle interface R1 doit-il envoyer les paquets ?**
+
+        c. **Compléter la nouvelle ligne de la table de routage de R1.**
+
+        | Destination | Prochain saut | Interface | Distance |
+        |---|---|---|---:|
+        | `192.168.1.0/24` | -- | eth0 | 0 |
+        | `192.168.2.0/24` | -- | eth2 | 0 |
+        | `192.168.10.0/30` | -- | eth1 | 0 |
+        | `192.168.3.0/24` | | | |
+
+    2. **Plus tard, R2 annonce à R1 :**
+
+        > « Je connais également le réseau `192.168.4.0/24`. Il se trouve à **2 sauts** de moi. »
+
+        R1 fait confiance à cette information et l'ajoute à sa table.
+
+        **Compléter la table de routage de R1.**
+
+        | Destination | Prochain saut | Interface | Distance |
+        |---|---|---|---:|
+        | `192.168.1.0/24` | -- | eth0 | 0 |
+        | `192.168.2.0/24` | -- | eth2 | 0 |
+        | `192.168.10.0/30` | -- | eth1 | 0 |
+        | `192.168.3.0/24` | | | |
+        | `192.168.4.0/24` | | | |
+
+    3. **R2 annonce ensuite :**
+
+        > « Le réseau `192.168.4.0/24` est maintenant à **1 saut** de moi. »
+
+        R1 possède déjà une route vers ce réseau.
+
+        **R1 doit-il modifier sa table de routage ? Pourquoi ?**
+
+    4. **À partir de cet exemple, expliquer comment le protocole RIP permet à un routeur de construire et de mettre à jour sa table de routage.**
+
+
+
+
+!!! question "Exercice 7"
+    Soit un réseau composé de plusieurs routeurs reliés de la façon suivante :
+
+    ![Réseau](img/routage_ex1.png){ width="350" }
+
+    On suppose qu'au départ, chaque routeur ne connaît que les réseaux qui lui sont directement connectés.
+
+    Les routeurs échangent ensuite leurs informations de routage avec leurs voisins en utilisant le protocole RIP.
+
+    **Construire la table de routage des routeurs A, E et F après les échanges d'informations.**
+
 ---
 ## 6. Le protocole OSPF { #ospf }
 
@@ -875,37 +954,45 @@ OSPF choisira le chemin dont le **coût total est le plus faible**, ici le chemi
     Le meilleur chemin est celui dont le coût total est le plus faible.
 
 
+!!! question "Exercice 8"
+    Contrairement au protocole RIP, l'objectif n'est plus de minimiser le nombre de routeurs traversés par un paquet.
+
+    Dans le protocole OSPF, la notion de distance repose sur le **coût des liaisons**. L'objectif est alors de choisir le chemin dont la somme des coûts des liaisons traversées est la plus faible.
+
+    Le coût d'une liaison est donné par la formule suivante :
+
+    $$
+    C = \frac{10^8}{d}
+    $$
+
+    où $d$ représente la bande passante de la liaison, exprimée en bit/s.
+
+    On rappelle que :
+
+    $$
+    1~\text{Gb/s} = 1\,000~\text{Mb/s} = 10^9~\text{bits/s}
+    $$
+
+    ![Réseau OSPF](img/ex2.png){ width="300" }
+
+    1. **Vérifier que le coût de la liaison entre les routeurs A et B est égal à 0,01.**
+
+    2. **La liaison entre le routeur B et D a un coût de 5. Quel est le débit de cette liaison ?**
+
+    3. **Le routeur A doit transmettre un message au routeur G. En appliquant le protocole OSPF, déterminer le chemin choisi par le message en minimisant la somme des coûts des liaisons traversées. Détailler le raisonnement utilisé.**
+
+
 ### 6.4 L'algorithme de Dijkstra
 
 Pour déterminer le meilleur chemin, OSPF utilise l'**algorithme de Dijkstra**.
 
 L'idée générale est de partir d'un routeur et de rechercher progressivement les chemins de coût minimal vers les autres routeurs.
 
-```text
-                           4
-                    ┌─────────────┐
-                    │             │
-                    ▼             ▼
-                  ┌────┐   3    ┌────┐
-              2   │ R2 │────────│ R4 │
-          ┌──────►└────┘        └────┘
-          │          │             │
-          │          │ 5           │ 2
-          │          ▼             ▼
-       ┌────┐       ┌────┐       ┌────┐
-       │ R1 │       │ R5 │───3───│ R7 │
-       └────┘       └────┘       └────┘
-          │           │             │
-          │ 3         │ 2           │ 4
-          ▼           ▼             ▼
-        ┌────┐────2─┌────┐───────┌────┐
-        │ R3 │       │ R6 │       │ R8 │
-        └────┘       └────┘       └────┘
-          │                         ▲
-          └──────────── 6 ──────────┘
-```
 
-On cherche le **meilleur chemin de R1 vers R7**.
+![Mon super GIF animé](img/ex_dijkstra.png){ width="400" }
+
+
+On cherche le **meilleur chemin de R1 vers R8**.
 
 #### Étape 1 : initialisation
 
@@ -915,19 +1002,19 @@ Le coût pour atteindre R1 depuis R1 est `0`.
 
 Les voisins directs de R1 sont connus :
 
-- R2 est à un coût de `4` ;
-- R3 est à un coût de `2`.
+- R2 est à un coût de `2` ;
+- R3 est à un coût de `3`.
 
 Les autres routeurs sont encore inconnus : on note leur coût `∞`.
 
 | R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | Sélectionné |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **0** | 4 | 2 | ∞ | ∞ | ∞ | ∞ | ∞ | **R1** |
+| **0** | 2 | 3 | ∞ | ∞ | ∞ | ∞ | ∞ | **R1** |
 
 On sélectionne ensuite le routeur non sélectionné dont le coût est le plus faible :
 
 ```text
-R3 : coût 2
+R2 : coût 2
 ```
 
 #### Étape 2 : sélection de R3
@@ -1150,6 +1237,25 @@ R8 ← R6 ← R4 ← R3 ← R1
 
 !!! note "À retenir"
     OSPF utilise l'algorithme de **Dijkstra** pour rechercher les chemins de coût minimal.
+
+
+!!! question "Exercice 9"
+    ![Graphe](img/dijkstra.png){ width="350" }
+
+    À l'aide de l'algorithme de **Dijkstra**, déterminer le plus court chemin entre les sommets **A** et **G**.
+
+    Compléter le tableau au fur et à mesure des étapes de l'algorithme en indiquant, pour chaque sommet, la **distance minimale connue** et son **prédécesseur**.
+
+    | Étape | A | B | C | D | E | F | G | Sélectionné |
+    |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+    | 0 | | | | | | | | |
+    | 1 | | | | | | | | |
+    | 2 | | | | | | | | |
+    | 3 | | | | | | | | |
+    | 4 | | | | | | | | |
+    | 5 | | | | | | | | |
+    | 6 | | | | | | | | |
+    | 7 | | | | | | | | |
 
 
 ### 6.5 Que se passe-t-il en cas de panne ?
