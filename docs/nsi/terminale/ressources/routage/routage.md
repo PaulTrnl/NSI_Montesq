@@ -187,7 +187,7 @@ Les principales plages d'adresses IP privées sont :
 
 ### 1.6 Communiquer avec une autre machine
 
-Deux machines appartenant au même réseau peuvent communiquer directement à travers le réseau local.
+Deux machines appartenant au même réseau peuvent communiquer directement à travers le réseau local. Le switch permet d'acheminer les trames entre les machines en utilisant leurs adresses MAC.
 
 ![Mon super GIF animé](img/local2.png){ width="350" }
 
@@ -266,7 +266,7 @@ C'est ce que l'on appelle le **routage**.
 
 
 !!! question "Exercice 3"
-    ![Mon super GIF animé](img/rso3.png){ width="600" }
+    ![Mon super GIF animé](img/majrso3.png){ width="600" }
 
     1. **Sur la figure ci-dessus, entourer les différents réseaux locaux.**
 
