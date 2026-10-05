@@ -578,6 +578,20 @@ Si R1 utilisait R2 pour atteindre R4, la route peut ne plus fonctionner.
     lorsque le réseau est important ou évolue fréquemment.
 
 
+!!! question "Exercice 5"
+    ![Mon super GIF animé](img/table1.png){ width="420" }
+
+    **À partir du réseau donné ci-dessus, remplir la table de routage du routeur R1 possédant trois interfaces.**
+
+    | Destination | Prochain saut (Passerelle) | Interface | Distance |
+    |---|---|---|---|
+    |             |                            |           |          |
+    |             |                            |           |          |
+    |             |                            |           |          |
+    |             |                            |           |          |
+    |             |                            |           |          |
+
+
 ---
 ## 4. Le routage dynamique { #routage-dynamique }
 
@@ -660,11 +674,15 @@ La métrique dépend du protocole utilisé.
 
 ### 5.1 Principe
 
-**RIP** (*Routing Information Protocol*) est un protocole de routage dynamique.
 
-RIP utilise principalement le **nombre de sauts** (*hop count*) comme métrique.
+Le protocole **RIP** (*Routing Information Protocol*) est un protocole de routage dynamique dit **à vecteur de distance**.
 
-Un saut correspond au passage par un routeur.
+L'objectif de ce protocole est de déterminer, pour chaque réseau, une route ayant le **plus petit nombre de sauts**, en s'appuyant sur l'algorithme des graphes **Bellman-Ford**.
+
+Chaque routeur va construire sa table de routage en associant un **réseau de destination** à une **distance**, c'est-à-dire le **nombre de sauts** (*hop count*) nécessaires pour l'atteindre, puis va partager ces informations avec ses voisins.
+
+À partir des informations reçues de ses voisins, chaque routeur va alors **mettre à jour sa table de routage**, si nécessaire, et la partager périodiquement (toutes les 30 secondes).
+
 
 Par exemple :
 
@@ -682,6 +700,27 @@ R1 → R3 → R5 → R4
 correspond à **3 sauts**.
 
 RIP choisira donc le premier chemin.
+
+
+Toutes les 30 secondes, les routeurs vont s'échanger le contenu de leurs tables de routage. Chaque routeur devra ensuite trier les routes reçues pour conserver uniquement les plus intéressantes pour lui.
+
+Plusieurs possibilités peuvent alors s'offrir à un routeur :
+
+1. **Il ne connaissait pas encore de route pour accéder à ce réseau.**  
+   → Il **ajoute** cette route à sa table de routage.
+
+2. **La route proposée pour atteindre ce réseau est plus courte que l'actuelle.**  
+   → Il **remplace** son ancienne route par la nouvelle.
+
+3. **Il possède une route plus courte que celle qui lui est proposée.**  
+   → Il **ignore** la nouvelle route.
+
+4. **Il connaissait déjà la route et elle provient du même routeur.**  
+   → Il **met à jour** cette route car la topologie du réseau a été modifiée.
+
+!!! warning "Attention !"
+
+    Il est nécessaire d'ajouter **1 à la distance** lorsqu'un routeur apprend une route d'un autre, car il faut prendre en compte la liaison entre ces deux routeurs.
 
 !!! note "À retenir"
 
