@@ -251,6 +251,46 @@ atteigne son destinataire.
 C'est ce que l'on appelle le **routage**.
 
 
+!!! question "Exercice 2"
+
+    ![Mon super GIF animé](img/graphe.png){ width="450" }
+
+    1. **Donner tous les chemins possibles pour aller du point 4 au point 7 (sans allers-retours).**
+    Exemple de chemin entre 12 et 14 : `12 -> S5 -> F -> G -> S6 -> 14`.
+
+    2. **Donner tous les chemins possibles pour aller du point 1 au point 9 (sans allers-retours).**
+
+    3. **Selon vous, à quoi pourraient correspondre les différentes couleurs si l'on considère le graphe comme étant un réseau informatique ?**
+
+    4. **En considérant qu'il s'agit d'un réseau, entourer les différents réseaux locaux.**
+
+
+!!! question "Exercice 3"
+    ![Mon super GIF animé](img/rso3.png){ width="600" }
+
+    1. **Sur la figure ci-dessus, entourer les différents réseaux locaux.**
+
+    2. **La machine `172.168.1.3` souhaite envoyer un paquet à la machine `10.4.0.2`. Quel chemin sera emprunté par le paquet ?**
+
+    3. **Pour chaque réseau, indiquer les informations suivantes :**
+   
+        - adresse du réseau ;
+        - nombre d'hôtes possibles sur le réseau ;
+        - adresse de diffusion ;
+        - première adresse utilisable ;
+        - dernière adresse utilisable.
+
+!!! question "Exercice 4"
+    ![Mon super GIF animé](img/rso2.jpg){ width="600" }
+
+    1. **La machine M1 souhaite envoyer un paquet à la machine M9. À l'aide de la figure ci-dessus, indiquer tous les chemins possibles de la source à la destination (sans aller-retour).**
+
+    2. **Quel(s) paramètre(s) le routeur A pourrait-il prendre en compte pour sélectionner le meilleur chemin afin de transmettre ce paquet ?**
+
+    3. **Comment le routeur A peut-il connaître et mémoriser les différents chemins possibles vers les autres réseaux ?**
+
+    4. **Sous quelle forme le routeur peut-il mémoriser ces informations afin de pouvoir les utiliser pour acheminer les paquets ?**
+
 ### 2.1 Le principe du routage
 
 Considérons le réseau suivant :
