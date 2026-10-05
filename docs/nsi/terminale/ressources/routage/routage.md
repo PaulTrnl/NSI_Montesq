@@ -26,7 +26,24 @@
 
 Avant d'étudier le routage, rappelons quelques notions étudiées au lycée.
 
+
+!!! question "Exercice 1"
+    1. **À quoi servent les adresses IP dans un réseau ? Combien de bits composent une adresse IPv4 ?**
+
+    2. **Quel est le rôle du masque de sous-réseau ? Que permet-il notamment de déterminer à partir d'une adresse IP ?**
+
+    3. **Donner l'écriture décimale du masque suivant : /19**
+
+    4. **Avec un masque /19, combien d'adresses IPv4 sont disponibles dans un sous-réseau ? Combien sont réellement attribuables aux machines ?**
+
+    5. **Quelle est la différence entre une adresse IP privée et une adresse IP publique ? Dans quel cas utilise-t-on chacune ?**
+
+    6. **Quel est le rôle d'un switch et celui d'un routeur dans un réseau ? Quelles adresses utilisent-ils principalement pour acheminer les données ? Quel est le rôle de la passerelle par défaut d'un ordinateur lorsqu'il souhaite communiquer avec une machine située sur un autre réseau ?**
+
+
 ### 1.1 Adresse IPv4
+
+
 
 Une adresse IPv4 est codée sur **32 bits**.
 
