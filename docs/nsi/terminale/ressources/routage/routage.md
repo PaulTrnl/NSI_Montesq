@@ -989,195 +989,240 @@ Pour déterminer le meilleur chemin, OSPF utilise l'**algorithme de Dijkstra**.
 L'idée générale est de partir d'un routeur et de rechercher progressivement les chemins de coût minimal vers les autres routeurs.
 
 
-![Mon super GIF animé](img/ex_dijkstra2.png){ width="400" }
+![Mon super GIF animé](img/dijkstra2.png){ width="400" }
 
 
-On cherche le **meilleur chemin de R1 vers R8**.
+On cherche le **meilleur chemin de A vers F**.
 
 #### Étape 1 : initialisation
 
-On commence à R1.
+On commence à A.
 
-Le coût pour atteindre R1 depuis R1 est `0`.
+Le coût pour atteindre A depuis A est `0`.
 
-Les voisins directs de R1 sont connus :
+Les voisins directs de A sont connus :
 
-- R2 est à un coût de `2` ;
-- R3 est à un coût de `3`.
+- B est à un coût de `4` ;
+- C est à un coût de `2`.
 
 Les autres routeurs sont encore inconnus : on note leur coût `∞`.
 
-| R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | Sélectionné |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **0** | 2 | 3 | ∞ | ∞ | ∞ | ∞ | ∞ | **R1** |
+| A | B | C | D | E | F | Sélectionné |
+| --- | --- | --- | --- | --- | --- | --- |
+| **0** | 4 | 2 | ∞ | ∞ | ∞ | **A** |
 
 On sélectionne ensuite le routeur non sélectionné dont le coût est le plus faible :
 
 ```text
-R2 : coût 2
+C : coût 2
 ```
 
-#### Étape 2 : sélection de R2
+#### Étape 2 : sélection de C
 
-Depuis R2, on peut atteindre R5 et R4.
+Depuis C, on peut atteindre A, B, D et E.
 
-Pour R5 :
-
+Pour B :
 ```text
-R1 → R2 → R5
+A → C → B
 2 + 5 = 7
 ```
 
-Pour R4 :
-
+Pour D :
 ```text
-R1 → R2 → R4
-2 + 4 = 6
+A → C → D
+2 + 8 = 10
+```
+
+Pour E :
+```text
+A → C → E
+2 + 7 = 9
 ```
 
 Le tableau devient :
 
-| R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | Sélectionné |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **0** | 2 | 3 | ∞ | ∞ | ∞ | ∞ | ∞ | **R1** |
-| 0 | **2** | 3 | 6 | 7 | ∞ | ∞ | ∞ | **R2** |
+| A | B | C | D | E | F | Sélectionné |
+| --- | --- | --- | --- | --- | --- | --- |
+| **0** | 4 | 2 | ∞ | ∞ | ∞ | **A** |
+| 0 | 4 | **2** | 10 | 9 | ∞ | **C** |
 
-Le plus petit coût non sélectionné est maintenant `3`.
+Le plus petit coût non sélectionné est maintenant `4`.
+On peut sélectionner B.
 
-On peut sélectionner **R3**.
+#### Étape 3 : sélection de B
 
-#### Étape 3 : sélection de R3
+Depuis B, on peut atteindre A, C et D.
 
-Depuis R3, on peut atteindre R6 et R8.
-
-Pour R6 :
+Pour C :
 ```text
-R1 → R3 → R6
-3 + 2 = 5
+A → B → C
+4 + 5 = 9
 ```
 
-Pour R8 :
+Pour D :
 ```text
-R1 → R3 → R8
-3 + 6 = 9
+A → B → D
+4 + 3 = 7
 ```
 
-Le tableau devient :
+On connaissait auparavant un chemin vers D de coût `10`.
 
-| R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | Sélectionné |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **0** | 2 | 3 | ∞ | ∞ | ∞ | ∞ | ∞ | **R1** |
-| 0 | **2** | 3 | 6 | 7 | ∞ | ∞ | ∞ | **R2** |
-| 0 | 2 | **3** | 6 | 7 | 5 | ∞ | 9 | **R3** |
-
-Le plus petit coût non sélectionné est maintenant `5`.
-
-On peut sélectionner **R6**.
-
-Depuis R6, on peut atteindre R8.
-Mais on connaît déjà un chemin vers R8 de coût `9` :
+On améliore donc le coût :
 
 ```text
-R1 → R3 → R6 → R8
-3 + 2 + 3 = 8
-```
-
-Le coût est inférieur, on met donc à jour le tableau.
-
-Le tableau devient :
-
-| R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | Sélectionné |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **0** | 2 | 3 | ∞ | ∞ | ∞ | ∞ | ∞ | **R1** |
-| 0 | **2** | 3 | 6 | 7 | ∞ | ∞ | ∞ | **R2** |
-| 0 | 2 | **3** | 6 | 7 | 5 | ∞ | 9 | **R3** |
-| 0 | 2 | 3 | 6 | 7 | **5** | ∞ | 8 | **R6** |
-
-
-Le plus petit coût non sélectionné est maintenant `6`.
-
-On peut sélectionner **R4**.
-
-Depuis R4, on peut atteindre R2 et R7. 
-On ne pourra pas améliorer le chemin vers R2.
-
-
-Pour R7 :
-```text
-R1 → R2 → R4 → R7
-2 + 4 + 2 = 8
+D : 10 → 7
 ```
 
 Le tableau devient :
 
-| R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | Sélectionné |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **0** | 2 | 3 | ∞ | ∞ | ∞ | ∞ | ∞ | **R1** |
-| 0 | **2** | 3 | 6 | 7 | ∞ | ∞ | ∞ | **R2** |
-| 0 | 2 | **3** | 6 | 7 | 5 | ∞ | 9 | **R3** |
-| 0 | 2 | 3 | 6 | 7 | **5** | ∞ | 8 | **R6** |
-| 0 | 2 | 3 | **6** | 7 | 5 | 8 | 8 | **R4** |
+| A | B | C | D | E | F | Sélectionné |
+| --- | --- | --- | --- | --- | --- | --- |
+| **0** | 4 | 2 | ∞ | ∞ | ∞ | **A** |
+| 0 | 4 | **2** | 10 | 9 | ∞ | **C** |
+| 0 | **4** | 2 | 7 | 9 | ∞ | **B** |
 
 Le plus petit coût non sélectionné est maintenant `7`.
+On peut sélectionner D.
 
-On peut sélectionner **R5**.
 
-Depuis R4, on peut atteindre R2 et R7. 
-On ne pourra pas améliorer le chemin vers R2.
+#### Étape 4 : sélection de D
 
-Pour R7 :
+Depuis D, on peut atteindre B, C, E et F.
+
+Pour E :
+
 ```text
-R1 → R2 → R5 → R7
-2 + 5 + 3 = 10
+A → B → D → E
+4 + 3 + 1 = 8
 ```
 
-On conserve donc `7`.
+On connaissait auparavant un chemin vers E de coût `9`.
 
-Le tableau reste donc :
+On améliore donc le coût :
 
-| R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | Sélectionné |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **0** | 2 | 3 | ∞ | ∞ | ∞ | ∞ | ∞ | **R1** |
-| 0 | **2** | 3 | 6 | 7 | ∞ | ∞ | ∞ | **R2** |
-| 0 | 2 | **3** | 6 | 7 | 5 | ∞ | 9 | **R3** |
-| 0 | 2 | 3 | 6 | 7 | **5** | ∞ | 8 | **R6** |
-| 0 | 2 | 3 | **6** | 7 | 5 | 8 | 8 | **R4** |
-| 0 | 2 | 3 | 6 | **7** | 5 | 8 | 8 | **R5** |
+```text
+E : 9 → 8
+```
 
-En cas d'égalité, on précisera la règle utilisée. Ici, on prendra le numéro de routeur le plus faible.
+Pour F :
 
-On peut donc sélectionner **R7**.
+```text
+A → B → D → F
+4 + 3 + 6 = 13
+```
 
-Depuis R7, on peut atteindre R4, R5, R7.
-On améliore aucun chemin.
+On obtient donc un premier chemin vers F de coût `13`.
 
-Le tableau reste donc :
+Le tableau devient :
 
-| R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | Sélectionné |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **0** | 2 | 3 | ∞ | ∞ | ∞ | ∞ | ∞ | **R1** |
-| 0 | **2** | 3 | 6 | 7 | ∞ | ∞ | ∞ | **R2** |
-| 0 | 2 | **3** | 6 | 7 | 5 | ∞ | 9 | **R3** |
-| 0 | 2 | 3 | 6 | 7 | **5** | ∞ | 8 | **R6** |
-| 0 | 2 | 3 | **6** | 7 | 5 | 8 | 8 | **R4** |
-| 0 | 2 | 3 | 6 | **7** | 5 | 8 | 8 | **R5** |
-| 0 | 2 | 3 | 6 | 7 | 5 | **8** | 8 | **R7** |
+| A | B | C | D | E | F | Sélectionné |
+| --- | --- | --- | --- | --- | --- | --- |
+| **0** | 4 | 2 | ∞ | ∞ | ∞ | **A** |
+| 0 | 4 | **2** | 10 | 9 | ∞ | **C** |
+| 0 | **4** | 2 | 7 | 9 | ∞ | **B** |
+| 0 | 4 | 2 | **7** | 8 | 13 | **D** |
+
+Le plus petit coût non sélectionné est maintenant `8`.
+
+On peut sélectionner E.
+
+#### Étape 5 : sélection de E
+
+Depuis E, on peut atteindre C, D et F.
 
 
+Pour F :
 
-On peut maintenant arrêter l'algorithme.
+```text
+A → B → D → E → F
+4 + 3 + 1 + 2 = 10
+```
+
+On connaissait auparavant un chemin vers F de coût `13`.
+
+On améliore donc le coût :
+
+```text
+F : 13 → 10
+```
+
+
+Le tableau devient :
+
+| A | B | C | D | E | F | Sélectionné |
+| --- | --- | --- | --- | --- | --- | --- |
+| **0** | 4 | 2 | ∞ | ∞ | ∞ | **A** |
+| 0 | 4 | **2** | 10 | 9 | ∞ | **C** |
+| 0 | **4** | 2 | 7 | 9 | ∞ | **B** |
+| 0 | 4 | 2 | **7** | 8 | 13 | **D** |
+| 0 | 4 | 2 | 7 | **8** | 10 | **E** |
+
+Le plus petit coût non sélectionné est maintenant `10`.
+
+On peut sélectionner F.
+
+#### Étape 6 : sélection de F
+
+F est notre destination.
+
+Le coût minimal pour atteindre F depuis A est donc `10`.
+
+L'algorithme peut s'arrêter.
+
+
 
 #### Retrouver le chemin
 
 Pour retrouver le chemin, on conserve pour chaque routeur le routeur précédent ayant permis d'obtenir son meilleur coût.
 
-Pour R8, le meilleur coût `8` a été obtenu en passant par R6.
+Pour F, le meilleur coût `10` a été obtenu en passant par E.
+
+Pour E, le meilleur coût `8` a été obtenu en passant par D.
+
+Pour D, le meilleur coût `7` a été obtenu en passant par B.
+
+Pour B, le meilleur coût `4` a été obtenu directement depuis A.
 
 On remonte alors le chemin :
 
 ```text
-R8 ← R6 ← R3 ← R1
+
+F ← E ← D ← B ← A
+
 ```
+
+En remettant le chemin dans le bon sens :
+
+```text
+
+A → B → D → E → F
+
+```
+
+Le meilleur chemin de A vers F est donc :
+
+```text
+
+A → B → D → E → F
+
+```
+
+Son coût total est :
+
+```text
+
+4 + 3 + 1 + 2 = 10
+
+```
+
+Le coût minimal est donc 10.
+
+
+
+
+
+
+
 
 !!! note "À retenir"
     OSPF utilise l'algorithme de **Dijkstra** pour rechercher les chemins de coût minimal.
