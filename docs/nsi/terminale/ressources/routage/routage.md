@@ -1317,20 +1317,8 @@ communiquer avec Internet.
 
 On obtient donc une organisation de ce type :
 
-```text
-    Réseau local                         Internet
 
-    PC                                      Serveur
-    192.168.1.25                              │
-        │                                     │
-        ▼                                     │
-    ┌──────────────┐                           │
-    │     Box      │───────────────────────────┘
-    │              │
-    │ IP privée    │ 192.168.1.254
-    │ IP publique  │ 203.0.113.25
-    └──────────────┘
-```
+![Graphe](img/part7.png){ width="450" }
 
 Le PC utilise donc son adresse privée pour communiquer avec les machines
 de son réseau local.
@@ -1364,24 +1352,8 @@ Dans un réseau domestique, le routeur peut notamment remplacer
 l'adresse IP privée d'une machine par son adresse IP publique.
 
 Par exemple :
-```text
-    PC
-    192.168.1.25
-        │
-        ▼
-    ┌──────────────┐
-    │     Box      │
-    │              │
-    │ Privée :     │
-    │ 192.168.1.254│
-    │              │
-    │ Publique :   │
-    │ 203.0.113.25 │
-    └──────────────┘
-        │
-        ▼
-     Internet
-```
+
+![Graphe](img/part8.png){ width="450" }
 
 Lorsque le PC envoie un paquet vers Internet, la box peut remplacer
 l'adresse IP source privée :
