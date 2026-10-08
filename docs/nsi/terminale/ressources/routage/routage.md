@@ -1,4 +1,4 @@
-# Thème 2 : Routage et communication entre réseaux { #routage }
+# Thème 2 : Routage et communication entre réseaux { #reseau }
 
 <a id="haut"></a>
 
@@ -241,6 +241,8 @@ En revanche, s'il souhaite communiquer avec `192.168.2.10` cette adresse apparti
 
 
 ## 2. Le routage { #routage }
+
+![Mon super GIF animé](img/fast.webp){ width="350" }
 
 Jusqu'à présent, nous avons vu qu'un ordinateur peut communiquer directement
 avec une machine de son réseau et qu'il utilise une passerelle pour
@@ -854,6 +856,8 @@ RIP peut donc être moins adapté aux réseaux importants ou aux réseaux dans l
 
 ---
 ## 6. Le protocole OSPF { #ospf }
+
+![Mon super GIF animé](img/fast2.webp){ width="350" }
 
 ### 6.1 Principe
 
