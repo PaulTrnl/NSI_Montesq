@@ -27,6 +27,9 @@
 Avant d'étudier le routage, rappelons quelques notions étudiées au lycée.
 
 
+[📥 Support élève du thème 2 (PDF)](02_Reseau_fiche_activite.pdf){ .md-button }
+
+
 !!! question "Exercice 1"
     1. **À quoi servent les adresses IP dans un réseau ? Combien de bits composent une adresse IPv4 ?**
 

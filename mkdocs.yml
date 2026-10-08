@@ -112,7 +112,7 @@ nav:
             - Révisions : nsi/terminale/ressources/revisions/revisions.md
             - Histoire de l'informatique : nsi/terminale/histoire.md
             - Structure de données : 
-              - Structures linéaires : nsi/terminale/lineaire.md
+              - Structures linéaires : nsi/terminale/ressources/lineaires/lineaire.md
               - Arbres : nsi/terminale/arbres.md
               - Graphes: nsi/terminale/graphes.md
             - Bases de données : 
