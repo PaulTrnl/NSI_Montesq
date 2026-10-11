@@ -156,3 +156,22 @@
     padding-top: 0.7rem;
     padding-bottom: 0.5rem;
 }
+
+/* Activités */
+
+.md-typeset .admonition.activity,
+.md-typeset details.activity {
+    border-color: #f0c419;
+}
+
+.md-typeset .activity > .admonition-title,
+.md-typeset .activity > summary {
+    background-color: rgba(240, 196, 25, 0.20);
+}
+
+.md-typeset .admonition.activity > .admonition-title::before,
+.md-typeset details.activity > summary::before {
+    background-color: #e0a800;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 5h16v11H4V5z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 5h16v11H4V5z'/%3E%3C/svg%3E");
+}

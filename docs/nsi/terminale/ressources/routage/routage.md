@@ -876,6 +876,7 @@ On peut représenter cette topologie sous la forme d'un graphe :
 - chaque liaison possède un coût.
 
 Par exemple :
+
 ![Mon super GIF animé](img/ospf1.png){ width="300" }
 
 OSPF cherche alors un chemin dont la somme des coûts est minimale.
