@@ -7,6 +7,7 @@
 - [Flask : développement web en Python](https://flask.palletsprojects.com/en/stable/)
 - [Pyxel : moteur jeux vidéo rétro Python](https://www.pyxelstudio.net/)
 - [Execubot : jeu d'apprentissage Python](https://execubot.fr/)
+- [Codex : exercices d'entrainement Python](https://codex.forge.apps.education.fr/recherche/)
 
 [📥 Fiche mémo python (PDF)](fiche_memo.pdf){ .md-button }
 

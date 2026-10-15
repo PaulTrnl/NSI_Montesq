@@ -16,6 +16,7 @@
     - comment implémenter ces structures à l'aide de classes Python ;
     - comment utiliser une pile pour implémenter une file et inversement.
 
+    À la fin de ce chapitre, vous devrez être capables de choisir une structure de données adaptée à un problème, de simuler les opérations qui lui sont appliquées et d'implémenter les opérations fondamentales d'une liste chaînée, d'une pile et d'une file en Python.
 
 ---
 
@@ -29,6 +30,8 @@
     Nous allons voir trois types de structures dites **linéaires** : les listes, les files et les piles.
 
     Ces structures sont appelées linéaires car il existe un moyen, à partir de n'importe quel élément qui n'est pas le dernier, d'accéder à un « successeur ».
+
+    Dans une structure linéaire, les éléments sont organisés selon un ordre. En revanche, les opérations autorisées pour accéder aux éléments, en ajouter ou en retirer dépendent de la structure considérée. Une liste, une file et une pile ne permettent donc pas nécessairement les mêmes manipulations.
 
 ![Mon super GIF animé](img/inconnus.gif){ width="300" }
 
@@ -62,6 +65,14 @@
 
     La structure `Point` représentée plus haut est une SDA, car on ne sait pas comment sont représentées les données (tuple, tableau, dictionnaire, ...) et on ne sait pas comment les opérations sont implémentées.
 
+!!! tip "SDA et implémentation"
+
+    Il faut distinguer deux notions :
+
+    - **La structure de données abstraite (SDA)** décrit les données manipulées et les opérations disponibles, sans imposer la manière dont elles sont stockées.
+    - **L'implémentation** décrit la manière concrète dont les données sont représentées en mémoire et dont les opérations sont réalisées.
+
+    Une même SDA peut donc posséder plusieurs implémentations. Par exemple, une pile peut être implémentée à l'aide d'un tableau Python ou d'une liste chaînée, tout en conservant les mêmes opérations et le même comportement.!!! tip "SDA et implémentation"
 
 ---
 
@@ -83,18 +94,18 @@
     ![Liste](img/liste.PNG){ width="350" }
  
 
-    Le langage de programmation Lisp (inventé par John McCarthy en 1958) a été un des premiers langages de programmation à introduire cette notion de liste. Lisp signifie *list processing*.
+    Le langage de programmation Lisp, conçu par John McCarthy en 1958, est l'un des premiers langages à avoir fait des listes une structure de données fondamentale. Son nom vient de LISt Processing (« traitement de listes »).
 
-    Voici les opérations pouvant être effectuées sur une liste :
+    Voici les opérations pouvant être effectuées sur une liste chaînée :
 
     | Actions | Instruction |
     |---|---|
-    | Créer une liste `L` vide | `L = vide()` |
-    | Tester si la liste `L` est vide | `estVide(L)` |
-    | Ajouter un élément `x` en tête de la liste `L` | `ajouteEnTete(x,L)` |
-    | Supprimer la tête `x` d'une liste `L` et renvoyer cette tête `x` | `supprEnTete(L)` |
-    | Compter le nombre d'éléments dans une liste `L` | `compte(L)` |
-    | Créer une nouvelle liste `L1` à partir d'un élément `x` et d'une liste existante `L` | `L1 = cons(x,L)` |
+    | Créer une liste chaînée `L` vide | `L = vide()` |
+    | Tester si la liste chaînée `L` est vide | `estVide(L)` |
+    | Ajouter un élément `x` en tête de la liste chaînée `L` | `ajouteEnTete(x,L)` |
+    | Supprimer le premier élément de `L` et renvoyer sa valeur | `supprEnTete(L)` |
+    | Compter le nombre d'éléments de `L` | `compte(L)` |
+    | Construire une nouvelle liste chaînée à partir d'un élément `x` et d'une liste `L` | `L1 = cons(x,L)` |
 
 
 !!! question "Exercice 1 — Ba-liste-ique"
@@ -105,10 +116,10 @@
     ```python 
     L = vide() 
     estVide(L) 
-    ajoutEnTete(3,L) 
+    ajouteEnTete(3,L) 
     estVide(L) 
-    ajoutEnTete(5,L) 
-    ajoutEnTete(8,L) 
+    ajouteEnTete(5,L) 
+    ajouteEnTete(8,L) 
     t = supprEnTete(L) 
     L1 = vide() 
     L2 = cons(8, cons(5, cons(3, L1))) 
