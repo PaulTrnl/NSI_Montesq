@@ -78,6 +78,8 @@ extra_javascript:
   - javascripts/mathjax.js
   - javascripts/navigation.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2
+  - javascripts/inscriptions.js
 
 nav:
 
@@ -94,6 +96,7 @@ nav:
         - Informatique embarquée et objets connectés : snt/ressources/embarque/embarque.md
         - Photographie numérique : snt/ressources/photo/photo.md
         - Programmation python : snt/ressources/prog/python.md
+      - Inscription aux exposés: snt/inscriptions_exposes.md
 
   
 

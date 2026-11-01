@@ -1434,19 +1434,281 @@ Plusieurs étapes sont nécessaires pour afficher le site.
 
 ---
 
-## Sujets des exposés sur Internet
+## Exposés – Thème 1 : Internet
+
+
+### Sujets des exposés sur Internet
 
 Voici les sujets possibles :
 
-* Thème 1 : Réseaux pair à pair : intérêts et usages illicites.  
-* Thème 2 : Internet : quel impact écologique pour la planète ?
-* Thème 3 : Internet : enjeux et coûts des câbles sous-marins.
-* Thème 4 : Internet : quels impacts sur les activités humaines ?
-* Thème 5 : Les métiers autour d'Internet : Administrateur réseaux (études, qualités et compétences, rôle) 
-* Thème 6 : Les métiers autour d'Internet : Technicien / technicienne télécoms et réseaux
-* Thème 7 : Attaques : déni de service et phishing
-* Thème 8 : Attaques : ransomware et mail bombing
-* Thème 9 : Attaques : Man in the Middle et logiciels malveillants
-* Thème 10 : Internet en 2050 : quelles évolutions et quels nouveaux usages ?
-* Thème 11 : La naissance d'Internet : d'ARPANET au réseau mondial
+* Sujet 1 : Réseaux pair à pair : intérêts et usages illicites.  
+* Sujet 2 : Internet : quel impact écologique pour la planète ?
+* Sujet 3 : Internet : enjeux et coûts des câbles sous-marins.
+* Sujet 4 : Internet : quels impacts sur les activités humaines ?
+* Sujet 5 : Les métiers autour d'Internet : Administrateur réseaux (études, qualités et compétences, rôle) 
+* Sujet 6 : Les métiers autour d'Internet : Technicien / technicienne télécoms et réseaux
+* Sujet 7 : Attaques : déni de service et phishing
+* Sujet 8 : Attaques : ransomware et mail bombing
+* Sujet 9 : Attaques : Man in the Middle et logiciels malveillants
+* Sujet 10 : Internet en 2050 : quelles évolutions et quels nouveaux usages ?
+* Sujet 11 : La naissance d'Internet : d'ARPANET au réseau mondial
 
+
+
+
+
+### Consignes générales
+
+Chaque groupe doit réaliser un exposé oral sur le sujet qui lui a été attribué.
+
+#### Durée
+- 5 à 7 minutes de présentation ;
+- 2 à 3 minutes de questions.
+
+#### Support
+- Un diaporama de 5 à 8 diapositives maximum.
+- Des illustrations, schémas, photographies ou exemples concrets.
+- Peu de texte sur les diapositives : les informations doivent être expliquées oralement.
+
+#### Travail de recherche
+- Utiliser plusieurs sources d'information fiables.
+- Ne pas se limiter à Wikipédia ou à une seule page Internet.
+- Reformuler les informations avec ses propres mots.
+- Indiquer les sources utilisées à la fin du diaporama.
+- Être capable d'expliquer les termes techniques employés.
+
+#### Pendant l'exposé
+- Chaque membre du groupe doit prendre la parole.
+- Ne pas lire intégralement les diapositives.
+- Présenter les notions de manière claire et compréhensible.
+- Donner des exemples concrets pour illustrer les explications.
+
+---
+
+### 1. Consignes spécifiques par sujet
+
+#### Sujet 1 – Réseaux pair à pair : intérêts et usages illicites
+
+Vous présenterez le fonctionnement des réseaux pair à pair (P2P).
+
+Votre exposé devra répondre aux questions suivantes :
+
+1. Qu'est-ce qu'un réseau pair à pair ?
+2. Comment fonctionne-t-il ? Quelle est la différence avec un modèle client-serveur ?
+3. Quels sont ses avantages et ses principaux usages légitimes ?
+4. Quels types d'usages illicites peuvent en être faits ?
+5. Quels sont les risques juridiques et informatiques associés ?
+
+Vous présenterez au moins un exemple concret de logiciel ou de service utilisant le P2P.
+
+---
+
+#### Sujet 2 – Internet : quel impact écologique pour la planète ?
+
+Vous étudierez les conséquences environnementales de l'utilisation d'Internet.
+
+Votre exposé devra répondre aux questions suivantes :
+
+1. Quels équipements sont nécessaires au fonctionnement d'Internet ?
+2. Quelle est la consommation énergétique des centres de données, des réseaux et des appareils ?
+3. Quelles sont les conséquences de la fabrication des équipements numériques ?
+4. Quel est l'impact du streaming, des réseaux sociaux et du stockage en ligne ?
+5. Quelles solutions permettent de réduire l'empreinte environnementale du numérique ?
+
+Vous présenterez quelques chiffres permettant de mesurer cet impact.
+
+---
+
+#### Sujet 3 – Internet : enjeux et coûts des câbles sous-marins
+
+Vous expliquerez le rôle des câbles sous-marins dans le fonctionnement d'Internet.
+
+Votre exposé devra répondre aux questions suivantes :
+
+1. Pourquoi utilise-t-on des câbles sous-marins ?
+2. Comment fonctionnent-ils et comment les données y circulent-elles ?
+3. Comment sont-ils installés et entretenus ?
+4. Combien coûte leur installation ? Qui finance ces infrastructures ?
+5. Quels sont les risques : accidents, sabotage, espionnage, tensions géopolitiques ?
+
+Vous présenterez une carte des principaux câbles sous-marins dans le monde.
+
+---
+
+#### Sujet 4 – Internet : quels impacts sur les activités humaines ?
+
+Vous étudierez comment Internet a transformé notre quotidien.
+
+Votre exposé devra répondre aux questions suivantes :
+
+1. Comment Internet a-t-il transformé la communication entre les individus ?
+2. Quels changements a-t-il apportés au travail et aux études ?
+3. Comment a-t-il modifié le commerce et les loisirs ?
+4. Quels sont les avantages de ces transformations ?
+5. Quels problèmes peuvent apparaître : dépendance, désinformation, isolement, surveillance, fracture numérique ?
+
+Vous illustrerez votre présentation avec des exemples concrets dans différents domaines.
+
+---
+
+#### Sujet 5 – Les métiers autour d'Internet : administrateur / administratrice réseaux
+
+Vous présenterez le métier d'administrateur ou d'administratrice réseaux.
+
+Votre exposé devra répondre aux questions suivantes :
+
+1. Quelles sont ses principales missions ?
+2. À quoi ressemble une journée de travail ?
+3. Quels équipements et logiciels utilise-t-il ?
+4. Quelles compétences techniques et qualités personnelles sont nécessaires ?
+5. Quelles études et formations permettent d'accéder à ce métier ?
+6. Quels sont les débouchés et les possibilités d'évolution ?
+
+Vous présenterez également des informations sur le salaire et les conditions de travail.
+
+---
+
+#### Sujet 6 – Les métiers autour d'Internet : technicien / technicienne télécoms et réseaux
+
+Vous présenterez le métier de technicien ou technicienne télécoms et réseaux.
+
+Votre exposé devra répondre aux questions suivantes :
+
+1. Quelles sont ses principales missions ?
+2. Quelle est la différence entre son travail et celui d'un administrateur réseaux ?
+3. Sur quels équipements intervient-il ?
+4. Quelles compétences techniques et qualités personnelles sont nécessaires ?
+5. Quelles études et formations permettent d'accéder à ce métier ?
+6. Quels sont les débouchés, les évolutions possibles et le salaire ?
+
+Vous illustrerez votre présentation avec des exemples d'interventions concrètes.
+
+---
+
+#### Sujet 7 – Attaques : déni de service et phishing
+
+Vous présenterez deux types de cyberattaques et leurs conséquences.
+
+**Le déni de service (DoS / DDoS)**
+
+1. Qu'est-ce qu'une attaque par déni de service ?
+2. Comment fonctionne-t-elle dans son principe ?
+3. Quelle différence existe-t-il entre DoS et DDoS ?
+4. Quelles peuvent être les conséquences pour une entreprise ou un service ?
+
+**Le phishing (hameçonnage)**
+
+1. Qu'est-ce que le phishing ?
+2. Comment les pirates tentent-ils de tromper leurs victimes ?
+3. Quelles informations cherchent-ils à obtenir ?
+4. Comment reconnaître et éviter une tentative de phishing ?
+
+Vous présenterez un exemple fictif de message frauduleux et expliquerez les indices permettant de le repérer.
+
+---
+
+#### Sujet 8 – Attaques : ransomware et mail bombing
+
+Vous présenterez deux formes de cyberattaques.
+
+**Les ransomwares (rançongiciels)**
+
+1. Qu'est-ce qu'un ransomware ?
+2. Comment infecte-t-il un ordinateur ?
+3. Que se passe-t-il lorsque les fichiers sont chiffrés ?
+4. Pourquoi les pirates demandent-ils une rançon ?
+5. Comment s'en protéger ?
+
+**Le mail bombing**
+
+1. Qu'est-ce que le mail bombing ?
+2. Comment fonctionne cette attaque dans son principe ?
+3. Quels problèmes peut-elle provoquer pour une victime ?
+4. Comment s'en protéger et comment réagir ?
+
+Vous présenterez des exemples de conséquences de ces attaques pour des particuliers ou des organisations.
+
+---
+
+#### Sujet 9 – Attaques : Man in the Middle et logiciels malveillants
+
+Vous présenterez deux grandes catégories de menaces informatiques.
+
+**Man in the Middle (homme du milieu)**
+
+1. En quoi consiste cette attaque ?
+2. Comment un pirate peut-il s'interposer entre deux personnes ou deux machines qui communiquent ?
+3. Quelles informations peut-il intercepter ou modifier ?
+4. Dans quelles situations cette attaque peut-elle se produire ?
+5. Comment s'en protéger ?
+
+**Les logiciels malveillants (malwares)**
+
+1. Qu'est-ce qu'un logiciel malveillant ?
+2. Quelles sont les principales catégories : virus, vers, chevaux de Troie, spyware ?
+3. Comment ces logiciels infectent-ils les appareils ?
+4. Quels dégâts peuvent-ils provoquer ?
+5. Comment protéger son ordinateur ?
+
+Vous présenterez des exemples de logiciels malveillants connus.
+
+---
+
+#### Sujet 10 – Internet en 2050 : quelles évolutions et quels nouveaux usages ?
+
+Vous imaginerez à quoi pourrait ressembler Internet dans le futur, en vous appuyant sur les évolutions technologiques actuelles.
+
+Votre exposé devra répondre aux questions suivantes :
+
+1. Quelles évolutions techniques peut-on envisager pour les réseaux et les connexions ?
+2. Quelle place pourrait prendre l'intelligence artificielle ?
+3. Comment pourraient évoluer les objets connectés et les villes intelligentes ?
+4. Quels nouveaux usages pourraient apparaître dans le travail, les loisirs et la communication ?
+5. Quels nouveaux risques ou problèmes pourraient se poser ?
+6. Internet en 2050 sera-t-il accessible à tous ?
+
+Vous distinguerez les évolutions déjà envisageables des hypothèses plus spéculatives.
+
+---
+
+#### Sujet 11 – La naissance d'Internet : d'ARPANET au réseau mondial
+
+Vous retracerez les grandes étapes de la création et du développement d'Internet.
+
+Votre exposé devra répondre aux questions suivantes :
+
+1. Dans quel contexte ARPANET a-t-il été créé ?
+2. Quel était son objectif initial ?
+3. Quelles sont les grandes étapes de son développement ?
+4. Quel rôle ont joué les protocoles TCP/IP ?
+5. Quand et comment Internet s'est-il ouvert au grand public ?
+6. Quelle différence existe-t-il entre Internet et le Web ?
+7. Quelles grandes évolutions ont transformé Internet jusqu'à aujourd'hui ?
+
+Vous réaliserez une frise chronologique présentant les dates et événements importants.
+
+---
+
+### 2. Critères d'évaluation
+
+| Critère | Points |
+|---|---:|
+| Qualité et exactitude des informations | 5 |
+| Réponses aux questions demandées | 4 |
+| Organisation et clarté de la présentation | 3 |
+| Qualité du diaporama et des illustrations | 2 |
+| Expression orale et capacité à expliquer | 3 |
+| Participation de chaque membre du groupe | 2 |
+| Sources fiables et correctement citées | 1 |
+| **Total** | **20** |
+
+---
+
+### 3. Quelques règles supplémentaires
+
+- Les exposés doivent être compréhensibles par des élèves qui découvrent le sujet.
+- Les termes techniques doivent être expliqués.
+- Les exemples et illustrations doivent servir à expliquer, pas simplement à décorer.
+- Les informations chiffrées doivent être accompagnées de leur source et de leur date.
+- L'utilisation de l'intelligence artificielle est autorisée pour aider aux recherches, mais les élèves doivent vérifier les informations et être capables d'expliquer tout ce qu'ils présentent.
+- Le diaporama doit être déposé avant la date de passage.

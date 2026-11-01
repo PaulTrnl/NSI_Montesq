@@ -1,4 +1,4 @@
-# Thème 2 — Programmation Python
+# Programmation Python
 
 ![Mon super GIF animé](img/prog.gif){ width="350" }
 
