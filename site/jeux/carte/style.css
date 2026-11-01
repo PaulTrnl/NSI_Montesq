@@ -1,0 +1,1671 @@
+/* =========================================================
+   LA CONQUÊTE NSI
+   ========================================================= */
+
+   .mur-nsi {
+
+    --couleur-fond: #f8fafc;
+    --couleur-carte: #ffffff;
+    --couleur-texte: #172033;
+    --couleur-secondaire: #64748b;
+    --couleur-bordure: #dbe4f0;
+    --couleur-case-indisponible: #e2e8f0;
+    --couleur-texte-indisponible: #64748b;
+    --couleur-bordure-indisponible: #cbd5e1;
+
+    --bleu: #1769aa;
+    --bleu-fonce: #0f2a4d;
+
+    --vert: #16a34a;
+    --rouge: #dc2626;
+
+}
+
+
+/* =========================================================
+   MODE SOMBRE
+   ========================================================= */
+
+[data-md-color-scheme="slate"] .mur-nsi {
+
+    --couleur-fond: #111827;
+    --couleur-carte: #1e293b;
+    --couleur-texte: #f1f5f9;
+    --couleur-secondaire: #94a3b8;
+    --couleur-bordure: #334155;
+    --couleur-case-indisponible: #334155;
+    --couleur-texte-indisponible: #94a3b8;
+    --couleur-bordure-indisponible: #475569;    
+
+}
+
+
+/* =========================================================
+   ÉCRANS
+   ========================================================= */
+
+.jeu-ecran {
+
+    width: 100%;
+
+    min-height: 70vh;
+
+}
+
+
+.jeu-cache {
+
+    display: none !important;
+
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.jeu-header {
+
+    text-align: center;
+
+    margin-bottom: 2rem;
+
+}
+
+
+.jeu-logo {
+
+    font-size: 3.5rem;
+
+    margin-bottom: .5rem;
+
+}
+
+
+.jeu-header h1 {
+
+    margin: 0;
+
+    font-size: 2.2rem;
+
+    color: var(--couleur-texte);
+
+}
+
+
+.jeu-header p {
+
+    margin-top: .5rem;
+
+    color: var(--couleur-secondaire);
+
+}
+
+
+/* =========================================================
+   CONTENU
+   ========================================================= */
+
+.jeu-contenu {
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+}
+
+
+/* =========================================================
+   CONFIGURATION
+   ========================================================= */
+
+.jeu-configuration {
+
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    padding: 2rem;
+
+    background: var(--couleur-carte);
+
+    border: 1px solid var(--couleur-bordure);
+
+    border-radius: 16px;
+
+}
+
+
+.jeu-configuration h2 {
+
+    margin-top: 0;
+
+    color: var(--couleur-texte);
+
+}
+
+
+.jeu-description-themes {
+
+    color: var(--couleur-secondaire);
+
+}
+
+
+.jeu-compteur-themes {
+
+    font-weight: 700;
+
+    color: var(--bleu);
+
+}
+
+
+/* =========================================================
+   COMPTEUR ÉQUIPES
+   ========================================================= */
+
+.jeu-compteur {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 1.5rem;
+
+    margin: 1.5rem 0;
+
+}
+
+
+.jeu-compteur span {
+
+    min-width: 60px;
+
+    text-align: center;
+
+    font-size: 2rem;
+
+    font-weight: 800;
+
+    color: var(--couleur-texte);
+
+}
+
+
+.jeu-bouton-compteur {
+
+    width: 45px;
+
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--bleu);
+
+    color: white;
+
+    font-size: 1.6rem;
+
+    cursor: pointer;
+
+}
+
+
+.jeu-bouton-compteur:hover {
+
+    background: var(--bleu-fonce);
+
+}
+
+
+/* =========================================================
+   TAILLE DU PLATEAU
+   ========================================================= */
+
+.jeu-selection-plateau {
+
+    margin-top: 2rem;
+
+    padding-top: 1.5rem;
+
+    border-top: 1px solid var(--couleur-bordure);
+
+}
+
+
+.jeu-tailles-plateau {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: .7rem;
+
+    margin-top: 1rem;
+
+}
+
+
+.jeu-taille-plateau {
+
+    flex: 1;
+
+    min-width: 90px;
+
+    padding: .8rem;
+
+    border: 2px solid var(--couleur-bordure);
+
+    border-radius: 9px;
+
+    background: var(--couleur-fond);
+
+    color: var(--couleur-texte);
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform .15s ease,
+        background .15s ease,
+        border-color .15s ease;
+
+}
+
+
+.jeu-taille-plateau:hover {
+
+    border-color: var(--bleu);
+
+    transform: translateY(-2px);
+
+}
+
+
+.jeu-taille-plateau.jeu-taille-selectionnee {
+
+    background: var(--bleu);
+
+    border-color: var(--bleu);
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   THÈMES
+   ========================================================= */
+
+.jeu-selection-themes {
+
+    margin-top: 2rem;
+
+    padding-top: 1.5rem;
+
+    border-top: 1px solid var(--couleur-bordure);
+
+}
+
+
+.jeu-themes-configuration {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: .8rem;
+
+    margin-top: 1.2rem;
+
+}
+
+
+.jeu-theme-configuration {
+
+    position: relative;
+
+    padding: 1rem;
+
+    border: 2px solid var(--couleur-theme);
+
+    border-radius: 10px;
+
+    background: var(--couleur-fond);
+
+    color: var(--couleur-texte);
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: all .15s ease;
+
+}
+
+
+.jeu-theme-configuration:hover {
+
+    transform: translateY(-2px);
+
+    background: var(--couleur-theme);
+
+    color: white;
+
+}
+
+
+.jeu-theme-configuration.jeu-theme-selectionne {
+
+    background: var(--couleur-theme);
+
+    color: white;
+
+}
+
+
+.jeu-theme-check {
+
+    position: absolute;
+
+    top: 5px;
+
+    right: 8px;
+
+    font-weight: 900;
+
+    opacity: 0;
+
+}
+
+
+.jeu-theme-selectionne
+.jeu-theme-check {
+
+    opacity: 1;
+
+}
+
+
+/* =========================================================
+   BOUTONS
+   ========================================================= */
+
+.jeu-bouton-principal {
+
+    width: 100%;
+
+    margin-top: 1.5rem;
+
+    padding: .9rem 1.2rem;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: var(--bleu);
+
+    color: white;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.jeu-bouton-principal:hover {
+
+    background: var(--bleu-fonce);
+
+}
+
+
+.jeu-bouton-principal:disabled {
+
+    opacity: .4;
+
+    cursor: not-allowed;
+
+}
+
+
+.jeu-bouton-secondaire {
+
+    padding: .9rem 1.2rem;
+
+    border: 1px solid var(--couleur-bordure);
+
+    border-radius: 9px;
+
+    background: var(--couleur-carte);
+
+    color: var(--couleur-texte);
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================================
+   NOMS
+   ========================================================= */
+
+.jeu-formulaire-equipes {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 1rem;
+
+}
+
+
+.jeu-champ-equipe {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: .4rem;
+
+}
+
+
+.jeu-champ-equipe label {
+
+    font-weight: 700;
+
+    color: var(--couleur-texte);
+
+}
+
+
+.jeu-champ-equipe input {
+
+    padding: .8rem;
+
+    border: 1px solid var(--couleur-bordure);
+
+    border-radius: 8px;
+
+    background: var(--couleur-carte);
+
+    color: var(--couleur-texte);
+
+    font-size: 1rem;
+
+}
+
+
+.jeu-champ-equipe input:focus {
+
+    outline: 2px solid var(--bleu);
+
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.jeu-actions {
+
+    display: grid;
+
+    grid-template-columns: 1fr 2fr;
+
+    gap: 1rem;
+
+    margin-top: 1.5rem;
+
+}
+
+
+.jeu-actions .jeu-bouton-principal {
+
+    margin-top: 0;
+
+}
+
+
+/* =========================================================
+   ÉQUIPE / SCORES
+   ========================================================= */
+
+.jeu-tour {
+
+    max-width: 850px;
+
+    margin: 0 auto 1rem;
+
+    padding: 1rem;
+
+    border-radius: 12px;
+
+    background: var(--bleu-fonce);
+
+    color: white;
+
+    text-align: center;
+
+}
+
+
+.jeu-tour strong {
+
+    margin-left: .3rem;
+
+    font-size: 1.3rem;
+
+}
+
+
+.jeu-scores {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(160px, 1fr));
+
+    gap: .7rem;
+
+    max-width: 850px;
+
+    margin: 0 auto 1.5rem;
+
+}
+
+
+.jeu-score-equipe {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: .5rem;
+
+    padding: .8rem;
+
+    border: 2px solid var(--couleur-bordure);
+
+    border-radius: 10px;
+
+    background: var(--couleur-carte);
+
+}
+
+
+.jeu-score-equipe.jeu-equipe-active {
+
+    border-color: var(--bleu);
+
+    box-shadow:
+        0 0 0 2px
+        color-mix(
+            in srgb,
+            var(--bleu) 20%,
+            transparent
+        );
+
+}
+
+
+.jeu-score-nom {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: .15rem;
+
+    color: var(--couleur-texte);
+
+}
+
+
+.jeu-score-nom span {
+
+    color: var(--couleur-secondaire);
+
+    font-size: .75rem;
+
+}
+
+
+.jeu-score-points {
+
+    font-size: 1.5rem;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   ZONE PLATEAU + LÉGENDE
+   ========================================================= */
+
+.jeu-zone-plateau {
+
+    display: grid;
+
+    /*
+     * La grille et la légende sont côte à côte.
+     *
+     * 850px maximum pour la grille
+     * 230px pour la légende
+     */
+
+    grid-template-columns:
+        minmax(0, 850px)
+        230px;
+
+    align-items: start;
+
+    justify-content: center;
+
+    gap: 1.5rem;
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+}
+
+
+/* =========================================================
+   LÉGENDE
+   ========================================================= */
+
+.jeu-zone-plateau .jeu-legende {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: .7rem;
+
+    padding: 1rem;
+
+    background: var(--couleur-carte);
+
+    border: 1px solid var(--couleur-bordure);
+
+    border-radius: 12px;
+
+    /*
+     * La légende reste dans sa colonne.
+     */
+
+    min-width: 0;
+
+    max-height: 70vh;
+
+    overflow-y: auto;
+
+}
+
+
+.jeu-zone-plateau .jeu-legende h3 {
+
+    margin: 0 0 .3rem;
+
+    color: var(--couleur-texte);
+
+}
+
+
+.jeu-legende-themes {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: .4rem;
+
+}
+
+
+.jeu-legende-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: .5rem;
+
+    padding: .35rem .5rem;
+
+    border-radius: 7px;
+
+    background: var(--couleur-fond);
+
+    border: 1px solid var(--couleur-bordure);
+
+    color: var(--couleur-texte);
+
+    font-size: .8rem;
+
+    min-width: 0;
+
+}
+
+
+.jeu-legende-item span:last-child {
+
+    min-width: 0;
+
+    overflow-wrap: anywhere;
+
+}
+
+
+.jeu-legende-couleur {
+
+    width: 14px;
+
+    height: 14px;
+
+    flex-shrink: 0;
+
+    border-radius: 4px;
+
+}
+
+
+/* =========================================================
+   SWITCH
+   ========================================================= */
+
+.jeu-switch {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: .7rem;
+
+    margin-top: .5rem;
+
+    cursor: pointer;
+
+    user-select: none;
+
+}
+
+
+.jeu-switch input {
+
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+.jeu-slider {
+
+    position: relative;
+
+    width: 46px;
+
+    height: 24px;
+
+    flex-shrink: 0;
+
+    border-radius: 999px;
+
+    background: var(--couleur-bordure);
+
+    transition: background .2s ease;
+
+}
+
+
+.jeu-slider::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 18px;
+
+    height: 18px;
+
+    left: 3px;
+
+    top: 3px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 1px 3px rgba(0,0,0,.25);
+
+    transition:
+        transform .2s ease;
+
+}
+
+
+.jeu-switch input:checked + .jeu-slider {
+
+    background: var(--bleu);
+
+}
+
+
+.jeu-switch input:checked + .jeu-slider::before {
+
+    transform: translateX(22px);
+
+}
+
+
+.jeu-switch-texte {
+
+    color: var(--couleur-secondaire);
+
+    font-size: .85rem;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   PLATEAU
+   ========================================================= */
+
+.jeu-plateau {
+
+    /*
+     * IMPORTANT :
+     * Les colonnes sont définies par JavaScript.
+     *
+     * Le CSS ne doit donc PAS imposer
+     * repeat(10, ...).
+     */
+
+    display: grid;
+
+    gap: 4px;
+
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    /*
+     * Permet au plateau de rétrécir correctement
+     * dans la grille parent.
+     */
+
+    min-width: 0;
+
+}
+
+
+/* =========================================================
+   CASE DU PLATEAU
+   ========================================================= */
+
+.jeu-case-plateau {
+
+    /*
+     * Chaque case reste parfaitement carrée.
+     */
+
+    aspect-ratio: 1 / 1;
+
+    /*
+     * Très important pour les nombres à 3 chiffres.
+     */
+
+    min-width: 0;
+
+    min-height: 0;
+
+    /*
+     * Le numéro ne doit jamais passer sur deux lignes.
+     */
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    /*
+     * Centrage du numéro.
+     */
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    /*
+     * Aucun padding qui pourrait réduire
+     * inutilement l'espace disponible.
+     */
+
+    padding: 0;
+
+    /*
+     * Taille du texte adaptative.
+     */
+
+    font-size: clamp(
+        .55rem,
+        1.2vw,
+        .9rem
+    );
+
+    line-height: 1;
+
+    border: 2px solid var(--couleur-theme);
+
+    border-radius: 6px;
+
+    background:
+        color-mix(
+            in srgb,
+            var(--couleur-theme) 15%,
+            transparent
+        );
+
+    color: var(--couleur-theme);
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform .15s ease,
+        background .15s ease;
+
+}
+
+
+/* =========================================================
+   PLATEAU 12 × 12
+   ========================================================= */
+
+.jeu-plateau[data-taille="12"]
+.jeu-case-plateau {
+
+    font-size: .7rem;
+
+}
+
+
+/* =========================================================
+   PLATEAU 15 × 15
+   ========================================================= */
+
+.jeu-plateau[data-taille="15"]
+.jeu-case-plateau {
+
+    /*
+     * 225 doit tenir dans une case très petite.
+     */
+
+    font-size: .55rem;
+
+    border-width: 1px;
+
+    border-radius: 3px;
+
+}
+
+
+/* =========================================================
+   SURVOL DES CASES
+   ========================================================= */
+
+.jeu-case-plateau:hover {
+
+    transform: scale(1.05);
+
+    background: var(--couleur-theme);
+
+    color: white;
+
+    z-index: 2;
+
+}
+
+
+.jeu-case-plateau:disabled {
+
+    opacity: 1;
+
+}
+
+
+/* =========================================================
+   CASE CONQUISE
+   ========================================================= */
+
+.jeu-case-plateau.jeu-case-conquise {
+
+    border-color: var(--couleur-equipe);
+
+    background: var(--couleur-equipe);
+
+    color: white;
+
+    cursor: default;
+
+}
+
+
+.jeu-case-plateau.jeu-case-conquise:hover {
+
+    transform: none;
+
+}
+
+
+/* =========================================================
+   PLATEAU SANS COULEURS
+   ========================================================= */
+
+.jeu-plateau.jeu-sans-couleurs
+.jeu-case-plateau:not(.jeu-case-conquise) {
+
+    border-color: var(--couleur-bordure);
+
+    background: var(--couleur-carte);
+
+    color: var(--couleur-texte);
+
+}
+
+
+.jeu-plateau.jeu-sans-couleurs
+.jeu-case-plateau:not(.jeu-case-conquise):hover {
+
+    background: var(--couleur-fond);
+
+    border-color: var(--bleu);
+
+}
+
+
+/* =========================================================
+   QUESTION
+   ========================================================= */
+
+.jeu-question-panel {
+
+    max-width: 850px;
+
+    margin: 2rem auto 0;
+
+    padding: 2rem;
+
+    border: 1px solid var(--couleur-bordure);
+
+    border-radius: 16px;
+
+    background: var(--couleur-carte);
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.1);
+
+}
+
+
+.jeu-question-theme {
+
+    display: inline-block;
+
+    padding: .5rem 1rem;
+
+    border-radius: 999px;
+
+    color: white;
+
+    font-weight: 700;
+
+}
+
+
+.jeu-question-numero {
+
+    margin-top: .7rem;
+
+    color: var(--couleur-secondaire);
+
+    font-size: .85rem;
+
+}
+
+
+.jeu-question-panel h2 {
+
+    margin: 1.5rem 0;
+
+    color: var(--couleur-texte);
+
+}
+
+
+/* =========================================================
+   RÉPONSE
+   ========================================================= */
+
+.jeu-reponse-cachee {
+
+    margin: 1.5rem 0;
+
+}
+
+
+.jeu-bouton-reponse {
+
+    padding: .7rem 1.2rem;
+
+    border: 1px solid var(--couleur-bordure);
+
+    border-radius: 9px;
+
+    background: var(--couleur-fond);
+
+    color: var(--couleur-texte);
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.jeu-bouton-reponse:hover {
+
+    border-color: var(--bleu);
+
+}
+
+
+.jeu-reponse-attendue {
+
+    margin-top: 1rem;
+
+    padding: 1rem;
+
+    border-radius: 10px;
+
+    background: var(--couleur-fond);
+
+    border: 2px solid var(--bleu);
+
+    color: var(--couleur-texte);
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   ACTIONS QUESTION
+   ========================================================= */
+
+.jeu-question-actions {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 1rem;
+
+    margin-top: 1.5rem;
+
+}
+
+
+.jeu-bouton-correct,
+.jeu-bouton-incorrect {
+
+    padding: 1rem;
+
+    border: none;
+
+    border-radius: 9px;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.jeu-bouton-correct {
+
+    background: var(--vert);
+
+}
+
+
+.jeu-bouton-correct:hover {
+
+    background: #15803d;
+
+}
+
+
+.jeu-bouton-incorrect {
+
+    background: var(--rouge);
+
+}
+
+
+.jeu-bouton-incorrect:hover {
+
+    background: #b91c1c;
+
+}
+
+
+/* =========================================================
+   FIN DE PARTIE
+   ========================================================= */
+
+.jeu-fin {
+
+    max-width: 850px;
+
+    margin: 1.5rem auto;
+
+}
+
+
+.jeu-bouton-fin {
+
+    width: 100%;
+
+    padding: .8rem;
+
+    border: 1px solid var(--rouge);
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: var(--rouge);
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.jeu-bouton-fin:hover {
+
+    background: var(--rouge);
+
+    color: white;
+
+}
+
+
+.jeu-bouton-fin:disabled {
+
+    opacity: .4;
+
+    cursor: not-allowed;
+
+}
+
+/* =========================================================
+   CASES INDISPONIBLES
+   ========================================================= */
+
+   .jeu-case-plateau.jeu-case-jouee,
+   .jeu-case-plateau.jeu-case-sans-question {
+       border-color: var(--couleur-bordure-indisponible);
+       background: var(--couleur-case-indisponible);
+       color: var(--couleur-texte-indisponible);
+       cursor: not-allowed;
+       opacity: 0.8;
+   }
+   
+   
+   .jeu-case-plateau.jeu-case-jouee:hover,
+   .jeu-case-plateau.jeu-case-sans-question:hover {
+       transform: none;
+       background: var(--couleur-case-indisponible);
+       color: var(--couleur-texte-indisponible);
+       border-color: var(--couleur-bordure-indisponible);
+   }
+
+
+/* =========================================================
+   CLASSEMENT
+   ========================================================= */
+
+.jeu-classement {
+
+    max-width: 700px;
+
+    margin: 2rem auto;
+
+}
+
+
+.jeu-classement-ligne {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 1rem;
+
+    margin-bottom: .6rem;
+
+    border-radius: 10px;
+
+    background: var(--couleur-carte);
+
+    border: 1px solid var(--couleur-bordure);
+
+}
+
+
+.jeu-classement-ligne strong {
+
+    font-size: 1.2rem;
+
+}
+
+
+/* =========================================================
+   RÉCAPITULATIF
+   ========================================================= */
+
+.jeu-liste-equipes {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 1rem;
+
+}
+
+
+.jeu-equipe {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: .8rem;
+
+    padding: 1rem;
+
+    border: 1px solid var(--couleur-bordure);
+
+    border-radius: 10px;
+
+    background: var(--couleur-carte);
+
+}
+
+
+.jeu-numero-equipe {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 42px;
+
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    color: white;
+
+    font-weight: 800;
+
+}
+
+
+.jeu-specialite {
+
+    margin-top: .2rem;
+
+    color: var(--couleur-secondaire);
+
+    font-size: .85rem;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLETTE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .jeu-zone-plateau {
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            200px;
+
+        gap: 1rem;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — PETIT ÉCRAN
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    /*
+     * Sous 900px :
+     * la légende passe au-dessus du plateau.
+     */
+
+    .jeu-zone-plateau {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .jeu-zone-plateau .jeu-legende {
+
+        order: -1;
+
+        max-height: none;
+
+    }
+
+
+    .jeu-legende-themes {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(
+                auto-fit,
+                minmax(150px, 1fr)
+            );
+
+    }
+
+
+    .jeu-plateau {
+
+        width: 100%;
+
+    }
+
+
+    .jeu-case-plateau {
+
+        font-size: .6rem;
+
+        border-width: 1px;
+
+        border-radius: 3px;
+
+    }
+
+
+    .jeu-plateau[data-taille="15"]
+    .jeu-case-plateau {
+
+        font-size: .5rem;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .jeu-header h1 {
+
+        font-size: 1.8rem;
+
+    }
+
+
+    .jeu-configuration {
+
+        padding: 1.2rem;
+
+    }
+
+
+    .jeu-plateau {
+
+        gap: 2px;
+
+    }
+
+
+    .jeu-case-plateau {
+
+        font-size: .55rem;
+
+        border-width: 1px;
+
+        border-radius: 3px;
+
+    }
+
+
+    .jeu-plateau[data-taille="15"]
+    .jeu-case-plateau {
+
+        font-size: .45rem;
+
+    }
+
+
+    .jeu-question-actions {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .jeu-actions {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .jeu-options-plateau {
+
+        justify-content: center;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — TRÈS PETIT MOBILE
+   ========================================================= */
+
+@media (max-width: 500px) {
+
+    .jeu-plateau {
+
+        gap: 1px;
+
+    }
+
+
+    .jeu-case-plateau {
+
+        font-size: .48rem;
+
+        border-width: 1px;
+
+        border-radius: 2px;
+
+    }
+
+
+    .jeu-plateau[data-taille="15"]
+    .jeu-case-plateau {
+
+        font-size: .4rem;
+
+    }
+
+}

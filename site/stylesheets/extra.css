@@ -1,0 +1,177 @@
+/* =========================
+   Palette SNT / NSI
+   ========================= */
+
+/* Cartes de l'accueil */
+.md-typeset .grid.cards > ul > li {
+    border-radius: 13px;
+    border: 1px solid #dbe4f0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.md-typeset .grid.cards > ul > li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(15, 42, 77, 0.12);
+}
+
+
+/* Barre supérieure */
+.md-header {
+    background: #0f2a4d;
+}
+
+
+/* Titres */
+.md-typeset h1 {
+    color: #4f78ad;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.md-typeset h2 {
+    color: #1e7fcf;
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.md-typeset h3 {
+    font-size: 1.15rem;
+}
+
+@media print {
+
+    .md-typeset h1 {
+        font-size: 1.6rem;
+    }
+
+    .md-typeset h2 {
+        font-size: 1.1rem;
+    }
+
+    .md-typeset h3 {
+        font-size: 0.8rem;
+    }
+
+}
+
+
+/* Boutons */
+.md-button {
+    border-radius: 10px;
+    background-color: #1769aa;
+}
+
+.md-button:hover {
+    background-color: #0f2a4d;
+}
+
+/* Boutons de téléchargement */
+.md-typeset .md-button {
+    background-color: #54607f;
+    border-color: #54607f;
+    color: white;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.md-typeset .md-button:hover {
+    background-color: #3f4963;
+    border-color: #3f4963;
+}
+
+
+/* Grille personnalisée */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+    gap: 1rem;
+}
+
+
+/* Anciennes cartes HTML */
+.card {
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid #dbe4f0;
+    
+}
+
+
+/* Couleur de la barre latérale */
+.md-sidebar {
+    background-color: transparent;
+}
+
+/* Texte du menu */
+.md-nav__link {
+    color: inherit;
+}
+
+/* Élément actif */
+.md-nav__link--active {
+    color: #4f9ee8;
+    font-weight: 600;
+}
+
+/* Survol */
+.md-nav__link:hover {
+    color: #1e7fcf;
+}
+
+.navigation-page {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 1000;
+}
+
+.bouton-navigation {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #4f78ad;
+    color: white !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none !important;
+    font-size: 22px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    opacity: 0.7;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.bouton-navigation:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.md-sidebar--secondary .md-nav__list > .md-nav__item > .md-nav__link {
+    font-weight: 700;
+    color: #1e7fcf;
+    padding-top: 0.7rem;
+    padding-bottom: 0.5rem;
+}
+
+/* Activités */
+
+.md-typeset .admonition.activity,
+.md-typeset details.activity {
+    border-color: #f0c419;
+}
+
+.md-typeset .activity > .admonition-title,
+.md-typeset .activity > summary {
+    background-color: rgba(240, 196, 25, 0.20);
+}
+
+.md-typeset .admonition.activity > .admonition-title::before,
+.md-typeset details.activity > summary::before {
+    background-color: #e0a800;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 5h16v11H4V5z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 5h16v11H4V5z'/%3E%3C/svg%3E");
+}
