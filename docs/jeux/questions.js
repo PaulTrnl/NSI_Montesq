@@ -267,92 +267,326 @@
 
 
     /* =====================================================
-       RÉSEAUX
-       ===================================================== */
+   RÉSEAUX — QUESTIONS COMPLÉMENTAIRES
+   ===================================================== */
 
-    {
-        theme: "Réseaux",
-        question: "Quel protocole permet d'associer un nom de domaine à une adresse IP ?",
-        reponse: "DNS"
-    },
+{
+    theme: "Réseaux",
+    question: "Combien d'octets composent une adresse IPv4 ?",
+    reponse: "4 octets"
+},
 
-    {
-        theme: "Réseaux",
-        question: "Que signifie IP ?",
-        reponse: "Internet Protocol"
-    },
+{
+    theme: "Réseaux",
+    question: "Que signifie la notation CIDR /24 ?",
+    reponse: "Les 24 premiers bits de l'adresse correspondent à la partie réseau"
+},
 
-    {
-        theme: "Réseaux",
-        question: "Quel protocole est utilisé pour transporter de manière fiable les données sur Internet ?",
-        reponse: "TCP"
-    },
+{
+    theme: "Réseaux",
+    question: "Quel est le masque décimal correspondant à /24 ?",
+    reponse: "255.255.255.0"
+},
 
-    {
-        theme: "Réseaux",
-        question: "À quoi sert le masque de sous-réseau ?",
-        reponse: "À déterminer la partie réseau et la partie hôte d'une adresse IP"
-    },
-    
-    {
-        theme: "Réseaux",
-        question: "Quelle adresse IP privée commence typiquement par 192.168 ?",
-        reponse: "Une adresse du réseau privé 192.168.0.0/16"
-    },
-    
-    {
-        theme: "Réseaux",
-        question: "Quel protocole traduit une adresse IP privée en adresse IP publique ?",
-        reponse: "NAT"
-    },
-    
-    {
-        theme: "Réseaux",
-        question: "Quel protocole permet de vérifier qu'une machine est joignable sur un réseau ?",
-        reponse: "ICMP"
-    },
+{
+    theme: "Réseaux",
+    question: "À quel réseau appartient l'adresse 192.168.1.25/24 ?",
+    reponse: "192.168.1.0/24"
+},
 
-    {
-        theme: "Réseaux",
-        question: "Quel équipement permet de relier plusieurs réseaux entre eux ?",
-        reponse: "Un routeur"
-    },
+{
+    theme: "Réseaux",
+    question: "Combien de bits restent disponibles pour identifier les machines dans un réseau en /24 ?",
+    reponse: "8 bits"
+},
 
-    {
-        theme: "Réseaux",
-        question: "Quel protocole permet d'obtenir automatiquement une adresse IP ?",
-        reponse: "DHCP"
-    },
+{
+    theme: "Réseaux",
+    question: "Quelle commande permet d'afficher la configuration réseau sous Windows ?",
+    reponse: "ipconfig"
+},
 
-    {
-        theme: "Réseaux",
-        question: "Une adresse IP identifie-t-elle nécessairement un ordinateur précis ?",
-        reponse: "Non"
-    },
+{
+    theme: "Réseaux",
+    question: "Quelle commande permet d'afficher les interfaces réseau sous macOS ?",
+    reponse: "ifconfig"
+},
 
-    {
-        theme: "Réseaux",
-        question: "Quel protocole est généralement utilisé pour envoyer des courriels ?",
-        reponse: "SMTP"
-    },
+{
+    theme: "Réseaux",
+    question: "Quelle adresse utilise principalement un switch pour acheminer les trames ?",
+    reponse: "L'adresse MAC"
+},
 
-    {
-        theme: "Réseaux",
-        question: "TCP garantit-il que les paquets suivent tous exactement le même chemin ?",
-        reponse: "Non"
-    },
+{
+    theme: "Réseaux",
+    question: "Quelle information un ordinateur utilise-t-il pour savoir si une destination appartient à son réseau local ?",
+    reponse: "Le masque de sous-réseau"
+},
 
-    {
-        theme: "Réseaux",
-        question: "Quelle est la différence principale entre TCP et UDP ?",
-        reponse: "TCP assure une transmission fiable ; UDP ne garantit pas la livraison"
-    },
+{
+    theme: "Réseaux",
+    question: "Que fait un ordinateur lorsque le destinataire appartient à un autre réseau ?",
+    reponse: "Il transmet le paquet à sa passerelle par défaut"
+},
 
-    {
-        theme: "Réseaux",
-        question: "Le protocole IP garantit-il que les données arrivent à destination ?",
-        reponse: "Non"
-    },
+{
+    theme: "Réseaux",
+    question: "Que signifie une route directement connectée ?",
+    reponse: "Une route vers un réseau auquel une interface du routeur est directement reliée"
+},
+
+{
+    theme: "Réseaux",
+    question: "Que signifie le symbole — dans la colonne prochain saut d'une table de routage ?",
+    reponse: "Le réseau est directement connecté au routeur"
+},
+
+{
+    theme: "Réseaux",
+    question: "Que signifie la destination 0.0.0.0/0 dans une table de routage ?",
+    reponse: "La route par défaut"
+},
+
+{
+    theme: "Réseaux",
+    question: "À quoi sert la route par défaut d'un routeur ?",
+    reponse: "À transmettre les paquets lorsqu'aucune route plus précise ne correspond à leur destination"
+},
+
+{
+    theme: "Réseaux",
+    question: "Que contient une table de routage ?",
+    reponse: "Les réseaux de destination, les prochains sauts et les interfaces de sortie"
+},
+
+{
+    theme: "Réseaux",
+    question: "Qu'est-ce que le routage statique ?",
+    reponse: "Un routage dans lequel les routes sont configurées manuellement par l'administrateur"
+},
+
+{
+    theme: "Réseaux",
+    question: "Quel est le principal inconvénient du routage statique dans un grand réseau ?",
+    reponse: "Il nécessite de configurer et de mettre à jour manuellement de nombreuses routes"
+},
+
+{
+    theme: "Réseaux",
+    question: "Qu'est-ce que le routage dynamique ?",
+    reponse: "Un routage dans lequel les routeurs échangent des informations pour construire automatiquement leurs tables de routage"
+},
+
+{
+    theme: "Réseaux",
+    question: "Qu'est-ce qu'une métrique dans un protocole de routage ?",
+    reponse: "Une valeur permettant d'évaluer et de comparer les chemins possibles"
+},
+
+{
+    theme: "Réseaux",
+    question: "Que signifie RIP ?",
+    reponse: "Routing Information Protocol"
+},
+
+{
+    theme: "Réseaux",
+    question: "Quelle est la métrique utilisée par RIP ?",
+    reponse: "Le nombre de sauts"
+},
+
+{
+    theme: "Réseaux",
+    question: "À partir de quel nombre de sauts RIP considère-t-il un réseau comme inaccessible ?",
+    reponse: "16 sauts"
+},
+
+{
+    theme: "Réseaux",
+    question: "Quel est le nombre maximal de sauts autorisé pour une route RIP ?",
+    reponse: "15 sauts"
+},
+
+{
+    theme: "Réseaux",
+    question: "À quelle fréquence les routeurs RIP échangent-ils périodiquement leurs tables de routage ?",
+    reponse: "Toutes les 30 secondes"
+},
+
+{
+    theme: "Réseaux",
+    question: "Que doit faire un routeur RIP lorsqu'il apprend une route annoncée par un voisin ?",
+    reponse: "Ajouter 1 à la distance annoncée par le voisin"
+},
+
+{
+    theme: "Réseaux",
+    question: "Que se passe-t-il si RIP découvre une route plus courte vers un réseau déjà connu ?",
+    reponse: "Il remplace l'ancienne route par la nouvelle"
+},
+
+{
+    theme: "Réseaux",
+    question: "Que signifie OSPF ?",
+    reponse: "Open Shortest Path First"
+},
+
+{
+    theme: "Réseaux",
+    question: "Quelle est la principale différence entre RIP et OSPF ?",
+    reponse: "RIP utilise le nombre de sauts tandis qu'OSPF utilise le coût des liaisons"
+},
+
+{
+    theme: "Réseaux",
+    question: "Comment OSPF représente-t-il la topologie d'un réseau ?",
+    reponse: "Sous la forme d'un graphe"
+},
+
+{
+    theme: "Réseaux",
+    question: "Que représentent les sommets d'un graphe utilisé par OSPF ?",
+    reponse: "Les routeurs"
+},
+
+{
+    theme: "Réseaux",
+    question: "Que représentent les arêtes d'un graphe utilisé par OSPF ?",
+    reponse: "Les liaisons entre les routeurs"
+},
+
+{
+    theme: "Réseaux",
+    question: "Comment OSPF détermine-t-il le coût total d'un chemin ?",
+    reponse: "En additionnant les coûts de toutes les liaisons traversées"
+},
+
+{
+    theme: "Réseaux",
+    question: "Quel algorithme permet à OSPF de rechercher les chemins de coût minimal ?",
+    reponse: "L'algorithme de Dijkstra"
+},
+
+{
+    theme: "Réseaux",
+    question: "Dans l'algorithme de Dijkstra, que représente la valeur initiale attribuée au sommet de départ ?",
+    reponse: "Un coût nul"
+},
+
+{
+    theme: "Réseaux",
+    question: "Dans l'algorithme de Dijkstra, que représente le prédécesseur d'un sommet ?",
+    reponse: "Le sommet précédent permettant d'obtenir le meilleur chemin connu"
+},
+
+{
+    theme: "Réseaux",
+    question: "Que signifie NAT ?",
+    reponse: "Network Address Translation"
+},
+
+{
+    theme: "Réseaux",
+    question: "Quel est le rôle principal du NAT dans un réseau domestique ?",
+    reponse: "Traduire les adresses IP privées en adresse IP publique pour communiquer avec Internet"
+},
+
+{
+    theme: "Réseaux",
+    question: "Pourquoi plusieurs ordinateurs d'un réseau local peuvent-ils partager une même adresse IP publique ?",
+    reponse: "Grâce à la traduction d'adresses effectuée par le routeur"
+},
+
+{
+    theme: "Réseaux",
+    question: "Que doit conserver une box pour transmettre les réponses aux bonnes machines après une traduction NAT/PAT ?",
+    reponse: "Une table de correspondance des traductions"
+},
+
+{
+    theme: "Réseaux",
+    question: "Que signifie PAT ?",
+    reponse: "Port Address Translation"
+},
+
+{
+    theme: "Réseaux",
+    question: "Quel élément permet au PAT de différencier les communications de plusieurs machines utilisant la même adresse IP publique ?",
+    reponse: "Les numéros de port"
+},
+
+{
+    theme: "Réseaux",
+    question: "Combien de valeurs différentes un numéro de port peut-il prendre ?",
+    reponse: "65 536 valeurs, de 0 à 65 535"
+},
+
+{
+    theme: "Réseaux",
+    question: "Quel est le rôle d'un port réseau ?",
+    reponse: "Identifier une application ou un service sur une machine"
+},
+
+{
+    theme: "Réseaux",
+    question: "Quel est le port TCP habituellement utilisé par SSH ?",
+    reponse: "22"
+},
+
+{
+    theme: "Réseaux",
+    question: "Quel est le port habituellement utilisé par DNS ?",
+    reponse: "53"
+},
+
+{
+    theme: "Réseaux",
+    question: "Quel est le port TCP habituellement utilisé par HTTP ?",
+    reponse: "80"
+},
+
+{
+    theme: "Réseaux",
+    question: "Quel est le port TCP habituellement utilisé par HTTPS ?",
+    reponse: "443"
+},
+
+{
+    theme: "Réseaux",
+    question: "Pourquoi un serveur Web utilise-t-il généralement un port fixe ?",
+    reponse: "Pour que les clients sachent à quel port envoyer leurs requêtes"
+},
+
+{
+    theme: "Réseaux",
+    question: "Pourquoi une box doit-elle effectuer une redirection de port pour rendre un serveur local accessible depuis Internet ?",
+    reponse: "Pour transmettre les connexions reçues sur un port public vers le serveur du réseau local"
+},
+
+{
+    theme: "Réseaux",
+    question: "Que signifie firewall en français ?",
+    reponse: "Pare-feu"
+},
+
+{
+    theme: "Réseaux",
+    question: "Quel est le rôle d'un pare-feu ?",
+    reponse: "Contrôler les communications réseau en autorisant ou en bloquant certaines connexions"
+},
+
+{
+    theme: "Réseaux",
+    question: "Sur quels critères un pare-feu peut-il filtrer les communications ?",
+    reponse: "Les adresses IP, les protocoles, les ports et le sens de la communication"
+},
+
+{
+    theme: "Réseaux",
+    question: "Une box Internet peut-elle assurer à la fois le routage, le NAT, le PAT et le filtrage par pare-feu ?",
+    reponse: "Oui"
+},
 
 
     /* =====================================================
