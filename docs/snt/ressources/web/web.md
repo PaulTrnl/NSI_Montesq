@@ -22,6 +22,8 @@
     - quel est le rôle d'un navigateur et d'un serveur web ;
     - comment fonctionne le modèle client-serveur.
 
+[📥 Support élève du chapitre 1 (PDF)](02_Web_fiche_activite_chap1.pdf){ .md-button }
+
 ### Contexte 1 : Une toile d'informations
 
 Nous avons étudié Internet, le fonctionnement des réseaux ainsi que les différents protocoles permettant aux machines de communiquer.
