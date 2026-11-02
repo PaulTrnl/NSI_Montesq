@@ -20,6 +20,8 @@
 
 ---
 
+[📥 Support élève du thème 3(PDF)](03_Structure_lineaires_fiche_activite_1_5.pdf){ .md-button }
+
 ## 1. Les structures linéaires { #structures-lineaires }
 
 !!! note "Structure linéaire"
@@ -243,15 +245,7 @@
             ...
 
         def __str__(self):  # affichage de la liste
-            c = self
-            l = []
-            while not c.est_vide():
-                l.append(str(c.renvoie_tete()))
-            l.reverse()
-            for v in l:
-                self.ajoute_tete(v)
-            l.reverse()
-            return ' -> '.join(l)
+            return str(self.tete) if not self.est_vide() else ""
     ```
 
     **3.** Écrire la suite d'instructions permettant de vérifier votre réponse à l'exercice 2.
