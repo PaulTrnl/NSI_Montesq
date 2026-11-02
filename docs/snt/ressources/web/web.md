@@ -6,6 +6,10 @@
 
 <a id="haut"></a>
 
+
+
+## Chapitre 1. À la découverte du Web { #decouverte-web }
+
 !!! abstract "Objectif"
 
     Dans ce chapitre, nous allons découvrir le World Wide Web, son fonctionnement général et les principes qui permettent de consulter des pages web.
@@ -17,10 +21,6 @@
     - comment les pages web sont reliées entre elles ;
     - quel est le rôle d'un navigateur et d'un serveur web ;
     - comment fonctionne le modèle client-serveur.
-
----
-
-## 1. À la découverte du Web { #decouverte-web }
 
 ### Contexte 1 : Une toile d'informations
 
@@ -166,7 +166,20 @@ Nous étudierons dans le chapitre suivant les protocoles utilisés pour réalise
 
 
 
-## 2. Comment fonctionne le Web ? { #fonctionnement-web }
+## Chapitre 2. Comment fonctionne le Web ? { #fonctionnement-web }
+
+!!! abstract "Objectif"
+
+    Dans ce chapitre, nous allons étudier les échanges qui permettent à un navigateur de consulter les ressources hébergées sur un serveur web.
+
+    Nous chercherons notamment à comprendre :
+
+    - comment est constituée une URL ;
+    - comment le navigateur et le serveur communiquent grâce au protocole HTTP ;
+    - quel est le rôle du protocole HTTPS ;
+    - comment interpréter les principaux codes d'état HTTP ;
+    - comment observer les échanges entre un navigateur et un serveur.
+
 
 ### Contexte 2 : Dans les coulisses du Web
 
@@ -396,7 +409,20 @@ La communication entre les deux machines repose sur le protocole HTTP ou sa vers
 
 
 
-## 3. Rechercher et s'informer sur le Web { #rechercher-web }
+## Chapitre 3. Rechercher et s'informer sur le Web { #rechercher-web }
+
+
+!!! abstract "Objectif"
+
+    Dans ce chapitre, nous allons découvrir comment les moteurs de recherche permettent de retrouver des informations sur le Web et comment évaluer la fiabilité des contenus consultés.
+
+    Nous chercherons notamment à comprendre :
+
+    - comment fonctionne un moteur de recherche ;
+    - comment les pages web sont explorées, indexées et classées ;
+    - quels critères influencent le classement des résultats ;
+    - comment évaluer la fiabilité d'une information ;
+    - comment identifier et vérifier les fausses informations.
 
 ### Contexte 3 : Trouver une information dans une immense toile
 
@@ -635,7 +661,20 @@ Cependant, les résultats proposés ne sont pas nécessairement fiables. Il est 
 
 
 
-## 4. Identité numérique, traces et droits sur le Web { #traces-droits-web }
+## Chapitre 4. Identité numérique, traces et droits sur le Web { #traces-droits-web }
+
+
+!!! abstract "Objectif"
+
+    Dans ce chapitre, nous allons étudier les traces laissées lors de la navigation sur le Web, les moyens de protéger notre vie privée et les règles qui encadrent la réutilisation des ressources numériques.
+
+    Nous chercherons notamment à comprendre :
+
+    - quelles informations peuvent être conservées lors de la navigation ;
+    - quel est le rôle des cookies ;
+    - comment limiter la collecte de données personnelles ;
+    - ce que protège le droit d'auteur ;
+    - comment fonctionnent les licences Creative Commons.
 
 ### Contexte 4 : Que sait le Web sur nous ?
 
@@ -814,7 +853,19 @@ Par ailleurs, les ressources disponibles sur le Web restent soumises au droit d'
 
 
 
-## 5. Construire un site Web { #construire-site-web }
+## Chapitre 5. Construire un site Web { #construire-site-web }
+
+!!! abstract "Objectif"
+
+    Dans ce chapitre, nous allons découvrir les langages et les mécanismes utilisés pour construire et faire fonctionner des pages web.
+
+    Nous chercherons notamment à comprendre :
+
+    - comment structurer une page avec le langage HTML ;
+    - comment modifier l'apparence d'une page avec le langage CSS ;
+    - quelle est la différence entre un site statique et un site dynamique ;
+    - comment le navigateur transmet des données au serveur ;
+    - quelle est la différence entre les méthodes HTTP GET et POST.
 
 ### Contexte 5 : Dans les coulisses d'un site Web
 
@@ -1181,7 +1232,21 @@ Enfin, les échanges entre le navigateur et le serveur peuvent utiliser différe
 
 ---
 
-## 6. Projet : Construire un site Web { #projet-site-web }
+## Chapitre 6. Projet : Construire un site Web { #projet-site-web }
+
+!!! abstract "Objectif"
+
+    Dans ce projet, nous allons mobiliser les connaissances acquises au cours des chapitres précédents pour concevoir et réaliser un site web.
+
+    Nous chercherons notamment à :
+
+    - concevoir l'organisation et la navigation d'un site web ;
+    - créer plusieurs pages en utilisant le langage HTML ;
+    - personnaliser leur apparence avec une feuille de style CSS ;
+    - intégrer des images et des liens hypertextes ;
+    - respecter les règles relatives au droit d'auteur ;
+    - tester et vérifier le bon fonctionnement du site.
+
 
 ### Objectif du projet
 
