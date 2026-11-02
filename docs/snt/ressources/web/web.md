@@ -52,7 +52,7 @@ Le premier site web a été mis en ligne en 1991. Il présentait le fonctionneme
 
 Le Web s'est ensuite progressivement développé pour devenir un service incontournable d'Internet.
 
-!!! note "À retenir"
+!!! note "À retenir : La naissance du World Wide Web"
 
     Le **World Wide Web (Web)** est un système permettant de consulter des ressources reliées entre elles par des **liens hypertextes**.
 
@@ -69,7 +69,7 @@ Le Web n'est donc qu'un des nombreux services accessibles grâce à Internet.
 
 Par exemple, les courriels, les transferts de fichiers ou encore certains jeux en ligne utilisent Internet sans nécessairement utiliser le Web.
 
-!!! note "À retenir"
+!!! note "À retenir : Internet et Web : quelle différence ?"
 
     **Internet est l'infrastructure de communication**, tandis que **le Web est un service qui fonctionne grâce à cette infrastructure**.
 
@@ -89,7 +89,7 @@ Les liens hypertextes permettent ainsi de naviguer d'une page à une autre sans 
 
 L'ensemble des pages reliées par ces liens forme une immense toile d'informations : le Web.
 
-!!! note "À retenir"
+!!! note "À retenir : Pages web et liens hypertextes"
 
     Un **lien hypertexte** permet de passer d'une ressource à une autre.
 
@@ -149,7 +149,7 @@ Ce fonctionnement repose sur des échanges de données entre le client et le ser
 
 Nous étudierons dans le chapitre suivant les protocoles utilisés pour réaliser ces échanges.
 
-!!! note "À retenir"
+!!! note "À retenir : Le modèle client-serveur"
 
     Le modèle **client-serveur** repose sur deux acteurs :
 
@@ -222,7 +222,7 @@ Dans cet exemple, la partie située après le `?` correspond à un **paramètre*
 
 Enfin, le caractère `#` peut être utilisé pour désigner une partie précise d'une page, appelée **fragment** ou **ancre**.
 
-!!! note "À retenir"
+!!! note "À retenir : Les adresses des ressources : les URL"
 
     Une **URL** est une adresse permettant de localiser une ressource sur le Web.
 
@@ -275,7 +275,7 @@ Voici une représentation simplifiée de cet échange :
 
 Une page web peut nécessiter plusieurs échanges : le navigateur peut notamment devoir récupérer séparément les images, les feuilles de style ou les autres ressources utilisées par la page.
 
-!!! note "À retenir"
+!!! note "À retenir : Le protocole HTTP"
 
     Le protocole **HTTP** définit les règles de communication entre un navigateur et un serveur web.
 
@@ -300,7 +300,7 @@ Ainsi, une personne qui intercepterait les échanges ne pourrait normalement pas
 
 Dans un navigateur, la présence d'un cadenas à côté de l'adresse indique généralement que la connexion utilise HTTPS. Cependant, une connexion HTTPS ne garantit pas que le site lui-même est digne de confiance. Un site frauduleux peut également utiliser HTTPS.
 
-!!! note "À retenir"
+!!! note "À retenir : HTTP ou HTTPS ?"
 
     **HTTPS est la version sécurisée de HTTP.**
 
@@ -342,7 +342,7 @@ Les codes HTTP sont regroupés en plusieurs catégories :
 - `4xx` : erreurs liées à la requête du client ;
 - `5xx` : erreurs liées au serveur.
 
-!!! note "À retenir"
+!!! note "À retenir : Les réponses du serveur : les codes HTTP"
 
     Un **code d'état HTTP** accompagne la réponse du serveur et indique le résultat de la requête.
 
@@ -460,7 +460,7 @@ Les résultats sont alors présentés à l'utilisateur dans un ordre déterminé
 
 Le classement peut également varier selon la langue, la localisation de l'utilisateur ou les éventuels paramètres de personnalisation du moteur de recherche.
 
-!!! note "À retenir"
+!!! note "À retenir : Le fonctionnement d'un moteur de recherche"
 
     Un moteur de recherche fonctionne principalement en trois étapes :
 
@@ -552,7 +552,7 @@ Certains sites cherchent à améliorer artificiellement leur classement en multi
 
 Les algorithmes peuvent également favoriser des contenus qui suscitent beaucoup de réactions, sans que leur véracité soit garantie.
 
-!!! note "À retenir"
+!!! note "À retenir : La pertinence des résultats"
 
     Le classement des résultats d'un moteur de recherche repose sur différents critères.
 
@@ -580,7 +580,7 @@ Pour évaluer la fiabilité d'une information, plusieurs réflexes sont utiles :
 
 Il faut également se méfier des titres sensationnalistes, des images sorties de leur contexte et des contenus qui cherchent avant tout à provoquer une réaction.
 
-!!! note "À retenir"
+!!! note "À retenir : Évaluer la fiabilité d'une information"
 
     Pour évaluer une information, il faut notamment :
 
@@ -723,7 +723,7 @@ Il existe notamment des cookies déposés directement par le site consulté et d
 
 Ces derniers peuvent notamment être utilisés pour suivre la navigation d'un utilisateur sur plusieurs sites. Toutefois, cette possibilité dépend des paramètres du navigateur et des restrictions appliquées aux cookies tiers.
 
-!!! note "À retenir"
+!!! note "À retenir : Les cookies"
 
     Un **cookie** est une donnée enregistrée par un site web dans le navigateur d'un utilisateur.
 
@@ -743,7 +743,7 @@ Quelques précautions permettent de mieux protéger sa vie privée :
 
 Il faut également rester attentif aux autorisations demandées par les sites et aux informations que l'on publie volontairement sur le Web.
 
-!!! note "À retenir"
+!!! note "À retenir : Protéger sa vie privée"
 
     Pour protéger sa vie privée sur le Web, il est important de :
 
@@ -809,7 +809,7 @@ Par exemple, une licence **CC BY** autorise la réutilisation et la modification
 
 Une licence **CC BY-NC-ND** autorise le partage de l'œuvre à condition de citer son auteur, sans utilisation commerciale et sans modification.
 
-!!! note "À retenir"
+!!! note "À retenir : Les droits sur le Web"
 
     Le **droit d'auteur** protège les œuvres originales et définit les conditions de leur utilisation.
 
@@ -956,7 +956,7 @@ Pour insérer une image, on utilise la balise `<img>` et son attribut `src` :
 
 L'attribut `alt` permet de fournir une description textuelle de l'image, notamment utile pour l'accessibilité.
 
-!!! note "À retenir"
+!!! note "À retenir : Le langage HTML : structurer une page"
 
     Le **HTML** est un langage de balisage qui permet de structurer le contenu d'une page web.
 
@@ -1031,7 +1031,7 @@ On distingue donc deux rôles complémentaires :
     **Bilan :** expliquer la différence entre le rôle du HTML et celui du CSS.
 
 
-!!! note "À retenir"
+!!! note "À retenir : HTML/CSS"
 
     Le **HTML** définit le contenu et la structure d'une page web.
 
@@ -1095,7 +1095,7 @@ Par exemple :
 - un réseau social affichant un fil d'actualité personnalisé est dynamique ;
 - un site marchand affichant le contenu d'un panier est dynamique.
 
-!!! note "À retenir"
+!!! note "À retenir : Les sites statiques et dynamiques"
 
     Un **site statique** transmet des pages dont le contenu est préparé à l'avance.
 
@@ -1189,7 +1189,7 @@ Cependant, cela ne signifie pas qu'elles sont automatiquement protégées : le c
 | GET | Demander une ressource | Généralement dans l'URL |
 | POST | Envoyer des données au serveur | Dans le corps de la requête |
 
-!!! note "À retenir"
+!!! note "À retenir : Les méthodes GET et POST"
 
     Les méthodes **GET** et **POST** permettent d'effectuer différents types de requêtes HTTP.
 
