@@ -97,7 +97,7 @@ L'ensemble des pages reliées par ces liens forme une immense toile d'informatio
 
 !!! question "Exercice 2 : La toile du Web"
 
-    On considère un ensemble de pages web représentées par des cercles. Les flèches représentent les liens hypertextes présents sur ces pages.
+    On considère un ensemble de pages web représentées sur l'image ci-dessous.
 
     ![Schéma représentant plusieurs pages web reliées par des liens hypertextes](img/schema1.png){ width="550" }
 
@@ -110,6 +110,17 @@ L'ensemble des pages reliées par ces liens forme une immense toile d'informatio
     4. **Est-il nécessaire qu'une page possède un lien vers une autre pour que cette dernière puisse exister ? Justifier.**
 
     5. **Pourquoi utilise-t-on le terme de « toile » pour désigner le Web ?**
+
+
+!!! activity "Activité — Wiki Race"
+
+    Rendez-vous sur le site [Wiki Race](https://wiki-race.com/).
+
+    Vous allez participer à une course avec vos camarades !
+
+    **Objectif :** rejoindre une page d'arrivée à partir d'une page de départ, le plus rapidement possible.
+
+    **À vous de jouer !**
 
 ### 1.4 Navigateur et serveur Web
 
