@@ -44,7 +44,7 @@ Mais qu'est-ce qui différencie Internet et le Web ? Comment pouvons-nous passer
 
 ### 1.1 La naissance du World Wide Web
 
-Le **World Wide Web**, généralement appelé **Web**, a été inventé par le Britannique **Tim Berners-Lee** en 1989, au CERN (Organisation européenne pour la recherche nucléaire), avec la contribution du scientifique belge **Robert Cailliau**.
+Le **World Wide Web**, généralement appelé **Web**, a été proposé par le Britannique **Tim Berners-Lee** en 1989, au CERN (Organisation européenne pour la recherche nucléaire). Le scientifique belge **Robert Cailliau** a également contribué à son développement.
 
 À l'origine, le projet avait pour objectif de faciliter le partage d'informations entre les chercheurs du CERN. Il s'agissait de créer un système permettant de consulter des documents et de passer facilement de l'un à l'autre.
 
@@ -56,7 +56,7 @@ Le Web s'est ensuite progressivement développé pour devenir un service inconto
 
     Le **World Wide Web (Web)** est un système permettant de consulter des ressources reliées entre elles par des **liens hypertextes**.
 
-    Il a été inventé par **Tim Berners-Lee**, avec la contribution de **Robert Cailliau**, à la fin des années 1980, au CERN.
+    Il a été proposé par **Tim Berners-Lee**, avec la contribution de **Robert Cailliau**, à la fin des années 1980, au CERN.
 
 ### 1.2 Internet et Web : quelle différence ?
 
@@ -285,7 +285,7 @@ Il ajoute une couche de sécurité reposant sur le protocole **TLS** (*Transport
 
 Ainsi, une personne qui intercepterait les échanges ne pourrait normalement pas lire directement les données chiffrées.
 
-Dans un navigateur, la présence d'un cadenas à côté de l'adresse indique généralement que la connexion utilise HTTPS.
+Dans un navigateur, la présence d'un cadenas à côté de l'adresse indique généralement que la connexion utilise HTTPS. Cependant, une connexion HTTPS ne garantit pas que le site lui-même est digne de confiance. Un site frauduleux peut également utiliser HTTPS.
 
 !!! note "À retenir"
 
@@ -354,6 +354,31 @@ Les codes HTTP sont regroupés en plusieurs catégories :
 
     5. **Le serveur rencontre un problème technique qui l'empêche de répondre correctement.**
 
+
+!!! activity "Activité — Dans les coulisses d'une page Web"
+
+    **Objectif :** observer les échanges entre le navigateur et un serveur lors du chargement d'une page Web.
+
+    **Outil :** les outils de développement du navigateur.
+
+    1. Ouvrir le navigateur et se rendre sur le site [Wikipédia](https://fr.wikipedia.org/).
+    2. Faire un clic droit sur la page, puis sélectionner « Inspecter ».
+    3. Ouvrir l'onglet « Réseau » (ou « Network »).
+    4. Actualiser la page pour observer les échanges.
+    5. Cliquer sur quelques lignes de la liste pour consulter les informations des requêtes.
+
+    **Questions**
+
+    1. Combien de requêtes sont effectuées lors du chargement de la page ?
+    2. Les requêtes concernent-elles toutes le même domaine ?
+    3. Repérer les différents types de ressources téléchargées (document, image, script, feuille de style...).
+    4. Repérer la colonne indiquant le code d'état HTTP. Que signifie le code `200` ?
+    5. Pourquoi le navigateur doit-il effectuer plusieurs requêtes pour afficher une seule page Web ?
+
+    **Bilan :** expliquer pourquoi l'affichage d'une page Web nécessite généralement plusieurs échanges entre le navigateur et différents serveurs.
+
+
+
 ---
 
 ### Bilan
@@ -407,6 +432,8 @@ Il classe ensuite les résultats en fonction de nombreux critères : pertinence 
 
 Les résultats sont alors présentés à l'utilisateur dans un ordre déterminé par l'algorithme du moteur de recherche.
 
+Le classement peut également varier selon la langue, la localisation de l'utilisateur ou les éventuels paramètres de personnalisation du moteur de recherche.
+
 !!! note "À retenir"
 
     Un moteur de recherche fonctionne principalement en trois étapes :
@@ -456,6 +483,28 @@ Les résultats sont alors présentés à l'utilisateur dans un ordre déterminé
     6. **Effectuer une recherche avec les mots-clés `un avocat fruit`. Comparer les résultats avec ceux de la question précédente.**
 
     7. **Pourquoi le classement des résultats peut-il varier selon les mots-clés utilisés ?**
+
+
+!!! activity "Activité — Les moteurs de recherche donnent-ils tous les mêmes résultats ?"
+
+    **Objectif :** comparer les résultats proposés par différents moteurs de recherche et réfléchir aux critères qui influencent leur classement.
+
+    **Outils :** [Google](https://www.google.com/), [Bing](https://www.bing.com/) et [Qwant](https://www.qwant.com/).
+
+    1. Effectuer la même recherche sur les trois moteurs : `réchauffement climatique`.
+    2. Observer les cinq premiers résultats proposés par chaque moteur.
+    3. Relever les titres des pages et les sites auxquels elles appartiennent.
+
+    **Questions**
+
+    1. Les trois moteurs proposent-ils exactement les mêmes résultats ?
+    2. Les résultats apparaissent-ils dans le même ordre ?
+    3. Quels types de sites sont mis en avant ?
+    4. Pourquoi deux moteurs de recherche peuvent-ils proposer des classements différents pour une même recherche ?
+    5. Peut-on considérer que le premier résultat est nécessairement le plus fiable ?
+
+    **Bilan :** expliquer pourquoi il est important de comparer plusieurs sources et de ne pas se fier uniquement à la position d'un résultat.
+
 
 ### 3.2 La pertinence des résultats
 
@@ -619,7 +668,7 @@ Certaines données peuvent également être utilisées à des fins publicitaires
 
 ### 4.2 Les cookies
 
-Un **cookie** est un petit fichier contenant des informations qu'un site web peut enregistrer dans le navigateur de l'utilisateur.
+Un **cookie** est une donnée qu'un site web peut enregistrer dans le navigateur de l'utilisateur. Elle permet notamment de mémoriser certaines informations lors de la navigation.
 
 Lorsqu'un utilisateur revient sur un site, le navigateur peut renvoyer les informations contenues dans les cookies afin que le site puisse reconnaître certaines informations précédemment enregistrées.
 
@@ -633,11 +682,11 @@ Les cookies peuvent avoir plusieurs fonctions :
 
 Il existe notamment des cookies déposés directement par le site consulté et des cookies provenant de services tiers intégrés à ce site.
 
-Ces derniers peuvent notamment être utilisés pour suivre la navigation d'un utilisateur sur plusieurs sites.
+Ces derniers peuvent notamment être utilisés pour suivre la navigation d'un utilisateur sur plusieurs sites. Toutefois, cette possibilité dépend des paramètres du navigateur et des restrictions appliquées aux cookies tiers.
 
 !!! note "À retenir"
 
-    Un **cookie** est un fichier enregistré par un site web dans le navigateur d'un utilisateur.
+    Un **cookie** est une donnée enregistrée par un site web dans le navigateur d'un utilisateur.
 
     Il peut servir à mémoriser des préférences, faciliter la navigation ou suivre certaines activités à des fins statistiques et publicitaires.
 
@@ -664,7 +713,7 @@ Il faut également rester attentif aux autorisations demandées par les sites et
     - limiter les informations personnelles communiquées ;
     - paramétrer régulièrement son navigateur.
 
-!!! question "Exercice 8 : Big Brother"
+!!! activity "Activité — Big Brother"
 
     **Partie A : Observer les traces laissées par la navigation**
 
@@ -678,7 +727,7 @@ Il faut également rester attentif aux autorisations demandées par les sites et
 
     **Partie B : Comprendre la publicité personnalisée**
 
-    5. Consulter le centre de gestion des annonces de Google : https://myadcenter.google.com/
+    5. Si vous disposez d'un compte Google, consulter le centre de gestion des annonces : https://myadcenter.google.com/
 
     6. Quelles catégories d'informations peuvent être utilisées pour personnaliser les publicités ?
 
@@ -729,7 +778,7 @@ Une licence **CC BY-NC-ND** autorise le partage de l'œuvre à condition de cite
 
     Il faut toujours vérifier la licence d'une ressource avant de la réutiliser ou de la diffuser.
 
-!!! question "Exercice 9 : Objection !"
+!!! question "Exercice 8 : Objection !"
 
     1. **Peut-on librement réutiliser une image trouvée sur Internet ? Justifier.**
 
@@ -907,6 +956,30 @@ On distingue donc deux rôles complémentaires :
 - le HTML définit le contenu et la structure de la page ;
 - le CSS définit sa présentation.
 
+
+!!! activity "Activité — Dans la peau d'un développeur Web"
+
+    **Objectif :** comprendre le rôle du HTML et du CSS en observant et en modifiant une page Web.
+
+    **Outil :** les outils de développement du navigateur.
+
+    1. Ouvrir le site [Wikipédia](https://fr.wikipedia.org/).
+    2. Faire un clic droit sur un titre de la page, puis sélectionner « Inspecter ».
+    3. Observer le code HTML correspondant à cet élément.
+    4. Modifier directement le texte du titre dans l'inspecteur.
+    5. Sélectionner ensuite un élément de la page et modifier une de ses propriétés CSS, par exemple sa couleur ou sa taille.
+
+    **Questions**
+
+    1. Quel langage permet de décrire le contenu et la structure de la page ?
+    2. Quel langage permet de modifier son apparence ?
+    3. Que constate-t-on lorsque l'on modifie le texte dans le code HTML ?
+    4. Que constate-t-on lorsque l'on modifie une propriété CSS ?
+    5. Les modifications réalisées sont-elles conservées lorsque l'on actualise la page ? Pourquoi ?
+
+    **Bilan :** expliquer la différence entre le rôle du HTML et celui du CSS.
+
+
 !!! note "À retenir"
 
     Le **HTML** définit le contenu et la structure d'une page web.
@@ -915,7 +988,7 @@ On distingue donc deux rôles complémentaires :
 
     Ces deux langages sont complémentaires et sont généralement utilisés ensemble.
 
-!!! question "Exercice 10 : Prends tes balises, on s'en va !"
+!!! activity "Activité — Prends tes balises, on s'en va !"
 
     Télécharger l'archive `site_web` et en extraire le contenu. Ouvrir ensuite le fichier `index.html` dans un navigateur.
 
@@ -961,9 +1034,9 @@ Tous les sites web ne fonctionnent pas de la même manière.
 
 On distingue notamment les **sites statiques** et les **sites dynamiques**.
 
-Un **site statique** est constitué de pages dont le contenu est préparé à l'avance. Le serveur transmet les fichiers demandés au navigateur sans générer un contenu personnalisé à chaque requête.
+Un **site statique** est constitué de pages dont le contenu est préparé à l'avance. Le serveur transmet les fichiers demandés au navigateur sans générer leur contenu à chaque requête.
 
-Un **site dynamique** peut produire un contenu différent selon les actions de l'utilisateur, les informations disponibles ou les données enregistrées sur le serveur.
+Un **site dynamique** peut produire ou adapter son contenu à la demande, notamment en fonction des actions de l'utilisateur ou des données disponibles. Cette adaptation peut être réalisée côté serveur ou côté navigateur.
 
 Par exemple :
 
@@ -977,14 +1050,16 @@ Par exemple :
 
     Un **site dynamique** peut adapter le contenu affiché en fonction des demandes de l'utilisateur ou des données disponibles.
 
-!!! question "Exercice 11 : Deux types de sites"
+    Un même site web peut combiner des pages statiques et des fonctionnalités dynamiques. La distinction concerne donc le fonctionnement des pages ou des fonctionnalités, et pas nécessairement le site dans son ensemble.
+
+!!! question "Exercice 9 : Deux types de sites"
 
     1. Consulter les deux sites suivants :
 
         - https://press.stripe.com/boom
         - https://www.service-public.fr/
 
-    2. **Observer les différences entre les deux sites.**
+    2. **Observer les différences entre les deux sites. Quels éléments semblent être statiques ou dynamiques ?**
 
     3. **Proposer une définition des termes « statique » et « dynamique ».**
 
@@ -1002,6 +1077,30 @@ Par exemple :
 Nous avons vu que le navigateur communique avec un serveur web en lui envoyant des requêtes HTTP.
 
 Ces requêtes peuvent utiliser différentes méthodes. Deux méthodes importantes sont **GET** et **POST**.
+
+
+!!! activity "Activité — GET ou POST ?"
+
+    **Objectif :** observer comment les données sont transmises entre un navigateur et un serveur.
+
+    **Outil :** les outils de développement du navigateur.
+
+    1. Ouvrir un moteur de recherche, par exemple [Google](https://www.google.com/).
+    2. Ouvrir les outils de développement avec un clic droit, puis « Inspecter ».
+    3. Sélectionner l'onglet « Réseau » (ou « Network »).
+    4. Effectuer une recherche simple, par exemple `histoire du Web`.
+    5. Repérer la requête correspondant à la recherche et observer sa méthode ainsi que son URL.
+    6. Consulter les paramètres de la requête, si ceux-ci sont accessibles.
+
+    **Questions**
+
+    1. Quelle méthode HTTP est utilisée pour effectuer la recherche ?
+    2. Peut-on retrouver les mots recherchés dans l'URL ?
+    3. Pourquoi cette méthode est-elle adaptée à une recherche sur un moteur de recherche ?
+    4. Quelle différence observe-t-on entre les données transmises avec une requête GET et celles transmises avec une requête POST ?
+    5. Est-ce que l'utilisation de POST suffit à protéger les données transmises ? Justifier.
+
+    **Bilan :** expliquer la différence entre les méthodes GET et POST. Préciser le rôle du protocole HTTPS dans la protection des échanges.
 
 **La méthode GET**
 
@@ -1048,7 +1147,7 @@ Cependant, cela ne signifie pas qu'elles sont automatiquement protégées : le c
 
     POST ne chiffre pas les données : pour sécuriser leur transmission, il faut notamment utiliser HTTPS.
 
-!!! question "Exercice 12 : GET-apens et POST-scriptum"
+!!! question "Exercice 10 : GET-apens et POST-scriptum"
 
     1. **Quelle méthode HTTP permet de demander une ressource à un serveur ?**
 
