@@ -361,6 +361,7 @@ Les codes HTTP sont regroupés en plusieurs catégories :
 
     Les codes les plus courants commencent par :
 
+    - `1`: réponse informative, le serveur indique que la requête a été reçue et que le traitement se poursuit ;
     - `2` : la demande a été traitée avec succès ;
     - `3` : une redirection est nécessaire ;
     - `4` : la requête comporte un problème ou l'accès est refusé ;
