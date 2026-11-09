@@ -332,11 +332,16 @@
 
 !!! activity "Activité 3 — File un mauvais coton"
 
-    **1.** Implémenter une SDA possible de cette structure de données en utilisant les tableaux.
+    **1.** Implémenter une structure de données abstraite (SDA) de type file en Python, en utilisant une liste (list) pour stocker les éléments.
 
-    Plus précisément, compléter les opérations `init`, `enfiler`, `defiler` et `est_vide` en stockant les données dans des tableaux.
+    Compléter les opérations suivantes :
 
-    **2.** Écrire un bref jeu de test permettant de valider votre implémentation.
+    - `__init__` : initialiser une file vide ;
+    - `enfiler(x)` : ajouter l'élément `x` à la fin de la file ;
+    - `defiler()` : retirer et renvoyer l'élément situé en tête de la file ;
+    - `est_vide()` : indiquer si la file est vide.
+
+    **2.** Écrire un bref jeu de tests permettant de vérifier le bon fonctionnement de votre implémentation. Vous testerez notamment l'ajout d'éléments, leur retrait et le respect du principe FIFO (*First In, First Out*).
 
 
 ---
@@ -420,11 +425,16 @@
 
 !!! activity "Activité 4 — Pile Poil"
 
-    **1.** Implémenter une SDA possible de cette structure de données en utilisant les tableaux.
+    **1.** Implémenter une structure de données abstraite (SDA) de type pile en Python, en utilisant une liste (`list`) pour stocker les éléments.
 
-    Plus précisément, compléter les opérations `init`, `empiler`, `depiler` et `est_vide` en stockant les données dans des tableaux.
+    Compléter les opérations suivantes :
 
-    **2.** Écrire un bref jeu de test permettant de valider votre implémentation.
+    - `__init__` : initialiser une pile vide ;
+    - `empiler(x)` : ajouter l'élément `x` au sommet de la pile ;
+    - `depiler()` : retirer et renvoyer l'élément situé au sommet de la pile ;
+    - `est_vide()` : indiquer si la pile est vide.
+
+    **2.** Écrire un bref jeu de tests permettant de vérifier le bon fonctionnement de votre implémentation. Vous testerez notamment l'ajout d'éléments, leur retrait et le respect du principe LIFO (*Last In, First Out*).
 
 
 ---
