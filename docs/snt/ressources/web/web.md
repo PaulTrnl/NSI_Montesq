@@ -361,7 +361,7 @@ Les codes HTTP sont regroupés en plusieurs catégories :
 
     Les codes les plus courants commencent par :
 
-    - `1`: réponse informative, le serveur indique que la requête a été reçue et que le traitement se poursuit ;
+    - `1` : réponse informative, le serveur indique que la requête a été reçue et que le traitement se poursuit ;
     - `2` : la demande a été traitée avec succès ;
     - `3` : une redirection est nécessaire ;
     - `4` : la requête comporte un problème ou l'accès est refusé ;
@@ -388,7 +388,7 @@ Les codes HTTP sont regroupés en plusieurs catégories :
 
     **Outil :** les outils de développement du navigateur.
 
-    1. Ouvrir le navigateur et se rendre sur le site [Wikipédia](https://fr.wikipedia.org/).
+    1. Ouvrir le navigateur (choisir Firefox) et se rendre sur le site [Wikipédia](https://fr.wikipedia.org/).
     2. Faire un clic droit sur la page, puis sélectionner « Inspecter ».
     3. Ouvrir l'onglet « Réseau » (ou « Network »).
     4. Actualiser la page pour observer les échanges.
