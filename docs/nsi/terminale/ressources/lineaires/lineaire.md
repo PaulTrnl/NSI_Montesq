@@ -667,7 +667,7 @@
 
     Les interfaces des structures de données abstraites `Pile` et `File` sont proposées ci-dessous.
 
-    On utilisera uniquement les fonctions ci-dessous :
+    On utilisera uniquement les méthodes présentées ci-dessous :
 
     ![SDA Pile et File](img/SDA_pile_file_2.png)
 
