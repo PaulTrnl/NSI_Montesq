@@ -423,6 +423,7 @@
 
 ---
 
+
 !!! activity "Activité 4 — Pile Poil"
 
     **1.** Implémenter une structure de données abstraite (SDA) de type pile en Python, en utilisant une liste (`list`) pour stocker les éléments.
