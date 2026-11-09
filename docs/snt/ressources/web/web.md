@@ -193,6 +193,8 @@ Nous étudierons dans le chapitre suivant les protocoles utilisés pour réalise
     - comment interpréter les principaux codes d'état HTTP ;
     - comment observer les échanges entre un navigateur et un serveur.
 
+[📥 Support élève du chapitre 2 (PDF)](02_Web_fiche_activite_chap2.pdf){ .md-button }
+
 
 ### Contexte 2 : Dans les coulisses du Web
 
