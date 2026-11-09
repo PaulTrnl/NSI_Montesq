@@ -20,7 +20,7 @@
 
 ---
 
-[📥 Support élève du thème 3(PDF)](03_Structure_lineaires_fiche_activite.pdf){ .md-button }
+[📥 Support élève du thème 3 (PDF)](03_Structure_lineaires_fiche_activite.pdf){ .md-button }
 
 ## 1. Les structures linéaires { #structures-lineaires }
 
