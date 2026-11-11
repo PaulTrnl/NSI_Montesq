@@ -4,7 +4,7 @@
 
 
 <iframe 
-    src="/nsi/terminale/ressources/recursivite/04_diapo_intro_recursivite.pdf"
+    src="../04_diapo_intro_recursivite.pdf"
     width="100%"
     height="400px">
 </iframe>
