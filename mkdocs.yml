@@ -129,7 +129,7 @@ nav:
               - Sécurisation des communications : nsi/terminale/secu.md
             - Langages et programmation :
               - Calculabilité, décidabilité : nsi/terminale/calculabilite.md
-              - Récursivité : nsi/terminale/recursivite.md
+              - Récursivité : nsi/terminale/ressources/recursivite/recursivite.md
               - Modularité : nsi/terminale/modularite.md
               - Paradigmes de programmation : nsi/terminale/ressources/paradigmes/paradigmes.md
               - Gestion des bugs : nsi/terminale/bugs.md
