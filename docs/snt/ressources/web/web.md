@@ -440,6 +440,9 @@ La communication entre les deux machines repose sur le protocole HTTP ou sa vers
     - comment évaluer la fiabilité d'une information ;
     - comment identifier et vérifier les fausses informations.
 
+
+[📥 Support élève du chapitre 3 (PDF)](02_Web_fiche_activite_chap3.pdf){ .md-button }
+
 ### Contexte 3 : Trouver une information dans une immense toile
 
 Le Web contient des milliards de pages et de ressources. Pourtant, en quelques secondes, un moteur de recherche permet de trouver des informations sur presque n'importe quel sujet.
@@ -512,19 +515,19 @@ Le classement peut également varier selon la langue, la localisation de l'utili
     - un mot présent dans le titre vaut **5 points** ;
     - un mot présent dans le texte vaut **1 point par occurrence**.
 
-    1. **Pour chaque page, relever les mots présents dans le titre et dans le texte.**
+    On considère que deux mots correspondent uniquement s'ils sont identiques, après passage en minuscules et suppression de la ponctuation. Les mots dérivés sont considérés comme différents.
 
-    2. **Construire un index associant chaque mot aux pages dans lesquelles il apparaît et à son score.**
+    **1.** Pour chaque page, relever les mots présents dans le titre et dans le texte.
 
-    3. **Effectuer une recherche avec le mot-clé `avocat`. Quelle page obtient le meilleur score ?**
+    **2.** Construire un index simplifié associant les mots `avocat`, `fruit`, `un` et `droit` aux pages dans lesquelles ils apparaissent et à leur score.
 
-    4. **Effectuer une recherche avec le mot-clé `fruit`. Quelle page obtient le meilleur score ?**
+    **3.** On souhaite effectuer une recherche avec les mots-clés `avocat fruit`. Le score d'une page correspond à la somme des scores de chacun des mots-clés recherchés. Calculer le score obtenu par chaque page et déterminer laquelle apparaît en première position.
 
-    5. **Effectuer une recherche avec les mots-clés `avocat droit`. On suppose que le premier mot-clé compte double. Calculer le score de chaque page. Qu'observe-t-on ?**
+    **4.** On effectue maintenant une recherche avec les mots-clés `fruit avocat`. On suppose que le premier mot-clé compte double. Calculer le score de chaque page. Comparer avec les résultats de la question précédente.
 
-    6. **Effectuer une recherche avec les mots-clés `un avocat fruit`. Comparer les résultats avec ceux de la question précédente.**
+    **5.** Effectuer une recherche avec les mots-clés `un avocat fruit`. Calculer le score de chaque page et comparer les résultats avec ceux des questions précédentes.
 
-    7. **Pourquoi le classement des résultats peut-il varier selon les mots-clés utilisés ?**
+    **6.** Expliquer pourquoi le classement des résultats peut varier selon les mots-clés utilisés et leur importance.
 
 
 !!! activity "Activité — Les moteurs de recherche donnent-ils tous les mêmes résultats ?"
